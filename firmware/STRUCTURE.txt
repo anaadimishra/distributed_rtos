@@ -1,0 +1,27 @@
+distributed-rtos/firmware/
+  Makefile
+  BUILD.md
+  STRUCTURE.txt
+  main/
+    app_main.c
+    component.mk
+    config/
+      config.h
+    core/
+      metrics.c
+      metrics.h
+      system_context.h
+    network/
+      mqtt.c
+      mqtt.h
+      wifi.c
+      wifi.h
+    tasks/
+      compute_task.c
+      compute_task.h
+      control_task.c
+      control_task.h
+      manager_task.c
+      manager_task.h
+      sensor_task.c
+      sensor_task.h

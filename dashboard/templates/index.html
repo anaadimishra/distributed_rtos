@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RTOS Telemetry Dashboard</title>
+    <style>
+      :root {
+        --bg: #0f131a;
+        --panel: #151b24;
+        --text: #e6e8ef;
+        --muted: #9aa3b2;
+        --accent: #4cc9f0;
+        --ok: #6be675;
+        --warn: #f4d35e;
+        --bad: #ff6b6b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        color: var(--text);
+        background: radial-gradient(1200px 600px at 10% 0%, #1a2230 0%, var(--bg) 50%);
+      }
+      header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #1f2733;
+      }
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 0.5px;
+      }
+      main {
+        padding: 20px 24px 40px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--panel);
+        border: 1px solid #1f2733;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      th, td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid #1f2733;
+        font-size: 14px;
+      }
+      th {
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+      }
+      tr:last-child td { border-bottom: 0; }
+      .status {
+        font-weight: 600;
+      }
+      .online { color: var(--ok); }
+      .offline { color: var(--bad); }
+      .controls {
+        display: flex;
+        gap: 8px;
+      }
+      button {
+        background: #1e2835;
+        border: 1px solid #2a3546;
+        color: var(--text);
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      button:hover { border-color: var(--accent); }
+      .empty {
+        padding: 24px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Distributed RTOS Telemetry</h1>
+    </header>
+    <main>
+      <table id="telemetry-table">
+        <thead>
+          <tr>
+            <th>Node</th>
+            <th>CPU</th>
+            <th>Queue</th>
+            <th>Load</th>
+            <th>Status</th>
+            <th>Control</th>
+          </tr>
+        </thead>
+        <tbody id="telemetry-body"></tbody>
+      </table>
+      <div class="empty" id="empty-state" hidden>No telemetry received yet.</div>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

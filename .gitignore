@@ -1,0 +1,19 @@
+# Build artifacts
+*.bin
+*.elf
+*.map
+*.o
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+ESP8266_RTOS_SDK/
+esp-idf/
+FreeRTOS/
+firmware/build/
+venv/
+__pycache__/
+.DS_Store
+
