@@ -16,4 +16,16 @@ firmware/build/
 venv/
 __pycache__/
 .DS_Store
+._*
+*.swp
+*.tmp
 firmware/main/config/config.h
+firmware-esp32/main/config/config.h
+firmware-esp32/main/config/wifi_secrets.h
+config.h
+*secrets*.h
+
+# Build/output artifacts
+firmware-esp32/build/
+firmware-esp32/tags
+firmware-esp32/cscope.*

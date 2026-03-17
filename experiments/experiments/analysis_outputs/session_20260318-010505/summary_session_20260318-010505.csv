@@ -1,0 +1,11 @@
+node_id,load,cpu_mean,cpu_p95,cpu_std,volatility_score,queue_mean,queue_p95,eff_blocks_mean,exec_max_p95,miss_p95,ctrl_latency_p95_ms,telemetry_latency_p95_ms,warning
+node-717AC4,100,2.15,5,2.39,2.39,0,0,0.9,1,0,0,123,ok
+node-717AC4,200,14.14,16,2.36,2.36,0,0,3.9,2,0,0,126,ok
+node-717AC4,300,30.3,32,1.62,1.62,0,0,7,4,0,0,100,ok
+node-717AC4,400,38.65,43,3.05,3.05,0,0,9,5,0,0,119,ok
+node-717AC4,500,52.7,58,3.54,3.54,0,0,12,6,0,0,107,ok
+node-717AC4,600,64.05,71,4.92,4.92,0,0,14,7,0,0,119,ok
+node-717AC4,700,72.2,79,4.38,4.38,0,0,16,8,0,0,130,ok
+node-717AC4,800,77.8,91,9.74,9.74,0,0,19,10,0,0,124,cpu_saturation
+node-717AC4,900,42.1,85,31.65,31.65,0,0,21,11,20,0,122,miss
+node-717AC4,1000,34.49,96,31.48,31.48,0.01,0,24,13,20,0,213,miss|cpu_saturation

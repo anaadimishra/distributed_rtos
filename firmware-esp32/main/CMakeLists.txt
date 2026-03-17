@@ -1,0 +1,18 @@
+# ESP-IDF component registration for firmware sources.
+idf_component_register(
+    SRCS
+        "app_main.c"
+        "core/metrics.c"
+        "tasks/sensor_task.c"
+        "tasks/control_task.c"
+        "tasks/compute_task.c"
+        "tasks/manager_task.c"
+        "network/wifi.c"
+        "network/mqtt.c"
+    INCLUDE_DIRS
+        "."
+        "core"
+        "tasks"
+        "network"
+        "config"
+)

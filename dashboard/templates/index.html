@@ -1,106 +1,333 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RTOS Telemetry Dashboard</title>
-    <style>
-      :root {
-        --bg: #0f131a;
-        --panel: #151b24;
-        --text: #e6e8ef;
-        --muted: #9aa3b2;
-        --accent: #4cc9f0;
-        --ok: #6be675;
-        --warn: #f4d35e;
-        --bad: #ff6b6b;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-        color: var(--text);
-        background: radial-gradient(1200px 600px at 10% 0%, #1a2230 0%, var(--bg) 50%);
-      }
-      header {
-        padding: 20px 24px;
-        border-bottom: 1px solid #1f2733;
-      }
-      h1 {
-        margin: 0;
-        font-size: 20px;
-        letter-spacing: 0.5px;
-      }
-      main {
-        padding: 20px 24px 40px;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        background: var(--panel);
-        border: 1px solid #1f2733;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      th, td {
-        padding: 12px 14px;
-        text-align: left;
-        border-bottom: 1px solid #1f2733;
-        font-size: 14px;
-      }
-      th {
-        color: var(--muted);
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 0.08em;
-      }
-      tr:last-child td { border-bottom: 0; }
-      .status {
-        font-weight: 600;
-      }
-      .online { color: var(--ok); }
-      .offline { color: var(--bad); }
-      .controls {
-        display: flex;
-        gap: 8px;
-      }
-      button {
-        background: #1e2835;
-        border: 1px solid #2a3546;
-        color: var(--text);
-        padding: 6px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 12px;
-      }
-      button:hover { border-color: var(--accent); }
-      .empty {
-        padding: 24px;
-        color: var(--muted);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Distributed RTOS Telemetry</h1>
-    </header>
-    <main>
-      <table id="telemetry-table">
-        <thead>
-          <tr>
-            <th>Node</th>
-            <th>CPU</th>
-            <th>Queue</th>
-            <th>Load</th>
-            <th>Status</th>
-            <th>Control</th>
-          </tr>
-        </thead>
-        <tbody id="telemetry-body"></tbody>
-      </table>
-      <div class="empty" id="empty-state" hidden>No telemetry received yet.</div>
-    </main>
-    <script src="/static/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RTOS Telemetry Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f131a;
+      --panel: #151b24;
+      --text: #e6e8ef;
+      --muted: #9aa3b2;
+      --accent: #4cc9f0;
+      --ok: #6be675;
+      --warn: #f4d35e;
+      --bad: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% 0%, #1a2230 0%, var(--bg) 50%);
+    }
+
+    header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #1f2733;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .limits {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .log-controls {
+      margin-top: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .log-controls button {
+      background: #1e2835;
+      border: 1px solid #2a3546;
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .log-controls button:hover {
+      border-color: var(--accent);
+    }
+
+    main {
+      padding: 20px 24px 40px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid #1f2733;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel h2 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .chart-select {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .chart-select select {
+      background: #111722;
+      border: 1px solid #1f2733;
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .chart-title {
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 140px;
+    }
+
+    .chart-meta {
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 60px;
+      text-align: right;
+    }
+
+    canvas {
+      width: 100%;
+      height: 120px;
+      display: block;
+      background: #111722;
+      border: 1px solid #1f2733;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border: 1px solid #1f2733;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #1f2733;
+      font-size: 14px;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .status {
+      font-weight: 600;
+    }
+
+    .online {
+      color: var(--ok);
+    }
+
+    .offline {
+      color: var(--bad);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .controls label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .controls input[type="number"] {
+      width: 80px;
+      background: #111722;
+      border: 1px solid #1f2733;
+      color: var(--text);
+      padding: 4px 6px;
+      border-radius: 6px;
+    }
+
+    .slider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .slider input[type="range"] {
+      width: 160px;
+      accent-color: var(--accent);
+    }
+
+    .slider-value {
+      min-width: 44px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+
+    .empty {
+      padding: 24px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Distributed RTOS Telemetry</h1>
+    <div class="limits">Load: 0–1000 (step 100) · Blocks: 0–24</div>
+    <div class="log-controls">
+      <button id="restart-logging">New Log Session</button>
+      <span id="log-session">Log session: —</span>
+    </div>
+  </header>
+  <main>
+    <section class="panel">
+      <div class="chart-header">
+        <h2>Real-Time Metrics</h2>
+        <div class="chart-select">
+          <label for="chart-node">Node</label>
+          <select id="chart-node"></select>
+        </div>
+      </div>
+      <div class="charts">
+        <div class="chart-row">
+          <div class="chart-title">CPU (%)</div>
+          <canvas id="chart-cpu" width="800" height="120"></canvas>
+          <div class="chart-meta" id="chart-cpu-value">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Queue Depth</div>
+          <canvas id="chart-queue" width="800" height="120"></canvas>
+          <div class="chart-meta" id="chart-queue-value">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Load Factor</div>
+          <canvas id="chart-load" width="800" height="120"></canvas>
+          <div class="chart-meta" id="chart-load-value">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Deadline Misses</div>
+          <canvas id="chart-miss" width="800" height="120"></canvas>
+          <div class="chart-meta" id="chart-miss-value">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Saturation</div>
+          <canvas id="chart-saturation" width="800" height="120"></canvas>
+          <div class="chart-meta" id="chart-saturation-value">0</div>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="chart-header">
+        <h2>Windowed Stats (Selected Node)</h2>
+      </div>
+      <div class="charts">
+        <div class="chart-row">
+          <div class="chart-title">Exec Avg (ticks)</div>
+          <div class="chart-meta" id="stat-exec-avg">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Exec Max (ticks)</div>
+          <div class="chart-meta" id="stat-exec-max">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Miss (count)</div>
+          <div class="chart-meta" id="stat-miss">0</div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-title">Window Ready</div>
+          <div class="chart-meta" id="stat-window-ready">No</div>
+        </div>
+      </div>
+    </section>
+    <table id="telemetry-table">
+      <thead>
+        <tr>
+          <th>Node</th>
+          <th>FW</th>
+          <th>CPU (%)</th>
+          <th>Queue</th>
+          <th>Load</th>
+          <th>Blocks (eff)</th>
+          <th>Ctrl Latency (ms)</th>
+          <th>Telem Latency (ms)</th>
+          <th>Window Ready</th>
+          <th>Status</th>
+          <th>Control</th>
+        </tr>
+      </thead>
+      <tbody id="telemetry-body"></tbody>
+    </table>
+    <div class="empty" id="empty-state" hidden>No telemetry received yet.</div>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+
 </html>
