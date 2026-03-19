@@ -276,6 +276,7 @@ function render(data, options = {}) {
     row.innerHTML = `
     <td>${node}</td>
     <td>${item.fw ?? ""}</td>
+    <td>${item.state ?? "SCHEDULABLE"}</td>
     <td>${item.cpu}</td>
     <td>${item.queue}</td>
     <td>${item.load}</td>

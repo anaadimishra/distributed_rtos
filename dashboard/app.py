@@ -192,6 +192,7 @@ def update_state(node_id, payload):
         _state[node_id] = {
             "fw": str(payload.get("fw", "")),
             "boot_id": boot_id,
+            "state": str(payload.get("state", "SCHEDULABLE")),
             "cpu": int(payload.get("cpu", 0)),
             "queue": int(payload.get("queue", 0)),
             "load": int(payload.get("load", 0)),
