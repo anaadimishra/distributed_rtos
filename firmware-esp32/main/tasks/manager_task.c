@@ -14,9 +14,9 @@
 void manager_task(void *param)
 {
     system_context_t *ctx = (system_context_t *)param;
-    TickType_t last_wake = xTaskGetTickCount();
-    char payload[512];
+    char payload[768];
     uint32_t log_tick = 0;
+    int64_t expected_publish_ms = -1;
     static const char *TAG = "mgr";
 
     while (1) {
@@ -53,14 +53,35 @@ void manager_task(void *param)
             if (ctx->time_sync_ready) {
                 t_pub_epoch_ms = (uint64_t)((int64_t)t_pub_ms + ctx->time_offset_ms);
             }
+            // Publish-time drift tracking:
+            // expected publish time = previous actual publish + MANAGER_PERIOD_MS.
+            int64_t t_actual_publish_ms =
+                (ctx->time_sync_ready && t_pub_epoch_ms > 0) ? (int64_t)t_pub_epoch_ms : (int64_t)t_pub_ms;
+            if (expected_publish_ms < 0) {
+                expected_publish_ms = t_actual_publish_ms;
+            }
+            int64_t drift_ms = t_actual_publish_ms - expected_publish_ms;
+            expected_publish_ms = t_actual_publish_ms + MANAGER_PERIOD_MS;
+
+            // Runtime state model used by dashboard/log analysis.
+            const char *state = "SCHEDULABLE";
+            if (exec_miss > 0) {
+                state = "OVERLOADED";
+            } else if (ctx->cpu_usage >= 90) {
+                state = "SATURATED";
+            }
 
             int len = snprintf(payload, sizeof(payload),
-                               "{\"fw\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u}",
+                               "{\"fw\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"t_actual_publish_ms\":%lld,\"t_expected_publish_ms\":%lld,\"drift_ms\":%lld,\"state\":\"%s\",\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u}",
                                FIRMWARE_VERSION,
                                (unsigned)ctx->boot_id,
                                // Milliseconds since boot; used for telemetry latency measurement.
                                (unsigned)t_pub_ms,
                                (unsigned long long)t_pub_epoch_ms,
+                               (long long)t_actual_publish_ms,
+                               (long long)(t_actual_publish_ms - drift_ms),
+                               (long long)drift_ms,
+                               state,
                                (unsigned)ctx->cpu_usage,
                                (unsigned)ctx->queue_depth,
                                (unsigned)ctx->load_factor,
@@ -97,6 +118,9 @@ void manager_task(void *param)
         }
 #endif
 
-        vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(MANAGER_PERIOD_MS));
+        // Intentionally use vTaskDelay (not vTaskDelayUntil):
+        // manager_task is observability infrastructure, not a hard real-time task.
+        // We measure/publish drift_ms and accept small drift relative to 1000ms.
+        vTaskDelay(pdMS_TO_TICKS(MANAGER_PERIOD_MS));
     }
 }

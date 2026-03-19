@@ -14,7 +14,7 @@ import csv
 def load_summary(path):
     rows = {}
     with open(path, "r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader([line for line in f if not line.startswith("#")])
         for row in reader:
             key = (row["node_id"], row["load"])
             rows[key] = row

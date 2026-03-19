@@ -31,6 +31,7 @@ We focused on stabilizing evaluation runs, improving repeatability of experiment
   - `miss_p95` remains 0.
 - **Overload regime:** Loads 900–1000 show `miss_p95 = 20` (all cycles missed in a 20-cycle window) with high CPU volatility.
 - **Telemetry latency spikes:** p95 spikes were driven by a few outliers (not time-sync failures).
+- **Two-node warmup baseline:** Overload threshold stabilized at **load 850** across repeated sessions.
 
 ## Coherent Data Collected (for report use)
 - **Repeated single-node sweeps:** Three back-to-back sessions with matching load steps (100→1000, 20s each).
@@ -42,6 +43,7 @@ We focused on stabilizing evaluation runs, improving repeatability of experiment
 - The system is schedulable and stable up to ~800 load with 24 blocks.
 - Overload begins around 900 load, where deadline misses dominate and CPU becomes highly volatile.
 - Windowed stats are the correct basis for schedulability claims; raw telemetry remains available for traceability.
+- Warmup resets before sweeps provide a consistent baseline for multi-node comparisons.
 
 ## Telemetry Latency Variability Note
 - Across three consecutive runs, telemetry latency p95 shows **weak or inconsistent correlation** with load.

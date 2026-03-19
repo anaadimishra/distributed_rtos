@@ -56,6 +56,9 @@ def start_mqtt(update_callback, broker=_BROKER, port=_PORT):
 
 def publish_control(node, payload):
     if not _client:
+        _log("[mqtt] publish_control skipped: client not connected")
         return
     topic = f"cluster/{node}/control"
-    _client.publish(topic, json.dumps(payload))
+    body = json.dumps(payload)
+    info = _client.publish(topic, body)
+    _log(f"[mqtt] publish_control topic={topic} payload={body} rc={info.rc}")

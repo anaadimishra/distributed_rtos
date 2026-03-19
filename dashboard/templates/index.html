@@ -54,6 +54,20 @@
       font-size: 12px;
     }
 
+    .control-feedback {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .control-feedback.ok {
+      color: var(--ok);
+    }
+
+    .control-feedback.err {
+      color: var(--bad);
+    }
+
     .log-controls button {
       background: #1e2835;
       border: 1px solid #2a3546;
@@ -66,6 +80,16 @@
 
     .log-controls button:hover {
       border-color: var(--accent);
+    }
+
+    .log-controls button.danger {
+      border-color: #5b2a2a;
+      background: #2a1616;
+      color: #ffd7d7;
+    }
+
+    .log-controls button.danger:hover {
+      border-color: var(--bad);
     }
 
     main {
@@ -230,6 +254,55 @@
       font-size: 12px;
     }
 
+    .node-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .node-actions button {
+      background: #1e2835;
+      border: 1px solid #2a3546;
+      color: var(--text);
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .node-actions button.danger {
+      border-color: #5b2a2a;
+      background: #2a1616;
+      color: #ffd7d7;
+    }
+
+    .node-actions button.mqtt-toggle.on {
+      border-color: #2f6f3a;
+      background: #15331d;
+      color: #b8ffca;
+      font-weight: 600;
+    }
+
+    .node-actions button.mqtt-toggle.off {
+      border-color: #6f2f2f;
+      background: #331515;
+      color: #ffbcbc;
+      font-weight: 600;
+    }
+
+    .node-actions button.reboot-btn {
+      border-color: #6f5a2f;
+      background: #332a15;
+      color: #ffe7b3;
+      font-weight: 600;
+    }
+
+    .node-actions button.reboot-btn.rebooting {
+      border-color: #8a2f2f;
+      background: #4a1717;
+      color: #ffd3d3;
+    }
+
 
     .empty {
       padding: 24px;
@@ -243,9 +316,14 @@
     <h1>Distributed RTOS Telemetry</h1>
     <div class="limits">Load: 0–1000 (step 100) · Blocks: 0–24</div>
     <div class="log-controls">
-      <button id="restart-logging">New Log Session</button>
+      <button type="button" id="restart-logging">New Log Session</button>
       <span id="log-session">Log session: —</span>
     </div>
+    <div class="log-controls">
+      <button type="button" id="reboot-all" class="danger">Reboot All Nodes</button>
+    </div>
+    <div class="control-feedback" id="control-feedback">Control: idle</div>
+    <div class="log-controls" id="failover-status">Failover: —</div>
   </header>
   <main>
     <section class="panel">
@@ -319,6 +397,7 @@
           <th>Ctrl Latency (ms)</th>
           <th>Telem Latency (ms)</th>
           <th>Window Ready</th>
+          <th>Fault Mode</th>
           <th>Status</th>
           <th>Control</th>
         </tr>
@@ -327,7 +406,7 @@
     </table>
     <div class="empty" id="empty-state" hidden>No telemetry received yet.</div>
   </main>
-  <script src="/static/app.js"></script>
+  <script src="/static/app.js?v=20260319c"></script>
 </body>
 
 </html>

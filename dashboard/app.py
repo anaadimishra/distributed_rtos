@@ -17,8 +17,13 @@ def _log(msg):
 _state = {}
 _state_lock = threading.Lock()
 _ctrl_sent = {}
+_fault_mode = {}
 _last_boot = {}
 _time_sync = {}
+_last_seen = {}
+_fail_detected = {}
+
+_FAILOVER_TIMEOUT_SEC = 5
 
 _TIME_SYNC_INTERVAL_SEC = 30
 _log_session_id = None
@@ -45,6 +50,8 @@ def index():
 def api_state():
     with _state_lock:
         snapshot = json.loads(json.dumps(_state))
+        for node_id in snapshot.keys():
+            snapshot[node_id]["fault_mode"] = _fault_mode.get(node_id, "NORMAL")
     _log(f"[api] /api/state snapshot={snapshot}")
     return jsonify(snapshot)
 
@@ -62,17 +69,27 @@ def logging_restart():
 
 @app.route("/api/control", methods=["POST"])
 def control():
-    data = request.json
+    data = request.get_json(silent=True) or {}
+    _log(f"[api] /api/control request={data}")
     node = data.get("node")
 
     if not node:
         return jsonify({"error": "missing node"}), 400
 
-    topic = f"cluster/{node}/control"
+    if node in ("all", "*"):
+        with _state_lock:
+            targets = sorted(set(_state.keys()) | set(_last_seen.keys()))
+        if not targets:
+            return jsonify({"error": "no nodes available"}), 400
+    else:
+        targets = [node]
+
+    payload = None
 
     if "load" in data:
         seq = int(time.time() * 1000)
-        _ctrl_sent[node] = {"seq": seq, "t_sent": time.time()}
+        for target in targets:
+            _ctrl_sent[target] = {"seq": seq, "t_sent": time.time()}
         payload = {
             "action": "SET_LOAD",
             "value": data["load"],
@@ -81,18 +98,39 @@ def control():
 
     elif "blocks" in data:
         seq = int(time.time() * 1000)
-        _ctrl_sent[node] = {"seq": seq, "t_sent": time.time()}
+        for target in targets:
+            _ctrl_sent[target] = {"seq": seq, "t_sent": time.time()}
         payload = {
             "action": "SET_BLOCKS",
             "value": data["blocks"],
+            "seq": seq
+        }
+    elif data.get("action") in ("REBOOT", "POWEROFF", "FAIL_SILENT_ON", "FAIL_SILENT_OFF"):
+        seq = int(time.time() * 1000)
+        payload = {
+            "action": data["action"],
             "seq": seq
         }
 
     else:
         return jsonify({"error": "invalid control"}), 400
 
-    publish_control(node, payload)
-    return jsonify({"status": "ok"})
+    for target in targets:
+        publish_control(target, payload)
+    _log(f"[api] /api/control dispatched targets={targets} payload={payload}")
+    action = payload.get("action")
+    if action in ("FAIL_SILENT_ON", "FAIL_SILENT_OFF", "REBOOT", "POWEROFF"):
+        with _state_lock:
+            for target in targets:
+                if action == "FAIL_SILENT_ON":
+                    _fault_mode[target] = "SILENT"
+                elif action == "FAIL_SILENT_OFF":
+                    _fault_mode[target] = "NORMAL"
+                elif action == "REBOOT":
+                    _fault_mode[target] = "REBOOTING"
+                elif action == "POWEROFF":
+                    _fault_mode[target] = "POWEROFF"
+    return jsonify({"status": "ok", "targets": targets, "payload": payload})
 
 
 def send_time_sync(node_id):
@@ -136,6 +174,7 @@ def update_state(node_id, payload):
     if node_id not in _time_sync or (now - _time_sync[node_id]) > _TIME_SYNC_INTERVAL_SEC:
         send_time_sync(node_id)
     with _state_lock:
+        _last_seen[node_id] = now
         # Append JSONL telemetry to the current logging session file.
         log_record = {
             "session_id": _log_session_id,
@@ -164,9 +203,40 @@ def update_state(node_id, payload):
             "miss": int(payload.get("miss", 0)),
             "blocks": int(payload.get("blocks", 0)),
             "window_ready": int(payload.get("window_ready", 0)),
+            "fault_mode": _fault_mode.get(node_id, "NORMAL"),
             "last_seen": time.time(),
         }
+        if _fault_mode.get(node_id) in ("REBOOTING", "POWEROFF"):
+            # Any telemetry from the node means it is alive again.
+            _fault_mode[node_id] = "NORMAL"
+            _state[node_id]["fault_mode"] = "NORMAL"
         _log(f"[state] updated node_id={node_id} state={_state}")
+
+
+@app.route("/api/failover", methods=["GET"])
+def api_failover():
+    now = time.time()
+    events = []
+    with _state_lock:
+        for node_id, last in _last_seen.items():
+            age = now - last
+            if age > _FAILOVER_TIMEOUT_SEC:
+                if node_id not in _fail_detected:
+                    _fail_detected[node_id] = now
+                events.append({
+                    "node_id": node_id,
+                    "status": "failed",
+                    "age_sec": round(age, 2),
+                    "detected_at": _fail_detected[node_id],
+                })
+            else:
+                events.append({
+                    "node_id": node_id,
+                    "status": "ok",
+                    "age_sec": round(age, 2),
+                    "detected_at": _fail_detected.get(node_id),
+                })
+    return jsonify({"events": events, "timeout_sec": _FAILOVER_TIMEOUT_SEC})
 
 
 if __name__ == "__main__":

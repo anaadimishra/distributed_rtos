@@ -9,7 +9,10 @@ set -euo pipefail
 #   ./run-lab.sh build           # only build
 #   ./run-lab.sh flash           # only flash
 #   ./run-lab.sh server          # only restart MQTT + dashboard (blocking)
+#   ./run-lab.sh monitor         # open minicom on a selected/auto-detected serial port
 #   ./run-lab.sh test            # run load sweep + analyze (server must be running)
+#   ./run-lab.sh baseline        # build with ENABLE_METRICS=0 + baseline sweep (100,500,800)
+#   ./run-lab.sh test --label "2nodes-base" --min-load 700 --max-load 1000 --step 50 --hold-seconds 20 --repeat 1
 #   ./run-lab.sh build flash     # build then flash
 #   ./run-lab.sh flash --port /dev/tty.usbserial-0001
 # ----------------------------------------------------------------------------
@@ -25,15 +28,6 @@ AUTO_DISCOVER=true
 
 # MQTT verbosity: set to 0 for quiet output
 MQTT_VERBOSE=0
-
-# Docker build command (ESP-IDF v4.4)
-BUILD_CMD=(
-  docker run --rm -it --platform linux/amd64 \
-    -v "$PROJ_ROOT:/project" \
-    -w /project/firmware-esp32 \
-    espressif/idf:release-v4.4 \
-    bash -c "idf.py build && exit"
-)
 
 # ----------------------------------------------------------------------------
 # Helpers
@@ -73,6 +67,19 @@ flash_device() {
     0x10000 build/firmware_esp32.bin
 }
 
+build_firmware() {
+  local extra_cflags="${1:-}"
+  local idf_cmd="idf.py build && exit"
+  if [[ -n "$extra_cflags" ]]; then
+    idf_cmd="CFLAGS=\"$extra_cflags\" idf.py build && exit"
+  fi
+  docker run --rm -it --platform linux/amd64 \
+    -v "$PROJ_ROOT:/project" \
+    -w /project/firmware-esp32 \
+    espressif/idf:release-v4.4 \
+    bash -c "$idf_cmd"
+}
+
 # ----------------------------------------------------------------------------
 # Parse args
 # ----------------------------------------------------------------------------
@@ -80,9 +87,21 @@ flash_device() {
 DO_BUILD=false
 DO_FLASH=false
 DO_SERVER=false
+DO_MONITOR=false
 DO_TEST=false
+DO_BASELINE=false
 STARTED_SERVER_FOR_TEST=false
 TEST_LABEL="single_node"
+TEST_MIN_LOAD=100
+TEST_MAX_LOAD=1000
+TEST_STEP=100
+TEST_HOLD_SECONDS=20
+TEST_REPEAT=3
+TEST_WARMUP_LOAD=100
+TEST_WARMUP_SECONDS=10
+TEST_LOADS=""
+MONITOR_PORT=""
+MINICOM_BAUD=115200
 
 if [[ $# -eq 0 ]]; then
   DO_BUILD=true
@@ -95,7 +114,9 @@ while [[ $# -gt 0 ]]; do
     build) DO_BUILD=true ;;
     flash) DO_FLASH=true ;;
     server) DO_SERVER=true ;;
+    monitor) DO_MONITOR=true ;;
     test) DO_TEST=true ;;
+    baseline) DO_BASELINE=true ;;
     all)
       DO_BUILD=true
       DO_FLASH=true
@@ -106,11 +127,61 @@ while [[ $# -gt 0 ]]; do
       [[ $# -gt 0 ]] || abort "--label requires a value"
       TEST_LABEL="$1"
       ;;
+    --min-load)
+      shift
+      [[ $# -gt 0 ]] || abort "--min-load requires a value"
+      TEST_MIN_LOAD="$1"
+      ;;
+    --max-load)
+      shift
+      [[ $# -gt 0 ]] || abort "--max-load requires a value"
+      TEST_MAX_LOAD="$1"
+      ;;
+    --step)
+      shift
+      [[ $# -gt 0 ]] || abort "--step requires a value"
+      TEST_STEP="$1"
+      ;;
+    --loads)
+      shift
+      [[ $# -gt 0 ]] || abort "--loads requires a value"
+      TEST_LOADS="$1"
+      ;;
+    --hold-seconds)
+      shift
+      [[ $# -gt 0 ]] || abort "--hold-seconds requires a value"
+      TEST_HOLD_SECONDS="$1"
+      ;;
+    --repeat)
+      shift
+      [[ $# -gt 0 ]] || abort "--repeat requires a value"
+      TEST_REPEAT="$1"
+      ;;
+    --warmup-load)
+      shift
+      [[ $# -gt 0 ]] || abort "--warmup-load requires a value"
+      TEST_WARMUP_LOAD="$1"
+      ;;
+    --warmup-seconds)
+      shift
+      [[ $# -gt 0 ]] || abort "--warmup-seconds requires a value"
+      TEST_WARMUP_SECONDS="$1"
+      ;;
     --port)
       shift
       [[ $# -gt 0 ]] || abort "--port requires a value"
       DEVICE_PORTS+=("$1")
       AUTO_DISCOVER=false
+      ;;
+    --monitor-port)
+      shift
+      [[ $# -gt 0 ]] || abort "--monitor-port requires a value"
+      MONITOR_PORT="$1"
+      ;;
+    --baud)
+      shift
+      [[ $# -gt 0 ]] || abort "--baud requires a value"
+      MINICOM_BAUD="$1"
       ;;
     --no-auto)
       AUTO_DISCOVER=false
@@ -135,17 +206,26 @@ done
 [[ -d "$FIRMWARE_DIR" ]] || abort "FIRMWARE_DIR not found: $FIRMWARE_DIR"
 [[ -d "$DASHBOARD_DIR" ]] || abort "DASHBOARD_DIR not found: $DASHBOARD_DIR"
 
-if $DO_BUILD; then
+if [[ "$DO_BUILD" == true ]]; then
   require_cmd docker
 fi
-if $DO_FLASH; then
+if [[ "$DO_FLASH" == true ]]; then
   require_cmd python
 fi
-if $DO_SERVER; then
+if [[ "$DO_SERVER" == true ]]; then
   require_cmd mosquitto
   require_cmd pgrep
 fi
-if $DO_TEST; then
+if [[ "$DO_MONITOR" == true ]]; then
+  require_cmd minicom
+fi
+if [[ "$DO_TEST" == true ]]; then
+  require_cmd python
+  require_cmd mosquitto
+  require_cmd pgrep
+fi
+if [[ "$DO_BASELINE" == true ]]; then
+  require_cmd docker
   require_cmd python
   require_cmd mosquitto
   require_cmd pgrep
@@ -155,16 +235,16 @@ fi
 # Build
 # ----------------------------------------------------------------------------
 
-if $DO_BUILD; then
+if [[ "$DO_BUILD" == true ]]; then
   echo "[build] docker build for ESP-IDF"
-  ( cd "$PROJ_ROOT" && "${BUILD_CMD[@]}" )
+  ( cd "$PROJ_ROOT" && build_firmware "" )
 fi
 
 # ----------------------------------------------------------------------------
 # Flash
 # ----------------------------------------------------------------------------
 
-if $DO_FLASH; then
+if [[ "$DO_FLASH" == true ]]; then
   if $AUTO_DISCOVER && [[ ${#DEVICE_PORTS[@]} -eq 0 ]]; then
     # Auto-discover ports (macOS default: /dev/tty.*).
     while IFS= read -r port; do
@@ -181,6 +261,25 @@ if $DO_FLASH; then
       flash_device "$port"
     done
   fi
+fi
+
+# ----------------------------------------------------------------------------
+# Monitor (minicom)
+# ----------------------------------------------------------------------------
+
+if [[ "$DO_MONITOR" == true ]]; then
+  if [[ -z "$MONITOR_PORT" ]]; then
+    if [[ ${#DEVICE_PORTS[@]} -eq 0 ]]; then
+      while IFS= read -r port; do
+        DEVICE_PORTS+=("$port")
+      done < <(ls /dev/tty.* 2>/dev/null | grep -E "usbserial|usbmodem" || true)
+    fi
+    [[ ${#DEVICE_PORTS[@]} -gt 0 ]] || abort "No serial ports found for minicom."
+    MONITOR_PORT="${DEVICE_PORTS[0]}"
+  fi
+
+  echo "[monitor] starting minicom on $MONITOR_PORT @ ${MINICOM_BAUD} baud"
+  exec minicom -D "$MONITOR_PORT" -b "$MINICOM_BAUD"
 fi
 
 # ----------------------------------------------------------------------------
@@ -213,8 +312,8 @@ stop_server() {
   kill "${MQTT_PID:-}" "${DASH_PID:-}" 2>/dev/null || true
 }
 
-if $DO_SERVER; then
-  if $DO_TEST; then
+if [[ "$DO_SERVER" == true ]]; then
+  if [[ "$DO_TEST" == true ]]; then
     abort "Cannot run server (blocking) and test together. Use two terminals or run ./run-lab.sh test"
   fi
 
@@ -233,7 +332,7 @@ fi
 # Test (load sweep + analyze)
 # ----------------------------------------------------------------------------
 
-if $DO_TEST; then
+if [[ "$DO_TEST" == true ]]; then
   # Always restart server for a clean, quiet test run.
   echo "[test] starting mqtt/dashboard"
   start_server
@@ -242,7 +341,19 @@ if $DO_TEST; then
   sleep 10
 
   echo "[test] running load sweep (server must be running)"
-  ( cd "$PROJ_ROOT" && python experiments/load_sweep.py --repeat 3 --label "$TEST_LABEL" )
+  SWEEP_CMD=(python experiments/load_sweep.py
+      --repeat "$TEST_REPEAT"
+      --label "$TEST_LABEL"
+      --min-load "$TEST_MIN_LOAD"
+      --max-load "$TEST_MAX_LOAD"
+      --step "$TEST_STEP"
+      --hold-seconds "$TEST_HOLD_SECONDS"
+      --warmup-load "$TEST_WARMUP_LOAD"
+      --warmup-seconds "$TEST_WARMUP_SECONDS")
+  if [[ -n "$TEST_LOADS" ]]; then
+    SWEEP_CMD+=(--loads "$TEST_LOADS")
+  fi
+  ( cd "$PROJ_ROOT" && "${SWEEP_CMD[@]}" )
 
   for run_file in "${PROJ_ROOT}/experiments/last_run_"*.json; do
     session_id=$(python - <<PY
@@ -272,7 +383,8 @@ PY
 import csv
 nodes=set()
 with open("${summary_csv}", "r", encoding="utf-8") as f:
-    for row in csv.DictReader(f):
+    rows=[line for line in f if not line.startswith("#")]
+    for row in csv.DictReader(rows):
         nodes.add(row["node_id"])
 print("\\n".join(sorted(nodes)))
 PY
@@ -285,10 +397,70 @@ PY
         ( cd "$PROJ_ROOT" && python experiments/compare_nodes.py --summary "$summary_csv" --node-a "$node_a" --node-b "$node_b" > "experiments/analysis_outputs/${TEST_LABEL}__${session_id}/compare_nodes_${node_a}_vs_${node_b}.csv" )
         echo "[test] node comparison: $PROJ_ROOT/experiments/analysis_outputs/${TEST_LABEL}__${session_id}/compare_nodes_${node_a}_vs_${node_b}.csv"
       fi
+      if [[ "$node_count" -ge 2 ]]; then
+        echo "[test] generating multi-node aggregate comparison"
+        ( cd "$PROJ_ROOT" && python experiments/compare_nodes_multi.py --summary "$summary_csv" )
+      fi
     fi
   done
 
-  if $STARTED_SERVER_FOR_TEST; then
+  if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
+    stop_server
+  fi
+fi
+
+# ----------------------------------------------------------------------------
+# Baseline (no-metrics) run
+# ----------------------------------------------------------------------------
+
+if [[ "$DO_BASELINE" == true ]]; then
+  BASELINE_LABEL="baseline_no_metrics"
+  BASELINE_OUT_DIR="experiments/analysis_outputs/baseline_no_metrics"
+  echo "[baseline] building firmware with ENABLE_METRICS=0"
+  ( cd "$PROJ_ROOT" && build_firmware "-DENABLE_METRICS=0" )
+
+  echo "[baseline] starting mqtt/dashboard"
+  start_server
+  STARTED_SERVER_FOR_TEST=true
+  sleep 10
+
+  echo "[baseline] running fixed sweep: loads=100,500,800 hold=60s"
+  ( cd "$PROJ_ROOT" && python experiments/load_sweep.py \
+      --repeat 1 \
+      --label "$BASELINE_LABEL" \
+      --loads "100,500,800" \
+      --hold-seconds 60 \
+      --warmup-load 100 \
+      --warmup-seconds 10 )
+
+  run_file="${PROJ_ROOT}/experiments/last_run.json"
+  if [[ ! -f "$run_file" ]]; then
+    run_file=$(ls -1 "${PROJ_ROOT}/experiments/last_run_"*.json 2>/dev/null | tail -n 1 || true)
+  fi
+  [[ -f "$run_file" ]] || abort "No run metadata file found after baseline sweep"
+
+  session_id=$(python - <<PY
+import json
+with open("${run_file}", "r", encoding="utf-8") as f:
+    print(json.load(f).get("session_id", ""))
+PY
+)
+  [[ -n "$session_id" ]] || abort "Failed to read session_id from ${run_file}"
+
+  log_path="${PROJ_ROOT}/experiments/${BASELINE_LABEL}__${session_id}/${session_id}.jsonl"
+  [[ -f "$log_path" ]] || abort "Baseline log not found at $log_path"
+
+  echo "[baseline] analyzing $log_path"
+  ( cd "$PROJ_ROOT" && python experiments/analyze_logs.py \
+      --log-file "$log_path" \
+      --skip-seconds 2 \
+      --window-ready-only \
+      --label "$BASELINE_LABEL" \
+      --out-dir "$BASELINE_OUT_DIR" )
+
+  echo "[baseline] outputs: $PROJ_ROOT/$BASELINE_OUT_DIR"
+
+  if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
     stop_server
   fi
 fi

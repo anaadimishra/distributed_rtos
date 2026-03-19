@@ -115,6 +115,18 @@ docs/engineering-log/
 
 ---
 
+## Formal Grounding
+
+Real-time feasibility and fault/safety assumptions are documented in:
+
+```
+docs/formal-grounding.md
+```
+
+This connects the implementation to RM/EDF feasibility conditions and defines the fault model used for evaluation.
+
+---
+
 ## Design Principles
 
 * Strict separation of portable logic and SDK-specific APIs

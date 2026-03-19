@@ -37,9 +37,16 @@ def main():
     parser.add_argument("--min-load", type=int, default=100)
     parser.add_argument("--max-load", type=int, default=1000)
     parser.add_argument("--step", type=int, default=100)
+    parser.add_argument(
+        "--loads",
+        default="",
+        help="Comma-separated explicit load list, e.g. 100,500,800. Overrides min/max/step.",
+    )
     parser.add_argument("--hold-seconds", type=int, default=20)
     parser.add_argument("--repeat", type=int, default=1)
     parser.add_argument("--label", default="run")
+    parser.add_argument("--warmup-load", type=int, default=100)
+    parser.add_argument("--warmup-seconds", type=int, default=10)
     parser.add_argument("--out", default="experiments/last_run.json")
     parser.add_argument(
         "--log-dir",
@@ -69,9 +76,20 @@ def main():
             raise SystemExit("No nodes detected in /api/state after waiting 20s")
         print(f"[nodes] {nodes}")
 
+        # Warm-up / reset phase to stabilize before the sweep.
+        if args.warmup_seconds > 0:
+            print(f"[warmup] setting load={args.warmup_load} for {args.warmup_seconds}s")
+            for node in nodes:
+                http_post_json(f"{base}/api/control", {"node": node, "load": args.warmup_load})
+            time.sleep(args.warmup_seconds)
+
         steps = []
-        load = args.min_load
-        while load <= args.max_load:
+        if args.loads.strip():
+            load_points = [int(x.strip()) for x in args.loads.split(",") if x.strip()]
+        else:
+            load_points = list(range(args.min_load, args.max_load + 1, args.step))
+
+        for load in load_points:
             print(f"[load] setting load={load} for {args.hold_seconds}s")
             t_start = time.time()
             for node in nodes:
@@ -79,7 +97,6 @@ def main():
             time.sleep(args.hold_seconds)
             t_end = time.time()
             steps.append({"load": load, "t_start": t_start, "t_end": t_end})
-            load += args.step
 
         # Save run metadata for the analysis script.
         run = {

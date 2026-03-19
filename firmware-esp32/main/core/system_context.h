@@ -48,6 +48,8 @@ typedef struct {
     // Time sync: offset between node ticks and wall-clock epoch ms.
     volatile int64_t time_offset_ms;
     volatile uint32_t time_sync_ready;
+    // Fault injection: when set, manager telemetry publish is suppressed.
+    volatile uint32_t telemetry_suppressed;
 } system_context_t;
 
 #endif

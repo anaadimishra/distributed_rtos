@@ -1,4 +1,6 @@
 // CPU load estimation using FreeRTOS idle hook counts.
+// NOTE: Current evaluation is on UNICORE configuration.
+// TODO(dissertation): re-run experiments on dual-core with per-core idle hooks.
 #include "core/metrics.h"
 #include "config/config.h"
 #include "esp_freertos_hooks.h"

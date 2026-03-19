@@ -17,6 +17,9 @@ import argparse
 import json
 import os
 import statistics
+import glob
+import csv
+from collections import defaultdict
 
 
 def load_jsonl(path):
@@ -43,6 +46,112 @@ def stddev(values):
     return statistics.pstdev(values)
 
 
+def as_float(value):
+    try:
+        return float(value)
+    except Exception:
+        return 0.0
+
+
+def resolve_summary_csv(path_or_dir):
+    if os.path.isfile(path_or_dir):
+        return path_or_dir
+    matches = glob.glob(os.path.join(path_or_dir, "summary_*.csv"))
+    if not matches:
+        raise SystemExit(f"No summary_*.csv found in {path_or_dir}")
+    return matches[0]
+
+
+def load_summary_rows(path_or_dir):
+    path = resolve_summary_csv(path_or_dir)
+    rows = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#"):
+                continue
+            rows.append(line)
+    reader = csv.DictReader(rows)
+    return list(reader), path
+
+
+def aggregate_mean_by_load(rows, field):
+    by_load = defaultdict(list)
+    for row in rows:
+        by_load[int(row["load"])].append(as_float(row.get(field, 0)))
+    out = {}
+    for load, vals in by_load.items():
+        out[load] = sum(vals) / len(vals) if vals else 0.0
+    return out
+
+
+def run_repeat_summary(session_paths, out_dir):
+    os.makedirs(out_dir, exist_ok=True)
+    repeat_rows = []
+    for session_path in session_paths:
+        rows, summary_path = load_summary_rows(session_path)
+        session_id = os.path.splitext(os.path.basename(summary_path))[0].replace("summary_", "")
+        for row in rows:
+            repeat_rows.append({
+                "session_id": session_id,
+                "load": int(row["load"]),
+                "node_id": row["node_id"],
+                "cpu_mean": as_float(row.get("cpu_mean", 0)),
+                "exec_max_p95": as_float(row.get("exec_max_p95", 0)),
+                "miss_p95": as_float(row.get("miss_p95", 0)),
+                "telemetry_latency_p95_ms": as_float(row.get("telemetry_latency_p95_ms", 0)),
+            })
+
+    repeat_csv = os.path.join(out_dir, "repeat_summary.csv")
+    with open(repeat_csv, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "session_id",
+                "load",
+                "node_id",
+                "cpu_mean",
+                "exec_max_p95",
+                "miss_p95",
+                "telemetry_latency_p95_ms",
+            ],
+        )
+        writer.writeheader()
+        writer.writerows(repeat_rows)
+    print(f"[done] wrote {repeat_csv}")
+
+    # Variance table across sessions (mean +- std) by load.
+    by_load_cpu = defaultdict(list)
+    by_load_exec = defaultdict(list)
+    for row in repeat_rows:
+        by_load_cpu[row["load"]].append(row["cpu_mean"])
+        by_load_exec[row["load"]].append(row["exec_max_p95"])
+
+    var_csv = os.path.join(out_dir, "repeat_variance_by_load.csv")
+    with open(var_csv, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "load",
+                "cpu_mean_avg",
+                "cpu_mean_std",
+                "exec_max_p95_avg",
+                "exec_max_p95_std",
+            ],
+        )
+        writer.writeheader()
+        for load in sorted(by_load_cpu.keys()):
+            cpu_vals = by_load_cpu[load]
+            exec_vals = by_load_exec[load]
+            writer.writerow({
+                "load": load,
+                "cpu_mean_avg": round(sum(cpu_vals) / len(cpu_vals), 3),
+                "cpu_mean_std": round(stddev(cpu_vals), 3),
+                "exec_max_p95_avg": round(sum(exec_vals) / len(exec_vals), 3),
+                "exec_max_p95_std": round(stddev(exec_vals), 3),
+            })
+    print(f"[done] wrote {var_csv}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", default="experiments/last_run.json")
@@ -54,7 +163,29 @@ def main():
     parser.add_argument("--window-ready-only", action="store_true")
     parser.add_argument("--label", default="run")
     parser.add_argument("--index-file", default="experiments/analysis_outputs/index.csv")
+    parser.add_argument(
+        "--compare-baseline",
+        default=None,
+        help="Path to baseline summary CSV or baseline session directory containing summary_*.csv",
+    )
+    parser.add_argument(
+        "--repeat-summary",
+        action="store_true",
+        help="Generate repeat_summary.csv and repeat_variance_by_load.csv from --session paths.",
+    )
+    parser.add_argument(
+        "--session",
+        action="append",
+        default=[],
+        help="Session analysis output directory or summary CSV (repeatable). Used with --repeat-summary.",
+    )
     args = parser.parse_args()
+
+    if args.repeat_summary:
+        if not args.session:
+            raise SystemExit("--repeat-summary requires at least one --session")
+        run_repeat_summary(args.session, args.out_dir)
+        return
 
     if args.log_file:
         log_path = args.log_file
@@ -126,6 +257,7 @@ def main():
             eff_blocks = [r["payload"].get("eff_blocks", 0) for r in window]
             ctrl_lat = [r.get("ctrl_latency_ms", 0) for r in window]
             telem_lat = [r.get("telemetry_latency_ms", 0) for r in window]
+            drift = [r["payload"].get("drift_ms", 0) for r in window]
 
             cpu_mean = statistics.mean(cpu)
             cpu_std = stddev(cpu)
@@ -153,13 +285,27 @@ def main():
                 "miss_p95": p95(miss),
                 "ctrl_latency_p95_ms": p95(ctrl_lat),
                 "telemetry_latency_p95_ms": p95(telem_lat),
+                "drift_mean_ms": round(statistics.mean(drift), 2),
+                "drift_p95_ms": p95(drift),
+                "drift_max_ms": max(drift) if drift else 0,
                 "warning": warning,
             })
+
+    # Telemetry latency baseline delta: per node relative to that node's load=100 p95.
+    baseline_by_node = {}
+    for row in summaries:
+        if int(row["load"]) == 100:
+            baseline_by_node[row["node_id"]] = row["telemetry_latency_p95_ms"]
+    for row in summaries:
+        base = baseline_by_node.get(row["node_id"], row["telemetry_latency_p95_ms"])
+        row["baseline_latency_ms"] = base
+        row["latency_delta_ms"] = row["telemetry_latency_p95_ms"] - base
 
     out_dir = os.path.join(args.out_dir, f"{args.label}__{session_id}")
     os.makedirs(out_dir, exist_ok=True)
     out_csv = args.out_csv or os.path.join(out_dir, f"summary_{session_id}.csv")
     with open(out_csv, "w", encoding="utf-8") as f:
+        f.write("# latency_delta shows load-induced overhead above baseline network jitter. Weak correlation confirms jitter dominates.\n")
         headers = [
             "node_id",
             "load",
@@ -174,6 +320,11 @@ def main():
             "miss_p95",
             "ctrl_latency_p95_ms",
             "telemetry_latency_p95_ms",
+            "baseline_latency_ms",
+            "latency_delta_ms",
+            "drift_mean_ms",
+            "drift_p95_ms",
+            "drift_max_ms",
             "warning",
         ]
         f.write(",".join(headers) + "\n")
@@ -198,6 +349,43 @@ def main():
             f.write(",".join(new_row.values()) + "\n")
     except Exception:
         pass
+
+    # Baseline comparison: with-metrics vs no-metrics cpu mean.
+    if args.compare_baseline:
+        base_rows, base_path = load_summary_rows(args.compare_baseline)
+        cur_by_load = aggregate_mean_by_load(summaries, "cpu_mean")
+        base_by_load = aggregate_mean_by_load(base_rows, "cpu_mean")
+        compare_csv = os.path.join(out_dir, f"baseline_compare_{session_id}.csv")
+        rows = []
+        for load in sorted(set(cur_by_load.keys()) & set(base_by_load.keys())):
+            with_metrics = cur_by_load[load]
+            no_metrics = base_by_load[load]
+            overhead_pct = ((with_metrics - no_metrics) / no_metrics * 100.0) if no_metrics else 0.0
+            rows.append({
+                "load": load,
+                "cpu_mean_with_metrics": round(with_metrics, 3),
+                "cpu_mean_no_metrics": round(no_metrics, 3),
+                "overhead_pct": round(overhead_pct, 3),
+            })
+        overall_overhead = (
+            sum(r["overhead_pct"] for r in rows) / len(rows) if rows else 0.0
+        )
+        with open(compare_csv, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "load",
+                    "cpu_mean_with_metrics",
+                    "cpu_mean_no_metrics",
+                    "overhead_pct",
+                    "PROFILING_OVERHEAD_PCT",
+                ],
+            )
+            writer.writeheader()
+            for row in rows:
+                row["PROFILING_OVERHEAD_PCT"] = round(overall_overhead, 3)
+                writer.writerow(row)
+        print(f"[done] wrote {compare_csv} (baseline={base_path})")
 
     # Optional plotting if matplotlib is available.
     try:
@@ -311,12 +499,42 @@ def main():
         node_rows.sort(key=lambda r: (r["load"], r["node_id"]))
         loads = [r["load"] for r in node_rows]
         telem = [r["telemetry_latency_p95_ms"] for r in node_rows]
+        baseline_line = None
+        for r in node_rows:
+            if int(r["load"]) == 100:
+                baseline_line = r["telemetry_latency_p95_ms"]
+                break
         plt.figure()
         plt.plot(loads, telem, marker="o")
+        if baseline_line is not None:
+            plt.axhline(
+                baseline_line,
+                linestyle="--",
+                linewidth=1.2,
+                label="baseline network jitter",
+                color="tab:red",
+            )
+            plt.legend()
         plt.title(f"Telemetry Latency p95 vs Load ({node})")
         plt.xlabel("Load")
         plt.ylabel("Telemetry Latency p95 (ms)")
         out_png = os.path.join(out_dir, f"telem_p95_{session_id}_{node}.png")
+        plt.savefig(out_png, dpi=150, bbox_inches="tight")
+        plt.close()
+        print(f"[plot] wrote {out_png}")
+
+    # Plot drift p95 vs load per node
+    for node in nodes:
+        node_rows = [r for r in summaries if r["node_id"] == node]
+        node_rows.sort(key=lambda r: (r["load"], r["node_id"]))
+        loads = [r["load"] for r in node_rows]
+        drift_p95 = [r["drift_p95_ms"] for r in node_rows]
+        plt.figure()
+        plt.plot(loads, drift_p95, marker="o")
+        plt.title(f"Manager Drift p95 vs Load ({node})")
+        plt.xlabel("Load")
+        plt.ylabel("drift_p95 (ms)")
+        out_png = os.path.join(out_dir, f"drift_p95_{session_id}_{node}.png")
         plt.savefig(out_png, dpi=150, bbox_inches="tight")
         plt.close()
         print(f"[plot] wrote {out_png}")

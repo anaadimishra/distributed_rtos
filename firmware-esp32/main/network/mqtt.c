@@ -9,6 +9,8 @@
 
 #include "esp_event.h"
 #include "esp_log.h"
+#include "esp_sleep.h"
+#include "esp_system.h"
 #include "mqtt_client.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -20,6 +22,10 @@ typedef enum {
     CONTROL_ACTION_SET_LOAD,
     CONTROL_ACTION_SET_BLOCKS,
     CONTROL_ACTION_SYNC_TIME,
+    CONTROL_ACTION_REBOOT,
+    CONTROL_ACTION_POWEROFF,
+    CONTROL_ACTION_FAIL_SILENT_ON,
+    CONTROL_ACTION_FAIL_SILENT_OFF,
 } control_action_t;
 
 // Replace "{node_id}" in a topic template with the actual node ID.
@@ -43,7 +49,8 @@ static void format_topic(char *out, size_t out_len, const char *tpl, const char 
     snprintf(out, out_len, "%.*s%s%s", (int)prefix_len, tpl, node_id, suffix);
 }
 
-// Parse a minimal control payload: {"action":"SET_LOAD","value":123}
+// Parse control payloads such as:
+// {"action":"SET_LOAD","value":123} or {"action":"FAIL_SILENT_ON"}.
 static bool parse_control_message(const char *data,
                                   int len,
                                   int64_t *out_value,
@@ -69,38 +76,56 @@ static bool parse_control_message(const char *data,
     bool is_set_load = strstr(buf, "SET_LOAD") != NULL;
     bool is_set_blocks = strstr(buf, "SET_BLOCKS") != NULL;
     bool is_sync_time = strstr(buf, "SYNC_TIME") != NULL;
-    if (!is_set_load && !is_set_blocks && !is_sync_time) {
+    bool is_reboot = strstr(buf, "REBOOT") != NULL;
+    bool is_poweroff = strstr(buf, "POWEROFF") != NULL;
+    bool is_fail_silent_on = strstr(buf, "FAIL_SILENT_ON") != NULL;
+    bool is_fail_silent_off = strstr(buf, "FAIL_SILENT_OFF") != NULL;
+    if (!is_set_load && !is_set_blocks && !is_sync_time &&
+        !is_reboot && !is_poweroff && !is_fail_silent_on && !is_fail_silent_off) {
         return false;
     }
 
-    char *value_key = strstr(buf, "\"value\"");
-    if (value_key == NULL) {
-        return false;
-    }
-
-    char *colon = strchr(value_key, ':');
-    if (colon == NULL) {
-        return false;
-    }
-
-    char *num_start = colon + 1;
-    while (*num_start == ' ' || *num_start == '\t') {
-        num_start++;
-    }
-
-    char *endptr = NULL;
-    long long value = strtoll(num_start, &endptr, 10);
-    if (endptr == num_start || value < 0) {
-        return false;
-    }
-
-    *out_value = (int64_t)value;
+    *out_value = 0;
     if (is_set_blocks) {
         *out_action = CONTROL_ACTION_SET_BLOCKS;
     } else if (is_set_load) {
         *out_action = CONTROL_ACTION_SET_LOAD;
-    } else {
+    } else if (is_sync_time) {
         *out_action = CONTROL_ACTION_SYNC_TIME;
+    } else if (is_reboot) {
+        *out_action = CONTROL_ACTION_REBOOT;
+    } else if (is_fail_silent_on) {
+        *out_action = CONTROL_ACTION_FAIL_SILENT_ON;
+    } else if (is_fail_silent_off) {
+        *out_action = CONTROL_ACTION_FAIL_SILENT_OFF;
+    } else {
+        *out_action = CONTROL_ACTION_POWEROFF;
+    }
+
+    if (*out_action == CONTROL_ACTION_SET_LOAD ||
+        *out_action == CONTROL_ACTION_SET_BLOCKS ||
+        *out_action == CONTROL_ACTION_SYNC_TIME) {
+        char *value_key = strstr(buf, "\"value\"");
+        if (value_key == NULL) {
+            return false;
+        }
+
+        char *colon = strchr(value_key, ':');
+        if (colon == NULL) {
+            return false;
+        }
+
+        char *num_start = colon + 1;
+        while (*num_start == ' ' || *num_start == '\t') {
+            num_start++;
+        }
+
+        char *endptr = NULL;
+        long long value = strtoll(num_start, &endptr, 10);
+        if (endptr == num_start || value < 0) {
+            return false;
+        }
+        *out_value = (int64_t)value;
     }
 
     // Optional sequence number for control latency tracking.
@@ -146,6 +171,11 @@ static void mqtt_event_handler(void *handler_args,
             // Only handle messages on this node's control topic.
             if (event->topic_len == (int)strlen(ctx->control_topic) &&
                 strncmp(event->topic, ctx->control_topic, event->topic_len) == 0) {
+#if DEBUG_LOGS
+                ESP_LOGI(MQTT_TAG, "control rx: topic=%.*s payload=%.*s",
+                         event->topic_len, event->topic,
+                         event->data_len, event->data);
+#endif
                 int64_t new_value = 0;
                 control_action_t action = CONTROL_ACTION_NONE;
                 uint32_t seq = 0;
@@ -185,6 +215,39 @@ static void mqtt_event_handler(void *handler_args,
                                  (long long)new_value, (unsigned)seq);
 #endif
                     }
+                    if (action == CONTROL_ACTION_REBOOT) {
+#if DEBUG_LOGS
+                        ESP_LOGI(MQTT_TAG, "control: REBOOT seq=%u", (unsigned)seq);
+#endif
+                        vTaskDelay(pdMS_TO_TICKS(100));
+                        esp_restart();
+                    }
+                    if (action == CONTROL_ACTION_POWEROFF) {
+#if DEBUG_LOGS
+                        ESP_LOGI(MQTT_TAG, "control: POWEROFF seq=%u", (unsigned)seq);
+#endif
+                        vTaskDelay(pdMS_TO_TICKS(100));
+                        esp_deep_sleep_start();
+                    }
+                    if (ctx != NULL && action == CONTROL_ACTION_FAIL_SILENT_ON) {
+                        ctx->telemetry_suppressed = 1;
+                        ctx->last_ctrl_seq = seq;
+#if DEBUG_LOGS
+                        ESP_LOGI(MQTT_TAG, "control: FAIL_SILENT_ON seq=%u", (unsigned)seq);
+#endif
+                    }
+                    if (ctx != NULL && action == CONTROL_ACTION_FAIL_SILENT_OFF) {
+                        ctx->telemetry_suppressed = 0;
+                        ctx->last_ctrl_seq = seq;
+#if DEBUG_LOGS
+                        ESP_LOGI(MQTT_TAG, "control: FAIL_SILENT_OFF seq=%u", (unsigned)seq);
+#endif
+                    }
+                } else {
+#if DEBUG_LOGS
+                    ESP_LOGW(MQTT_TAG, "control parse failed: payload=%.*s",
+                             event->data_len, event->data);
+#endif
                 }
             }
             break;
@@ -235,6 +298,12 @@ void mqtt_start(system_context_t *ctx)
 void mqtt_publish_telemetry(system_context_t *ctx, const char *payload)
 {
     if (ctx == NULL || ctx->mqtt_client == NULL || payload == NULL) {
+        return;
+    }
+    if (ctx->telemetry_suppressed) {
+#if DEBUG_LOGS
+        ESP_LOGI(MQTT_TAG, "telemetry suppressed by FAIL_SILENT_ON");
+#endif
         return;
     }
 

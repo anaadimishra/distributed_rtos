@@ -18,10 +18,15 @@ const statWindowReady = document.getElementById("stat-window-ready");
 const chartNodeSelect = document.getElementById("chart-node");
 const logSessionEl = document.getElementById("log-session");
 const restartLoggingBtn = document.getElementById("restart-logging");
+const rebootAllBtn = document.getElementById("reboot-all");
+const failoverEl = document.getElementById("failover-status");
+const controlFeedbackEl = document.getElementById("control-feedback");
 
 let lastSnapshot = {};
 let selectedChartNode = null;
 const lastWindowSample = {};
+const pendingActionByNode = {};
+let uiBusyUntilMs = 0;
 
 const LIMITS = {
   loadMin: 0,
@@ -112,6 +117,81 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function markUiBusy(ms = 1500) {
+  uiBusyUntilMs = Date.now() + ms;
+}
+
+function markPendingAll(action) {
+  const nodes = Object.keys(lastSnapshot || {});
+  nodes.forEach((node) => {
+    pendingActionByNode[node] = action;
+  });
+  render(lastSnapshot);
+}
+
+async function sendAction(node, action) {
+  setControlFeedback(`Sending ${action} -> ${node} ...`, true);
+  const res = await fetch("/api/control", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ node, action })
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    console.error("[control] action failed", action, node, text);
+    setControlFeedback(`Failed ${action} -> ${node}`, false);
+    window.alert(`Control failed: ${action} ${node}`);
+    return false;
+  }
+  setControlFeedback(`Sent ${action} -> ${node}`, true);
+  return true;
+}
+
+function toggleMqttForNode(node, mqttOnFlag, btnEl) {
+  const action = mqttOnFlag === 1 ? "FAIL_SILENT_ON" : "FAIL_SILENT_OFF";
+  setControlFeedback(`Clicked ${action} -> ${node}`, true);
+  if (btnEl) {
+    btnEl.disabled = true;
+    btnEl.classList.remove("on", "off");
+    btnEl.classList.add(action === "FAIL_SILENT_ON" ? "off" : "on");
+    btnEl.textContent = action === "FAIL_SILENT_ON" ? "MQTT OFF" : "MQTT ON";
+  }
+  markUiBusy(2500);
+  pendingActionByNode[node] = action;
+  render(lastSnapshot);
+  sendAction(node, action).then(() => {
+    if (action === "FAIL_SILENT_OFF") {
+      delete pendingActionByNode[node];
+    }
+  }).finally(() => {
+    if (btnEl) btnEl.disabled = false;
+  });
+}
+
+function rebootNode(node, btnEl) {
+  const confirmed = window.confirm(`REBOOT ${node}?`);
+  if (!confirmed) return;
+  setControlFeedback(`Clicked REBOOT -> ${node}`, true);
+  if (btnEl) {
+    btnEl.disabled = true;
+    btnEl.classList.add("rebooting");
+    btnEl.textContent = "REBOOTING...";
+  }
+  markUiBusy(3000);
+  pendingActionByNode[node] = "REBOOT";
+  render(lastSnapshot);
+  sendAction(node, "REBOOT").finally(() => {
+    if (btnEl) btnEl.disabled = false;
+  });
+}
+
+function setControlFeedback(message, ok) {
+  if (!controlFeedbackEl) return;
+  controlFeedbackEl.textContent = `Control: ${message}`;
+  controlFeedbackEl.classList.remove("ok", "err");
+  controlFeedbackEl.classList.add(ok ? "ok" : "err");
+}
+
 if (chartNodeSelect) {
   chartNodeSelect.addEventListener("change", () => {
     selectedChartNode = chartNodeSelect.value;
@@ -180,6 +260,18 @@ function render(data, options = {}) {
     const online = isOnline(item.last_seen);
     console.log("[render] node", node, item);
 
+    const pendingAction = pendingActionByNode[node] || "";
+    const faultMode = item.fault_mode ?? "NORMAL";
+    if (pendingAction === "FAIL_SILENT_ON" && faultMode === "SILENT") {
+      delete pendingActionByNode[node];
+    } else if (pendingAction === "FAIL_SILENT_OFF" && faultMode === "NORMAL") {
+      delete pendingActionByNode[node];
+    } else if (pendingAction === "REBOOT" && faultMode !== "REBOOTING") {
+      // Node published again after reboot transition.
+      delete pendingActionByNode[node];
+    }
+    const isSilent = faultMode === "SILENT" || pendingAction === "FAIL_SILENT_ON";
+    const isRebooting = faultMode === "REBOOTING" || pendingAction === "REBOOT";
     const row = document.createElement("tr");
     row.innerHTML = `
     <td>${node}</td>
@@ -191,6 +283,7 @@ function render(data, options = {}) {
     <td>${item.ctrl_latency_ms ?? 0}</td>
     <td>${item.telemetry_latency_ms ?? 0}</td>
     <td>${item.window_ready ? "Yes" : "No"}</td>
+    <td>${faultMode}</td>
     <td class="status ${online ? "online" : "offline"}">
       ${online ? "Online" : "Offline"}
     </td>
@@ -233,8 +326,42 @@ function render(data, options = {}) {
           />
         </label>
       </div>
+      <div class="node-actions">
+        <button
+          type="button"
+          data-type="mqtt-toggle"
+          data-node="${node}"
+          data-mqtt-on="${isSilent ? "0" : "1"}"
+          class="mqtt-toggle ${isSilent ? "off" : "on"}"
+        >${isSilent ? "MQTT OFF" : "MQTT ON"}</button>
+        <button
+          type="button"
+          data-type="reboot-btn"
+          data-node="${node}"
+          class="reboot-btn ${isRebooting ? "rebooting" : ""}"
+        >${isRebooting ? "REBOOTING..." : "REBOOT"}</button>
+      </div>
     </td>
   `;
+
+    const mqttBtn = row.querySelector("button[data-type='mqtt-toggle']");
+    if (mqttBtn) {
+      mqttBtn.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const mqttOn = mqttBtn.dataset.mqttOn === "1";
+        toggleMqttForNode(node, mqttOn ? 1 : 0, mqttBtn);
+      });
+    }
+
+    const rebootBtn = row.querySelector("button[data-type='reboot-btn']");
+    if (rebootBtn) {
+      rebootBtn.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+        rebootNode(node, rebootBtn);
+      });
+    }
 
     tableBody.appendChild(row);
   });
@@ -251,7 +378,8 @@ async function fetchState() {
       active &&
       active.tagName === "INPUT" &&
       (active.dataset.type === "load-input" || active.dataset.type === "blocks-input");
-    render(data, { skipTable: isEditing });
+    const isBusy = Date.now() < uiBusyUntilMs;
+    render(data, { skipTable: isEditing || isBusy });
   } catch (err) {
     // ignore transient errors
   }
@@ -270,6 +398,22 @@ async function fetchLogSession() {
   }
 }
 
+async function fetchFailover() {
+  try {
+    const res = await fetch("/api/failover");
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!failoverEl) return;
+    const items = data.events || [];
+    const lines = items.map((e) => {
+      const status = e.status === "failed" ? "FAILED" : "OK";
+      return `${e.node_id}: ${status} (age=${e.age_sec}s)`;
+    });
+    failoverEl.textContent = lines.join(" | ");
+  } catch (err) {
+    // ignore transient errors
+  }
+}
 async function restartLogging() {
   try {
     const res = await fetch("/api/logging/restart", { method: "POST" });
@@ -320,6 +464,11 @@ document.addEventListener("change", (e) => {
   sendControl(node, value);
 });
 
+if (tableBody) {
+  tableBody.addEventListener("mousedown", () => markUiBusy(1800));
+  tableBody.addEventListener("touchstart", () => markUiBusy(1800), { passive: true });
+}
+
 document.addEventListener("change", (e) => {
   const input = e.target.closest("input[data-type='load-input']");
   if (!input) return;
@@ -364,7 +513,18 @@ document.addEventListener("change", (e) => {
 fetchState();
 setInterval(fetchState, 1000);
 fetchLogSession();
+setInterval(fetchFailover, 1000);
 
 if (restartLoggingBtn) {
   restartLoggingBtn.addEventListener("click", restartLogging);
+}
+
+if (rebootAllBtn) {
+  rebootAllBtn.addEventListener("click", () => {
+    if (!window.confirm("REBOOT all nodes?")) return;
+    setControlFeedback(`Clicked REBOOT -> ALL (${Object.keys(lastSnapshot || {}).length} nodes)`, true);
+    markUiBusy(4000);
+    markPendingAll("REBOOT");
+    sendAction("all", "REBOOT");
+  });
 }

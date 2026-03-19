@@ -21,6 +21,18 @@
 
 #include <stdlib.h>
 
+/*
+ * Contributions (dissertation-aligned):
+ * 1) Empirical schedulability characterization:
+ *    Reproducible load-sweep harness for periodic FreeRTOS tasks, yielding
+ *    WCET-proxy and deadline-miss evidence comparable with RM/RTA analysis.
+ * 2) Fault-observable telemetry design:
+ *    Windowed telemetry schema mapping timing/omission/crash classes to
+ *    explicit signals (miss counter, heartbeat gap, telemetry silence).
+ * 3) Reproducible evaluation infrastructure:
+ *    Session-based experiment pipeline (load_sweep + analyze_logs) with
+ *    repeatability controls (warmup, skip-seconds, window-ready gating).
+ */
 void app_main(void)
 {
     // Allocate shared context used by all tasks and network layers.
@@ -40,7 +52,7 @@ void app_main(void)
     ctx->boot_id = (uint32_t)esp_random();
     ctx->time_offset_ms = 0;
     ctx->time_sync_ready = 0;
-    ctx->boot_id = (uint32_t)esp_random();
+    ctx->telemetry_suppressed = 0;
 
     // NVS is required by the Wi-Fi stack.
     esp_err_t nvs_ret = nvs_flash_init();
