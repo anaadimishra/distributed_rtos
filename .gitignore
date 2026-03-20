@@ -20,7 +20,6 @@ __pycache__/
 *.swp
 *.tmp
 firmware/main/config/config.h
-firmware-esp32/main/config/config.h
 firmware-esp32/main/config/wifi_secrets.h
 config.h
 *secrets*.h
