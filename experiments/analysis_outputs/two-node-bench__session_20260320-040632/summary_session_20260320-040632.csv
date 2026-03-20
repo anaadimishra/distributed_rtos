@@ -1,0 +1,18 @@
+# latency_delta shows load-induced overhead above baseline network jitter. Weak correlation confirms jitter dominates.
+node_id,load,cpu_mean,cpu_p95,cpu_std,volatility_score,queue_mean,queue_p95,eff_blocks_mean,exec_max_p95,miss_p95,ctrl_latency_p95_ms,telemetry_latency_p95_ms,baseline_latency_ms,latency_delta_ms,drift_mean_ms,drift_p95_ms,drift_max_ms,warning
+node-7115F8,100,9,9,0.0,0.0,0,0,2,2,0,0,26,26,0,0,0,0,ok
+node-717AC4,100,9.25,9,0.43,0.43,1,1,2,1,0,0,29,29,0,0,0,0,queue
+node-7115F8,700,89,89,0.0,0.0,0,0,14,9,0,0,122,26,96,0,0,0,ok
+node-717AC4,700,89,89,0.0,0.0,1,1,14,9,0,0,59,29,30,0,0,0,queue
+node-7115F8,750,96,96,0.0,0.0,0,0,15,10,0,0,114,26,88,0,0,0,cpu_saturation
+node-717AC4,750,96,96,0.0,0.0,1,1,15,10,0,0,26,29,-3,0,0,0,queue|cpu_saturation
+node-7115F8,800,100,100,0.0,0.0,0,0,16,13,20,0,136,26,110,-2.38,0,0,miss|cpu_saturation
+node-717AC4,800,100,100,0.0,0.0,0.22,1,16,13,20,0,85,29,56,-0.11,0,0,miss|queue|cpu_saturation
+node-7115F8,850,100,100,0.0,0.0,0,0,17,14,20,0,165,26,139,0,0,0,miss|cpu_saturation
+node-717AC4,850,100,100,0.0,0.0,0,0,17,14,20,0,52,29,23,0,0,0,miss|cpu_saturation
+node-7115F8,900,100,100,0.0,0.0,0,0,18,15,20,0,98,26,72,0,0,0,miss|cpu_saturation
+node-717AC4,900,100,100,0.0,0.0,0,0,18,14,20,0,30,29,1,0,0,0,miss|cpu_saturation
+node-7115F8,950,100,100,0.0,0.0,0,0,19,15,20,0,165,26,139,0,0,0,miss|cpu_saturation
+node-717AC4,950,100,100,0.0,0.0,0,0,19,15,20,0,71,29,42,0,0,0,miss|cpu_saturation
+node-7115F8,1000,100,100,0.0,0.0,0,0,20,16,20,0,114,26,88,0,0,0,miss|cpu_saturation
+node-717AC4,1000,100,100,0.0,0.0,0.14,0,20,16,20,0,30,29,1,0,0,0,miss|cpu_saturation
