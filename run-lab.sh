@@ -341,6 +341,7 @@ if [[ "$DO_TEST" == true ]]; then
   sleep 10
 
   echo "[test] running load sweep (server must be running)"
+  RUN_OUT_BASE="experiments/last_run_${TEST_LABEL}_$(date +%Y%m%d-%H%M%S).json"
   SWEEP_CMD=(python experiments/load_sweep.py
       --repeat "$TEST_REPEAT"
       --label "$TEST_LABEL"
@@ -349,13 +350,20 @@ if [[ "$DO_TEST" == true ]]; then
       --step "$TEST_STEP"
       --hold-seconds "$TEST_HOLD_SECONDS"
       --warmup-load "$TEST_WARMUP_LOAD"
-      --warmup-seconds "$TEST_WARMUP_SECONDS")
+      --warmup-seconds "$TEST_WARMUP_SECONDS"
+      --out "$RUN_OUT_BASE")
   if [[ -n "$TEST_LOADS" ]]; then
     SWEEP_CMD+=(--loads "$TEST_LOADS")
   fi
   ( cd "$PROJ_ROOT" && "${SWEEP_CMD[@]}" )
 
-  for run_file in "${PROJ_ROOT}/experiments/last_run_"*.json; do
+  if [[ "$TEST_REPEAT" -gt 1 ]]; then
+    run_files=( "${PROJ_ROOT}/${RUN_OUT_BASE%.json}"_*.json )
+  else
+    run_files=( "${PROJ_ROOT}/${RUN_OUT_BASE}" )
+  fi
+
+  for run_file in "${run_files[@]}"; do
     session_id=$(python - <<PY
 import json
 with open("${run_file}", "r", encoding="utf-8") as f:
