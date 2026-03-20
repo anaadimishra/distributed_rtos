@@ -1,147 +1,138 @@
-## Designing a Fault-Tolerant Edge Cluster
+# Distributed RTOS Telemetry and Overload Evaluation (ESP32)
 
-An experimental distributed runtime layer for resource-constrained edge devices using FreeRTOS and ESP32-class hardware.
+A distributed real-time task runtime for ESP32 nodes running FreeRTOS, coordinated via MQTT with no central controller. Current evaluation across 1, 2, and 5-node topologies shows an overload boundary at load factor ~800 with the present compute workload.
 
-This project explores how embedded nodes can detect overload, share state, and cooperate without relying on a central master node.
-
-It is being developed as part of a research-oriented engineering dissertation and documented as an ongoing engineering log series.
-
----
-
-## Project Vision
-
-Most embedded systems assume stable execution and isolated control.
-
-This project challenges that assumption by treating edge devices as distributed systems.
-
-The goal is to design and implement:
-
-* Real-time telemetry exchange between nodes
-* Overload detection using CPU and queue metrics
-* Peer awareness without centralized coordination
-* Task delegation under stress
-* Logical failure handling
-
-The dashboard provides observability only.
-All system intelligence resides within the nodes.
-
----
-
-## System Architecture
-
-```
-[Node A]      [Node B]      [Node C]
-     ↓              ↓              ↓
-                MQTT Broker
-                     ↓
-            Monitoring Dashboard
-```
-
-Each node publishes telemetry:
-
-* CPU usage
-* Queue depth
-* Load factor
-
-The monitoring dashboard subscribes to cluster telemetry but does not coordinate execution.
-
----
+## Badges (optional)
+- Platform: ESP32 / FreeRTOS
+- Language: C
+- Broker: Mosquitto MQTT
+- License: see `LICENCE`
 
 ## Repository Structure
-
 ```
-firmware/            Embedded application (FreeRTOS-based)
-dashboard/           Flask-based monitoring interface
-docs/                Architecture notes and engineering logs
-Dockerfile.esp8266   Reproducible ESP8266 build environment
-RUNBOOK.md           Command reference and workflows
-```
-
-External SDKs and toolchains are intentionally excluded from version control.
-
----
-
-## Phase 1: ESP8266 Telemetry Validation
-
-Completed:
-
-* Modular FreeRTOS task structure
-* Metrics collection (CPU, queue depth, load factor)
-* MQTT telemetry publishing
-* Flask-based dashboard
-* Dockerized firmware build
-* LAN MQTT connectivity
-
-This phase validates the telemetry and observability pipeline.
-
-Tagged release:
-
-```
-v0.1-esp8266-baseline
+firmware-esp32/
+  main/
+    config/       — task periods, priorities, tunables
+    core/         — shared context, CPU metrics
+    network/      — Wi-Fi + MQTT (only layer touching ESP-IDF)
+    tasks/        — sensor, control, compute, manager tasks
+experiments/
+  load_sweep.py         — automated load sweep harness
+  analyze_logs.py       — CSV + plot generation
+  compare_topologies.py — cross-topology comparison
+  analysis_outputs/     — derived CSV/plots
+  run logs/             — per-session JSON metadata
+ dashboard/
+  app.py                — Flask observability dashboard
+  telemetry_logs/       — session JSONL output (gitignored)
+ docs/
+  engineering-logs/     — day-by-day logs
+  formal-grounding.md   — RTA and fault model
+  system-state-model.md
+  firmware-architecture.md
+  threats-to-validity.md
+  contributions.md
+run-lab.sh              — one-command test harness
 ```
 
----
+## Hardware Requirements
+- ESP32 development boards (tested with 1, 2, 4, and 5 nodes)
+- Shared Wi-Fi network
+- Host machine running Mosquitto broker and dashboard
 
-## Phase 2: ESP32 Migration (In Progress)
+## Quick Start (4 steps)
 
-Migration to ESP32 using ESP-IDF.
-
-Goals:
-
-* Preserve portable task and core logic
-* Rewrite only network layer
-* Maintain identical telemetry format
-* Prepare for distributed scheduling and delegation
-
----
-
-## Engineering Log
-
-The project is documented as a running engineering series.
-
-Topics include:
-
-* Toolchain isolation with Docker
-* Network binding and MQTT debugging
-* Layered architecture design
-* Trade-offs in distributed scheduling
-* Fault simulation and overload handling
-
-Logs are stored in:
-
-```
-docs/engineering-log/
+**1) Build firmware (ESP-IDF in Docker)**
+```bash
+cd firmware-esp32
+./build.sh  # or see RUNBOOK.md for your exact Docker/IDF setup
 ```
 
----
-
-## Formal Grounding
-
-Real-time feasibility and fault/safety assumptions are documented in:
-
+**2) Flash firmware (example)**
+```bash
+python -m esptool -p /dev/tty.usbserial-XXXX -b 460800 --before default-reset --after hard-reset --chip esp32 \
+  write-flash --flash-mode dio --flash-size detect --flash-freq 40m \
+  0x1000 build/bootloader/bootloader.bin \
+  0x8000 build/partition_table/partition-table.bin \
+  0x10000 build/firmware_esp32.bin
 ```
-docs/formal-grounding.md
+
+**3) Start broker + dashboard**
+```bash
+./run-lab.sh server
 ```
 
-This connects the implementation to RM/EDF feasibility conditions and defines the fault model used for evaluation.
+**4) Run a load sweep + analysis**
+```bash
+./run-lab.sh test --label one-node-bench --min-load 100 --max-load 1000 --step 100 --hold-seconds 20
+```
 
----
+## Configuration
+Key tunables in `firmware-esp32/main/config/config.h`:
 
-## Design Principles
+| Constant | Default | Description |
+|---|---|---|
+| `MATRIX_SIZE` | 22 | Compute kernel size |
+| `ACTIVE_BLOCKS` | 20 | Max blocks per cycle |
+| `PROCESSING_BLOCKS` | 25 | Scaling cap for load factor |
+| `PROCESSING_WINDOW_CYCLES` | 20 | Window size (~2s at 100ms period) |
+| `ENABLE_METRICS` | 1 | Toggle CPU profiling |
+| `ENABLE_MANAGER_TASK` | 1 | Toggle telemetry task |
 
-* Strict separation of portable logic and SDK-specific APIs
-* Reproducible build environments
-* Observability before optimization
-* No central scheduler unless absolutely necessary
-* Treat embedded clusters as distributed systems
+## Reproducing Dissertation Results
 
----
+**Single-node baseline**
+```bash
+./run-lab.sh test --label one-node-bench
+```
 
-## Roadmap
+**Two-node comparison**
+```bash
+./run-lab.sh test --label two-node-bench
+```
 
-1. ESP32 bring-up
-2. Heartbeat and node liveness detection
-3. Overload detection heuristics
-4. Delegation protocol design
-5. Fault injection experiments
-6. Performance evaluation and analysis
+**Five-node comparison**
+```bash
+./run-lab.sh test --label five-node-bench
+```
+
+**Cross-topology comparison**
+```bash
+python experiments/compare_topologies.py \
+  --session "1-node=experiments/analysis_outputs/one-node-bench__session_.../summary_....csv" \
+  --session "2-node=experiments/analysis_outputs/two-node-bench__session_.../summary_....csv" \
+  --session "5-node=experiments/analysis_outputs/five-node-bench__session_.../summary_....csv"
+```
+
+## Key Findings (current)
+- Overload boundary (first `miss_p95 > 0`) appears at load ~800 for the current compute kernel.
+- Load scaling is deterministic: `eff_blocks = load * PROCESSING_BLOCKS / DEFAULT_LOAD_FACTOR`, capped by `ACTIVE_BLOCKS`.
+- Telemetry and state models are observable and reproducible via session-based JSONL logs and analysis outputs.
+
+## Telemetry Schema (node payload)
+Typical fields published by each node:
+- `fw`, `boot_id`
+- `t_pub_ms`, `t_pub_epoch_ms`
+- `t_actual_publish_ms`, `t_expected_publish_ms`, `drift_ms`
+- `state` (SCHEDULABLE/SATURATED/OVERLOADED)
+- `cpu`, `queue`, `load`, `blocks`, `eff_blocks`
+- `last_ctrl_seq`
+- `exec_avg`, `exec_max`, `miss`, `window_ready`
+
+Dashboard adds derived fields in logs:
+- `telemetry_latency_ms`, `ctrl_latency_ms`, `t_rx_ms`
+
+## Fault Injection Controls (Dashboard)
+- `REBOOT` — restarts node
+- `FAIL_SILENT_ON/OFF` — stop/resume telemetry publish
+- `MQTT ON/OFF` — UI alias for fail-silent state
+
+## Dependencies
+- Firmware: ESP-IDF + FreeRTOS (bundled)
+- Broker: Mosquitto 2.x
+- Dashboard: Python 3.9+, Flask, paho-mqtt
+- Analysis: Python 3.9+, pandas, matplotlib
+- Build: Docker (linux/amd64) for Apple Silicon
+
+## License
+See `LICENCE`.
