@@ -10,3 +10,9 @@ Use this section directly in dissertation introduction as a numbered list.
 
 3. Reproducible evaluation infrastructure  
    A session-based experiment pipeline (`run-lab.sh`, `load_sweep.py`, `analyze_logs.py`) with window-ready gating, skip-seconds control, repeatability summaries, baseline/overhead comparison, and analysis outputs structured for dissertation figures/tables.
+
+4. Bounded multi-peer delegation with observable backpressure  
+   A fixed-channel delegation mechanism that dispatches real matrix inputs over MQTT, bounds per-peer in-flight work, skips busy delegated blocks instead of collapsing into local fallback, reclaims timed-out pending slots, and exposes all relevant counters in telemetry.
+
+5. Embedded fault diagnosis integrated into the experiment harness  
+   Automated serial capture (`run-lab.sh --serial-monitor`) records one log per attached ESP32 during experiments, allowing dashboard-level symptoms such as reboot or telemetry loss to be mapped to concrete firmware faults such as task stack overflow and reset reason.

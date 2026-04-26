@@ -1,0 +1,5 @@
+node_id,role,total_samples,idle_samples,requesting_samples,active_samples,hosting_samples,deleg_active_pct,max_deleg_blocks,max_deleg_dispatched,max_deleg_returned,handshake_latency_ms,time_to_delegate_ms,delegation_duration_ms,delegation_fired
+node-2FCC00,bystander,185,36,0,0,149,80.54,0,0,0,,,,
+node-34A9F0,victim,181,146,1,34,0,19.34,9,465,397,1006,3029,,True
+node-7115F8,bystander,185,170,1,10,4,8.11,10,53,49,,,,
+node-717AC4,bystander,180,168,1,7,4,6.67,10,64,58,,,,

@@ -2,6 +2,7 @@
 #include "tasks/compute_task.h"
 #include "config/config.h"
 #include "core/metrics.h"
+#include "network/delegation.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -89,8 +90,47 @@ void compute_task(void *param)
             ctx->effective_blocks = blocks;
         }
 
-        for (uint32_t i = 0; i < blocks; i++) {
+        /* Increment cycle counter for work-item tracking. */
+        if (ctx != NULL) {
+            ctx->compute_cycle_id++;
+        }
+
+        /* When any channels are ACTIVE, run fewer blocks locally — the delegated
+         * blocks are executed remotely by host peers. This is what produces
+         * the observable CPU reduction on the victim node. */
+        uint32_t local_blocks = blocks;
+        uint32_t dispatch_blocks = 0;
+        int total_delegated = delegation_total_delegated_blocks(ctx);
+        if (ctx != NULL && total_delegated > 0) {
+            dispatch_blocks = (uint32_t)total_delegated;
+            local_blocks = (blocks > dispatch_blocks) ? blocks - dispatch_blocks : 0;
+        }
+
+        for (uint32_t i = 0; i < local_blocks; i++) {
             compute_kernel();
+        }
+
+        if (dispatch_blocks > 0) {
+            for (uint32_t d = 0; d < dispatch_blocks; d++) {
+                delegation_dispatch_result_t dispatch_result =
+                    delegation_dispatch_work_item(ctx, (int)d,
+                                                  (const int *)matrix_a,
+                                                  (const int *)matrix_b);
+                if (dispatch_result == DISPATCH_BUSY) {
+                    if (ctx != NULL) {
+                        ctx->deleg_busy_skip++;
+                    }
+                    continue;
+                }
+
+                if (dispatch_result == DISPATCH_ERROR) {
+                    if (ctx != NULL) {
+                        ctx->deleg_dispatch_err++;
+                    }
+                    /* Explicit non-recoverable fallback path only. */
+                    compute_kernel();
+                }
+            }
         }
 
         TickType_t end = xTaskGetTickCount();

@@ -1,0 +1,104 @@
+{
+  "session_id": "session_20260426-211346",
+  "label": "deleg-load800-run1",
+  "assigned_victim": "node-34A9F0",
+  "actual_delegator": "node-34A9F0",
+  "actual_host": null,
+  "bystanders": [
+    "node-2FCC00",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 800,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777218234.1521752,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777218264.156906,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777218264.169046,
+      "kind": "stress_start",
+      "victim": "node-34A9F0",
+      "high_load": 800,
+      "low_load": 200
+    },
+    {
+      "t": 1777218266.189783,
+      "kind": "deleg_requesting",
+      "node": "node-34A9F0"
+    },
+    {
+      "t": 1777218266.189867,
+      "kind": "stale_hosting_ignored",
+      "host": "node-7115F8",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777218266.189885,
+      "kind": "stale_hosting_ignored",
+      "host": "node-717AC4",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777218267.1956532,
+      "kind": "stale_hosting_ignored",
+      "host": "node-2FCC00",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777218267.1957278,
+      "kind": "deleg_active",
+      "delegator": "node-34A9F0",
+      "peer": "node-2FCC00",
+      "blocks": 9,
+      "handshake_ms": 1006
+    },
+    {
+      "t": 1777218324.6380758,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777218415.270826,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777218415.281779,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777218445.510735,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": true,
+    "t_requesting": 1777218266.189783,
+    "t_active": 1777218267.1957278,
+    "t_hosting": null,
+    "t_idle": null,
+    "handshake_latency_ms": 1006,
+    "time_to_delegate_ms": 3027,
+    "delegation_duration_ms": null,
+    "victim_not_stressed": false,
+    "victim_precheck_warned": false,
+    "victim_max_cpu": 100,
+    "victim_max_stress_level": 2,
+    "victim_max_eff_blocks": 16,
+    "victim_max_miss": 20
+  }
+}

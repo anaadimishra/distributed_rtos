@@ -1,0 +1,76 @@
+{
+  "session_id": "session_20260426-181144",
+  "label": "multi-peer-run7",
+  "assigned_victim": "node-34A9F0",
+  "actual_delegator": null,
+  "actual_host": "node-7115F8",
+  "bystanders": [
+    "node-2FCC00",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777207323.2412941,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777207353.244904,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777207353.25675,
+      "kind": "stress_start",
+      "victim": "node-34A9F0",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777207356.2763882,
+      "kind": "deleg_hosting",
+      "host": "node-7115F8",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777207413.7123368,
+      "kind": "deleg_timeout",
+      "elapsed_s": 60.5
+    },
+    {
+      "t": 1777207413.7125819,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777207454.0222132,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777207454.035077,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777207484.261068,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": false,
+    "t_requesting": null,
+    "t_active": null,
+    "t_hosting": 1777207356.2763882,
+    "t_idle": null,
+    "handshake_latency_ms": null,
+    "time_to_delegate_ms": null,
+    "delegation_duration_ms": null
+  }
+}

@@ -9,6 +9,7 @@ idf_component_register(
         "tasks/manager_task.c"
         "network/wifi.c"
         "network/mqtt.c"
+        "network/delegation.c"
     INCLUDE_DIRS
         "."
         "core"

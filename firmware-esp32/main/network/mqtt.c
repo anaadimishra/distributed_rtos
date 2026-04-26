@@ -1,5 +1,6 @@
 // MQTT client setup, telemetry publish, and control message handling.
 #include "network/mqtt.h"
+#include "network/delegation.h"
 #include "config/config.h"
 
 #include <string.h>
@@ -14,8 +15,16 @@
 #include "mqtt_client.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/semphr.h"
+
+static bool ends_with(const char *s, int slen, const char *suffix) {
+    int n = (int)strlen(suffix);
+    return slen >= n && strncmp(s + slen - n, suffix, n) == 0;
+}
 
 static const char *MQTT_TAG = "mqtt";
+static const char *TELEMETRY_PREFIX = "cluster/";
+static const char *TELEMETRY_SUFFIX = "/telemetry";
 
 typedef enum {
     CONTROL_ACTION_NONE = 0,
@@ -27,6 +36,128 @@ typedef enum {
     CONTROL_ACTION_FAIL_SILENT_ON,
     CONTROL_ACTION_FAIL_SILENT_OFF,
 } control_action_t;
+
+static bool parse_stress_level(const char *data, int len, uint8_t *out_stress)
+{
+    if (data == NULL || out_stress == NULL || len <= 0) {
+        return false;
+    }
+
+    if (len > 255) {
+        len = 255;
+    }
+
+    char buf[256];
+    memcpy(buf, data, len);
+    buf[len] = '\0';
+
+    char *key = strstr(buf, "\"stress_level\"");
+    if (key == NULL) {
+        return false;
+    }
+    char *colon = strchr(key, ':');
+    if (colon == NULL) {
+        return false;
+    }
+    char *num_start = colon + 1;
+    while (*num_start == ' ' || *num_start == '\t') {
+        num_start++;
+    }
+
+    char *endptr = NULL;
+    long level = strtol(num_start, &endptr, 10);
+    if (endptr == num_start || level < 0 || level > 2) {
+        return false;
+    }
+
+    *out_stress = (uint8_t)level;
+    return true;
+}
+
+static bool parse_telemetry_topic_node(const char *topic, int topic_len, char *out_node_id, size_t out_len)
+{
+    if (topic == NULL || topic_len <= 0 || out_node_id == NULL || out_len == 0) {
+        return false;
+    }
+    if (topic_len > 127) {
+        return false;
+    }
+
+    char topic_buf[128];
+    memcpy(topic_buf, topic, topic_len);
+    topic_buf[topic_len] = '\0';
+
+    size_t prefix_len = strlen(TELEMETRY_PREFIX);
+    size_t suffix_len = strlen(TELEMETRY_SUFFIX);
+    if (strlen(topic_buf) <= prefix_len + suffix_len) {
+        return false;
+    }
+    if (strncmp(topic_buf, TELEMETRY_PREFIX, prefix_len) != 0) {
+        return false;
+    }
+
+    char *suffix_pos = strstr(topic_buf + prefix_len, TELEMETRY_SUFFIX);
+    if (suffix_pos == NULL) {
+        return false;
+    }
+
+    size_t node_len = (size_t)(suffix_pos - (topic_buf + prefix_len));
+    if (node_len == 0 || node_len >= out_len) {
+        return false;
+    }
+
+    memcpy(out_node_id, topic_buf + prefix_len, node_len);
+    out_node_id[node_len] = '\0';
+    return true;
+}
+
+static void update_peer_state(system_context_t *ctx, const char *node_id, uint8_t stress_level)
+{
+    if (ctx == NULL || node_id == NULL || node_id[0] == '\0') {
+        return;
+    }
+
+    if (xSemaphoreTake(ctx->peers_mutex, pdMS_TO_TICKS(50)) != pdTRUE) {
+        return;
+    }
+
+    uint32_t now_ms = (uint32_t)(xTaskGetTickCount() * portTICK_PERIOD_MS);
+    int free_idx = -1;
+    int replace_idx = -1;
+    uint32_t oldest_seen = UINT32_MAX;
+
+    for (int i = 0; i < MAX_PEERS; i++) {
+        peer_state_t *peer = &ctx->peers[i];
+        if (peer->valid) {
+            if (strncmp(peer->node_id, node_id, sizeof(peer->node_id)) == 0) {
+                peer->stress_level = stress_level;
+                peer->last_seen_ms = now_ms;
+                xSemaphoreGive(ctx->peers_mutex);
+                return;
+            }
+            if (peer->last_seen_ms < oldest_seen) {
+                oldest_seen = peer->last_seen_ms;
+                replace_idx = i;
+            }
+        } else if (free_idx < 0) {
+            free_idx = i;
+        }
+    }
+
+    int idx = (free_idx >= 0) ? free_idx : replace_idx;
+    if (idx < 0) {
+        xSemaphoreGive(ctx->peers_mutex);
+        return;
+    }
+
+    peer_state_t *slot = &ctx->peers[idx];
+    snprintf(slot->node_id, sizeof(slot->node_id), "%s", node_id);
+    slot->stress_level = stress_level;
+    slot->last_seen_ms = now_ms;
+    slot->valid = 1;
+
+    xSemaphoreGive(ctx->peers_mutex);
+}
 
 // Replace "{node_id}" in a topic template with the actual node ID.
 static void format_topic(char *out, size_t out_len, const char *tpl, const char *node_id)
@@ -166,8 +297,46 @@ static void mqtt_event_handler(void *handler_args,
         case MQTT_EVENT_CONNECTED:
             // Subscribe to control messages for this node.
             esp_mqtt_client_subscribe(event->client, ctx->control_topic, 0);
+            // Subscribe to cluster telemetry to observe peer stress levels.
+            esp_mqtt_client_subscribe(event->client, "cluster/+/telemetry", 0);
+            {
+                char dreq[80], drep[80], witem[80], wres[80];
+                snprintf(dreq,  sizeof(dreq),  "cluster/%s/delegate_request", ctx->node_id);
+                snprintf(drep,  sizeof(drep),  "cluster/%s/delegate_reply",   ctx->node_id);
+                snprintf(witem, sizeof(witem), "cluster/%s/work_item",         ctx->node_id);
+                snprintf(wres,  sizeof(wres),  "cluster/%s/work_result",       ctx->node_id);
+                esp_mqtt_client_subscribe(event->client, dreq,  0);
+                esp_mqtt_client_subscribe(event->client, drep,  0);
+                esp_mqtt_client_subscribe(event->client, witem, 0);
+                esp_mqtt_client_subscribe(event->client, wres,  0);
+            }
             break;
         case MQTT_EVENT_DATA: {
+            // Receive peer telemetry and update fixed peer table.
+            char peer_node_id[16];
+            if (ctx != NULL &&
+                parse_telemetry_topic_node(event->topic, event->topic_len, peer_node_id, sizeof(peer_node_id)) &&
+                strncmp(peer_node_id, ctx->node_id, sizeof(peer_node_id)) != 0) {
+                uint8_t peer_stress = 0;
+                if (parse_stress_level(event->data, event->data_len, &peer_stress)) {
+                    update_peer_state(ctx, peer_node_id, peer_stress);
+                }
+            }
+
+            // Delegation handshake topics.
+            if (ends_with(event->topic, event->topic_len, "/delegate_request")) {
+                delegation_handle_request(ctx, event->data, event->data_len);
+            } else if (ends_with(event->topic, event->topic_len, "/delegate_reply")) {
+                delegation_handle_reply(ctx, event->data, event->data_len);
+            }
+
+            // Work item dispatch topics.
+            if (ends_with(event->topic, event->topic_len, "/work_item")) {
+                delegation_handle_work_item(ctx, event->data, event->data_len);
+            } else if (ends_with(event->topic, event->topic_len, "/work_result")) {
+                delegation_handle_work_result(ctx, event->data, event->data_len);
+            }
+
             // Only handle messages on this node's control topic.
             if (event->topic_len == (int)strlen(ctx->control_topic) &&
                 strncmp(event->topic, ctx->control_topic, event->topic_len) == 0) {
@@ -285,6 +454,8 @@ void mqtt_start(system_context_t *ctx)
     config.client_id = ctx->node_id;
     config.user_context = ctx;
     config.disable_auto_reconnect = false;
+    /* Raise MQTT buffer to accommodate full matrix payloads (~16–20 KB per message). */
+    config.buffer_size = 32768;
 
     ctx->mqtt_client = esp_mqtt_client_init(&config);
     if (ctx->mqtt_client == NULL) {

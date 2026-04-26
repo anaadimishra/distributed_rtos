@@ -1,0 +1,104 @@
+{
+  "session_id": "session_20260426-203203",
+  "label": "multi-peer-run9",
+  "assigned_victim": "node-34A9F0",
+  "actual_delegator": "node-34A9F0",
+  "actual_host": null,
+  "bystanders": [
+    "node-2FCC00",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777215728.278214,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777215758.282859,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777215758.297334,
+      "kind": "stress_start",
+      "victim": "node-34A9F0",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777215760.3198678,
+      "kind": "stale_hosting_ignored",
+      "host": "node-2FCC00",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777215760.3199391,
+      "kind": "deleg_requesting",
+      "node": "node-34A9F0"
+    },
+    {
+      "t": 1777215760.319954,
+      "kind": "stale_hosting_ignored",
+      "host": "node-7115F8",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777215760.319968,
+      "kind": "stale_hosting_ignored",
+      "host": "node-717AC4",
+      "peer": "node-34A9F0",
+      "blocks": 0
+    },
+    {
+      "t": 1777215761.3264,
+      "kind": "deleg_active",
+      "delegator": "node-34A9F0",
+      "peer": "node-2FCC00",
+      "blocks": 9,
+      "handshake_ms": 1006
+    },
+    {
+      "t": 1777215818.7493298,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777215879.182275,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777215879.191307,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777215909.430686,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": true,
+    "t_requesting": 1777215760.3199391,
+    "t_active": 1777215761.3264,
+    "t_hosting": null,
+    "t_idle": null,
+    "handshake_latency_ms": 1006,
+    "time_to_delegate_ms": 3029,
+    "delegation_duration_ms": null,
+    "victim_not_stressed": false,
+    "victim_precheck_warned": false,
+    "victim_max_cpu": 98,
+    "victim_max_stress_level": 2,
+    "victim_max_eff_blocks": 19,
+    "victim_max_miss": 20
+  }
+}

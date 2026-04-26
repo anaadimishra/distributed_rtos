@@ -30,6 +30,17 @@ void metrics_update_cpu_load(system_context_t *ctx)
         return;
     }
 
+    /* Discard the first call: idle_prev starts at 0, so the first delta would
+     * be the total idle count since boot (several seconds), not a 1-second
+     * window. Seeding idle_prev here gives every subsequent sample a clean
+     * 1-second delta and prevents baseline inflation after crash reboots. */
+    static bool first_call = true;
+    if (first_call) {
+        first_call = false;
+        idle_prev = idle_counter;
+        return;
+    }
+
     uint32_t idle_now = idle_counter;
     uint32_t delta = idle_now - idle_prev;
 

@@ -255,9 +255,11 @@ def main():
             miss = [r["payload"].get("miss", 0) for r in window]
             exec_max = [r["payload"].get("exec_max", 0) for r in window]
             eff_blocks = [r["payload"].get("eff_blocks", 0) for r in window]
+            stress = [r["payload"].get("stress_level", 0) for r in window]
             ctrl_lat = [r.get("ctrl_latency_ms", 0) for r in window]
             telem_lat = [r.get("telemetry_latency_ms", 0) for r in window]
             drift = [r["payload"].get("drift_ms", 0) for r in window]
+            deleg_states = [r["payload"].get("deleg_state", "IDLE") for r in window]
 
             cpu_mean = statistics.mean(cpu)
             cpu_std = stddev(cpu)
@@ -265,7 +267,7 @@ def main():
             warning_flags = []
             if p95(miss) > 0:
                 warning_flags.append("miss")
-            if p95(queue) > 0:
+            if p95(queue) > 4:
                 warning_flags.append("queue")
             if p95(cpu) >= 90:
                 warning_flags.append("cpu_saturation")
@@ -281,6 +283,8 @@ def main():
                 "queue_mean": round(statistics.mean(queue), 2),
                 "queue_p95": p95(queue),
                 "eff_blocks_mean": round(statistics.mean(eff_blocks), 2),
+                "stress_p95": p95(stress),
+                "stress_high_ratio_pct": round((100.0 * sum(1 for s in stress if int(s) == 2) / len(stress)), 2),
                 "exec_max_p95": p95(exec_max),
                 "miss_p95": p95(miss),
                 "ctrl_latency_p95_ms": p95(ctrl_lat),
@@ -288,6 +292,12 @@ def main():
                 "drift_mean_ms": round(statistics.mean(drift), 2),
                 "drift_p95_ms": p95(drift),
                 "drift_max_ms": max(drift) if drift else 0,
+                "deleg_active_ratio_pct": round(
+                    100.0 * sum(1 for s in deleg_states if s in ("REQUESTING", "ACTIVE", "HOSTING")) / len(deleg_states), 2
+                ),
+                "deleg_hosting_ratio_pct": round(
+                    100.0 * sum(1 for s in deleg_states if s == "HOSTING") / len(deleg_states), 2
+                ),
                 "warning": warning,
             })
 
@@ -316,6 +326,8 @@ def main():
             "queue_mean",
             "queue_p95",
             "eff_blocks_mean",
+            "stress_p95",
+            "stress_high_ratio_pct",
             "exec_max_p95",
             "miss_p95",
             "ctrl_latency_p95_ms",
@@ -325,6 +337,8 @@ def main():
             "drift_mean_ms",
             "drift_p95_ms",
             "drift_max_ms",
+            "deleg_active_ratio_pct",
+            "deleg_hosting_ratio_pct",
             "warning",
         ]
         f.write(",".join(headers) + "\n")
@@ -455,6 +469,38 @@ def main():
         plt.xlabel("Load")
         plt.ylabel("Exec Max p95 (ticks)")
         out_png = os.path.join(out_dir, f"exec_max_p95_{session_id}_{node}.png")
+        plt.savefig(out_png, dpi=150, bbox_inches="tight")
+        plt.close()
+        print(f"[plot] wrote {out_png}")
+
+    # Plot stress p95 vs load per node
+    for node in nodes:
+        node_rows = [r for r in summaries if r["node_id"] == node]
+        node_rows.sort(key=lambda r: (r["load"], r["node_id"]))
+        loads = [r["load"] for r in node_rows]
+        stress_p95 = [r["stress_p95"] for r in node_rows]
+        plt.figure()
+        plt.plot(loads, stress_p95, marker="o")
+        plt.title(f"Stress p95 vs Load ({node})")
+        plt.xlabel("Load")
+        plt.ylabel("Stress p95 (0=LOW,1=MEDIUM,2=HIGH)")
+        out_png = os.path.join(out_dir, f"stress_p95_{session_id}_{node}.png")
+        plt.savefig(out_png, dpi=150, bbox_inches="tight")
+        plt.close()
+        print(f"[plot] wrote {out_png}")
+
+    # Plot stress-high ratio vs load per node
+    for node in nodes:
+        node_rows = [r for r in summaries if r["node_id"] == node]
+        node_rows.sort(key=lambda r: (r["load"], r["node_id"]))
+        loads = [r["load"] for r in node_rows]
+        stress_high_ratio = [r["stress_high_ratio_pct"] for r in node_rows]
+        plt.figure()
+        plt.plot(loads, stress_high_ratio, marker="o")
+        plt.title(f"Stress HIGH Ratio vs Load ({node})")
+        plt.xlabel("Load")
+        plt.ylabel("HIGH Stress Samples (%)")
+        out_png = os.path.join(out_dir, f"stress_high_ratio_{session_id}_{node}.png")
         plt.savefig(out_png, dpi=150, bbox_inches="tight")
         plt.close()
         print(f"[plot] wrote {out_png}")

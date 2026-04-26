@@ -3,7 +3,7 @@
 #define CONFIG_H
 
 // Firmware identity tag (displayed in telemetry).
-#define FIRMWARE_VERSION "fw-0.1.2-debug"
+#define FIRMWARE_VERSION "fw-0.3.0-deleg"
 // Enable lightweight debug logging.
 #define DEBUG_LOGS 1
 // Profiling controls: disable to measure baseline compute behavior.
@@ -18,12 +18,15 @@
 // #define MQTT_CLIENT_ID "node-XXXXXX"
 
 // Topic templates. Use "{node_id}" as placeholder for runtime replacement.
-#define MQTT_TELEMETRY_TOPIC "cluster/{node_id}/telemetry"
-#define MQTT_CONTROL_TOPIC "cluster/{node_id}/control"
+#define MQTT_TELEMETRY_TOPIC    "cluster/{node_id}/telemetry"
+#define MQTT_CONTROL_TOPIC      "cluster/{node_id}/control"
+#define MQTT_WORK_ITEM_TOPIC    "cluster/{node_id}/work_item"
+#define MQTT_WORK_RESULT_TOPIC  "cluster/{node_id}/work_result"
 
 // Task periods (ms).
-#define SENSOR_PERIOD_MS 100
-#define CONTROL_PERIOD_MS 100
+// Distinct periods enable Rate Monotonic priority assignment (shorter period => higher priority).
+#define SENSOR_PERIOD_MS 20
+#define CONTROL_PERIOD_MS 50
 #define COMPUTE_PERIOD_MS 100
 #define MANAGER_PERIOD_MS 1000
 
@@ -33,14 +36,20 @@
 // Stack sizes.
 #define SENSOR_TASK_STACK_SIZE 2048
 #define CONTROL_TASK_STACK_SIZE 2048
-#define COMPUTE_TASK_STACK_SIZE 2048
-#define MANAGER_TASK_STACK_SIZE 3072
+// Compute also handles high-rate delegation dispatch/hosting JSON paths.
+#define COMPUTE_TASK_STACK_SIZE 8192
+// Manager also runs delegation selection and telemetry formatting.
+#define MANAGER_TASK_STACK_SIZE 6144
 
-// Task priorities.
+// Task priorities — Rate Monotonic ordering with one intentional deviation.
+// FreeRTOS: higher number = higher priority.
+// sensor (20ms) > control (50ms) follow RM strictly.
+// manager (1000ms) is elevated above compute (100ms) so telemetry remains
+// deliverable under compute saturation — deliberate observability design choice.
 #define SENSOR_TASK_PRIORITY 5
-#define CONTROL_TASK_PRIORITY 5
-#define COMPUTE_TASK_PRIORITY 2
+#define CONTROL_TASK_PRIORITY 4
 #define MANAGER_TASK_PRIORITY 3
+#define COMPUTE_TASK_PRIORITY 2
 
 // Default load scaling factor; compute load scales relative to this value.
 #define DEFAULT_LOAD_FACTOR 1000
@@ -62,5 +71,18 @@
 
 // Windowed stats: number of cycles per reporting window.
 #define PROCESSING_WINDOW_CYCLES 20   // 20 cycles = 2s (100ms period)
+
+// Distributed adaptation thresholds and limits.
+#define MAX_PEERS 8
+#define MAX_PENDING_WORK 20
+#define MAX_DELEGATION_CHANNELS 4
+#define DELEGATION_MAX_INFLIGHT_PER_CHANNEL 4
+#define DELEGATION_PENDING_TIMEOUT_MS 2000
+#define STRESS_EXEC_THRESHOLD_TICKS 8
+#define STRESS_CPU_THRESHOLD_PCT 85
+#define PEER_TIMEOUT_MS 5000
+#define ADAPT_LOAD_STEP 100
+#define ADAPT_LOW_WINDOWS_TO_INCREASE 9999  /* disabled during delegation validation */
+#define ADAPT_DECREASE_ENABLED 0            /* disabled during delegation validation */
 
 #endif

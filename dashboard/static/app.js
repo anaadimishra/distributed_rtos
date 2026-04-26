@@ -117,6 +117,12 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function stressLabel(level) {
+  if (level === 2) return "HIGH";
+  if (level === 1) return "MEDIUM";
+  return "LOW";
+}
+
 function markUiBusy(ms = 1500) {
   uiBusyUntilMs = Date.now() + ms;
 }
@@ -277,6 +283,7 @@ function render(data, options = {}) {
     <td>${node}</td>
     <td>${item.fw ?? ""}</td>
     <td>${item.state ?? "SCHEDULABLE"}</td>
+    <td>${stressLabel(item.stress_level ?? 0)}</td>
     <td>${item.cpu}</td>
     <td>${item.queue}</td>
     <td>${item.load}</td>
@@ -285,6 +292,11 @@ function render(data, options = {}) {
     <td>${item.telemetry_latency_ms ?? 0}</td>
     <td>${item.window_ready ? "Yes" : "No"}</td>
     <td>${faultMode}</td>
+    <td>${item.deleg_state ?? "IDLE"}</td>
+    <td>${item.deleg_peer ?? ""}</td>
+    <td>${item.deleg_blocks ?? 0}</td>
+    <td>${item.deleg_dispatched ?? 0}</td>
+    <td>${item.deleg_returned ?? 0}</td>
     <td class="status ${online ? "online" : "offline"}">
       ${online ? "Online" : "Offline"}
     </td>

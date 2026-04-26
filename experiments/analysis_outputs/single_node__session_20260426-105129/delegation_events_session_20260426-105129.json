@@ -1,0 +1,84 @@
+{
+  "session_id": "session_20260426-105129",
+  "label": "single_node",
+  "assigned_victim": "node-2FCC00",
+  "actual_delegator": "node-2FCC00",
+  "actual_host": "node-34A9F0",
+  "bystanders": [
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 400,
+  "events": [
+    {
+      "t": 1777180895.520391,
+      "kind": "warmup_start",
+      "load": 400
+    },
+    {
+      "t": 1777180925.5323598,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777180925.5512881,
+      "kind": "stress_start",
+      "victim": "node-2FCC00",
+      "high_load": 950,
+      "low_load": 400
+    },
+    {
+      "t": 1777180926.56409,
+      "kind": "deleg_requesting",
+      "node": "node-2FCC00"
+    },
+    {
+      "t": 1777180927.5694551,
+      "kind": "deleg_active",
+      "delegator": "node-2FCC00",
+      "peer": "node-34A9F0",
+      "blocks": 10,
+      "handshake_ms": 1005
+    },
+    {
+      "t": 1777180927.5695438,
+      "kind": "deleg_hosting",
+      "host": "node-34A9F0",
+      "peer": "node-2FCC00",
+      "blocks": 10
+    },
+    {
+      "t": 1777180927.569588,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777180967.916825,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777180967.9283772,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777180998.188606,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": true,
+    "t_requesting": 1777180926.56409,
+    "t_active": 1777180927.5694551,
+    "t_hosting": 1777180927.5695438,
+    "t_idle": null,
+    "handshake_latency_ms": 1005,
+    "time_to_delegate_ms": 2018,
+    "delegation_duration_ms": null
+  }
+}

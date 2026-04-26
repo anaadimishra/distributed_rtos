@@ -32,6 +32,8 @@ def main():
     metrics = [
         "cpu_mean",
         "cpu_p95",
+        "stress_p95",
+        "stress_high_ratio_pct",
         "exec_max_p95",
         "miss_p95",
         "telemetry_latency_p95_ms",

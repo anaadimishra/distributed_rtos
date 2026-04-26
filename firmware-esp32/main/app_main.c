@@ -54,6 +54,10 @@ void app_main(void)
     ctx->time_sync_ready = 0;
     ctx->telemetry_suppressed = 0;
 
+    /* Phase 4 — delegation init (channels[] zeroed by calloc → all CHAN_IDLE) */
+    ctx->peers_mutex = xSemaphoreCreateMutex();
+    configASSERT(ctx->peers_mutex != NULL);
+
     // NVS is required by the Wi-Fi stack.
     esp_err_t nvs_ret = nvs_flash_init();
     if (nvs_ret == ESP_ERR_NVS_NO_FREE_PAGES || nvs_ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {

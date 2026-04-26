@@ -12,7 +12,11 @@ set -euo pipefail
 #   ./run-lab.sh monitor         # open minicom on a selected/auto-detected serial port
 #   ./run-lab.sh test            # run load sweep + analyze (server must be running)
 #   ./run-lab.sh baseline        # build with ENABLE_METRICS=0 + baseline sweep (100,500,800)
+#   ./run-lab.sh delegation      # run delegation validation experiment (3 nodes recommended)
 #   ./run-lab.sh test --label "2nodes-base" --min-load 700 --max-load 1000 --step 50 --hold-seconds 20 --repeat 1
+#   ./run-lab.sh delegation --high-load 950 --low-load 400 --hold-seconds 40 --label delegation-bench
+#   ./run-lab.sh delegation --victim node-AABBCC --high-load 950 --low-load 400
+#   ./run-lab.sh delegation --serial-monitor --label delegation-with-serial
 #   ./run-lab.sh build flash     # build then flash
 #   ./run-lab.sh flash --port /dev/tty.usbserial-0001
 # ----------------------------------------------------------------------------
@@ -90,6 +94,7 @@ DO_SERVER=false
 DO_MONITOR=false
 DO_TEST=false
 DO_BASELINE=false
+DO_DELEGATION=false
 STARTED_SERVER_FOR_TEST=false
 TEST_LABEL="single_node"
 TEST_MIN_LOAD=100
@@ -102,6 +107,19 @@ TEST_WARMUP_SECONDS=10
 TEST_LOADS=""
 MONITOR_PORT=""
 MINICOM_BAUD=115200
+SERIAL_MONITOR=false
+SERIAL_BAUD=115200
+SERIAL_LOG_ROOT="$PROJ_ROOT/serial_logs"
+SERIAL_MONITOR_STATE=""
+SERIAL_MONITOR_OUT=""
+DELEG_HIGH_LOAD=950
+DELEG_LOW_LOAD=400
+DELEG_WARMUP_SECONDS=30
+DELEG_HOLD_SECONDS=40
+DELEG_VICTIM=""
+DELEG_MIN_NODES=2
+DELEG_NODES_TIMEOUT=90
+DELEG_NODES_SETTLE_SECONDS=8
 
 if [[ $# -eq 0 ]]; then
   DO_BUILD=true
@@ -117,6 +135,7 @@ while [[ $# -gt 0 ]]; do
     monitor) DO_MONITOR=true ;;
     test) DO_TEST=true ;;
     baseline) DO_BASELINE=true ;;
+    delegation) DO_DELEGATION=true ;;
     all)
       DO_BUILD=true
       DO_FLASH=true
@@ -151,6 +170,7 @@ while [[ $# -gt 0 ]]; do
       shift
       [[ $# -gt 0 ]] || abort "--hold-seconds requires a value"
       TEST_HOLD_SECONDS="$1"
+      DELEG_HOLD_SECONDS="$1"
       ;;
     --repeat)
       shift
@@ -182,6 +202,50 @@ while [[ $# -gt 0 ]]; do
       shift
       [[ $# -gt 0 ]] || abort "--baud requires a value"
       MINICOM_BAUD="$1"
+      SERIAL_BAUD="$1"
+      ;;
+    --serial-monitor)
+      SERIAL_MONITOR=true
+      ;;
+    --serial-log-dir)
+      shift
+      [[ $# -gt 0 ]] || abort "--serial-log-dir requires a value"
+      SERIAL_LOG_ROOT="$1"
+      ;;
+    --serial-baud)
+      shift
+      [[ $# -gt 0 ]] || abort "--serial-baud requires a value"
+      SERIAL_BAUD="$1"
+      ;;
+    --high-load)
+      shift
+      [[ $# -gt 0 ]] || abort "--high-load requires a value"
+      DELEG_HIGH_LOAD="$1"
+      ;;
+    --low-load)
+      shift
+      [[ $# -gt 0 ]] || abort "--low-load requires a value"
+      DELEG_LOW_LOAD="$1"
+      ;;
+    --victim)
+      shift
+      [[ $# -gt 0 ]] || abort "--victim requires a value"
+      DELEG_VICTIM="$1"
+      ;;
+    --min-nodes)
+      shift
+      [[ $# -gt 0 ]] || abort "--min-nodes requires a value"
+      DELEG_MIN_NODES="$1"
+      ;;
+    --nodes-timeout)
+      shift
+      [[ $# -gt 0 ]] || abort "--nodes-timeout requires a value"
+      DELEG_NODES_TIMEOUT="$1"
+      ;;
+    --nodes-settle-seconds)
+      shift
+      [[ $# -gt 0 ]] || abort "--nodes-settle-seconds requires a value"
+      DELEG_NODES_SETTLE_SECONDS="$1"
       ;;
     --no-auto)
       AUTO_DISCOVER=false
@@ -226,6 +290,11 @@ if [[ "$DO_TEST" == true ]]; then
 fi
 if [[ "$DO_BASELINE" == true ]]; then
   require_cmd docker
+  require_cmd python
+  require_cmd mosquitto
+  require_cmd pgrep
+fi
+if [[ "$DO_DELEGATION" == true ]]; then
   require_cmd python
   require_cmd mosquitto
   require_cmd pgrep
@@ -304,12 +373,47 @@ start_server() {
   echo "[dashboard] starting Flask app"
   DASHBOARD_QUIET=1 python app.py >>/tmp/distributed-rtos-dashboard.log 2>&1 &
   DASH_PID=$!
+  echo "[dashboard] http://localhost:5000"
   cd "$prev_dir"
 }
 
 stop_server() {
   echo "[stop] stopping mqtt/dashboard"
   kill "${MQTT_PID:-}" "${DASH_PID:-}" 2>/dev/null || true
+}
+
+start_serial_capture() {
+  [[ "$SERIAL_MONITOR" == true ]] || return 0
+
+  require_cmd screen
+  local stamp
+  stamp="$(date +%Y%m%d-%H%M%S)"
+  mkdir -p "$SERIAL_LOG_ROOT"
+  SERIAL_MONITOR_STATE="$SERIAL_LOG_ROOT/runlab_${stamp}.sessions"
+  SERIAL_MONITOR_OUT="$SERIAL_LOG_ROOT/runlab_${stamp}.out"
+
+  echo "[serial] starting detached monitors"
+  echo "[serial] output log: $SERIAL_MONITOR_OUT"
+  (
+    cd "$PROJ_ROOT"
+    ./tools/serial-monitors.sh \
+      --background \
+      --baud "$SERIAL_BAUD" \
+      --log-dir "$SERIAL_LOG_ROOT" \
+      --state-file "$SERIAL_MONITOR_STATE"
+  ) | tee "$SERIAL_MONITOR_OUT"
+}
+
+stop_serial_capture() {
+  [[ "$SERIAL_MONITOR" == true ]] || return 0
+  [[ -n "$SERIAL_MONITOR_STATE" && -f "$SERIAL_MONITOR_STATE" ]] || return 0
+
+  echo "[serial] stopping detached monitors"
+  while IFS= read -r session_name; do
+    [[ -n "$session_name" ]] || continue
+    screen -S "$session_name" -X quit 2>/dev/null || true
+  done < "$SERIAL_MONITOR_STATE"
+  echo "[serial] stopped sessions listed in $SERIAL_MONITOR_STATE"
 }
 
 if [[ "$DO_SERVER" == true ]]; then
@@ -334,9 +438,17 @@ fi
 
 if [[ "$DO_TEST" == true ]]; then
   # Always restart server for a clean, quiet test run.
+  start_serial_capture
   echo "[test] starting mqtt/dashboard"
   start_server
   STARTED_SERVER_FOR_TEST=true
+  cleanup_test_run() {
+    stop_serial_capture
+    if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
+      stop_server
+    fi
+  }
+  trap cleanup_test_run EXIT INT TERM
   # Give server a moment to come up.
   sleep 10
 
@@ -415,6 +527,8 @@ PY
   if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
     stop_server
   fi
+  stop_serial_capture
+  trap - EXIT INT TERM
 fi
 
 # ----------------------------------------------------------------------------
@@ -427,9 +541,17 @@ if [[ "$DO_BASELINE" == true ]]; then
   echo "[baseline] building firmware with ENABLE_METRICS=0"
   ( cd "$PROJ_ROOT" && build_firmware "-DENABLE_METRICS=0" )
 
+  start_serial_capture
   echo "[baseline] starting mqtt/dashboard"
   start_server
   STARTED_SERVER_FOR_TEST=true
+  cleanup_baseline_run() {
+    stop_serial_capture
+    if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
+      stop_server
+    fi
+  }
+  trap cleanup_baseline_run EXIT INT TERM
   sleep 10
 
   echo "[baseline] running fixed sweep: loads=100,500,800 hold=60s"
@@ -471,4 +593,49 @@ PY
   if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
     stop_server
   fi
+  stop_serial_capture
+  trap - EXIT INT TERM
+fi
+
+# ----------------------------------------------------------------------------
+# Delegation validation experiment
+# ----------------------------------------------------------------------------
+
+if [[ "$DO_DELEGATION" == true ]]; then
+  start_serial_capture
+  echo "[delegation] starting mqtt/dashboard"
+  start_server
+  STARTED_SERVER_FOR_TEST=true
+  cleanup_delegation_run() {
+    stop_serial_capture
+    if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
+      stop_server
+    fi
+  }
+  trap cleanup_delegation_run EXIT INT TERM
+  sleep 10
+
+  VICTIM_ARG=()
+  if [[ -n "$DELEG_VICTIM" ]]; then
+    VICTIM_ARG=(--victim "$DELEG_VICTIM")
+  fi
+
+  echo "[delegation] high-load=${DELEG_HIGH_LOAD} low-load=${DELEG_LOW_LOAD} hold=${DELEG_HOLD_SECONDS}s label=${TEST_LABEL} min_nodes=${DELEG_MIN_NODES} nodes_timeout=${DELEG_NODES_TIMEOUT}s settle=${DELEG_NODES_SETTLE_SECONDS}s"
+  ( cd "$PROJ_ROOT" && python experiments/delegation_test.py \
+      --base-url http://localhost:5000 \
+      --high-load "$DELEG_HIGH_LOAD" \
+      --low-load  "$DELEG_LOW_LOAD" \
+      --warmup-seconds "$DELEG_WARMUP_SECONDS" \
+      --hold-seconds   "$DELEG_HOLD_SECONDS" \
+      --min-nodes "$DELEG_MIN_NODES" \
+      --nodes-timeout "$DELEG_NODES_TIMEOUT" \
+      --nodes-settle-seconds "$DELEG_NODES_SETTLE_SECONDS" \
+      --label "$TEST_LABEL" \
+      "${VICTIM_ARG[@]+"${VICTIM_ARG[@]}"}" )
+
+  if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
+    stop_server
+  fi
+  stop_serial_capture
+  trap - EXIT INT TERM
 fi
