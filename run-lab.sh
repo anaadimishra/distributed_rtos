@@ -116,6 +116,8 @@ DELEG_HIGH_LOAD=950
 DELEG_LOW_LOAD=400
 DELEG_WARMUP_SECONDS=30
 DELEG_HOLD_SECONDS=40
+DELEG_DRAIN_SECONDS=30
+DELEG_RECOVERY_SECONDS=30
 DELEG_VICTIM=""
 DELEG_MIN_NODES=2
 DELEG_NODES_TIMEOUT=90
@@ -171,6 +173,16 @@ while [[ $# -gt 0 ]]; do
       [[ $# -gt 0 ]] || abort "--hold-seconds requires a value"
       TEST_HOLD_SECONDS="$1"
       DELEG_HOLD_SECONDS="$1"
+      ;;
+    --drain-seconds)
+      shift
+      [[ $# -gt 0 ]] || abort "--drain-seconds requires a value"
+      DELEG_DRAIN_SECONDS="$1"
+      ;;
+    --recovery-seconds)
+      shift
+      [[ $# -gt 0 ]] || abort "--recovery-seconds requires a value"
+      DELEG_RECOVERY_SECONDS="$1"
       ;;
     --repeat)
       shift
@@ -620,13 +632,15 @@ if [[ "$DO_DELEGATION" == true ]]; then
     VICTIM_ARG=(--victim "$DELEG_VICTIM")
   fi
 
-  echo "[delegation] high-load=${DELEG_HIGH_LOAD} low-load=${DELEG_LOW_LOAD} hold=${DELEG_HOLD_SECONDS}s label=${TEST_LABEL} min_nodes=${DELEG_MIN_NODES} nodes_timeout=${DELEG_NODES_TIMEOUT}s settle=${DELEG_NODES_SETTLE_SECONDS}s"
+  echo "[delegation] high-load=${DELEG_HIGH_LOAD} low-load=${DELEG_LOW_LOAD} hold=${DELEG_HOLD_SECONDS}s drain=${DELEG_DRAIN_SECONDS}s label=${TEST_LABEL} min_nodes=${DELEG_MIN_NODES} nodes_timeout=${DELEG_NODES_TIMEOUT}s settle=${DELEG_NODES_SETTLE_SECONDS}s"
   ( cd "$PROJ_ROOT" && python experiments/delegation_test.py \
       --base-url http://localhost:5000 \
       --high-load "$DELEG_HIGH_LOAD" \
       --low-load  "$DELEG_LOW_LOAD" \
       --warmup-seconds "$DELEG_WARMUP_SECONDS" \
       --hold-seconds   "$DELEG_HOLD_SECONDS" \
+      --drain-seconds    "$DELEG_DRAIN_SECONDS" \
+      --recovery-seconds "$DELEG_RECOVERY_SECONDS" \
       --min-nodes "$DELEG_MIN_NODES" \
       --nodes-timeout "$DELEG_NODES_TIMEOUT" \
       --nodes-settle-seconds "$DELEG_NODES_SETTLE_SECONDS" \

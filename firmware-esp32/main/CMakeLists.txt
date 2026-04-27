@@ -10,6 +10,7 @@ idf_component_register(
         "network/wifi.c"
         "network/mqtt.c"
         "network/delegation.c"
+        "network/work_transport.c"
     INCLUDE_DIRS
         "."
         "core"

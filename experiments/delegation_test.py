@@ -114,8 +114,10 @@ def main():
                         help="Seconds at low load before introducing stress")
     parser.add_argument("--hold-seconds", type=int, default=40,
                         help="Seconds to sustain the asymmetry after delegation fires")
+    parser.add_argument("--drain-seconds", type=int, default=30,
+                        help="After victim load drops, seconds to watch TCP channels drain to IDLE")
     parser.add_argument("--recovery-seconds", type=int, default=30,
-                        help="Seconds to wait for all nodes to return to IDLE")
+                        help="Seconds to wait for all nodes to return to IDLE after full reset")
     parser.add_argument("--delegation-timeout", type=int, default=60,
                         help="Seconds to wait for delegation before giving up")
     parser.add_argument("--stress-precheck-seconds", type=int, default=15,
@@ -326,6 +328,29 @@ def main():
         snap("hold")
         time.sleep(1)
     log_event("hold_end")
+
+    # --------------------------------------------------------------- drain
+    # Drop the victim load back to low so stress passes, then watch the
+    # already-open TCP delegation channels complete in-flight work and drain
+    # to IDLE. This demonstrates transient-overload recovery: the mechanism
+    # handles the spike and winds down cleanly once pressure is gone.
+    print(f"[drain] victim ({victim}) -> load={args.low_load}; watching channels drain for {args.drain_seconds}s")
+    set_load(base, victim, args.low_load)
+    log_event("drain_start", {"victim_load_released": args.low_load})
+    t_drain_idle = None
+    drain_end = time.time() + args.drain_seconds
+    while time.time() < drain_end:
+        state = snap("drain")
+        victim_state = state.get(victim, {})
+        if victim_state.get("deleg_state", "IDLE") == "IDLE":
+            t_drain_idle = time.time()
+            log_event("drain_idle", {"t": t_drain_idle})
+            print(f"  -> victim channels IDLE after load release")
+            break
+        time.sleep(1)
+    if t_drain_idle is None:
+        print(f"  [warn] channels did not reach IDLE within drain window")
+    log_event("drain_end")
 
     # ------------------------------------------------------------- recovery
     print(f"[recovery] all nodes -> load={args.low_load}")

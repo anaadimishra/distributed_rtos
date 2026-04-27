@@ -76,4 +76,14 @@ const char *delegation_node_role_str(const system_context_t *ctx);
 /* Node ID of first non-IDLE channel peer, or "" if all IDLE. */
 const char *delegation_primary_peer(const system_context_t *ctx);
 
+/*
+ * Called by work_recv_task when a binary result frame arrives over TCP.
+ * channel_idx identifies which ACTIVE channel owns this result.
+ * result is the 900-int32 output matrix (not stored — count only).
+ */
+void delegation_handle_work_result_tcp(system_context_t *ctx,
+                                       uint32_t cycle_id, uint8_t block_id,
+                                       int channel_idx,
+                                       const int32_t *result);
+
 #endif /* DELEGATION_H */

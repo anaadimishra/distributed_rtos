@@ -1,0 +1,74 @@
+{
+  "session_id": "session_20260426-170221",
+  "label": "multi-peer-run4",
+  "assigned_victim": "node-2FCC00",
+  "actual_delegator": null,
+  "actual_host": null,
+  "bystanders": [
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777203143.155461,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777203173.1611478,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777203173.170763,
+      "kind": "stress_start",
+      "victim": "node-2FCC00",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777203233.632351,
+      "kind": "deleg_timeout",
+      "elapsed_s": 60.5
+    },
+    {
+      "t": 1777203233.632598,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777203273.939048,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777203273.949527,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777203273.9517682,
+      "kind": "deleg_idle_restored",
+      "delegation_duration_ms": null
+    },
+    {
+      "t": 1777203273.95183,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": false,
+    "t_requesting": null,
+    "t_active": null,
+    "t_hosting": null,
+    "t_idle": 1777203273.9517682,
+    "handshake_latency_ms": null,
+    "time_to_delegate_ms": null,
+    "delegation_duration_ms": null
+  }
+}

@@ -1,0 +1,9 @@
+[serial] backend=screen baud=115200
+[serial] ports=4
+[serial] log_dir=/Volumes/GAIA_PRIME/devn/distributed-rtos/serial_logs/session_20260426-203152
+[background] /dev/tty.usbserial-0001 session=rtos_20260426_203152_tty.usbserial-0001
+[background] /dev/tty.usbserial-5 session=rtos_20260426_203152_tty.usbserial-5
+[background] /dev/tty.usbserial-6 session=rtos_20260426_203152_tty.usbserial-6
+[background] /dev/tty.usbserial-7 session=rtos_20260426_203153_tty.usbserial-7
+
+[serial] logs will be written under: /Volumes/GAIA_PRIME/devn/distributed-rtos/serial_logs/session_20260426-203152

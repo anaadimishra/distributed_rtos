@@ -1,0 +1,76 @@
+{
+  "session_id": "session_20260426-164255",
+  "label": "multi-peer-run3",
+  "assigned_victim": "node-2FCC00",
+  "actual_delegator": null,
+  "actual_host": "node-7115F8",
+  "bystanders": [
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777201975.051739,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777202005.056318,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777202005.077743,
+      "kind": "stress_start",
+      "victim": "node-2FCC00",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777202009.105699,
+      "kind": "deleg_hosting",
+      "host": "node-7115F8",
+      "peer": "node-2FCC00",
+      "blocks": 0
+    },
+    {
+      "t": 1777202065.5450618,
+      "kind": "deleg_timeout",
+      "elapsed_s": 60.5
+    },
+    {
+      "t": 1777202065.545465,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777202105.884703,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777202105.895481,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777202136.1415548,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": false,
+    "t_requesting": null,
+    "t_active": null,
+    "t_hosting": 1777202009.105699,
+    "t_idle": null,
+    "handshake_latency_ms": null,
+    "time_to_delegate_ms": null,
+    "delegation_duration_ms": null
+  }
+}

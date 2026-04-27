@@ -1,0 +1,1471 @@
+[0;32mI (33065) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216256644, "seq": 1777216256644}[0m
+[0;32mI (33065) mqtt: control: SYNC_TIME epoch_ms=1777216256644 seq=2147483647[0m
+[0;32mI (33875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=536[0m
+[0;32mI (34875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=532[0m
+[0;32mI (35875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=532[0m
+[0;32mI (36875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=532[0m
+[0;32mI (36875) mgr: cpu=0 q=1 load=100 cap=20 eff=0 win=0[0m
+[0;32mI (37875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (38875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (39875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (40875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (41875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (41875) mgr: cpu=54 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (42875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (43875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (44605) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777216268360}[0m
+[0;32mI (44615) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (44875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (45875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (46875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (46875) mgr: cpu=61 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (47875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (48875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (49875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (50875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (51875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (51875) mgr: cpu=62 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (52875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (53875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (54875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (55875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (56875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (56875) mgr: cpu=61 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (57875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (58875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (59875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (60875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (61875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (61875) mgr: cpu=61 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (62875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (63875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (64065) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216287640, "seq": 1777216287640}[0m
+[0;32mI (64065) mqtt: control: SYNC_TIME epoch_ms=1777216287640 seq=2147483647[0m
+[0;32mI (64875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (65875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (66875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (66875) mgr: cpu=62 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (67875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (68875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (69875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (70875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (71875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (71875) mgr: cpu=62 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (72875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (73875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (74705) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777216298374}[0m
+[0;32mI (74705) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (74875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (75875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (76375) deleg: accept request from=node-34A9F0 blocks=3 slot=0 cpu=62[0m
+[0;32mI (76875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=556[0m
+[0;32mI (77035) deleg: work_item done cycle=579 block=0 -> node-34A9F0[0m
+[0;32mI (77055) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (77175) deleg: work_item done cycle=579 block=1 -> node-34A9F0[0m
+[0;32mI (77305) deleg: work_item done cycle=580 block=1 -> node-34A9F0[0m
+[0;32mI (77405) deleg: work_item done cycle=580 block=4 -> node-34A9F0[0m
+[0;32mI (77575) deleg: work_item done cycle=580 block=7 -> node-34A9F0[0m
+[0;32mI (77735) deleg: work_item done cycle=581 block=1 -> node-34A9F0[0m
+[0;32mI (77895) deleg: work_item done cycle=581 block=4 -> node-34A9F0[0m
+[0;32mI (78055) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (78195) deleg: work_item done cycle=581 block=7 -> node-34A9F0[0m
+[0;32mI (78465) deleg: work_item done cycle=582 block=1 -> node-34A9F0[0m
+[0;32mI (78575) deleg: work_item done cycle=582 block=4 -> node-34A9F0[0m
+[0;32mI (78645) deleg: work_item done cycle=582 block=7 -> node-34A9F0[0m
+[0;32mI (78755) deleg: work_item done cycle=583 block=1 -> node-34A9F0[0m
+[0;32mI (79055) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=556[0m
+[0;32mI (79215) deleg: work_item done cycle=583 block=4 -> node-34A9F0[0m
+[0;32mI (79345) deleg: work_item done cycle=583 block=7 -> node-34A9F0[0m
+[0;32mI (79475) deleg: work_item done cycle=584 block=1 -> node-34A9F0[0m
+[0;32mI (79585) deleg: work_item done cycle=584 block=3 -> node-34A9F0[0m
+[0;32mI (79685) deleg: work_item done cycle=584 block=5 -> node-34A9F0[0m
+[0;32mI (79995) deleg: work_item done cycle=584 block=7 -> node-34A9F0[0m
+[0;32mI (80075) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (80085) deleg: work_item done cycle=585 block=0 -> node-34A9F0[0m
+[0;32mI (80195) deleg: work_item done cycle=585 block=2 -> node-34A9F0[0m
+[0;32mI (80335) deleg: work_item done cycle=585 block=6 -> node-34A9F0[0m
+[0;32mI (80375) deleg: accept request from=node-2FCC00 blocks=5 slot=1 cpu=79[0m
+[0;32mI (80465) deleg: work_item done cycle=585 block=8 -> node-34A9F0[0m
+[0;32mI (80645) deleg: work_item done cycle=586 block=2 -> node-34A9F0[0m
+[0;32mI (80905) deleg: work_item done cycle=1145 block=0 -> node-2FCC00[0m
+[0;32mI (80975) deleg: work_item done cycle=586 block=5 -> node-34A9F0[0m
+[0;32mI (81035) deleg: work_item done cycle=1145 block=1 -> node-2FCC00[0m
+[0;32mI (81095) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (81195) deleg: work_item done cycle=1145 block=3 -> node-2FCC00[0m
+[0;32mI (81335) deleg: work_item done cycle=586 block=8 -> node-34A9F0[0m
+[0;32mI (81405) deleg: work_item done cycle=1146 block=0 -> node-2FCC00[0m
+[0;32mI (81705) deleg: work_item done cycle=587 block=2 -> node-34A9F0[0m
+[0;32mI (81775) deleg: work_item done cycle=1146 block=2 -> node-2FCC00[0m
+[0;32mI (81875) deleg: work_item done cycle=587 block=5 -> node-34A9F0[0m
+[0;32mI (82115) deleg: work_item done cycle=1146 block=6 -> node-2FCC00[0m
+[0;32mI (82145) deleg: offload request -> node-717AC4 blocks=10 slot=2[0m
+[0;32mI (82145) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (82145) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (82205) deleg: work_item done cycle=587 block=8 -> node-34A9F0[0m
+[0;32mI (82225) mgr: cpu=76 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (82275) deleg: work_item done cycle=1154 block=0 -> node-2FCC00[0m
+[0;32mI (82345) deleg: work_item done cycle=588 block=2 -> node-34A9F0[0m
+[0;32mI (82415) deleg: work_item done cycle=1154 block=1 -> node-2FCC00[0m
+[0;32mI (82485) deleg: work_item done cycle=588 block=8 -> node-34A9F0[0m
+[0;32mI (82595) deleg: work_item done cycle=1159 block=0 -> node-2FCC00[0m
+[0;32mI (82595) deleg: offload accepted by=node-717AC4 blocks=10 active_blocks=10[0m
+[0;32mI (82665) deleg: work_item done cycle=589 block=3 -> node-34A9F0[0m
+[0;32mI (82745) deleg: dispatch block=0 cycle=809 -> node-717AC4[0m
+[0;32mI (82755) deleg: work_item done cycle=1163 block=0 -> node-2FCC00[0m
+[0;32mI (82915) deleg: work_item done cycle=589 block=8 -> node-34A9F0[0m
+[0;32mI (83175) deleg: dispatch block=1 cycle=809 -> node-717AC4[0m
+[0;32mI (83205) deleg: work_item done cycle=1163 block=1 -> node-2FCC00[0m
+[0;32mI (83225) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (83295) deleg: dispatch block=2 cycle=809 -> node-717AC4[0m
+[0;32mI (83685) deleg: work_item done cycle=1163 block=2 -> node-2FCC00[0m
+[0;32mI (83815) deleg: dispatch block=3 cycle=809 -> node-717AC4[0m
+[0;32mI (83815) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (83825) deleg: work_item done cycle=590 block=2 -> node-34A9F0[0m
+[0;32mI (83885) deleg: work_item done cycle=1167 block=0 -> node-2FCC00[0m
+[0;32mI (83975) deleg: work_item done cycle=590 block=5 -> node-34A9F0[0m
+[0;32mI (84145) deleg: result rx cycle=809 block=0 returned=1[0m
+[0;32mI (84225) deleg: work_item done cycle=1169 block=0 -> node-2FCC00[0m
+[0;32mI (84295) deleg: dispatch block=0 cycle=825 -> node-717AC4[0m
+[0;32mI (84305) deleg: work_item done cycle=590 block=8 -> node-34A9F0[0m
+[0;32mI (84355) deleg: result rx cycle=809 block=1 returned=2[0m
+[0;32mI (84435) deleg: work_item done cycle=1173 block=0 -> node-2FCC00[0m
+[0;32mI (84505) deleg: dispatch block=0 cycle=827 -> node-717AC4[0m
+[0;32mI (84515) deleg: work_item done cycle=591 block=2 -> node-34A9F0[0m
+[0;32mI (84795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (84795) deleg: work_item done cycle=591 block=7 -> node-34A9F0[0m
+[0;32mI (84815) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (84895) deleg: work_item done cycle=592 block=2 -> node-34A9F0[0m
+[0;32mI (85815) deleg: pending timeout reclaim total=1[0m
+[0;32mI (85815) mgr: stress transition: HIGH -> MEDIUM[0m
+[0;32mI (85815) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (86685) deleg: dispatch block=0 cycle=842 -> node-717AC4[0m
+[0;32mI (86685) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (86825) deleg: pending timeout reclaim total=2[0m
+[0;32mI (86825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (87895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (91605) deleg: dispatch block=0 cycle=852 -> node-717AC4[0m
+[0;32mI (91615) deleg: work_item done cycle=592 block=6 -> node-34A9F0[0m
+[0;32mI (91675) mgr: cpu=43 q=2 load=200 cap=10 eff=4 win=0[0m
+[0;32mI (91805) deleg: dispatch block=1 cycle=852 -> node-717AC4[0m
+[0;32mI (91895) deleg: dispatch block=2 cycle=852 -> node-717AC4[0m
+[0;32mI (91895) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (92235) deleg: work_item done cycle=596 block=3 -> node-34A9F0[0m
+[0;32mI (92675) deleg: pending timeout reclaim total=5[0m
+[0;32mI (92675) mgr: stress transition: MEDIUM -> HIGH[0m
+[0;32mI (92675) mgr: adapt: peer-assisted reduce load 200 -> 100[0m
+[0;32mI (92675) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (93685) deleg: pending timeout reclaim total=6[0m
+[0;32mI (93685) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (94855) deleg: dispatch block=0 cycle=910 -> node-717AC4[0m
+[0;32mI (94865) deleg: work_item done cycle=596 block=5 -> node-34A9F0[0m
+[0;32mI (94945) deleg: dispatch block=1 cycle=910 -> node-717AC4[0m
+[0;32mI (94945) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (94965) deleg: work_item done cycle=596 block=8 -> node-34A9F0[0m
+[0;32mI (95055) deleg: work_item done cycle=597 block=2 -> node-34A9F0[0m
+[0;32mI (95145) deleg: work_item done cycle=597 block=5 -> node-34A9F0[0m
+[0;32mI (95165) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216318644, "seq": 1777216318644}[0m
+[0;32mI (95175) mqtt: control: SYNC_TIME epoch_ms=1777216318644 seq=2147483647[0m
+[0;32mI (95545) deleg: work_item done cycle=597 block=8 -> node-34A9F0[0m
+[0;32mI (95855) deleg: work_item done cycle=598 block=2 -> node-34A9F0[0m
+[0;32mI (95875) deleg: pending timeout reclaim total=7[0m
+[0;32mI (95875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (95935) deleg: work_item done cycle=598 block=5 -> node-34A9F0[0m
+[0;32mI (95975) deleg: dispatch block=0 cycle=942 -> node-717AC4[0m
+[0;32mI (96005) deleg: dispatch block=1 cycle=942 -> node-717AC4[0m
+[0;32mI (96005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (96105) deleg: work_item done cycle=598 block=8 -> node-34A9F0[0m
+[0;32mI (96375) deleg: work_item done cycle=599 block=2 -> node-34A9F0[0m
+[0;32mI (96465) deleg: work_item done cycle=599 block=5 -> node-34A9F0[0m
+[0;32mI (96665) deleg: work_item done cycle=599 block=8 -> node-34A9F0[0m
+[0;32mI (96785) deleg: work_item done cycle=600 block=2 -> node-34A9F0[0m
+[0;32mI (96885) deleg: pending timeout reclaim total=9[0m
+[0;32mI (96885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (96945) deleg: dispatch block=0 cycle=952 -> node-717AC4[0m
+[0;32mI (97005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (97005) deleg: work_item done cycle=600 block=5 -> node-34A9F0[0m
+[0;32mI (97115) deleg: work_item done cycle=600 block=8 -> node-34A9F0[0m
+[0;32mI (97445) deleg: work_item done cycle=601 block=2 -> node-34A9F0[0m
+[0;32mI (97505) deleg: work_item done cycle=601 block=5 -> node-34A9F0[0m
+[0;32mI (97885) deleg: pending timeout reclaim total=10[0m
+[0;32mI (97885) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (97885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (97895) mgr: cpu=60 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (97935) deleg: dispatch block=0 cycle=962 -> node-717AC4[0m
+[0;32mI (98005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (98855) deleg: work_item done cycle=601 block=8 -> node-34A9F0[0m
+[0;32mI (98885) deleg: accept request from=node-2FCC00 blocks=5 slot=3 cpu=60[0m
+[0;32mI (98895) deleg: pending timeout reclaim total=11[0m
+[0;32mI (98895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (98935) deleg: dispatch block=0 cycle=972 -> node-717AC4[0m
+[0;32mI (98985) deleg: dispatch block=1 cycle=972 -> node-717AC4[0m
+[0;32mI (99005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (99105) deleg: work_item done cycle=1329 block=2 -> node-2FCC00[0m
+[0;32mI (99185) deleg: work_item done cycle=602 block=2 -> node-34A9F0[0m
+[0;32mI (99435) deleg: work_item done cycle=1329 block=4 -> node-2FCC00[0m
+[0;32mI (99495) deleg: work_item done cycle=602 block=5 -> node-34A9F0[0m
+[0;32mI (99565) deleg: work_item done cycle=602 block=8 -> node-34A9F0[0m
+[0;32mI (99635) deleg: work_item done cycle=1330 block=1 -> node-2FCC00[0m
+[0;32mI (99695) deleg: work_item done cycle=603 block=2 -> node-34A9F0[0m
+[0;32mI (99765) deleg: work_item done cycle=1330 block=3 -> node-2FCC00[0m
+[0;32mI (99895) deleg: pending timeout reclaim total=13[0m
+[0;32mI (99895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (99955) deleg: work_item done cycle=603 block=5 -> node-34A9F0[0m
+[0;32mI (100075) deleg: dispatch block=0 cycle=982 -> node-717AC4[0m
+[0;32mI (100075) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (100105) deleg: work_item done cycle=1330 block=5 -> node-2FCC00[0m
+[0;32mI (100165) deleg: work_item done cycle=1330 block=7 -> node-2FCC00[0m
+[0;32mI (100245) deleg: work_item done cycle=603 block=8 -> node-34A9F0[0m
+[0;32mI (100465) deleg: work_item done cycle=604 block=2 -> node-34A9F0[0m
+[0;32mI (100565) deleg: work_item done cycle=1330 block=9 -> node-2FCC00[0m
+[0;32mI (100895) deleg: pending timeout reclaim total=14[0m
+[0;32mI (100895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (100925) deleg: work_item done cycle=1331 block=1 -> node-2FCC00[0m
+[0;32mI (101035) deleg: dispatch block=0 cycle=992 -> node-717AC4[0m
+[0;32mI (101075) deleg: work_item done cycle=604 block=5 -> node-34A9F0[0m
+[0;32mI (101105) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (101185) deleg: work_item done cycle=604 block=8 -> node-34A9F0[0m
+[0;32mI (101255) deleg: work_item done cycle=1331 block=4 -> node-2FCC00[0m
+[0;32mI (101365) deleg: work_item done cycle=1331 block=6 -> node-2FCC00[0m
+[0;32mI (101465) deleg: work_item done cycle=605 block=5 -> node-34A9F0[0m
+[0;32mI (101575) deleg: work_item done cycle=605 block=8 -> node-34A9F0[0m
+[0;32mI (101655) deleg: work_item done cycle=1350 block=1 -> node-2FCC00[0m
+[0;32mI (101745) deleg: work_item done cycle=1350 block=3 -> node-2FCC00[0m
+[0;32mI (101855) deleg: work_item done cycle=620 block=0 -> node-34A9F0[0m
+[0;32mI (101945) deleg: pending timeout reclaim total=15[0m
+[0;32mI (101945) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (101945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (101945) deleg: work_item done cycle=1350 block=5 -> node-2FCC00[0m
+[0;32mI (102045) deleg: work_item done cycle=620 block=2 -> node-34A9F0[0m
+[0;32mI (102155) deleg: dispatch block=0 cycle=1003 -> node-717AC4[0m
+[0;32mI (102155) deleg: work_item done cycle=1350 block=6 -> node-2FCC00[0m
+[0;32mI (102235) deleg: dispatch block=1 cycle=1003 -> node-717AC4[0m
+[0;32mI (102235) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (102255) deleg: work_item done cycle=620 block=5 -> node-34A9F0[0m
+[0;32mI (102355) deleg: work_item done cycle=620 block=8 -> node-34A9F0[0m
+[0;32mI (102425) deleg: work_item done cycle=621 block=1 -> node-34A9F0[0m
+[0;32mI (102495) deleg: work_item done cycle=621 block=3 -> node-34A9F0[0m
+[0;32mI (102735) deleg: work_item done cycle=1358 block=1 -> node-2FCC00[0m
+[0;32mI (102905) deleg: work_item done cycle=621 block=8 -> node-34A9F0[0m
+[0;32mI (102985) deleg: pending timeout reclaim total=17[0m
+[0;32mI (102985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (102985) mgr: cpu=71 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (103045) deleg: work_item done cycle=622 block=1 -> node-34A9F0[0m
+[0;32mI (103145) deleg: dispatch block=0 cycle=1013 -> node-717AC4[0m
+[0;32mI (103155) deleg: work_item done cycle=622 block=3 -> node-34A9F0[0m
+[0;32mI (103305) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (103435) deleg: work_item done cycle=1358 block=3 -> node-2FCC00[0m
+[0;32mI (103545) deleg: work_item done cycle=622 block=5 -> node-34A9F0[0m
+[0;32mI (103705) deleg: work_item done cycle=622 block=8 -> node-34A9F0[0m
+[0;32mI (103825) deleg: work_item done cycle=623 block=1 -> node-34A9F0[0m
+[0;32mI (103955) deleg: work_item done cycle=1358 block=5 -> node-2FCC00[0m
+[0;32mI (103985) deleg: pending timeout reclaim total=18[0m
+[0;32mI (103985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (104065) deleg: work_item done cycle=624 block=4 -> node-34A9F0[0m
+[0;32mI (104185) deleg: dispatch block=0 cycle=1023 -> node-717AC4[0m
+[0;32mI (104255) deleg: work_item done cycle=1358 block=7 -> node-2FCC00[0m
+[0;32mI (104335) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (104355) deleg: work_item done cycle=1358 block=9 -> node-2FCC00[0m
+[0;32mI (104455) deleg: work_item done cycle=1359 block=1 -> node-2FCC00[0m
+[0;32mI (104565) deleg: work_item done cycle=625 block=0 -> node-34A9F0[0m
+[0;32mI (104705) deleg: work_item done cycle=625 block=3 -> node-34A9F0[0m
+[0;32mI (104805) deleg: work_item done cycle=1359 block=5 -> node-2FCC00[0m
+[0;32mI (104955) deleg: work_item done cycle=625 block=6 -> node-34A9F0[0m
+[0;32mI (104985) deleg: pending timeout reclaim total=19[0m
+[0;32mI (104985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (105085) deleg: work_item done cycle=626 block=0 -> node-34A9F0[0m
+[0;32mI (105195) deleg: dispatch block=0 cycle=1033 -> node-717AC4[0m
+[0;32mI (105235) deleg: work_item done cycle=1384 block=1 -> node-2FCC00[0m
+[0;32mI (105365) deleg: dispatch block=1 cycle=1033 -> node-717AC4[0m
+[0;32mI (105365) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (105435) deleg: work_item done cycle=626 block=6 -> node-34A9F0[0m
+[0;32mI (105705) deleg: work_item done cycle=1384 block=3 -> node-2FCC00[0m
+[0;32mI (105855) deleg: work_item done cycle=1384 block=5 -> node-2FCC00[0m
+[0;32mI (105945) deleg: work_item done cycle=627 block=2 -> node-34A9F0[0m
+[0;32mI (105985) deleg: pending timeout reclaim total=21[0m
+[0;32mI (105985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (106055) deleg: work_item done cycle=1384 block=8 -> node-2FCC00[0m
+[0;32mI (106135) deleg: dispatch block=0 cycle=1043 -> node-717AC4[0m
+[0;32mI (106175) deleg: work_item done cycle=627 block=5 -> node-34A9F0[0m
+[0;32mI (106245) deleg: work_item done cycle=627 block=8 -> node-34A9F0[0m
+[0;32mI (106405) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (106505) deleg: work_item done cycle=1395 block=0 -> node-2FCC00[0m
+[0;32mI (106615) deleg: work_item done cycle=628 block=5 -> node-34A9F0[0m
+[0;32mI (106785) deleg: work_item done cycle=1400 block=1 -> node-2FCC00[0m
+[0;32mI (106915) deleg: work_item done cycle=629 block=1 -> node-34A9F0[0m
+[0;32mI (106985) deleg: pending timeout reclaim total=22[0m
+[0;32mI (106985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (107065) deleg: work_item done cycle=629 block=5 -> node-34A9F0[0m
+[0;32mI (107175) deleg: dispatch block=0 cycle=1053 -> node-717AC4[0m
+[0;32mI (107245) deleg: work_item done cycle=1400 block=3 -> node-2FCC00[0m
+[0;32mI (107405) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (107425) deleg: work_item done cycle=1400 block=5 -> node-2FCC00[0m
+[0;32mI (107525) deleg: work_item done cycle=630 block=0 -> node-34A9F0[0m
+[0;32mI (107645) deleg: work_item done cycle=1400 block=7 -> node-2FCC00[0m
+[0;32mI (107725) deleg: work_item done cycle=630 block=4 -> node-34A9F0[0m
+[0;32mI (107795) deleg: work_item done cycle=1411 block=0 -> node-2FCC00[0m
+[0;32mI (107985) deleg: pending timeout reclaim total=23[0m
+[0;32mI (107985) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (107985) mgr: cpu=68 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (108045) deleg: work_item done cycle=631 block=1 -> node-34A9F0[0m
+[0;32mI (108165) deleg: dispatch block=0 cycle=1063 -> node-717AC4[0m
+[0;32mI (109025) deleg: pending timeout reclaim total=25[0m
+[0;32mI (109025) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (109325) deleg: work_item done cycle=631 block=3 -> node-34A9F0[0m
+[0;32mI (109425) deleg: dispatch block=1 cycle=1063 -> node-717AC4[0m
+[0;32mI (109445) deleg: work_item done cycle=1411 block=5 -> node-2FCC00[0m
+[0;32mI (109515) deleg: dispatch block=2 cycle=1063 -> node-717AC4[0m
+[0;32mI (109515) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (109525) deleg: work_item done cycle=1411 block=6 -> node-2FCC00[0m
+[0;32mI (109595) deleg: work_item done cycle=632 block=1 -> node-34A9F0[0m
+[0;32mI (109695) deleg: work_item done cycle=1418 block=1 -> node-2FCC00[0m
+[0;32mI (109995) deleg: work_item done cycle=632 block=6 -> node-34A9F0[0m
+[0;32mI (110065) deleg: work_item done cycle=1418 block=5 -> node-2FCC00[0m
+[0;32mI (110135) deleg: work_item done cycle=633 block=2 -> node-34A9F0[0m
+[0;32mI (110215) deleg: work_item done cycle=639 block=0 -> node-34A9F0[0m
+[0;32mI (110375) deleg: pending timeout reclaim total=26[0m
+[0;32mI (110385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (110385) deleg: work_item done cycle=1436 block=0 -> node-2FCC00[0m
+[0;32mI (110455) deleg: work_item done cycle=1436 block=1 -> node-2FCC00[0m
+[0;32mI (110515) deleg: dispatch block=0 cycle=1087 -> node-717AC4[0m
+[0;32mI (110525) deleg: work_item done cycle=640 block=1 -> node-34A9F0[0m
+[0;32mI (110605) deleg: work_item done cycle=643 block=1 -> node-34A9F0[0m
+[0;32mI (110665) deleg: dispatch block=1 cycle=1087 -> node-717AC4[0m
+[0;32mI (110665) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (110755) deleg: work_item done cycle=1441 block=0 -> node-2FCC00[0m
+[0;32mI (111215) deleg: work_item done cycle=643 block=5 -> node-34A9F0[0m
+[0;32mI (111275) deleg: work_item done cycle=1443 block=0 -> node-2FCC00[0m
+[0;32mI (111335) deleg: work_item done cycle=645 block=1 -> node-34A9F0[0m
+[0;32mI (111415) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (111425) deleg: work_item done cycle=668 block=0 -> node-34A9F0[0m
+[0;32mI (111525) deleg: work_item done cycle=671 block=1 -> node-34A9F0[0m
+[0;32mI (111635) deleg: work_item done cycle=1449 block=2 -> node-2FCC00[0m
+[0;32mI (111705) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (111725) deleg: work_item done cycle=671 block=4 -> node-34A9F0[0m
+[0;32mI (111805) deleg: work_item done cycle=1449 block=4 -> node-2FCC00[0m
+[0;32mI (111915) deleg: work_item done cycle=671 block=7 -> node-34A9F0[0m
+[0;32mI (111985) deleg: work_item done cycle=1449 block=6 -> node-2FCC00[0m
+[0;32mI (112095) deleg: work_item done cycle=672 block=0 -> node-34A9F0[0m
+[0;32mI (112195) deleg: work_item done cycle=672 block=2 -> node-34A9F0[0m
+[0;32mI (112305) deleg: work_item done cycle=1449 block=7 -> node-2FCC00[0m
+[0;32mI (112395) deleg: work_item done cycle=672 block=4 -> node-34A9F0[0m
+[0;32mI (112445) deleg: pending timeout reclaim total=28[0m
+[0;32mI (112445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (112515) deleg: work_item done cycle=1449 block=8 -> node-2FCC00[0m
+[0;32mI (112575) deleg: dispatch block=0 cycle=1108 -> node-717AC4[0m
+[0;32mI (112595) deleg: work_item done cycle=672 block=6 -> node-34A9F0[0m
+[0;32mI (112675) deleg: dispatch block=1 cycle=1108 -> node-717AC4[0m
+[0;32mI (112695) deleg: work_item done cycle=1449 block=9 -> node-2FCC00[0m
+[0;32mI (112705) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (112955) deleg: work_item done cycle=672 block=8 -> node-34A9F0[0m
+[0;32mI (113035) deleg: work_item done cycle=1450 block=0 -> node-2FCC00[0m
+[0;32mI (113115) deleg: work_item done cycle=673 block=1 -> node-34A9F0[0m
+[0;32mI (113195) deleg: work_item done cycle=673 block=3 -> node-34A9F0[0m
+[0;32mI (113285) deleg: work_item done cycle=673 block=5 -> node-34A9F0[0m
+[0;32mI (113445) deleg: pending timeout reclaim total=30[0m
+[0;32mI (113445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (113445) mgr: cpu=71 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (113835) deleg: dispatch block=0 cycle=1118 -> node-717AC4[0m
+[0;32mI (113855) deleg: work_item done cycle=1469 block=0 -> node-2FCC00[0m
+[0;32mI (113925) deleg: dispatch block=1 cycle=1118 -> node-717AC4[0m
+[0;32mI (113925) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (113935) deleg: work_item done cycle=674 block=3 -> node-34A9F0[0m
+[0;32mI (114175) deleg: work_item done cycle=1469 block=2 -> node-2FCC00[0m
+[0;32mI (114265) deleg: work_item done cycle=675 block=1 -> node-34A9F0[0m
+[0;32mI (114335) deleg: work_item done cycle=1469 block=5 -> node-2FCC00[0m
+[0;32mI (114415) deleg: work_item done cycle=675 block=4 -> node-34A9F0[0m
+[0;32mI (114445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (114485) deleg: work_item done cycle=1469 block=7 -> node-2FCC00[0m
+[0;32mI (114695) deleg: work_item done cycle=675 block=7 -> node-34A9F0[0m
+[0;32mI (114795) deleg: work_item done cycle=676 block=0 -> node-34A9F0[0m
+[0;32mI (114875) deleg: work_item done cycle=1483 block=1 -> node-2FCC00[0m
+[0;32mI (114935) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (114945) deleg: work_item done cycle=676 block=5 -> node-34A9F0[0m
+[0;32mI (115035) deleg: work_item done cycle=1483 block=3 -> node-2FCC00[0m
+[0;32mI (115305) deleg: work_item done cycle=676 block=8 -> node-34A9F0[0m
+[0;32mI (115365) deleg: work_item done cycle=1483 block=6 -> node-2FCC00[0m
+[0;32mI (115425) deleg: work_item done cycle=1483 block=8 -> node-2FCC00[0m
+[0;32mI (115445) deleg: pending timeout reclaim total=32[0m
+[0;32mI (115445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (115505) deleg: work_item done cycle=677 block=4 -> node-34A9F0[0m
+[0;32mI (115615) deleg: dispatch block=0 cycle=1138 -> node-717AC4[0m
+[0;32mI (115625) deleg: work_item done cycle=677 block=7 -> node-34A9F0[0m
+[0;32mI (115725) deleg: dispatch block=1 cycle=1138 -> node-717AC4[0m
+[0;32mI (115735) deleg: work_item done cycle=678 block=1 -> node-34A9F0[0m
+[0;32mI (115915) deleg: work_item done cycle=1491 block=2 -> node-2FCC00[0m
+[0;32mI (115975) deleg: work_item done cycle=678 block=3 -> node-34A9F0[0m
+[0;32mI (116005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (116045) deleg: work_item done cycle=1491 block=4 -> node-2FCC00[0m
+[0;32mI (116115) deleg: work_item done cycle=1491 block=6 -> node-2FCC00[0m
+[0;32mI (116175) deleg: work_item done cycle=678 block=8 -> node-34A9F0[0m
+[0;32mI (116225) deleg: work_item done cycle=1491 block=8 -> node-2FCC00[0m
+[0;32mI (116295) deleg: work_item done cycle=679 block=2 -> node-34A9F0[0m
+[0;32mI (116445) deleg: pending timeout reclaim total=34[0m
+[0;32mI (116445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (116505) deleg: work_item done cycle=679 block=5 -> node-34A9F0[0m
+[0;32mI (116565) deleg: work_item done cycle=679 block=8 -> node-34A9F0[0m
+[0;32mI (116635) deleg: work_item done cycle=1503 block=0 -> node-2FCC00[0m
+[0;32mI (116725) deleg: dispatch block=0 cycle=1148 -> node-717AC4[0m
+[0;32mI (116735) deleg: work_item done cycle=680 block=2 -> node-34A9F0[0m
+[0;32mI (116825) deleg: dispatch block=1 cycle=1148 -> node-717AC4[0m
+[0;32mI (117005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (117205) deleg: work_item done cycle=680 block=4 -> node-34A9F0[0m
+[0;32mI (117385) deleg: work_item done cycle=1503 block=3 -> node-2FCC00[0m
+[0;32mI (117445) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (117465) deleg: work_item done cycle=680 block=7 -> node-34A9F0[0m
+[0;32mI (117545) deleg: work_item done cycle=1503 block=5 -> node-2FCC00[0m
+[0;32mI (117905) deleg: work_item done cycle=681 block=1 -> node-34A9F0[0m
+[0;32mI (118025) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (118075) deleg: work_item done cycle=1503 block=7 -> node-2FCC00[0m
+[0;32mI (118195) deleg: work_item done cycle=1503 block=8 -> node-2FCC00[0m
+[0;32mI (118395) deleg: work_item done cycle=681 block=4 -> node-34A9F0[0m
+[0;32mI (118475) deleg: pending timeout reclaim total=36[0m
+[0;32mI (118475) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (118475) mgr: cpu=60 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (118545) deleg: work_item done cycle=681 block=6 -> node-34A9F0[0m
+[0;32mI (118615) deleg: dispatch block=0 cycle=1168 -> node-717AC4[0m
+[0;32mI (118635) deleg: work_item done cycle=1504 block=0 -> node-2FCC00[0m
+[0;32mI (118705) deleg: dispatch block=1 cycle=1168 -> node-717AC4[0m
+[0;32mI (118715) deleg: work_item done cycle=681 block=8 -> node-34A9F0[0m
+[0;32mI (118795) deleg: work_item done cycle=685 block=1 -> node-34A9F0[0m
+[0;32mI (118855) deleg: work_item done cycle=1521 block=0 -> node-2FCC00[0m
+[0;32mI (118925) deleg: work_item done cycle=1524 block=0 -> node-2FCC00[0m
+[0;32mI (118985) deleg: work_item done cycle=1524 block=2 -> node-2FCC00[0m
+[0;32mI (119045) deleg: work_item done cycle=1528 block=0 -> node-2FCC00[0m
+[0;32mI (119105) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (119475) deleg: pending timeout reclaim total=38[0m
+[0;32mI (119475) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (119545) deleg: dispatch block=0 cycle=1178 -> node-717AC4[0m
+[0;32mI (120475) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (120845) deleg: dispatch block=1 cycle=1178 -> node-717AC4[0m
+[0;32mI (120845) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (120895) deleg: work_item done cycle=1533 block=0 -> node-2FCC00[0m
+[0;32mI (120965) deleg: work_item done cycle=693 block=2 -> node-34A9F0[0m
+[0;32mI (121035) deleg: work_item done cycle=693 block=4 -> node-34A9F0[0m
+[0;32mI (121095) deleg: work_item done cycle=693 block=6 -> node-34A9F0[0m
+[0;32mI (121345) deleg: work_item done cycle=693 block=7 -> node-34A9F0[0m
+[0;32mI (121425) deleg: work_item done cycle=748 block=0 -> node-34A9F0[0m
+[0;32mI (121485) deleg: work_item done cycle=748 block=1 -> node-34A9F0[0m
+[0;32mI (121575) deleg: work_item done cycle=764 block=0 -> node-34A9F0[0m
+[0;32mI (121645) deleg: work_item done cycle=764 block=1 -> node-34A9F0[0m
+[0;32mI (121705) deleg: work_item done cycle=764 block=2 -> node-34A9F0[0m
+[0;32mI (121765) deleg: work_item done cycle=764 block=3 -> node-34A9F0[0m
+[0;32mI (121835) deleg: work_item done cycle=764 block=4 -> node-34A9F0[0m
+[0;32mI (121845) deleg: pending timeout reclaim total=40[0m
+[0;32mI (121845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (121905) deleg: work_item done cycle=764 block=5 -> node-34A9F0[0m
+[0;32mI (121965) deleg: work_item done cycle=765 block=0 -> node-34A9F0[0m
+[0;32mI (122045) deleg: dispatch block=0 cycle=1202 -> node-717AC4[0m
+[0;32mI (122055) deleg: work_item done cycle=767 block=0 -> node-34A9F0[0m
+[0;32mI (122115) deleg: work_item done cycle=767 block=2 -> node-34A9F0[0m
+[0;32mI (122175) deleg: dispatch block=1 cycle=1202 -> node-717AC4[0m
+[0;32mI (122185) deleg: work_item done cycle=767 block=3 -> node-34A9F0[0m
+[0;32mI (122255) deleg: dispatch block=2 cycle=1202 -> node-717AC4[0m
+[0;32mI (122255) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (122265) deleg: work_item done cycle=768 block=0 -> node-34A9F0[0m
+[0;32mI (122345) deleg: work_item done cycle=1533 block=2 -> node-2FCC00[0m
+[0;32mI (122575) deleg: work_item done cycle=769 block=0 -> node-34A9F0[0m
+[0;32mI (122645) deleg: work_item done cycle=1533 block=4 -> node-2FCC00[0m
+[0;32mI (122705) deleg: work_item done cycle=783 block=0 -> node-34A9F0[0m
+[0;32mI (122785) deleg: work_item done cycle=783 block=1 -> node-34A9F0[0m
+[0;32mI (122845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (122905) deleg: work_item done cycle=783 block=3 -> node-34A9F0[0m
+[0;32mI (122965) deleg: work_item done cycle=1533 block=6 -> node-2FCC00[0m
+[0;32mI (123035) deleg: work_item done cycle=783 block=5 -> node-34A9F0[0m
+[0;32mI (123105) deleg: work_item done cycle=1533 block=7 -> node-2FCC00[0m
+[0;32mI (123175) deleg: work_item done cycle=784 block=0 -> node-34A9F0[0m
+[0;32mI (123245) deleg: work_item done cycle=1533 block=8 -> node-2FCC00[0m
+[0;32mI (123315) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (123345) deleg: work_item done cycle=1533 block=9 -> node-2FCC00[0m
+[0;32mI (123495) deleg: work_item done cycle=784 block=2 -> node-34A9F0[0m
+[0;32mI (123555) deleg: work_item done cycle=784 block=5 -> node-34A9F0[0m
+[0;32mI (123625) deleg: work_item done cycle=784 block=8 -> node-34A9F0[0m
+[0;32mI (123695) deleg: work_item done cycle=1572 block=1 -> node-2FCC00[0m
+[0;32mI (123765) deleg: work_item done cycle=1572 block=2 -> node-2FCC00[0m
+[0;32mI (123845) deleg: pending timeout reclaim total=43[0m
+[0;32mI (123845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (123845) mgr: cpu=79 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (123905) deleg: work_item done cycle=785 block=1 -> node-34A9F0[0m
+[0;32mI (123965) deleg: work_item done cycle=1572 block=3 -> node-2FCC00[0m
+[0;32mI (124045) deleg: dispatch block=0 cycle=1222 -> node-717AC4[0m
+[0;32mI (124065) deleg: work_item done cycle=786 block=0 -> node-34A9F0[0m
+[0;32mI (124115) deleg: work_item done cycle=816 block=1 -> node-34A9F0[0m
+[0;32mI (124305) deleg: work_item done cycle=1055 block=0 -> node-34A9F0[0m
+[0;32mI (124375) deleg: work_item done cycle=1577 block=0 -> node-2FCC00[0m
+[0;32mI (124435) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (124445) deleg: work_item done cycle=1057 block=2 -> node-34A9F0[0m
+[0;32mI (124505) deleg: work_item done cycle=1580 block=0 -> node-2FCC00[0m
+[0;32mI (124575) deleg: work_item done cycle=1580 block=1 -> node-2FCC00[0m
+[0;32mI (124635) deleg: work_item done cycle=1057 block=4 -> node-34A9F0[0m
+[0;32mI (124705) deleg: work_item done cycle=1580 block=2 -> node-2FCC00[0m
+[0;32mI (124785) deleg: work_item done cycle=1057 block=8 -> node-34A9F0[0m
+[0;32mI (124845) deleg: pending timeout reclaim total=44[0m
+[0;32mI (124845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (124915) deleg: work_item done cycle=1058 block=1 -> node-34A9F0[0m
+[0;32mI (124975) deleg: work_item done cycle=1058 block=3 -> node-34A9F0[0m
+[0;32mI (125035) deleg: dispatch block=0 cycle=1232 -> node-717AC4[0m
+[0;32mI (125055) deleg: work_item done cycle=1586 block=0 -> node-2FCC00[0m
+[0;32mI (125125) deleg: dispatch block=1 cycle=1232 -> node-717AC4[0m
+[0;32mI (125135) deleg: work_item done cycle=1586 block=1 -> node-2FCC00[0m
+[0;32mI (125235) deleg: dispatch block=2 cycle=1232 -> node-717AC4[0m
+[0;32mI (125235) deleg: work_item done cycle=1058 block=6 -> node-34A9F0[0m
+[0;32mI (125325) deleg: work_item done cycle=1586 block=2 -> node-2FCC00[0m
+[0;32mI (125405) deleg: work_item done cycle=1586 block=3 -> node-2FCC00[0m
+[0;32mI (125495) deleg: work_item done cycle=1059 block=0 -> node-34A9F0[0m
+[0;32mI (125505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (125755) deleg: work_item done cycle=1059 block=2 -> node-34A9F0[0m
+[0;32mI (125875) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (125905) deleg: work_item done cycle=1059 block=4 -> node-34A9F0[0m
+[0;32mI (126015) deleg: work_item done cycle=1071 block=0 -> node-34A9F0[0m
+[0;32mI (126125) deleg: work_item done cycle=1592 block=2 -> node-2FCC00[0m
+[0;32mI (126215) deleg: work_item done cycle=1592 block=4 -> node-2FCC00[0m
+[0;32mI (126475) deleg: work_item done cycle=1592 block=5 -> node-2FCC00[0m
+[0;32mI (126505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (126575) deleg: work_item done cycle=1592 block=6 -> node-2FCC00[0m
+[0;32mI (126645) deleg: work_item done cycle=1076 block=0 -> node-34A9F0[0m
+[0;32mI (126645) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216349727, "seq": 1777216349727}[0m
+[0;32mI (126655) mqtt: control: SYNC_TIME epoch_ms=1777216349727 seq=2147483647[0m
+[0;32mI (126725) deleg: work_item done cycle=1076 block=3 -> node-34A9F0[0m
+[0;32mI (126835) deleg: work_item done cycle=1076 block=6 -> node-34A9F0[0m
+[0;32mI (126895) deleg: work_item done cycle=1076 block=8 -> node-34A9F0[0m
+[0;32mI (126935) deleg: pending timeout reclaim total=47[0m
+[0;32mI (126935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (126985) deleg: work_item done cycle=1602 block=1 -> node-2FCC00[0m
+[0;32mI (127065) deleg: work_item done cycle=1606 block=0 -> node-2FCC00[0m
+[0;32mI (127125) deleg: dispatch block=0 cycle=1253 -> node-717AC4[0m
+[0;32mI (127145) deleg: work_item done cycle=1606 block=1 -> node-2FCC00[0m
+[0;32mI (127235) deleg: work_item done cycle=1085 block=0 -> node-34A9F0[0m
+[0;32mI (127505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (127505) deleg: work_item done cycle=1087 block=0 -> node-34A9F0[0m
+[0;32mI (127575) deleg: work_item done cycle=1610 block=0 -> node-2FCC00[0m
+[0;32mI (127655) deleg: work_item done cycle=1087 block=2 -> node-34A9F0[0m
+[0;32mI (127715) deleg: work_item done cycle=1087 block=4 -> node-34A9F0[0m
+[0;32mI (127815) deleg: work_item done cycle=1613 block=0 -> node-2FCC00[0m
+[0;32mI (127875) deleg: work_item done cycle=1088 block=0 -> node-34A9F0[0m
+[0;32mI (127935) deleg: pending timeout reclaim total=48[0m
+[0;32mI (127935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (127955) deleg: work_item done cycle=1613 block=2 -> node-2FCC00[0m
+[0;32mI (128025) deleg: dispatch block=0 cycle=1262 -> node-717AC4[0m
+[0;32mI (128025) deleg: work_item done cycle=1088 block=1 -> node-34A9F0[0m
+[0;32mI (128115) deleg: dispatch block=1 cycle=1262 -> node-717AC4[0m
+[0;32mI (128135) deleg: work_item done cycle=1088 block=3 -> node-34A9F0[0m
+[0;32mI (128205) deleg: dispatch block=2 cycle=1262 -> node-717AC4[0m
+[0;32mI (128215) deleg: work_item done cycle=1613 block=4 -> node-2FCC00[0m
+[0;32mI (128285) deleg: work_item done cycle=1088 block=5 -> node-34A9F0[0m
+[0;32mI (128515) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (128515) deleg: work_item done cycle=1613 block=6 -> node-2FCC00[0m
+[0;32mI (128605) deleg: work_item done cycle=1089 block=0 -> node-34A9F0[0m
+[0;32mI (128675) deleg: work_item done cycle=1089 block=3 -> node-34A9F0[0m
+[0;32mI (128775) deleg: work_item done cycle=1613 block=8 -> node-2FCC00[0m
+[0;32mI (128835) deleg: work_item done cycle=1089 block=6 -> node-34A9F0[0m
+[0;32mI (128965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (128965) mgr: cpu=74 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (129035) deleg: work_item done cycle=1614 block=0 -> node-2FCC00[0m
+[0;32mI (129205) deleg: work_item done cycle=1090 block=2 -> node-34A9F0[0m
+[0;32mI (129635) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (129805) deleg: work_item done cycle=1614 block=2 -> node-2FCC00[0m
+[0;32mI (129965) deleg: pending timeout reclaim total=51[0m
+[0;32mI (129965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (130225) deleg: work_item done cycle=1614 block=4 -> node-2FCC00[0m
+[0;32mI (130495) deleg: dispatch block=0 cycle=1283 -> node-717AC4[0m
+[0;32mI (130505) deleg: work_item done cycle=1090 block=5 -> node-34A9F0[0m
+[0;32mI (130675) deleg: work_item done cycle=1090 block=8 -> node-34A9F0[0m
+[0;32mI (130705) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (131055) deleg: work_item done cycle=1614 block=6 -> node-2FCC00[0m
+[0;32mI (131235) deleg: work_item done cycle=1614 block=9 -> node-2FCC00[0m
+[0;32mI (131425) deleg: pending timeout reclaim total=52[0m
+[0;32mI (131425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (132555) deleg: dispatch block=0 cycle=1298 -> node-717AC4[0m
+[0;32mI (132845) deleg: work_item done cycle=1091 block=2 -> node-34A9F0[0m
+[0;32mI (133455) deleg: pending timeout reclaim total=55[0m
+[0;32mI (133455) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (134445) deleg: dispatch block=1 cycle=1298 -> node-717AC4[0m
+[0;32mI (134575) deleg: work_item done cycle=1091 block=5 -> node-34A9F0[0m
+[0;32mI (134705) deleg: dispatch block=2 cycle=1298 -> node-717AC4[0m
+[0;32mI (134725) deleg: work_item done cycle=1648 block=0 -> node-2FCC00[0m
+[0;32mI (135065) deleg: dispatch block=3 cycle=1298 -> node-717AC4[0m
+[0;32mI (135065) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (135375) deleg: work_item done cycle=1648 block=1 -> node-2FCC00[0m
+[0;32mI (135585) deleg: pending timeout reclaim total=56[0m
+[0;32mI (135585) deleg: host lost, restoring blocks=10 peer=node-717AC4[0m
+[0;32mI (135585) deleg: channel reset reclaim peer=node-717AC4 reclaimed=3[0m
+[0;32mI (135585) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (135665) deleg: work_item done cycle=1091 block=8 -> node-34A9F0[0m
+[0;32mI (135795) deleg: work_item done cycle=1092 block=1 -> node-34A9F0[0m
+[0;32mI (135935) deleg: work_item done cycle=1657 block=1 -> node-2FCC00[0m
+[0;32mI (136685) deleg: offload request -> node-717AC4 blocks=10 slot=2[0m
+[0;32mI (136685) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (136685) mgr: cpu=59 q=2 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (137365) deleg: work_item done cycle=1667 block=1 -> node-2FCC00[0m
+[0;32mI (137695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (138695) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (138695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (138825) deleg: work_item done cycle=1092 block=5 -> node-34A9F0[0m
+[0;32mI (138905) deleg: work_item done cycle=1092 block=7 -> node-34A9F0[0m
+[0;32mI (138965) deleg: work_item done cycle=1093 block=0 -> node-34A9F0[0m
+[0;32mI (138975) deleg: offload accepted by=node-717AC4 blocks=10 active_blocks=10[0m
+[0;32mI (139035) deleg: work_item done cycle=1093 block=2 -> node-34A9F0[0m
+[0;32mI (139395) deleg: dispatch block=0 cycle=1373 -> node-717AC4[0m
+[0;32mI (139565) deleg: work_item done cycle=1140 block=0 -> node-34A9F0[0m
+[0;32mI (139685) deleg: dispatch block=1 cycle=1373 -> node-717AC4[0m
+[0;32mI (139685) deleg: work_item done cycle=1208 block=0 -> node-34A9F0[0m
+[0;32mI (139705) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (139765) deleg: work_item done cycle=1667 block=3 -> node-2FCC00[0m
+[0;32mI (139835) deleg: dispatch block=2 cycle=1373 -> node-717AC4[0m
+[0;32mI (139835) deleg: work_item done cycle=1667 block=4 -> node-2FCC00[0m
+[0;32mI (139915) deleg: dispatch block=3 cycle=1373 -> node-717AC4[0m
+[0;32mI (139915) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (139965) deleg: work_item done cycle=1667 block=6 -> node-2FCC00[0m
+[0;32mI (139995) deleg: result rx cycle=1373 block=0 returned=3[0m
+[0;32mI (140025) deleg: result rx cycle=1373 block=1 returned=4[0m
+[0;32mI (140115) deleg: dispatch block=0 cycle=1383 -> node-717AC4[0m
+[0;32mI (140135) deleg: work_item done cycle=1667 block=8 -> node-2FCC00[0m
+[0;32mI (140195) deleg: result rx cycle=1373 block=2 returned=5[0m
+[0;32mI (140205) deleg: dispatch block=1 cycle=1383 -> node-717AC4[0m
+[0;32mI (140385) deleg: result rx cycle=1373 block=3 returned=6[0m
+[0;32mI (140395) deleg: dispatch block=2 cycle=1383 -> node-717AC4[0m
+[0;32mI (140415) deleg: result rx cycle=1383 block=0 returned=7[0m
+[0;32mI (140525) deleg: dispatch block=3 cycle=1383 -> node-717AC4[0m
+[0;32mI (140535) deleg: work_item done cycle=1208 block=2 -> node-34A9F0[0m
+[0;32mI (140685) deleg: dispatch block=4 cycle=1383 -> node-717AC4[0m
+[0;32mI (140705) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (140705) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (140745) deleg: work_item done cycle=1208 block=5 -> node-34A9F0[0m
+[0;32mI (140785) deleg: result rx cycle=1383 block=1 returned=8[0m
+[0;32mI (140855) deleg: work_item done cycle=1743 block=1 -> node-2FCC00[0m
+[0;32mI (140905) deleg: result rx cycle=1383 block=2 returned=9[0m
+[0;32mI (140915) deleg: dispatch block=0 cycle=1391 -> node-717AC4[0m
+[0;32mI (141045) deleg: dispatch block=1 cycle=1391 -> node-717AC4[0m
+[0;32mI (141045) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (141065) deleg: work_item done cycle=1208 block=7 -> node-34A9F0[0m
+[0;32mI (141325) deleg: work_item done cycle=1208 block=10 -> node-34A9F0[0m
+[0;32mI (141385) deleg: work_item done cycle=1748 block=1 -> node-2FCC00[0m
+[0;32mI (141435) deleg: result rx cycle=1383 block=3 returned=10[0m
+[0;32mI (141535) deleg: work_item done cycle=1209 block=0 -> node-34A9F0[0m
+[0;32mI (141765) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (141815) deleg: dispatch block=0 cycle=1398 -> node-717AC4[0m
+[0;32mI (141815) deleg: work_item done cycle=1209 block=2 -> node-34A9F0[0m
+[0;32mI (141825) mgr: cpu=64 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (141905) deleg: work_item done cycle=1748 block=3 -> node-2FCC00[0m
+[0;32mI (141945) deleg: result rx cycle=1383 block=4 returned=11[0m
+[0;32mI (142055) deleg: work_item done cycle=1209 block=6 -> node-34A9F0[0m
+[0;32mI (142145) deleg: dispatch block=0 cycle=1403 -> node-717AC4[0m
+[0;32mI (142145) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (142165) deleg: work_item done cycle=1748 block=5 -> node-2FCC00[0m
+[0;32mI (142315) deleg: result rx cycle=1391 block=0 returned=12[0m
+[0;32mI (142415) deleg: work_item done cycle=1209 block=7 -> node-34A9F0[0m
+[0;32mI (142465) deleg: result rx cycle=1391 block=1 returned=13[0m
+[0;32mI (142475) deleg: dispatch block=0 cycle=1407 -> node-717AC4[0m
+[0;32mI (142545) deleg: work_item done cycle=1209 block=11 -> node-34A9F0[0m
+[0;32mI (142645) deleg: dispatch block=1 cycle=1407 -> node-717AC4[0m
+[0;32mI (142825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (143205) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (143835) deleg: work_item done cycle=1210 block=1 -> node-34A9F0[0m
+[0;32mI (143925) deleg: work_item done cycle=1748 block=7 -> node-2FCC00[0m
+[0;32mI (143995) deleg: work_item done cycle=1240 block=0 -> node-34A9F0[0m
+[0;32mI (144105) deleg: work_item done cycle=1748 block=9 -> node-2FCC00[0m
+[0;32mI (144205) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (144245) deleg: result rx cycle=1398 block=0 returned=14[0m
+[0;32mI (144325) deleg: work_item done cycle=1243 block=0 -> node-34A9F0[0m
+[0;32mI (144385) deleg: result rx cycle=1403 block=0 returned=15[0m
+[0;32mI (144385) deleg: dispatch block=0 cycle=1426 -> node-717AC4[0m
+[0;32mI (144485) deleg: dispatch block=1 cycle=1426 -> node-717AC4[0m
+[0;32mI (144515) deleg: work_item done cycle=1768 block=0 -> node-2FCC00[0m
+[0;32mI (144845) deleg: pending timeout reclaim total=57[0m
+[0;32mI (144845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (144855) deleg: work_item done cycle=1768 block=2 -> node-2FCC00[0m
+[0;32mI (144915) deleg: work_item done cycle=1243 block=3 -> node-34A9F0[0m
+[0;32mI (144975) deleg: dispatch block=0 cycle=1432 -> node-717AC4[0m
+[0;32mI (145125) deleg: dispatch block=1 cycle=1432 -> node-717AC4[0m
+[0;32mI (145225) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (145245) deleg: work_item done cycle=1256 block=2 -> node-34A9F0[0m
+[0;32mI (145325) deleg: work_item done cycle=1780 block=1 -> node-2FCC00[0m
+[0;32mI (145425) deleg: work_item done cycle=1256 block=8 -> node-34A9F0[0m
+[0;32mI (145625) deleg: work_item done cycle=1256 block=10 -> node-34A9F0[0m
+[0;32mI (145695) deleg: work_item done cycle=1785 block=0 -> node-2FCC00[0m
+[0;32mI (145725) deleg: result rx cycle=1426 block=0 returned=16[0m
+[0;32mI (145755) deleg: result rx cycle=1426 block=1 returned=17[0m
+[0;32mI (145845) deleg: work_item done cycle=1785 block=5 -> node-2FCC00[0m
+[0;32mI (145865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (145945) deleg: dispatch block=0 cycle=1441 -> node-717AC4[0m
+[0;32mI (145975) deleg: work_item done cycle=1267 block=2 -> node-34A9F0[0m
+[0;32mI (146055) deleg: dispatch block=1 cycle=1441 -> node-717AC4[0m
+[0;32mI (146085) deleg: work_item done cycle=1267 block=5 -> node-34A9F0[0m
+[0;32mI (146335) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (146335) deleg: work_item done cycle=1795 block=0 -> node-2FCC00[0m
+[0;32mI (146435) deleg: work_item done cycle=1797 block=0 -> node-2FCC00[0m
+[0;32mI (146535) deleg: work_item done cycle=1275 block=0 -> node-34A9F0[0m
+[0;32mI (146615) deleg: work_item done cycle=1797 block=1 -> node-2FCC00[0m
+[0;32mI (146845) deleg: work_item done cycle=1275 block=3 -> node-34A9F0[0m
+[0;32mI (146865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (146925) deleg: work_item done cycle=1800 block=0 -> node-2FCC00[0m
+[0;32mI (147075) deleg: work_item done cycle=1275 block=7 -> node-34A9F0[0m
+[0;32mI (147175) deleg: result rx cycle=1432 block=0 returned=18[0m
+[0;32mI (147225) deleg: result rx cycle=1432 block=1 returned=19[0m
+[0;32mI (147295) deleg: dispatch block=0 cycle=1455 -> node-717AC4[0m
+[0;32mI (147345) deleg: work_item done cycle=1276 block=0 -> node-34A9F0[0m
+[0;32mI (147455) deleg: dispatch block=1 cycle=1455 -> node-717AC4[0m
+[0;32mI (147455) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (147545) deleg: work_item done cycle=1284 block=0 -> node-34A9F0[0m
+[0;32mI (147735) deleg: result rx cycle=1441 block=0 returned=20[0m
+[0;32mI (147765) deleg: result rx cycle=1441 block=1 returned=21[0m
+[0;32mI (147825) deleg: work_item done cycle=1808 block=1 -> node-2FCC00[0m
+[0;32mI (147865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (147905) deleg: dispatch block=0 cycle=1461 -> node-717AC4[0m
+[0;32mI (147925) deleg: work_item done cycle=1284 block=7 -> node-34A9F0[0m
+[0;32mI (147935) mgr: cpu=68 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (148005) deleg: dispatch block=1 cycle=1461 -> node-717AC4[0m
+[0;32mI (148015) deleg: work_item done cycle=1291 block=0 -> node-34A9F0[0m
+[0;32mI (148275) deleg: work_item done cycle=1808 block=3 -> node-2FCC00[0m
+[0;32mI (148335) deleg: work_item done cycle=1808 block=4 -> node-2FCC00[0m
+[0;32mI (148415) deleg: work_item done cycle=1291 block=3 -> node-34A9F0[0m
+[0;32mI (148505) deleg: work_item done cycle=1808 block=5 -> node-2FCC00[0m
+[0;32mI (148515) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (148695) deleg: work_item done cycle=1296 block=2 -> node-34A9F0[0m
+[0;32mI (148865) deleg: result rx cycle=1455 block=0 returned=22[0m
+[0;32mI (148885) deleg: result rx cycle=1455 block=1 returned=23[0m
+[0;32mI (148935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (148955) deleg: work_item done cycle=1296 block=6 -> node-34A9F0[0m
+[0;32mI (149005) deleg: result rx cycle=1461 block=0 returned=24[0m
+[0;32mI (149015) deleg: dispatch block=0 cycle=1472 -> node-717AC4[0m
+[0;32mI (149075) deleg: work_item done cycle=1300 block=2 -> node-34A9F0[0m
+[0;32mI (149145) deleg: dispatch block=1 cycle=1472 -> node-717AC4[0m
+[0;32mI (149155) deleg: work_item done cycle=1821 block=3 -> node-2FCC00[0m
+[0;32mI (149185) deleg: result rx cycle=1461 block=1 returned=25[0m
+[0;32mI (149245) deleg: work_item done cycle=1300 block=7 -> node-34A9F0[0m
+[0;32mI (149315) deleg: dispatch block=2 cycle=1472 -> node-717AC4[0m
+[0;32mI (149325) deleg: work_item done cycle=1828 block=0 -> node-2FCC00[0m
+[0;32mI (149415) deleg: dispatch block=3 cycle=1472 -> node-717AC4[0m
+[0;32mI (149425) deleg: work_item done cycle=1828 block=1 -> node-2FCC00[0m
+[0;32mI (149605) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (149605) deleg: work_item done cycle=1300 block=12 -> node-34A9F0[0m
+[0;32mI (149665) deleg: work_item done cycle=1301 block=1 -> node-34A9F0[0m
+[0;32mI (149725) deleg: work_item done cycle=1828 block=3 -> node-2FCC00[0m
+[0;32mI (149795) deleg: work_item done cycle=1301 block=3 -> node-34A9F0[0m
+[0;32mI (149825) deleg: result rx cycle=1472 block=0 returned=26[0m
+[0;32mI (149895) deleg: work_item done cycle=1301 block=5 -> node-34A9F0[0m
+[0;32mI (149945) deleg: result rx cycle=1472 block=1 returned=27[0m
+[0;32mI (149945) deleg: dispatch block=0 cycle=1482 -> node-717AC4[0m
+[0;32mI (149965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (150025) deleg: dispatch block=1 cycle=1482 -> node-717AC4[0m
+[0;32mI (150045) deleg: work_item done cycle=1828 block=7 -> node-2FCC00[0m
+[0;32mI (150295) deleg: result rx cycle=1472 block=2 returned=28[0m
+[0;32mI (150335) deleg: result rx cycle=1472 block=3 returned=29[0m
+[0;32mI (150385) deleg: work_item done cycle=1828 block=9 -> node-2FCC00[0m
+[0;32mI (150485) deleg: dispatch block=0 cycle=1486 -> node-717AC4[0m
+[0;32mI (150495) deleg: work_item done cycle=1302 block=0 -> node-34A9F0[0m
+[0;32mI (150555) deleg: work_item done cycle=1302 block=2 -> node-34A9F0[0m
+[0;32mI (150725) deleg: dispatch block=1 cycle=1486 -> node-717AC4[0m
+[0;32mI (150725) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (150725) deleg: work_item done cycle=1829 block=1 -> node-2FCC00[0m
+[0;32mI (150795) deleg: work_item done cycle=1302 block=4 -> node-34A9F0[0m
+[0;32mI (150965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (151015) deleg: work_item done cycle=1829 block=3 -> node-2FCC00[0m
+[0;32mI (151095) deleg: work_item done cycle=1302 block=7 -> node-34A9F0[0m
+[0;32mI (151115) deleg: result rx cycle=1482 block=0 returned=30[0m
+[0;32mI (151145) deleg: result rx cycle=1482 block=1 returned=31[0m
+[0;32mI (151205) deleg: work_item done cycle=1844 block=1 -> node-2FCC00[0m
+[0;32mI (151275) deleg: dispatch block=0 cycle=1495 -> node-717AC4[0m
+[0;32mI (151285) deleg: work_item done cycle=1303 block=2 -> node-34A9F0[0m
+[0;32mI (151365) deleg: dispatch block=1 cycle=1495 -> node-717AC4[0m
+[0;32mI (151385) deleg: work_item done cycle=1303 block=4 -> node-34A9F0[0m
+[0;32mI (151415) deleg: result rx cycle=1486 block=0 returned=32[0m
+[0;32mI (151475) deleg: work_item done cycle=1844 block=3 -> node-2FCC00[0m
+[0;32mI (151545) deleg: work_item done cycle=1844 block=5 -> node-2FCC00[0m
+[0;32mI (151565) deleg: result rx cycle=1486 block=1 returned=33[0m
+[0;32mI (151635) deleg: work_item done cycle=1303 block=12 -> node-34A9F0[0m
+[0;32mI (151695) deleg: dispatch block=0 cycle=1498 -> node-717AC4[0m
+[0;32mI (151715) deleg: work_item done cycle=1304 block=1 -> node-34A9F0[0m
+[0;32mI (151775) deleg: dispatch block=1 cycle=1498 -> node-717AC4[0m
+[0;32mI (151775) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (151785) deleg: work_item done cycle=1844 block=8 -> node-2FCC00[0m
+[0;32mI (151845) deleg: work_item done cycle=1304 block=3 -> node-34A9F0[0m
+[0;32mI (151965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (152025) deleg: work_item done cycle=1304 block=5 -> node-34A9F0[0m
+[0;32mI (152085) deleg: work_item done cycle=1856 block=1 -> node-2FCC00[0m
+[0;32mI (152145) deleg: result rx cycle=1495 block=0 returned=34[0m
+[0;32mI (152225) deleg: work_item done cycle=1304 block=11 -> node-34A9F0[0m
+[0;32mI (152285) deleg: dispatch block=0 cycle=1505 -> node-717AC4[0m
+[0;32mI (152805) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (152965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (153805) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (153815) deleg: work_item done cycle=1856 block=3 -> node-2FCC00[0m
+[0;32mI (153835) mgr: cpu=59 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (153925) deleg: work_item done cycle=1305 block=0 -> node-34A9F0[0m
+[0;32mI (153995) deleg: work_item done cycle=1856 block=5 -> node-2FCC00[0m
+[0;32mI (154025) deleg: result rx cycle=1495 block=1 returned=35[0m
+[0;32mI (154105) deleg: work_item done cycle=1305 block=2 -> node-34A9F0[0m
+[0;32mI (154175) deleg: work_item done cycle=1856 block=6 -> node-2FCC00[0m
+[0;32mI (154245) deleg: dispatch block=0 cycle=1524 -> node-717AC4[0m
+[0;32mI (154275) deleg: work_item done cycle=1305 block=4 -> node-34A9F0[0m
+[0;32mI (154485) deleg: result rx cycle=1498 block=0 returned=36[0m
+[0;32mI (154585) deleg: dispatch block=0 cycle=1528 -> node-717AC4[0m
+[0;32mI (154595) deleg: work_item done cycle=1305 block=6 -> node-34A9F0[0m
+[0;32mI (154715) deleg: work_item done cycle=1870 block=0 -> node-2FCC00[0m
+[0;32mI (154755) deleg: result rx cycle=1498 block=1 returned=37[0m
+[0;32mI (154835) deleg: pending timeout reclaim total=59[0m
+[0;32mI (154835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (155835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (156365) deleg: dispatch block=0 cycle=1531 -> node-717AC4[0m
+[0;32mI (156375) deleg: work_item done cycle=1355 block=6 -> node-34A9F0[0m
+[0;32mI (156475) deleg: dispatch block=1 cycle=1531 -> node-717AC4[0m
+[0;32mI (156475) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (156505) deleg: work_item done cycle=1879 block=1 -> node-2FCC00[0m
+[0;32mI (156595) deleg: work_item done cycle=1355 block=9 -> node-34A9F0[0m
+[0;32mI (156695) deleg: work_item done cycle=1883 block=1 -> node-2FCC00[0m
+[0;32mI (156775) deleg: work_item done cycle=1363 block=2 -> node-34A9F0[0m
+[0;32mI (156985) deleg: work_item done cycle=1883 block=3 -> node-2FCC00[0m
+[0;32mI (157015) deleg: result rx cycle=1524 block=0 returned=38[0m
+[0;32mI (157085) deleg: work_item done cycle=1363 block=5 -> node-34A9F0[0m
+[0;32mI (157135) deleg: work_item done cycle=1897 block=0 -> node-2FCC00[0m
+[0;32mI (157185) deleg: result rx cycle=1528 block=0 returned=39[0m
+[0;32mI (157195) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216380073, "seq": 1777216380073}[0m
+[0;32mI (157195) mqtt: control: SYNC_TIME epoch_ms=1777216380073 seq=2147483647[0m
+[0;32mI (157215) deleg: dispatch block=0 cycle=1554 -> node-717AC4[0m
+[0;32mI (157275) deleg: work_item done cycle=1906 block=0 -> node-2FCC00[0m
+[0;32mI (157315) deleg: result rx cycle=1531 block=0 returned=40[0m
+[0;32mI (157325) deleg: dispatch block=1 cycle=1554 -> node-717AC4[0m
+[0;32mI (157375) deleg: result rx cycle=1531 block=1 returned=41[0m
+[0;32mI (157385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (157385) deleg: dispatch block=2 cycle=1554 -> node-717AC4[0m
+[0;32mI (157495) deleg: dispatch block=3 cycle=1554 -> node-717AC4[0m
+[0;32mI (157505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (157515) deleg: work_item done cycle=1909 block=0 -> node-2FCC00[0m
+[0;32mI (157705) deleg: work_item done cycle=1911 block=0 -> node-2FCC00[0m
+[0;32mI (157765) deleg: work_item done cycle=1381 block=3 -> node-34A9F0[0m
+[0;32mI (157815) deleg: result rx cycle=1554 block=0 returned=42[0m
+[0;32mI (157905) deleg: work_item done cycle=1913 block=0 -> node-2FCC00[0m
+[0;32mI (157955) deleg: work_item done cycle=1381 block=6 -> node-34A9F0[0m
+[0;32mI (158025) deleg: dispatch block=0 cycle=1562 -> node-717AC4[0m
+[0;32mI (158045) deleg: work_item done cycle=1914 block=0 -> node-2FCC00[0m
+[0;32mI (158315) deleg: work_item done cycle=1381 block=8 -> node-34A9F0[0m
+[0;32mI (158335) deleg: result rx cycle=1554 block=1 returned=43[0m
+[0;32mI (158385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (158435) deleg: work_item done cycle=1381 block=10 -> node-34A9F0[0m
+[0;32mI (158455) deleg: result rx cycle=1554 block=2 returned=44[0m
+[0;32mI (158485) deleg: result rx cycle=1554 block=3 returned=45[0m
+[0;32mI (158555) deleg: dispatch block=0 cycle=1567 -> node-717AC4[0m
+[0;32mI (158605) deleg: work_item done cycle=1918 block=0 -> node-2FCC00[0m
+[0;32mI (158705) deleg: dispatch block=1 cycle=1567 -> node-717AC4[0m
+[0;32mI (158715) deleg: work_item done cycle=1382 block=1 -> node-34A9F0[0m
+[0;32mI (158745) deleg: result rx cycle=1562 block=0 returned=46[0m
+[0;32mI (158815) deleg: work_item done cycle=1382 block=3 -> node-34A9F0[0m
+[0;32mI (158875) deleg: dispatch block=2 cycle=1567 -> node-717AC4[0m
+[0;32mI (158895) deleg: work_item done cycle=1382 block=10 -> node-34A9F0[0m
+[0;32mI (158935) deleg: result rx cycle=1567 block=0 returned=47[0m
+[0;32mI (158945) deleg: dispatch block=3 cycle=1567 -> node-717AC4[0m
+[0;32mI (158995) deleg: result rx cycle=1567 block=1 returned=48[0m
+[0;32mI (159005) deleg: dispatch block=4 cycle=1567 -> node-717AC4[0m
+[0;32mI (159025) deleg: result rx cycle=1567 block=2 returned=49[0m
+[0;32mI (159055) deleg: dispatch block=5 cycle=1567 -> node-717AC4[0m
+[0;32mI (159095) deleg: result rx cycle=1567 block=3 returned=50[0m
+[0;32mI (159095) deleg: dispatch block=6 cycle=1567 -> node-717AC4[0m
+[0;32mI (159165) deleg: work_item done cycle=1918 block=1 -> node-2FCC00[0m
+[0;32mI (159265) deleg: dispatch block=7 cycle=1567 -> node-717AC4[0m
+[0;32mI (159265) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (159265) deleg: work_item done cycle=1920 block=0 -> node-2FCC00[0m
+[0;32mI (159315) deleg: result rx cycle=1567 block=4 returned=51[0m
+[0;32mI (159345) deleg: result rx cycle=1567 block=5 returned=52[0m
+[0;32mI (159375) deleg: result rx cycle=1567 block=6 returned=53[0m
+[0;32mI (159425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (159425) mgr: cpu=87 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (159435) deleg: result rx cycle=1567 block=7 returned=54[0m
+[0;32mI (159455) deleg: dispatch block=0 cycle=1577 -> node-717AC4[0m
+[0;32mI (159505) deleg: dispatch block=1 cycle=1577 -> node-717AC4[0m
+[0;32mI (159545) deleg: dispatch block=2 cycle=1577 -> node-717AC4[0m
+[0;32mI (159605) deleg: result rx cycle=1577 block=0 returned=55[0m
+[0;32mI (159605) deleg: dispatch block=3 cycle=1577 -> node-717AC4[0m
+[0;32mI (159645) deleg: dispatch block=4 cycle=1577 -> node-717AC4[0m
+[0;32mI (159675) deleg: result rx cycle=1577 block=1 returned=56[0m
+[0;32mI (159735) deleg: dispatch block=0 cycle=1580 -> node-717AC4[0m
+[0;32mI (159925) deleg: result rx cycle=1577 block=2 returned=57[0m
+[0;32mI (159945) deleg: result rx cycle=1577 block=3 returned=58[0m
+[0;32mI (160015) deleg: work_item done cycle=1383 block=0 -> node-34A9F0[0m
+[0;32mI (160065) deleg: result rx cycle=1577 block=4 returned=59[0m
+[0;32mI (160075) deleg: dispatch block=0 cycle=1583 -> node-717AC4[0m
+[0;32mI (160125) deleg: work_item done cycle=1383 block=2 -> node-34A9F0[0m
+[0;32mI (160175) deleg: result rx cycle=1580 block=0 returned=60[0m
+[0;32mI (160185) deleg: dispatch block=1 cycle=1583 -> node-717AC4[0m
+[0;32mI (160245) deleg: work_item done cycle=1383 block=4 -> node-34A9F0[0m
+[0;32mI (160305) deleg: work_item done cycle=1383 block=6 -> node-34A9F0[0m
+[0;32mI (160365) deleg: dispatch block=2 cycle=1583 -> node-717AC4[0m
+[0;32mI (160375) deleg: work_item done cycle=1383 block=8 -> node-34A9F0[0m
+[0;32mI (160425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (160455) deleg: result rx cycle=1583 block=0 returned=61[0m
+[0;32mI (160465) deleg: dispatch block=3 cycle=1583 -> node-717AC4[0m
+[0;32mI (160525) deleg: work_item done cycle=1383 block=10 -> node-34A9F0[0m
+[0;32mI (160585) deleg: result rx cycle=1583 block=1 returned=62[0m
+[0;32mI (160585) deleg: dispatch block=4 cycle=1583 -> node-717AC4[0m
+[0;32mI (160675) deleg: dispatch block=5 cycle=1583 -> node-717AC4[0m
+[0;32mI (160685) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (160685) deleg: work_item done cycle=1383 block=12 -> node-34A9F0[0m
+[0;32mI (160985) deleg: work_item done cycle=1384 block=0 -> node-34A9F0[0m
+[0;32mI (161055) deleg: work_item done cycle=1932 block=0 -> node-2FCC00[0m
+[0;32mI (161085) deleg: result rx cycle=1583 block=2 returned=63[0m
+[0;32mI (161165) deleg: work_item done cycle=1384 block=2 -> node-34A9F0[0m
+[0;32mI (161285) deleg: dispatch block=0 cycle=1594 -> node-717AC4[0m
+[0;32mI (161315) deleg: work_item done cycle=1932 block=1 -> node-2FCC00[0m
+[0;32mI (161365) deleg: work_item done cycle=1932 block=2 -> node-2FCC00[0m
+[0;32mI (161435) deleg: work_item done cycle=1384 block=4 -> node-34A9F0[0m
+[0;32mI (161465) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (161525) deleg: work_item done cycle=1932 block=3 -> node-2FCC00[0m
+[0;32mI (161565) deleg: result rx cycle=1583 block=3 returned=64[0m
+[0;32mI (161595) deleg: result rx cycle=1583 block=4 returned=65[0m
+[0;32mI (161615) deleg: result rx cycle=1583 block=5 returned=66[0m
+[0;32mI (161685) deleg: dispatch block=0 cycle=1599 -> node-717AC4[0m
+[0;32mI (161705) deleg: work_item done cycle=1426 block=5 -> node-34A9F0[0m
+[0;32mI (161755) deleg: work_item done cycle=1426 block=7 -> node-34A9F0[0m
+[0;32mI (161815) deleg: dispatch block=1 cycle=1599 -> node-717AC4[0m
+[0;32mI (161825) deleg: work_item done cycle=1952 block=0 -> node-2FCC00[0m
+[0;32mI (161895) deleg: dispatch block=2 cycle=1599 -> node-717AC4[0m
+[0;32mI (161895) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (161905) deleg: work_item done cycle=1426 block=9 -> node-34A9F0[0m
+[0;32mI (161975) deleg: work_item done cycle=1954 block=0 -> node-2FCC00[0m
+[0;32mI (162065) deleg: work_item done cycle=1954 block=1 -> node-2FCC00[0m
+[0;32mI (162115) deleg: result rx cycle=1594 block=0 returned=67[0m
+[0;32mI (162435) deleg: dispatch block=0 cycle=1605 -> node-717AC4[0m
+[0;32mI (162465) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (162705) deleg: work_item done cycle=1433 block=0 -> node-34A9F0[0m
+[0;32mI (162905) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (163885) deleg: pending timeout reclaim total=60[0m
+[0;32mI (163885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (164885) deleg: pending timeout reclaim total=62[0m
+[0;32mI (164885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (165345) deleg: dispatch block=0 cycle=1622 -> node-717AC4[0m
+[0;32mI (165365) deleg: work_item done cycle=1956 block=0 -> node-2FCC00[0m
+[0;32mI (165375) mgr: cpu=47 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (165435) deleg: dispatch block=1 cycle=1622 -> node-717AC4[0m
+[0;32mI (165495) deleg: work_item done cycle=1436 block=0 -> node-34A9F0[0m
+[0;32mI (165545) deleg: dispatch block=2 cycle=1622 -> node-717AC4[0m
+[0;32mI (165625) deleg: dispatch block=3 cycle=1622 -> node-717AC4[0m
+[0;32mI (165625) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (165655) deleg: work_item done cycle=1436 block=2 -> node-34A9F0[0m
+[0;32mI (165925) deleg: work_item done cycle=1960 block=0 -> node-2FCC00[0m
+[0;32mI (165995) deleg: work_item done cycle=1436 block=4 -> node-34A9F0[0m
+[0;32mI (166065) deleg: work_item done cycle=1960 block=1 -> node-2FCC00[0m
+[0;32mI (166145) deleg: work_item done cycle=1960 block=2 -> node-2FCC00[0m
+[0;32mI (166235) deleg: work_item done cycle=1979 block=0 -> node-2FCC00[0m
+[0;32mI (166375) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (166705) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (167425) deleg: pending timeout reclaim total=64[0m
+[0;32mI (167425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (168015) deleg: work_item done cycle=1458 block=0 -> node-34A9F0[0m
+[0;32mI (168505) deleg: dispatch block=0 cycle=1658 -> node-717AC4[0m
+[0;32mI (168505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (168735) deleg: work_item done cycle=1458 block=2 -> node-34A9F0[0m
+[0;32mI (169155) deleg: pending timeout reclaim total=65[0m
+[0;32mI (169155) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (169385) deleg: work_item done cycle=1989 block=0 -> node-2FCC00[0m
+[0;32mI (169495) deleg: dispatch block=0 cycle=1675 -> node-717AC4[0m
+[0;32mI (169505) deleg: work_item done cycle=1989 block=1 -> node-2FCC00[0m
+[0;32mI (169575) deleg: dispatch block=1 cycle=1675 -> node-717AC4[0m
+[0;32mI (169585) deleg: work_item done cycle=1468 block=0 -> node-34A9F0[0m
+[0;32mI (169765) deleg: dispatch block=2 cycle=1675 -> node-717AC4[0m
+[0;32mI (169765) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (169995) deleg: work_item done cycle=1468 block=2 -> node-34A9F0[0m
+[0;32mI (170395) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (170805) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (171395) deleg: pending timeout reclaim total=68[0m
+[0;32mI (171395) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (171395) mgr: cpu=47 q=2 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (171835) deleg: dispatch block=0 cycle=1697 -> node-717AC4[0m
+[0;32mI (171835) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (171925) deleg: work_item done cycle=1999 block=0 -> node-2FCC00[0m
+[0;32mI (172045) deleg: work_item done cycle=2010 block=0 -> node-2FCC00[0m
+[0;32mI (172115) deleg: work_item done cycle=1488 block=0 -> node-34A9F0[0m
+[0;32mI (172175) deleg: work_item done cycle=1488 block=2 -> node-34A9F0[0m
+[0;32mI (172245) deleg: work_item done cycle=1498 block=0 -> node-34A9F0[0m
+[0;32mI (172315) deleg: work_item done cycle=2020 block=0 -> node-2FCC00[0m
+[0;32mI (172395) deleg: pending timeout reclaim total=69[0m
+[0;32mI (172395) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (172455) deleg: work_item done cycle=2020 block=1 -> node-2FCC00[0m
+[0;32mI (172525) deleg: work_item done cycle=1498 block=2 -> node-34A9F0[0m
+[0;32mI (172585) deleg: dispatch block=0 cycle=1707 -> node-717AC4[0m
+[0;32mI (172605) deleg: work_item done cycle=2030 block=0 -> node-2FCC00[0m
+[0;32mI (172685) deleg: dispatch block=1 cycle=1707 -> node-717AC4[0m
+[0;32mI (172685) deleg: work_item done cycle=1498 block=5 -> node-34A9F0[0m
+[0;32mI (172765) deleg: dispatch block=2 cycle=1707 -> node-717AC4[0m
+[0;32mI (172775) deleg: work_item done cycle=1498 block=7 -> node-34A9F0[0m
+[0;32mI (172855) deleg: work_item done cycle=1530 block=0 -> node-34A9F0[0m
+[0;32mI (172915) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (172915) deleg: work_item done cycle=1530 block=2 -> node-34A9F0[0m
+[0;32mI (172975) deleg: work_item done cycle=2040 block=0 -> node-2FCC00[0m
+[0;32mI (173395) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (174005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (174395) deleg: pending timeout reclaim total=72[0m
+[0;32mI (174395) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (174955) deleg: work_item done cycle=2050 block=0 -> node-2FCC00[0m
+[0;32mI (175025) deleg: dispatch block=0 cycle=1727 -> node-717AC4[0m
+[0;32mI (175025) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (175045) deleg: work_item done cycle=2050 block=1 -> node-2FCC00[0m
+[0;32mI (175155) deleg: work_item done cycle=2067 block=0 -> node-2FCC00[0m
+[0;32mI (175415) deleg: work_item done cycle=2067 block=1 -> node-2FCC00[0m
+[0;32mI (175505) deleg: work_item done cycle=1546 block=0 -> node-34A9F0[0m
+[0;32mI (175965) deleg: pending timeout reclaim total=73[0m
+[0;32mI (175965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (176905) deleg: work_item done cycle=1547 block=0 -> node-34A9F0[0m
+[0;32mI (177145) deleg: dispatch block=0 cycle=1743 -> node-717AC4[0m
+[0;32mI (177915) deleg: pending timeout reclaim total=76[0m
+[0;32mI (177915) deleg: host lost, restoring blocks=10 peer=node-717AC4[0m
+[0;32mI (177915) deleg: channel reset reclaim peer=node-717AC4 reclaimed=1[0m
+[0;32mI (177915) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (178345) deleg: work_item done cycle=1547 block=1 -> node-34A9F0[0m
+[0;32mI (178355) mgr: cpu=0 q=0 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (179355) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (179855) deleg: dispatch block=1 cycle=1743 -> node-717AC4[0m
+[0;32mI (181315) deleg: work_item done cycle=1547 block=2 -> node-34A9F0[0m
+[0;32mI (182355) deleg: pending timeout reclaim total=77[0m
+[0;32mI (182845) deleg: work_item done cycle=2087 block=0 -> node-2FCC00[0m
+[0;32mI (182855) deleg: offload request -> node-717AC4 blocks=10 slot=2[0m
+[0;32mI (182855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (182915) deleg: work_item done cycle=2087 block=1 -> node-2FCC00[0m
+[0;32mI (183065) deleg: work_item done cycle=1571 block=0 -> node-34A9F0[0m
+[0;32mI (183135) deleg: work_item done cycle=1571 block=1 -> node-34A9F0[0m
+[0;32mI (183455) deleg: work_item done cycle=1571 block=2 -> node-34A9F0[0m
+[0;32mI (183855) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (183855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=569[0m
+[0;32mI (185435) deleg: work_item done cycle=1571 block=3 -> node-34A9F0[0m
+[0;32mI (185665) deleg: work_item done cycle=2095 block=1 -> node-2FCC00[0m
+[0;32mI (185755) deleg: work_item done cycle=2095 block=3 -> node-2FCC00[0m
+[0;32mI (185955) deleg: work_item done cycle=2113 block=1 -> node-2FCC00[0m
+[0;32mI (186025) deleg: work_item done cycle=2113 block=2 -> node-2FCC00[0m
+[0;32mI (186095) deleg: work_item done cycle=1603 block=0 -> node-34A9F0[0m
+[0;32mI (186175) deleg: work_item done cycle=1603 block=1 -> node-34A9F0[0m
+[0;32mI (186365) deleg: work_item done cycle=1603 block=2 -> node-34A9F0[0m
+[0;32mI (186425) deleg: request timed out peer=node-717AC4[0m
+[0;32mI (186425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (186435) deleg: work_item done cycle=1603 block=3 -> node-34A9F0[0m
+[0;32mI (186525) deleg: work_item done cycle=2121 block=1 -> node-2FCC00[0m
+[0;32mI (186625) deleg: work_item done cycle=1633 block=0 -> node-34A9F0[0m
+[0;32mI (186875) deleg: work_item done cycle=1633 block=1 -> node-34A9F0[0m
+[0;32mI (186935) deleg: work_item done cycle=1633 block=2 -> node-34A9F0[0m
+[0;32mI (187005) deleg: work_item done cycle=1633 block=3 -> node-34A9F0[0m
+[0;32mI (187085) deleg: work_item done cycle=2147 block=1 -> node-2FCC00[0m
+[0;32mI (187295) deleg: work_item done cycle=2147 block=3 -> node-2FCC00[0m
+[0;32mI (187365) deleg: work_item done cycle=2147 block=5 -> node-2FCC00[0m
+[0;32mI (187455) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (187455) deleg: work_item done cycle=1643 block=5 -> node-34A9F0[0m
+[0;32mI (187475) mgr: cpu=82 q=0 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (187545) deleg: work_item done cycle=2188 block=0 -> node-2FCC00[0m
+[0;32mI (187615) deleg: work_item done cycle=1643 block=7 -> node-34A9F0[0m
+[0;32mI (187705) deleg: work_item done cycle=1643 block=9 -> node-34A9F0[0m
+[0;32mI (187785) deleg: work_item done cycle=1643 block=11 -> node-34A9F0[0m
+[0;32mI (187795) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216410226, "seq": 1777216410226}[0m
+[0;32mI (187795) mqtt: control: SYNC_TIME epoch_ms=1777216410226 seq=2147483647[0m
+[0;32mI (188015) deleg: work_item done cycle=2206 block=1 -> node-2FCC00[0m
+[0;32mI (188075) deleg: work_item done cycle=2206 block=3 -> node-2FCC00[0m
+[0;32mI (188175) deleg: work_item done cycle=2206 block=5 -> node-2FCC00[0m
+[0;32mI (188255) deleg: work_item done cycle=1694 block=0 -> node-34A9F0[0m
+[0;32mI (188475) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (188475) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (188525) deleg: work_item done cycle=1695 block=0 -> node-34A9F0[0m
+[0;32mI (188605) deleg: work_item done cycle=2212 block=7 -> node-2FCC00[0m
+[0;32mI (188675) deleg: work_item done cycle=1696 block=0 -> node-34A9F0[0m
+[0;32mI (188745) deleg: work_item done cycle=1699 block=0 -> node-34A9F0[0m
+[0;32mI (188925) deleg: work_item done cycle=2221 block=1 -> node-2FCC00[0m
+[0;32mI (189005) deleg: work_item done cycle=2221 block=3 -> node-2FCC00[0m
+[0;32mI (189085) deleg: work_item done cycle=2221 block=5 -> node-2FCC00[0m
+[0;32mI (189145) deleg: work_item done cycle=1702 block=4 -> node-34A9F0[0m
+[0;32mI (189225) deleg: work_item done cycle=1702 block=6 -> node-34A9F0[0m
+[0;32mI (189285) deleg: work_item done cycle=1702 block=8 -> node-34A9F0[0m
+[0;32mI (189475) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (189545) deleg: work_item done cycle=2221 block=11 -> node-2FCC00[0m
+[0;32mI (189625) deleg: work_item done cycle=1710 block=0 -> node-34A9F0[0m
+[0;32mI (189705) deleg: work_item done cycle=2222 block=6 -> node-2FCC00[0m
+[0;32mI (189765) deleg: work_item done cycle=1710 block=1 -> node-34A9F0[0m
+[0;32mI (189835) deleg: work_item done cycle=1710 block=2 -> node-34A9F0[0m
+[0;32mI (189905) deleg: work_item done cycle=2222 block=9 -> node-2FCC00[0m
+[0;32mI (190015) deleg: work_item done cycle=1710 block=4 -> node-34A9F0[0m
+[0;32mI (190265) deleg: work_item done cycle=2222 block=12 -> node-2FCC00[0m
+[0;32mI (190345) deleg: work_item done cycle=1710 block=6 -> node-34A9F0[0m
+[0;32mI (190415) deleg: work_item done cycle=2222 block=15 -> node-2FCC00[0m
+[0;32mI (190485) deleg: work_item done cycle=1717 block=0 -> node-34A9F0[0m
+[0;32mI (190495) deleg: offload request -> node-717AC4 blocks=10 slot=2[0m
+[0;32mI (190495) mgr: stress transition: MEDIUM -> HIGH[0m
+[0;32mI (190495) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (190555) deleg: work_item done cycle=2223 block=2 -> node-2FCC00[0m
+[0;32mI (190625) deleg: work_item done cycle=1717 block=1 -> node-34A9F0[0m
+[0;32mI (190685) deleg: work_item done cycle=2223 block=5 -> node-2FCC00[0m
+[0;32mI (190755) deleg: work_item done cycle=1721 block=0 -> node-34A9F0[0m
+[0;32mI (190765) deleg: offload accepted by=node-717AC4 blocks=10 active_blocks=10[0m
+[0;32mI (190925) deleg: dispatch block=0 cycle=1891 -> node-717AC4[0m
+[0;32mI (190995) deleg: work_item done cycle=2223 block=12 -> node-2FCC00[0m
+[0;32mI (191095) deleg: dispatch block=1 cycle=1891 -> node-717AC4[0m
+[0;32mI (191105) deleg: work_item done cycle=2223 block=15 -> node-2FCC00[0m
+[0;32mI (191175) deleg: work_item done cycle=2224 block=3 -> node-2FCC00[0m
+[0;32mI (191205) deleg: result rx cycle=1891 block=0 returned=68[0m
+[0;32mI (191215) deleg: dispatch block=2 cycle=1891 -> node-717AC4[0m
+[0;32mI (191285) deleg: dispatch block=3 cycle=1891 -> node-717AC4[0m
+[0;32mI (191305) deleg: work_item done cycle=2224 block=5 -> node-2FCC00[0m
+[0;32mI (191385) deleg: dispatch block=4 cycle=1891 -> node-717AC4[0m
+[0;32mI (191385) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (191395) deleg: work_item done cycle=2224 block=7 -> node-2FCC00[0m
+[0;32mI (191455) deleg: work_item done cycle=2224 block=9 -> node-2FCC00[0m
+[0;32mI (191565) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (191595) deleg: result rx cycle=1891 block=1 returned=69[0m
+[0;32mI (191625) deleg: result rx cycle=1891 block=2 returned=70[0m
+[0;32mI (191705) deleg: dispatch block=0 cycle=1899 -> node-717AC4[0m
+[0;32mI (191705) deleg: work_item done cycle=2224 block=11 -> node-2FCC00[0m
+[0;32mI (191785) deleg: work_item done cycle=2224 block=13 -> node-2FCC00[0m
+[0;32mI (191875) deleg: result rx cycle=1891 block=3 returned=71[0m
+[0;32mI (191875) deleg: dispatch block=1 cycle=1899 -> node-717AC4[0m
+[0;32mI (191945) deleg: dispatch block=2 cycle=1899 -> node-717AC4[0m
+[0;32mI (191965) deleg: work_item done cycle=2224 block=15 -> node-2FCC00[0m
+[0;32mI (192235) deleg: work_item done cycle=2225 block=0 -> node-2FCC00[0m
+[0;32mI (192315) deleg: work_item done cycle=1721 block=1 -> node-34A9F0[0m
+[0;32mI (192365) deleg: result rx cycle=1891 block=4 returned=72[0m
+[0;32mI (192445) deleg: work_item done cycle=2225 block=2 -> node-2FCC00[0m
+[0;32mI (192545) deleg: dispatch block=0 cycle=1907 -> node-717AC4[0m
+[0;32mI (192545) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (192565) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (192565) deleg: work_item done cycle=2225 block=3 -> node-2FCC00[0m
+[0;32mI (192595) mgr: cpu=76 q=1 load=100 cap=10 eff=2 win=0[0m
+[0;32mI (192675) deleg: work_item done cycle=1721 block=5 -> node-34A9F0[0m
+[0;32mI (193005) deleg: result rx cycle=1899 block=0 returned=73[0m
+[0;32mI (193065) deleg: work_item done cycle=1721 block=7 -> node-34A9F0[0m
+[0;32mI (193155) deleg: dispatch block=0 cycle=1913 -> node-717AC4[0m
+[0;32mI (193165) deleg: work_item done cycle=2225 block=9 -> node-2FCC00[0m
+[0;32mI (193245) deleg: work_item done cycle=2225 block=11 -> node-2FCC00[0m
+[0;32mI (193595) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (193605) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (193655) deleg: work_item done cycle=1721 block=9 -> node-34A9F0[0m
+[0;32mI (193685) deleg: result rx cycle=1899 block=1 returned=74[0m
+[0;32mI (193835) deleg: work_item done cycle=1721 block=11 -> node-34A9F0[0m
+[0;32mI (193865) deleg: result rx cycle=1899 block=2 returned=75[0m
+[0;32mI (193875) deleg: dispatch block=0 cycle=1920 -> node-717AC4[0m
+[0;32mI (193935) deleg: work_item done cycle=2225 block=15 -> node-2FCC00[0m
+[0;32mI (193995) deleg: dispatch block=1 cycle=1920 -> node-717AC4[0m
+[0;32mI (194005) deleg: work_item done cycle=2226 block=2 -> node-2FCC00[0m
+[0;32mI (194065) deleg: work_item done cycle=1747 block=2 -> node-34A9F0[0m
+[0;32mI (194155) deleg: work_item done cycle=1747 block=3 -> node-34A9F0[0m
+[0;32mI (194325) deleg: result rx cycle=1907 block=0 returned=76[0m
+[0;32mI (194385) deleg: work_item done cycle=2272 block=3 -> node-2FCC00[0m
+[0;32mI (194415) deleg: result rx cycle=1913 block=0 returned=77[0m
+[0;32mI (194505) deleg: dispatch block=0 cycle=1927 -> node-717AC4[0m
+[0;32mI (194515) deleg: work_item done cycle=2272 block=8 -> node-2FCC00[0m
+[0;32mI (194585) deleg: work_item done cycle=1757 block=0 -> node-34A9F0[0m
+[0;32mI (194595) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (194635) deleg: result rx cycle=1920 block=0 returned=78[0m
+[0;32mI (194645) deleg: dispatch block=1 cycle=1927 -> node-717AC4[0m
+[0;32mI (194715) deleg: work_item done cycle=1757 block=1 -> node-34A9F0[0m
+[0;32mI (194805) deleg: dispatch block=2 cycle=1927 -> node-717AC4[0m
+[0;32mI (194805) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (194835) deleg: work_item done cycle=2272 block=13 -> node-2FCC00[0m
+[0;32mI (194875) deleg: result rx cycle=1920 block=1 returned=79[0m
+[0;32mI (194935) deleg: work_item done cycle=1760 block=0 -> node-34A9F0[0m
+[0;32mI (195025) deleg: dispatch block=0 cycle=1932 -> node-717AC4[0m
+[0;32mI (195045) deleg: work_item done cycle=2273 block=0 -> node-2FCC00[0m
+[0;32mI (195105) deleg: work_item done cycle=1762 block=0 -> node-34A9F0[0m
+[0;32mI (195345) deleg: result rx cycle=1927 block=0 returned=80[0m
+[0;32mI (195435) deleg: work_item done cycle=2273 block=5 -> node-2FCC00[0m
+[0;32mI (195495) deleg: dispatch block=0 cycle=1937 -> node-717AC4[0m
+[0;32mI (195515) deleg: work_item done cycle=1765 block=0 -> node-34A9F0[0m
+[0;32mI (195575) deleg: work_item done cycle=2273 block=8 -> node-2FCC00[0m
+[0;32mI (195595) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (195605) deleg: result rx cycle=1927 block=1 returned=81[0m
+[0;32mI (195675) deleg: work_item done cycle=1767 block=0 -> node-34A9F0[0m
+[0;32mI (195755) deleg: result rx cycle=1927 block=2 returned=82[0m
+[0;32mI (195755) deleg: dispatch block=0 cycle=1939 -> node-717AC4[0m
+[0;32mI (195825) deleg: dispatch block=1 cycle=1939 -> node-717AC4[0m
+[0;32mI (195835) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (195845) deleg: work_item done cycle=1767 block=2 -> node-34A9F0[0m
+[0;32mI (196065) deleg: result rx cycle=1932 block=0 returned=83[0m
+[0;32mI (196135) deleg: work_item done cycle=2273 block=15 -> node-2FCC00[0m
+[0;32mI (196205) deleg: dispatch block=0 cycle=1944 -> node-717AC4[0m
+[0;32mI (196205) deleg: work_item done cycle=2274 block=2 -> node-2FCC00[0m
+[0;32mI (196275) deleg: work_item done cycle=1772 block=0 -> node-34A9F0[0m
+[0;32mI (196285) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777216419372}[0m
+[0;32mI (196285) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (196505) deleg: work_item done cycle=2274 block=5 -> node-2FCC00[0m
+[0;32mI (196535) deleg: result rx cycle=1937 block=0 returned=84[0m
+[0;32mI (196595) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (196595) deleg: work_item done cycle=1774 block=0 -> node-34A9F0[0m
+[0;32mI (196695) deleg: work_item done cycle=2274 block=8 -> node-2FCC00[0m
+[0;32mI (196755) deleg: dispatch block=0 cycle=1949 -> node-717AC4[0m
+[0;32mI (196765) deleg: work_item done cycle=1776 block=0 -> node-34A9F0[0m
+[0;32mI (196805) deleg: result rx cycle=1939 block=0 returned=85[0m
+[0;32mI (196845) deleg: result rx cycle=1939 block=1 returned=86[0m
+[0;32mI (196925) deleg: dispatch block=0 cycle=1951 -> node-717AC4[0m
+[0;32mI (196935) deleg: work_item done cycle=1780 block=0 -> node-34A9F0[0m
+[0;32mI (196995) deleg: result rx cycle=1944 block=0 returned=87[0m
+[0;32mI (197005) deleg: dispatch block=1 cycle=1951 -> node-717AC4[0m
+[0;32mI (197085) deleg: work_item done cycle=2275 block=1 -> node-2FCC00[0m
+[0;32mI (197145) deleg: dispatch block=2 cycle=1951 -> node-717AC4[0m
+[0;32mI (197145) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (197175) deleg: work_item done cycle=2275 block=4 -> node-2FCC00[0m
+[0;32mI (197285) deleg: work_item done cycle=2275 block=7 -> node-2FCC00[0m
+[0;32mI (197545) deleg: work_item done cycle=1784 block=0 -> node-34A9F0[0m
+[0;32mI (197605) deleg: work_item done cycle=1784 block=1 -> node-34A9F0[0m
+[0;32mI (197615) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (197625) mgr: cpu=77 q=0 load=200 cap=10 eff=4 win=0[0m
+[0;32mI (197695) deleg: work_item done cycle=1787 block=0 -> node-34A9F0[0m
+[0;32mI (197725) deleg: result rx cycle=1949 block=0 returned=88[0m
+[0;32mI (197795) deleg: work_item done cycle=2275 block=12 -> node-2FCC00[0m
+[0;32mI (197865) deleg: work_item done cycle=1789 block=0 -> node-34A9F0[0m
+[0;32mI (197915) deleg: result rx cycle=1951 block=0 returned=89[0m
+[0;32mI (197915) deleg: dispatch block=0 cycle=1961 -> node-717AC4[0m
+[0;32mI (197965) deleg: result rx cycle=1951 block=1 returned=90[0m
+[0;32mI (197975) deleg: dispatch block=1 cycle=1961 -> node-717AC4[0m
+[0;32mI (198035) deleg: work_item done cycle=2276 block=3 -> node-2FCC00[0m
+[0;32mI (198065) deleg: result rx cycle=1951 block=2 returned=91[0m
+[0;32mI (198075) deleg: dispatch block=2 cycle=1961 -> node-717AC4[0m
+[0;32mI (198125) deleg: work_item done cycle=2276 block=6 -> node-2FCC00[0m
+[0;32mI (198205) deleg: dispatch block=3 cycle=1961 -> node-717AC4[0m
+[0;32mI (198205) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (198215) deleg: work_item done cycle=2276 block=9 -> node-2FCC00[0m
+[0;32mI (198285) deleg: work_item done cycle=1796 block=0 -> node-34A9F0[0m
+[0;32mI (198375) deleg: work_item done cycle=1796 block=1 -> node-34A9F0[0m
+[0;32mI (198465) deleg: work_item done cycle=1796 block=2 -> node-34A9F0[0m
+[0;32mI (198555) deleg: work_item done cycle=2276 block=12 -> node-2FCC00[0m
+[0;32mI (198625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (198625) deleg: work_item done cycle=1796 block=5 -> node-34A9F0[0m
+[0;32mI (198675) deleg: result rx cycle=1961 block=0 returned=92[0m
+[0;32mI (198745) deleg: work_item done cycle=2276 block=15 -> node-2FCC00[0m
+[0;32mI (198785) deleg: result rx cycle=1961 block=1 returned=93[0m
+[0;32mI (198785) deleg: dispatch block=0 cycle=1970 -> node-717AC4[0m
+[0;32mI (198895) deleg: dispatch block=1 cycle=1970 -> node-717AC4[0m
+[0;32mI (198915) deleg: work_item done cycle=2277 block=2 -> node-2FCC00[0m
+[0;32mI (198935) deleg: result rx cycle=1961 block=2 returned=94[0m
+[0;32mI (199015) deleg: work_item done cycle=1796 block=11 -> node-34A9F0[0m
+[0;32mI (199055) deleg: result rx cycle=1961 block=3 returned=95[0m
+[0;32mI (199065) deleg: dispatch block=0 cycle=1973 -> node-717AC4[0m
+[0;32mI (199285) deleg: dispatch block=1 cycle=1973 -> node-717AC4[0m
+[0;32mI (199285) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (199295) deleg: work_item done cycle=2277 block=5 -> node-2FCC00[0m
+[0;32mI (199365) deleg: work_item done cycle=1796 block=12 -> node-34A9F0[0m
+[0;32mI (199445) deleg: work_item done cycle=1797 block=0 -> node-34A9F0[0m
+[0;32mI (199505) deleg: work_item done cycle=1797 block=1 -> node-34A9F0[0m
+[0;32mI (199635) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (199695) deleg: work_item done cycle=2277 block=8 -> node-2FCC00[0m
+[0;32mI (199795) deleg: work_item done cycle=2277 block=11 -> node-2FCC00[0m
+[0;32mI (199825) deleg: result rx cycle=1970 block=0 returned=96[0m
+[0;32mI (199885) deleg: work_item done cycle=2277 block=14 -> node-2FCC00[0m
+[0;32mI (199915) deleg: result rx cycle=1970 block=1 returned=97[0m
+[0;32mI (199975) deleg: work_item done cycle=1810 block=0 -> node-34A9F0[0m
+[0;32mI (200005) deleg: result rx cycle=1973 block=0 returned=98[0m
+[0;32mI (200015) deleg: dispatch block=0 cycle=1982 -> node-717AC4[0m
+[0;32mI (200035) deleg: result rx cycle=1973 block=1 returned=99[0m
+[0;32mI (200095) deleg: work_item done cycle=1813 block=0 -> node-34A9F0[0m
+[0;32mI (200175) deleg: dispatch block=1 cycle=1982 -> node-717AC4[0m
+[0;32mI (200185) deleg: work_item done cycle=2278 block=5 -> node-2FCC00[0m
+[0;32mI (200255) deleg: work_item done cycle=1813 block=1 -> node-34A9F0[0m
+[0;32mI (200335) deleg: dispatch block=2 cycle=1982 -> node-717AC4[0m
+[0;32mI (200355) deleg: work_item done cycle=1815 block=0 -> node-34A9F0[0m
+[0;32mI (200435) deleg: dispatch block=3 cycle=1982 -> node-717AC4[0m
+[0;32mI (200445) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (200465) deleg: work_item done cycle=2278 block=10 -> node-2FCC00[0m
+[0;32mI (200635) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=564[0m
+[0;32mI (200675) deleg: result rx cycle=1982 block=0 returned=100[0m
+[0;32mI (200775) deleg: work_item done cycle=2278 block=13 -> node-2FCC00[0m
+[0;32mI (200905) deleg: dispatch block=0 cycle=1990 -> node-717AC4[0m
+[0;32mI (200945) deleg: work_item done cycle=1819 block=0 -> node-34A9F0[0m
+[0;32mI (201035) deleg: work_item done cycle=1819 block=1 -> node-34A9F0[0m
+[0;32mI (201185) deleg: result rx cycle=1982 block=1 returned=101[0m
+[0;32mI (201245) deleg: work_item done cycle=2279 block=0 -> node-2FCC00[0m
+[0;32mI (201325) deleg: dispatch block=0 cycle=1995 -> node-717AC4[0m
+[0;32mI (201335) deleg: work_item done cycle=1821 block=0 -> node-34A9F0[0m
+[0;32mI (201425) deleg: work_item done cycle=2279 block=3 -> node-2FCC00[0m
+[0;32mI (201505) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (201605) deleg: result rx cycle=1982 block=2 returned=102[0m
+[0;32mI (201635) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (201705) deleg: dispatch block=0 cycle=1999 -> node-717AC4[0m
+[0;32mI (201715) deleg: work_item done cycle=1823 block=0 -> node-34A9F0[0m
+[0;32mI (201735) deleg: result rx cycle=1982 block=3 returned=103[0m
+[0;32mI (201835) deleg: work_item done cycle=2279 block=10 -> node-2FCC00[0m
+[0;32mI (201865) deleg: result rx cycle=1990 block=0 returned=104[0m
+[0;32mI (201945) deleg: dispatch block=0 cycle=2001 -> node-717AC4[0m
+[0;32mI (202005) deleg: work_item done cycle=2279 block=13 -> node-2FCC00[0m
+[0;32mI (202055) deleg: dispatch block=1 cycle=2001 -> node-717AC4[0m
+[0;32mI (202095) deleg: work_item done cycle=1828 block=3 -> node-34A9F0[0m
+[0;32mI (202155) deleg: work_item done cycle=1828 block=6 -> node-34A9F0[0m
+[0;32mI (202245) deleg: work_item done cycle=1828 block=8 -> node-34A9F0[0m
+[0;32mI (202265) deleg: result rx cycle=1995 block=0 returned=105[0m
+[0;32mI (202345) deleg: work_item done cycle=2280 block=4 -> node-2FCC00[0m
+[0;32mI (202415) deleg: work_item done cycle=1836 block=0 -> node-34A9F0[0m
+[0;32mI (202465) deleg: result rx cycle=1999 block=0 returned=106[0m
+[0;32mI (202475) deleg: dispatch block=0 cycle=2006 -> node-717AC4[0m
+[0;32mI (202545) deleg: work_item done cycle=2280 block=9 -> node-2FCC00[0m
+[0;32mI (202585) deleg: result rx cycle=2001 block=0 returned=107[0m
+[0;32mI (202585) deleg: dispatch block=1 cycle=2006 -> node-717AC4[0m
+[0;32mI (202635) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (202755) deleg: dispatch block=2 cycle=2006 -> node-717AC4[0m
+[0;32mI (202755) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (202765) deleg: work_item done cycle=2280 block=12 -> node-2FCC00[0m
+[0;32mI (202815) mgr: cpu=85 q=1 load=200 cap=10 eff=4 win=0[0m
+[0;32mI (202865) deleg: work_item done cycle=2280 block=15 -> node-2FCC00[0m
+[0;32mI (202895) deleg: result rx cycle=2001 block=1 returned=108[0m
+[0;32mI (202955) deleg: work_item done cycle=1841 block=0 -> node-34A9F0[0m
+[0;32mI (203025) deleg: dispatch block=0 cycle=2012 -> node-717AC4[0m
+[0;32mI (203035) deleg: work_item done cycle=1841 block=1 -> node-34A9F0[0m
+[0;32mI (203115) deleg: work_item done cycle=2281 block=4 -> node-2FCC00[0m
+[0;32mI (203175) deleg: work_item done cycle=1841 block=2 -> node-34A9F0[0m
+[0;32mI (203225) deleg: result rx cycle=2006 block=0 returned=109[0m
+[0;32mI (203305) deleg: work_item done cycle=2281 block=9 -> node-2FCC00[0m
+[0;32mI (203375) deleg: work_item done cycle=1841 block=3 -> node-34A9F0[0m
+[0;32mI (203445) deleg: result rx cycle=2006 block=1 returned=110[0m
+[0;32mI (203455) deleg: dispatch block=0 cycle=2016 -> node-717AC4[0m
+[0;32mI (203465) deleg: result rx cycle=2006 block=2 returned=111[0m
+[0;32mI (203535) deleg: work_item done cycle=2281 block=12 -> node-2FCC00[0m
+[0;32mI (203575) deleg: result rx cycle=2012 block=0 returned=112[0m
+[0;32mI (203575) deleg: dispatch block=1 cycle=2016 -> node-717AC4[0m
+[0;32mI (203625) deleg: work_item done cycle=1850 block=0 -> node-34A9F0[0m
+[0;32mI (203695) deleg: dispatch block=2 cycle=2016 -> node-717AC4[0m
+[0;32mI (203715) deleg: work_item done cycle=1850 block=1 -> node-34A9F0[0m
+[0;32mI (203785) deleg: dispatch block=3 cycle=2016 -> node-717AC4[0m
+[0;32mI (203785) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (203795) deleg: work_item done cycle=2281 block=15 -> node-2FCC00[0m
+[0;32mI (203815) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=569[0m
+[0;32mI (203875) deleg: work_item done cycle=1850 block=2 -> node-34A9F0[0m
+[0;32mI (203945) deleg: work_item done cycle=1853 block=0 -> node-34A9F0[0m
+[0;32mI (204155) deleg: result rx cycle=2016 block=0 returned=113[0m
+[0;32mI (204235) deleg: work_item done cycle=2282 block=2 -> node-2FCC00[0m
+[0;32mI (204295) deleg: result rx cycle=2016 block=1 returned=114[0m
+[0;32mI (204305) deleg: dispatch block=0 cycle=2025 -> node-717AC4[0m
+[0;32mI (204575) deleg: work_item done cycle=2282 block=5 -> node-2FCC00[0m
+[0;32mI (204815) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (205275) deleg: result rx cycle=2016 block=2 returned=115[0m
+[0;32mI (205295) deleg: dispatch block=1 cycle=2025 -> node-717AC4[0m
+[0;32mI (205385) deleg: work_item done cycle=1857 block=0 -> node-34A9F0[0m
+[0;32mI (205465) deleg: dispatch block=2 cycle=2025 -> node-717AC4[0m
+[0;32mI (205465) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (205485) deleg: work_item done cycle=2282 block=8 -> node-2FCC00[0m
+[0;32mI (205535) deleg: result rx cycle=2016 block=3 returned=116[0m
+[0;32mI (205615) deleg: work_item done cycle=1857 block=1 -> node-34A9F0[0m
+[0;32mI (205725) deleg: dispatch block=0 cycle=2039 -> node-717AC4[0m
+[0;32mI (205745) deleg: work_item done cycle=1857 block=2 -> node-34A9F0[0m
+[0;32mI (205845) deleg: work_item done cycle=2282 block=11 -> node-2FCC00[0m
+[0;32mI (206035) deleg: work_item done cycle=1857 block=7 -> node-34A9F0[0m
+[0;32mI (206125) deleg: work_item done cycle=2283 block=0 -> node-2FCC00[0m
+[0;32mI (206175) deleg: result rx cycle=2025 block=0 returned=117[0m
+[0;32mI (206235) deleg: work_item done cycle=2283 block=5 -> node-2FCC00[0m
+[0;32mI (206295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=570[0m
+[0;32mI (206295) deleg: work_item done cycle=1873 block=0 -> node-34A9F0[0m
+[0;32mI (206345) deleg: result rx cycle=2025 block=1 returned=118[0m
+[0;32mI (206355) deleg: dispatch block=0 cycle=2045 -> node-717AC4[0m
+[0;32mI (206375) deleg: result rx cycle=2025 block=2 returned=119[0m
+[0;32mI (206455) deleg: dispatch block=1 cycle=2045 -> node-717AC4[0m
+[0;32mI (206465) deleg: work_item done cycle=2283 block=11 -> node-2FCC00[0m
+[0;32mI (206535) deleg: dispatch block=2 cycle=2045 -> node-717AC4[0m
+[0;32mI (206535) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (206545) deleg: work_item done cycle=1876 block=0 -> node-34A9F0[0m
+[0;32mI (206575) deleg: result rx cycle=2039 block=0 returned=120[0m
+[0;32mI (206645) deleg: work_item done cycle=1876 block=1 -> node-34A9F0[0m
+[0;32mI (206715) deleg: work_item done cycle=1880 block=0 -> node-34A9F0[0m
+[0;32mI (206805) deleg: dispatch block=0 cycle=2049 -> node-717AC4[0m
+[0;32mI (206835) deleg: work_item done cycle=2284 block=0 -> node-2FCC00[0m
+[0;32mI (206865) deleg: result rx cycle=2045 block=0 returned=121[0m
+[0;32mI (206935) deleg: work_item done cycle=2284 block=3 -> node-2FCC00[0m
+[0;32mI (207015) deleg: result rx cycle=2045 block=1 returned=122[0m
+[0;32mI (207015) deleg: dispatch block=0 cycle=2052 -> node-717AC4[0m
+[0;32mI (207085) deleg: dispatch block=1 cycle=2052 -> node-717AC4[0m
+[0;32mI (207115) deleg: work_item done cycle=2284 block=6 -> node-2FCC00[0m
+[0;32mI (207305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=569[0m
+[0;32mI (207335) deleg: result rx cycle=2045 block=2 returned=123[0m
+[0;32mI (207425) deleg: work_item done cycle=1886 block=0 -> node-34A9F0[0m
+[0;32mI (207845) deleg: result rx cycle=2049 block=0 returned=124[0m
+[0;32mI (207845) deleg: dispatch block=0 cycle=2057 -> node-717AC4[0m
+[0;32mI (208305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (208955) deleg: dispatch block=1 cycle=2057 -> node-717AC4[0m
+[0;32mI (208955) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (210005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (211005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (212005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (213005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (214005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (215005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (215365) deleg: work_item done cycle=1888 block=0 -> node-34A9F0[0m
+[0;32mI (215375) mgr: cpu=53 q=0 load=200 cap=10 eff=4 win=0[0m
+[0;32mI (215515) deleg: work_item done cycle=1888 block=1 -> node-34A9F0[0m
+[0;32mI (216005) deleg: channel cap-hit: active=1 cap=4 inflight_total=4[0m
+[0;32mI (216385) deleg: pending timeout reclaim total=78[0m
+[0;32mI (216385) deleg: delegator lost, stopping hosting peer=node-34A9F0[0m
+[0;32mI (216385) deleg: delegator lost, stopping hosting peer=node-2FCC00[0m
+[0;32mI (216385) deleg: host lost, restoring blocks=10 peer=node-717AC4[0m
+[0;32mI (216395) deleg: delegator lost, stopping hosting peer=node-2FCC00[0m
+[0;32mI (216405) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (216405) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=554[0m
+[0;32mI (217425) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=553[0m
+[0;32mI (217615) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777216440608, "seq": 1777216440608}[0m
+[0;32mI (217625) mqtt: control: SYNC_TIME epoch_ms=1777216440608 seq=2147483647[0m
+[0;32mI (217995) deleg: accept request from=node-2FCC00 blocks=4 slot=0 cpu=73[0m
+[0;32mI (218435) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (219155) deleg: work_item done cycle=2517 block=3 -> node-2FCC00[0m
+[0;32mI (219265) deleg: work_item done cycle=2517 block=4 -> node-2FCC00[0m
+[0;32mI (219435) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (220095) deleg: work_item done cycle=2517 block=6 -> node-2FCC00[0m
+[0;32mI (220175) deleg: work_item done cycle=2517 block=7 -> node-2FCC00[0m
+[0;32mI (220435) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (220435) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (221375) deleg: accept request from=node-34A9F0 blocks=4 slot=1 cpu=66[0m
+[0;32mI (221435) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=566[0m
+[0;32mI (221535) deleg: work_item done cycle=2032 block=0 -> node-34A9F0[0m
+[0;32mI (221595) deleg: work_item done cycle=2032 block=2 -> node-34A9F0[0m
+[0;32mI (221665) deleg: work_item done cycle=2032 block=4 -> node-34A9F0[0m
+[0;32mI (221735) deleg: work_item done cycle=2517 block=10 -> node-2FCC00[0m
+[0;32mI (221815) deleg: work_item done cycle=2032 block=6 -> node-34A9F0[0m
+[0;32mI (221875) deleg: work_item done cycle=2033 block=0 -> node-34A9F0[0m
+[0;32mI (221965) deleg: work_item done cycle=2033 block=1 -> node-34A9F0[0m
+[0;32mI (222025) deleg: work_item done cycle=2033 block=2 -> node-34A9F0[0m
+[0;32mI (222115) deleg: work_item done cycle=2518 block=2 -> node-2FCC00[0m
+[0;32mI (222165) deleg: work_item done cycle=2033 block=4 -> node-34A9F0[0m
+[0;32mI (222265) deleg: work_item done cycle=2518 block=4 -> node-2FCC00[0m
+[0;32mI (222325) deleg: work_item done cycle=2033 block=6 -> node-34A9F0[0m
+[0;32mI (222385) deleg: work_item done cycle=2518 block=6 -> node-2FCC00[0m
+[0;32mI (222405) deleg: accept request from=node-717AC4 blocks=10 slot=2 cpu=62[0m
+[0;32mI (222455) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (222455) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=565[0m
+[0;32mI (222485) deleg: work_item done cycle=2034 block=1 -> node-34A9F0[0m
+[0;32mI (222725) deleg: work_item done cycle=2034 block=3 -> node-34A9F0[0m
+[0;32mI (222815) deleg: work_item done cycle=2034 block=5 -> node-34A9F0[0m
+[0;32mI (222925) deleg: work_item done cycle=2518 block=13 -> node-2FCC00[0m
+[0;32mI (223025) deleg: work_item done cycle=2388 block=0 -> node-717AC4[0m
+[0;32mI (223125) deleg: work_item done cycle=2034 block=7 -> node-34A9F0[0m
+[0;32mI (223195) deleg: work_item done cycle=2388 block=1 -> node-717AC4[0m
+[0;32mI (223265) deleg: work_item done cycle=2034 block=9 -> node-34A9F0[0m
+[0;32mI (223345) deleg: work_item done cycle=2519 block=0 -> node-2FCC00[0m
+[0;32mI (223435) deleg: work_item done cycle=2035 block=0 -> node-34A9F0[0m
+[0;32mI (223495) deleg: work_item done cycle=2388 block=2 -> node-717AC4[0m
+[0;32mI (223575) deleg: work_item done cycle=2519 block=2 -> node-2FCC00[0m
+[0;32mI (223655) deleg: work_item done cycle=2388 block=3 -> node-717AC4[0m
+[0;32mI (223675) mgr: stress transition: MEDIUM -> LOW[0m
+[0;32mI (223675) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=568[0m
+[0;32mI (223735) deleg: work_item done cycle=2035 block=2 -> node-34A9F0[0m
+[0;32mI (223835) deleg: work_item done cycle=2519 block=5 -> node-2FCC00[0m
+[0;32mI (223925) deleg: work_item done cycle=2519 block=8 -> node-2FCC00[0m
+[0;32mI (223985) deleg: work_item done cycle=2051 block=0 -> node-34A9F0[0m
+[0;32mI (224095) deleg: work_item done cycle=2519 block=12 -> node-2FCC00[0m
+[0;32mI (224215) deleg: work_item done cycle=2397 block=0 -> node-717AC4[0m
+[0;32mI (224305) deleg: work_item done cycle=2051 block=3 -> node-34A9F0[0m
+[0;32mI (224395) deleg: work_item done cycle=2051 block=5 -> node-34A9F0[0m
+[0;32mI (224475) deleg: work_item done cycle=2400 block=0 -> node-717AC4[0m
+[0;32mI (224565) deleg: work_item done cycle=2520 block=3 -> node-2FCC00[0m
+[0;32mI (224635) deleg: work_item done cycle=2051 block=7 -> node-34A9F0[0m
+[0;32mI (224725) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (224725) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (224735) deleg: work_item done cycle=2402 block=0 -> node-717AC4[0m
+[0;32mI (224795) deleg: work_item done cycle=2051 block=9 -> node-34A9F0[0m
+[0;32mI (224895) deleg: work_item done cycle=2520 block=6 -> node-2FCC00[0m
+[0;32mI (224985) deleg: work_item done cycle=2402 block=1 -> node-717AC4[0m
+[0;32mI (225045) deleg: work_item done cycle=2520 block=9 -> node-2FCC00[0m
+[0;32mI (225135) deleg: work_item done cycle=2520 block=12 -> node-2FCC00[0m
+[0;32mI (225215) deleg: work_item done cycle=2409 block=0 -> node-717AC4[0m
+[0;32mI (225305) deleg: work_item done cycle=2521 block=4 -> node-2FCC00[0m
+[0;32mI (225385) deleg: work_item done cycle=2409 block=1 -> node-717AC4[0m
+[0;32mI (225465) deleg: work_item done cycle=2063 block=3 -> node-34A9F0[0m
+[0;32mI (225535) deleg: work_item done cycle=2521 block=7 -> node-2FCC00[0m
+[0;32mI (225595) deleg: work_item done cycle=2063 block=6 -> node-34A9F0[0m
+[0;32mI (225685) deleg: work_item done cycle=2414 block=0 -> node-717AC4[0m
+[0;32mI (225745) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (225755) deleg: work_item done cycle=2063 block=9 -> node-34A9F0[0m
+[0;32mI (225765) mgr: cpu=96 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (225815) deleg: work_item done cycle=2521 block=10 -> node-2FCC00[0m
+[0;32mI (226225) deleg: work_item done cycle=2416 block=0 -> node-717AC4[0m
+[0;32mI (226295) deleg: work_item done cycle=2064 block=0 -> node-34A9F0[0m
+[0;32mI (226365) deleg: work_item done cycle=2521 block=13 -> node-2FCC00[0m
+[0;32mI (226425) deleg: work_item done cycle=2418 block=0 -> node-717AC4[0m
+[0;32mI (226475) deleg: work_item done cycle=2064 block=2 -> node-34A9F0[0m
+[0;32mI (226575) deleg: work_item done cycle=2522 block=1 -> node-2FCC00[0m
+[0;32mI (226635) deleg: work_item done cycle=2064 block=4 -> node-34A9F0[0m
+[0;32mI (226705) deleg: work_item done cycle=2522 block=4 -> node-2FCC00[0m
+[0;32mI (226765) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=567[0m
+[0;32mI (226775) deleg: work_item done cycle=2420 block=0 -> node-717AC4[0m
+[0;32mI (226845) deleg: work_item done cycle=2078 block=0 -> node-34A9F0[0m

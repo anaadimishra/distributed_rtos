@@ -1,5 +1,6 @@
 // Delegation state machine: offload, hosting, and work-item dispatch/execution.
 #include "network/delegation.h"
+#include "network/work_transport.h"
 #include "config/config.h"
 
 #include "freertos/FreeRTOS.h"
@@ -36,11 +37,14 @@ static void clear_pending_entry(pending_work_t *pw)
 
 static void reset_channel(delegation_channel_t *ch)
 {
-    ch->state    = CHAN_IDLE;
-    ch->peer_id[0] = '\0';
-    ch->blocks   = 0;
+    work_transport_channel_teardown(&ch->tcp_sender_task,
+                                    &ch->tcp_send_queue,
+                                    &ch->tcp_fd);
+    ch->state           = CHAN_IDLE;
+    ch->peer_id[0]      = '\0';
+    ch->blocks          = 0;
     ch->in_flight_count = 0;
-    ch->start_ms = 0;
+    ch->start_ms        = 0;
 }
 
 static uint32_t channel_reclaim_pending(system_context_t *ctx, int ch_idx)
@@ -166,6 +170,19 @@ static int parse_int_array(const char *buf, const char *key,
         p = endptr;
     }
     return count;
+}
+
+/* Returns pointer to ip_addr string for peer_id, or NULL if not found. */
+static const char *find_peer_ip(system_context_t *ctx, const char *peer_id)
+{
+    for (int i = 0; i < MAX_PEERS; i++) {
+        peer_state_t *p = &ctx->peers[i];
+        if (!p->valid) continue;
+        if (strncmp(p->node_id, peer_id, sizeof(p->node_id)) == 0) {
+            return (p->ip_addr[0] != '\0') ? p->ip_addr : NULL;
+        }
+    }
+    return NULL;
 }
 
 /* Returns 1 if peer_id is in the peer table and has not timed out. */
@@ -297,6 +314,30 @@ void delegation_tick(system_context_t *ctx)
                         ESP_LOGI(TAG, "channel reset reclaim peer=%s reclaimed=%u",
                                  ch->peer_id, (unsigned)reclaimed);
                     }
+#endif
+                    ctx->active_blocks += (uint32_t)ch->blocks;
+                    if (ctx->active_blocks > PROCESSING_BLOCKS) {
+                        ctx->active_blocks = PROCESSING_BLOCKS;
+                    }
+                    reset_channel(ch);
+                } else if (ch->tcp_fd < 0) {
+                    /* TCP connect failed or IP was unavailable at ACCEPT time.
+                     * Retry once per tick until a connection is established. */
+                    const char *peer_ip = find_peer_ip(ctx, ch->peer_id);
+                    if (peer_ip != NULL) {
+                        ch->tcp_fd = work_transport_connect(ctx, peer_ip, i);
+#if DEBUG_LOGS
+                        ESP_LOGI(TAG, "TCP reconnect peer=%s ip=%s fd=%d",
+                                 ch->peer_id, peer_ip, ch->tcp_fd);
+#endif
+                    }
+                } else if (ctx->self_stress_level == STRESS_LOW &&
+                           ch->in_flight_count == 0) {
+                    /* Stress has passed and all dispatched work has returned —
+                     * graceful drain complete. Close channel and restore blocks. */
+#if DEBUG_LOGS
+                    ESP_LOGI(TAG, "drain complete, closing channel peer=%s blocks=%d",
+                             ch->peer_id, ch->blocks);
 #endif
                     ctx->active_blocks += (uint32_t)ch->blocks;
                     if (ctx->active_blocks > PROCESSING_BLOCKS) {
@@ -543,35 +584,20 @@ delegation_dispatch_result_t delegation_dispatch_work_item(system_context_t *ctx
         return DISPATCH_ERROR;
     }
 
-    /* Build JSON payload with both full matrices.
-     * Allocate on heap — payload is ~16 KB, far too large for any task stack. */
-    const int BUF = 32768;
-    char *payload = (char *)pvPortMalloc(BUF);
-    if (payload == NULL) return DISPATCH_ERROR;
-
-    int n = MATRIX_SIZE * MATRIX_SIZE;
-    int pos = 0;
-    pos += snprintf(payload + pos, BUF - pos,
-                    "{\"from\":\"%s\",\"cycle_id\":%u,\"block_id\":%d,\"matrix_a\":[",
-                    ctx->node_id, (unsigned)ctx->compute_cycle_id, block_id);
-
-    for (int i = 0; i < n && pos < BUF - 16; i++) {
-        pos += snprintf(payload + pos, BUF - pos,
-                        i == 0 ? "%d" : ",%d", matrix_a[i]);
-    }
-    pos += snprintf(payload + pos, BUF - pos, "],\"matrix_b\":[");
-    for (int i = 0; i < n && pos < BUF - 16; i++) {
-        pos += snprintf(payload + pos, BUF - pos,
-                        i == 0 ? "%d" : ",%d", matrix_b[i]);
-    }
-    pos += snprintf(payload + pos, BUF - pos, "]}");
-
-    char topic[80];
-    build_topic(topic, sizeof(topic), target, "work_item");
-    int pub_id = esp_mqtt_client_publish(ctx->mqtt_client, topic, payload, pos, 0, 0);
-    vPortFree(payload);
-    if (pub_id < 0) {
+    /* Enqueue work item for async send — non-blocking, decouples compute_task
+     * exec window from TCP send latency. */
+    QueueHandle_t q = ctx->channels[ch_idx].tcp_send_queue;
+    if (q == NULL) {
         return DISPATCH_ERROR;
+    }
+    if (work_transport_enqueue_item(q, ctx->compute_cycle_id, (uint8_t)block_id,
+                                    (const int32_t *)matrix_a,
+                                    (const int32_t *)matrix_b) != 0) {
+        /* Queue full — treat as BUSY so compute_task does NOT fall back to
+         * running compute_kernel() locally. The sender drains the queue between
+         * cycles; dropping the occasional frame is preferable to adding local
+         * compute load that would push exec past the deadline. */
+        return DISPATCH_BUSY;
     }
 
     /* Record pending entry. */
@@ -783,9 +809,18 @@ void delegation_handle_reply(system_context_t *ctx,
             ctx->active_blocks = 0;
         }
         ch->state = CHAN_ACTIVE;
+
+        /* Open TCP data-plane connection to host. */
+        const char *peer_ip = find_peer_ip(ctx, ch->peer_id);
+        if (peer_ip != NULL) {
+            ch->tcp_fd = work_transport_connect(ctx, peer_ip, slot);
+        } else {
+            ch->tcp_fd = -1;
+            ESP_LOGW(TAG, "ACCEPT from %s but no IP known — TCP connect skipped", from);
+        }
 #if DEBUG_LOGS
-        ESP_LOGI(TAG, "offload accepted by=%s blocks=%d active_blocks=%u",
-                 from, ch->blocks, (unsigned)ctx->active_blocks);
+        ESP_LOGI(TAG, "offload accepted by=%s blocks=%d active_blocks=%u tcp_fd=%d",
+                 from, ch->blocks, (unsigned)ctx->active_blocks, ch->tcp_fd);
 #endif
     } else {
         /* DELEGATE_REJECT or unrecognised — return channel to idle cleanly. */
@@ -793,5 +828,49 @@ void delegation_handle_reply(system_context_t *ctx,
         ESP_LOGI(TAG, "offload rejected action=%s from=%s", action, from);
 #endif
         reset_channel(ch);
+    }
+}
+
+/* ------------------------------------------- TCP result callback (from work_recv_task) */
+
+void delegation_handle_work_result_tcp(system_context_t *ctx,
+                                       uint32_t cycle_id, uint8_t block_id,
+                                       int channel_idx,
+                                       const int32_t *result)
+{
+    (void)result; /* result payload available but not stored — count is sufficient */
+
+    if (ctx == NULL) return;
+
+    for (int i = 0; i < MAX_PENDING_WORK; i++) {
+        pending_work_t *pw = &ctx->pending_work[i];
+        if (!pw->in_flight) continue;
+        if (pw->cycle_id != cycle_id || pw->block_id != block_id) continue;
+
+        /* Prefer channel_idx match when provided (TCP always provides it). */
+        if (channel_idx >= 0 && channel_idx < MAX_DELEGATION_CHANNELS) {
+            if ((int)pw->channel_idx != channel_idx) continue;
+            delegation_channel_t *ch = &ctx->channels[channel_idx];
+            if (ch->in_flight_count > 0) {
+                ch->in_flight_count--;
+            }
+        } else if ((int)pw->channel_idx < MAX_DELEGATION_CHANNELS) {
+            delegation_channel_t *ch = &ctx->channels[pw->channel_idx];
+            if (ch->in_flight_count > 0) {
+                ch->in_flight_count--;
+            }
+        }
+
+        if (ctx->deleg_inflight_total > 0) {
+            ctx->deleg_inflight_total--;
+        }
+        clear_pending_entry(pw);
+        ctx->deleg_blocks_returned++;
+#if DEBUG_LOGS
+        ESP_LOGI(TAG, "tcp result rx cycle=%u block=%u returned=%u",
+                 (unsigned)cycle_id, (unsigned)block_id,
+                 (unsigned)ctx->deleg_blocks_returned);
+#endif
+        return;
     }
 }

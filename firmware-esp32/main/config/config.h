@@ -3,7 +3,7 @@
 #define CONFIG_H
 
 // Firmware identity tag (displayed in telemetry).
-#define FIRMWARE_VERSION "fw-0.3.0-deleg"
+#define FIRMWARE_VERSION "fw-0.4.0-tcp"
 // Enable lightweight debug logging.
 #define DEBUG_LOGS 1
 // Profiling controls: disable to measure baseline compute behavior.
@@ -83,6 +83,17 @@
 #define PEER_TIMEOUT_MS 5000
 #define ADAPT_LOAD_STEP 100
 #define ADAPT_LOW_WINDOWS_TO_INCREASE 9999  /* disabled during delegation validation */
-#define ADAPT_DECREASE_ENABLED 0            /* disabled during delegation validation */
+#define ADAPT_DECREASE_ENABLED 1            /* re-enabled; guarded to skip when delegation ACTIVE */
+
+/* TCP binary work transport (Phase 4 data plane). */
+#define WORK_TRANSPORT_PORT             5002
+#define WORK_TRANSPORT_MAGIC            0xDA7A
+#define WORK_HOSTING_TASK_STACK         8192
+#define WORK_RECV_TASK_STACK            4096
+#define WORK_SENDER_TASK_STACK          3072
+#define WORK_SERVER_TASK_STACK          3072
+#define WORK_TRANSPORT_SEND_TIMEOUT_MS  200
+/* Depth of per-channel async send queue (decouples compute_task from TCP). */
+#define WORK_SEND_QUEUE_DEPTH           20
 
 #endif

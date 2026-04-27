@@ -157,7 +157,8 @@ void manager_task(void *param)
                 uint32_t old_load = ctx->load_factor;
 
 #if ADAPT_DECREASE_ENABLED
-                if (stress == STRESS_HIGH && has_low_peer) {
+                if (stress == STRESS_HIGH && has_low_peer &&
+                    delegation_active_channel_count(ctx) == 0) {
                     if (ctx->load_factor > LOAD_FACTOR_MIN) {
                         uint32_t next = ctx->load_factor;
                         next = (next > ADAPT_LOAD_STEP) ? (next - ADAPT_LOAD_STEP) : LOAD_FACTOR_MIN;
@@ -204,8 +205,9 @@ void manager_task(void *param)
             const char *deleg_state = delegation_node_role_str(ctx);
 
             int len = snprintf(payload, sizeof(payload),
-                               "{\"fw\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"t_actual_publish_ms\":%lld,\"t_expected_publish_ms\":%lld,\"drift_ms\":%lld,\"state\":\"%s\",\"stress_level\":%u,\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u,\"deleg_state\":\"%s\",\"deleg_peer\":\"%s\",\"deleg_blocks\":%d,\"deleg_dispatched\":%u,\"deleg_returned\":%u,\"deleg_inflight_total\":%u,\"deleg_busy_skip\":%u,\"deleg_timeout_reclaim\":%u,\"deleg_dispatch_err\":%u}",
+                               "{\"fw\":\"%s\",\"ip\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"t_actual_publish_ms\":%lld,\"t_expected_publish_ms\":%lld,\"drift_ms\":%lld,\"state\":\"%s\",\"stress_level\":%u,\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u,\"deleg_state\":\"%s\",\"deleg_peer\":\"%s\",\"deleg_blocks\":%d,\"deleg_dispatched\":%u,\"deleg_returned\":%u,\"deleg_inflight_total\":%u,\"deleg_busy_skip\":%u,\"deleg_timeout_reclaim\":%u,\"deleg_dispatch_err\":%u}",
                                FIRMWARE_VERSION,
+                               ctx->node_ip,
                                (unsigned)ctx->boot_id,
                                // Milliseconds since boot; used for telemetry latency measurement.
                                (unsigned)t_pub_ms,

@@ -28,6 +28,7 @@ typedef struct {
     uint8_t stress_level;
     uint32_t last_seen_ms;
     uint8_t valid;
+    char ip_addr[16];   /* IPv4 dotted-decimal from peer telemetry */
 } peer_state_t;
 
 typedef enum {
@@ -38,11 +39,14 @@ typedef enum {
 } chan_state_t;
 
 typedef struct {
-    chan_state_t state;
-    char         peer_id[16];
-    int          blocks;
-    uint8_t      in_flight_count;
-    int64_t      start_ms;
+    chan_state_t  state;
+    char          peer_id[16];
+    int           blocks;
+    uint8_t       in_flight_count;
+    int64_t       start_ms;
+    int           tcp_fd;           /* TCP socket when ACTIVE, -1 otherwise */
+    QueueHandle_t tcp_send_queue;   /* async send queue; NULL when not ACTIVE */
+    TaskHandle_t  tcp_sender_task;  /* background sender task handle; NULL when idle */
 } delegation_channel_t;
 
 /* Tracks a single in-flight dispatched compute block. */
@@ -59,6 +63,7 @@ typedef struct {
 typedef struct {
     // Node identity and MQTT topics.
     char node_id[16];
+    char node_ip[16];       /* own IPv4 address, set after WiFi up */
     char telemetry_topic[64];
     char control_topic[64];
 

@@ -1,0 +1,1217 @@
+[0;32mI (49845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=505[0m
+[0;33mW (49845) MQTT_CLIENT: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (50845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=505[0m
+[0;33mW (50845) MQTT_CLIENT: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (50845) mgr: cpu=57 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (51855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=506[0m
+[0;32mI (52095) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777219858073, "seq": 1777219858073}[0m
+[0;32mI (52105) mqtt: control: SYNC_TIME epoch_ms=1777219858073 seq=2147483647[0m
+[0;32mI (52885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=537[0m
+[0;32mI (53885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (54885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (55885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (55885) mgr: cpu=58 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (56885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (57885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (58885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (59885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (60885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (60885) mgr: cpu=59 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (61885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (62885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (63885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (64895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=534[0m
+[0;32mI (65895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (65895) mgr: cpu=59 q=2 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (66895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (67895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (68895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (69895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=533[0m
+[0;32mI (70205) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777219876295}[0m
+[0;32mI (70215) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (70895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (70895) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (71895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (72895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (73895) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (74905) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (75905) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (75905) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (76915) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (77915) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (78925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (79925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (80925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (80935) mgr: cpu=66 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (81935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (82085) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777219888115, "seq": 1777219888115}[0m
+[0;32mI (82085) mqtt: control: SYNC_TIME epoch_ms=1777219888115 seq=2147483647[0m
+[0;32mI (82945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (83945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (84945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (85945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (85945) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (86945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (87945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (88955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (89955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (90955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (90955) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (91955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (92955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (93955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (94955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (95955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (95955) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (96955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (97955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (98955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (99955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=542[0m
+[0;32mI (100215) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777219906316}[0m
+[0;32mI (100215) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (100955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=543[0m
+[0;32mI (100955) mgr: cpu=67 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (101335) deleg: accept request from=node-34A9F0 blocks=3 slot=0 cpu=67[0m
+[0;32mI (101655) deleg: work_item done cycle=818 block=1 -> node-34A9F0[0m
+[0;32mI (101815) deleg: work_item done cycle=819 block=1 -> node-34A9F0[0m
+[0;32mI (101955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (102085) deleg: work_item done cycle=819 block=4 -> node-34A9F0[0m
+[0;32mI (102335) deleg: work_item done cycle=819 block=7 -> node-34A9F0[0m
+[0;32mI (102405) deleg: work_item done cycle=820 block=1 -> node-34A9F0[0m
+[0;32mI (102525) deleg: work_item done cycle=820 block=4 -> node-34A9F0[0m
+[0;32mI (102705) deleg: work_item done cycle=820 block=7 -> node-34A9F0[0m
+[0;32mI (102885) deleg: work_item done cycle=821 block=1 -> node-34A9F0[0m
+[0;32mI (102955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (103055) deleg: work_item done cycle=821 block=4 -> node-34A9F0[0m
+[0;32mI (103205) deleg: work_item done cycle=821 block=7 -> node-34A9F0[0m
+[0;32mI (103385) deleg: work_item done cycle=822 block=1 -> node-34A9F0[0m
+[0;32mI (103545) deleg: work_item done cycle=822 block=4 -> node-34A9F0[0m
+[0;32mI (103735) deleg: work_item done cycle=822 block=7 -> node-34A9F0[0m
+[0;32mI (103975) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (104055) deleg: work_item done cycle=823 block=1 -> node-34A9F0[0m
+[0;32mI (104165) deleg: work_item done cycle=823 block=4 -> node-34A9F0[0m
+[0;32mI (104405) deleg: work_item done cycle=823 block=7 -> node-34A9F0[0m
+[0;32mI (104545) deleg: work_item done cycle=824 block=1 -> node-34A9F0[0m
+[0;32mI (104645) deleg: work_item done cycle=824 block=4 -> node-34A9F0[0m
+[0;32mI (104925) deleg: work_item done cycle=824 block=7 -> node-34A9F0[0m
+[0;32mI (105035) deleg: work_item done cycle=825 block=1 -> node-34A9F0[0m
+[0;32mI (105095) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (105195) deleg: work_item done cycle=825 block=4 -> node-34A9F0[0m
+[0;32mI (105355) deleg: work_item done cycle=825 block=7 -> node-34A9F0[0m
+[0;32mI (105465) deleg: work_item done cycle=826 block=0 -> node-34A9F0[0m
+[0;32mI (105675) deleg: work_item done cycle=826 block=2 -> node-34A9F0[0m
+[0;32mI (105915) deleg: work_item done cycle=826 block=5 -> node-34A9F0[0m
+[0;32mI (106095) deleg: work_item done cycle=826 block=8 -> node-34A9F0[0m
+[0;32mI (106105) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (106115) mgr: cpu=80 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (106225) deleg: work_item done cycle=827 block=2 -> node-34A9F0[0m
+[0;32mI (106385) deleg: work_item done cycle=827 block=5 -> node-34A9F0[0m
+[0;32mI (106635) deleg: work_item done cycle=827 block=7 -> node-34A9F0[0m
+[0;32mI (106735) deleg: work_item done cycle=828 block=0 -> node-34A9F0[0m
+[0;32mI (106885) deleg: work_item done cycle=828 block=3 -> node-34A9F0[0m
+[0;32mI (107035) deleg: work_item done cycle=828 block=6 -> node-34A9F0[0m
+[0;32mI (107155) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (107195) deleg: work_item done cycle=829 block=0 -> node-34A9F0[0m
+[0;32mI (107455) deleg: work_item done cycle=829 block=3 -> node-34A9F0[0m
+[0;32mI (107775) deleg: work_item done cycle=829 block=6 -> node-34A9F0[0m
+[0;32mI (107915) deleg: work_item done cycle=830 block=0 -> node-34A9F0[0m
+[0;32mI (108035) deleg: work_item done cycle=830 block=3 -> node-34A9F0[0m
+[0;32mI (108115) deleg: work_item done cycle=830 block=5 -> node-34A9F0[0m
+[0;32mI (108195) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (108265) deleg: work_item done cycle=830 block=7 -> node-34A9F0[0m
+[0;32mI (108365) deleg: work_item done cycle=831 block=0 -> node-34A9F0[0m
+[0;32mI (108505) deleg: work_item done cycle=831 block=3 -> node-34A9F0[0m
+[0;32mI (108635) deleg: work_item done cycle=831 block=6 -> node-34A9F0[0m
+[0;32mI (108785) deleg: work_item done cycle=832 block=0 -> node-34A9F0[0m
+[0;32mI (108955) deleg: work_item done cycle=832 block=3 -> node-34A9F0[0m
+[0;32mI (109125) deleg: work_item done cycle=832 block=6 -> node-34A9F0[0m
+[0;32mI (109195) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (109255) deleg: work_item done cycle=833 block=0 -> node-34A9F0[0m
+[0;32mI (109545) deleg: work_item done cycle=833 block=3 -> node-34A9F0[0m
+[0;32mI (109645) deleg: work_item done cycle=833 block=6 -> node-34A9F0[0m
+[0;32mI (109935) deleg: work_item done cycle=834 block=0 -> node-34A9F0[0m
+[0;32mI (110195) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (110195) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (110285) deleg: work_item done cycle=834 block=3 -> node-34A9F0[0m
+[0;32mI (110465) deleg: work_item done cycle=834 block=6 -> node-34A9F0[0m
+[0;32mI (110755) deleg: work_item done cycle=835 block=0 -> node-34A9F0[0m
+[0;32mI (111035) deleg: work_item done cycle=835 block=3 -> node-34A9F0[0m
+[0;32mI (111195) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (111885) mgr: cpu=76 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (111955) deleg: work_item done cycle=835 block=6 -> node-34A9F0[0m
+[0;32mI (112065) deleg: work_item done cycle=836 block=0 -> node-34A9F0[0m
+[0;32mI (112205) deleg: work_item done cycle=836 block=2 -> node-34A9F0[0m
+[0;32mI (112325) deleg: work_item done cycle=838 block=0 -> node-34A9F0[0m
+[0;32mI (112575) deleg: work_item done cycle=838 block=3 -> node-34A9F0[0m
+[0;32mI (112685) deleg: work_item done cycle=838 block=6 -> node-34A9F0[0m
+[0;32mI (112785) deleg: work_item done cycle=839 block=0 -> node-34A9F0[0m
+[0;32mI (112885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (112915) deleg: work_item done cycle=839 block=2 -> node-34A9F0[0m
+[0;32mI (113045) deleg: work_item done cycle=839 block=5 -> node-34A9F0[0m
+[0;32mI (113055) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777219919130, "seq": 1777219919130}[0m
+[0;32mI (113055) mqtt: control: SYNC_TIME epoch_ms=1777219919130 seq=2147483647[0m
+[0;32mI (113195) deleg: work_item done cycle=839 block=8 -> node-34A9F0[0m
+[0;32mI (113455) deleg: work_item done cycle=840 block=2 -> node-34A9F0[0m
+[0;32mI (113625) deleg: work_item done cycle=840 block=5 -> node-34A9F0[0m
+[0;32mI (113885) deleg: work_item done cycle=840 block=8 -> node-34A9F0[0m
+[0;32mI (113925) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (113925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (114035) deleg: work_item done cycle=841 block=2 -> node-34A9F0[0m
+[0;32mI (114115) deleg: work_item done cycle=841 block=5 -> node-34A9F0[0m
+[0;32mI (114405) deleg: work_item done cycle=841 block=8 -> node-34A9F0[0m
+[0;32mI (114615) deleg: work_item done cycle=842 block=2 -> node-34A9F0[0m
+[0;32mI (114685) deleg: work_item done cycle=842 block=5 -> node-34A9F0[0m
+[0;32mI (114795) deleg: work_item done cycle=842 block=8 -> node-34A9F0[0m
+[0;32mI (114925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (115005) deleg: work_item done cycle=843 block=2 -> node-34A9F0[0m
+[0;32mI (115205) deleg: work_item done cycle=843 block=5 -> node-34A9F0[0m
+[0;32mI (115315) deleg: work_item done cycle=843 block=8 -> node-34A9F0[0m
+[0;32mI (115525) deleg: work_item done cycle=844 block=2 -> node-34A9F0[0m
+[0;32mI (115725) deleg: work_item done cycle=844 block=5 -> node-34A9F0[0m
+[0;32mI (115805) deleg: work_item done cycle=844 block=8 -> node-34A9F0[0m
+[0;32mI (115925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (116065) deleg: work_item done cycle=845 block=2 -> node-34A9F0[0m
+[0;32mI (116155) deleg: work_item done cycle=845 block=5 -> node-34A9F0[0m
+[0;32mI (116445) deleg: work_item done cycle=845 block=8 -> node-34A9F0[0m
+[0;32mI (116505) deleg: work_item done cycle=846 block=2 -> node-34A9F0[0m
+[0;32mI (116815) deleg: work_item done cycle=846 block=5 -> node-34A9F0[0m
+[0;32mI (116885) deleg: work_item done cycle=846 block=8 -> node-34A9F0[0m
+[0;32mI (116925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (116925) mgr: cpu=80 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (117035) deleg: work_item done cycle=847 block=2 -> node-34A9F0[0m
+[0;32mI (117925) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (117925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=556[0m
+[0;32mI (117985) deleg: work_item done cycle=847 block=5 -> node-34A9F0[0m
+[0;32mI (118105) deleg: work_item done cycle=847 block=8 -> node-34A9F0[0m
+[0;32mI (118255) deleg: work_item done cycle=848 block=2 -> node-34A9F0[0m
+[0;32mI (118375) deleg: work_item done cycle=848 block=5 -> node-34A9F0[0m
+[0;32mI (118485) deleg: work_item done cycle=849 block=6 -> node-34A9F0[0m
+[0;32mI (118635) deleg: work_item done cycle=850 block=0 -> node-34A9F0[0m
+[0;32mI (118795) deleg: work_item done cycle=850 block=3 -> node-34A9F0[0m
+[0;32mI (118995) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (119085) deleg: work_item done cycle=850 block=6 -> node-34A9F0[0m
+[0;32mI (119165) deleg: work_item done cycle=851 block=0 -> node-34A9F0[0m
+[0;32mI (119525) deleg: work_item done cycle=851 block=3 -> node-34A9F0[0m
+[0;32mI (119615) deleg: work_item done cycle=851 block=6 -> node-34A9F0[0m
+[0;32mI (119815) deleg: work_item done cycle=852 block=0 -> node-34A9F0[0m
+[0;32mI (119955) deleg: work_item done cycle=852 block=3 -> node-34A9F0[0m
+[0;32mI (119995) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (119995) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (120155) deleg: work_item done cycle=852 block=6 -> node-34A9F0[0m
+[0;32mI (120415) deleg: work_item done cycle=853 block=0 -> node-34A9F0[0m
+[0;32mI (120525) deleg: work_item done cycle=853 block=3 -> node-34A9F0[0m
+[0;32mI (120645) deleg: work_item done cycle=853 block=5 -> node-34A9F0[0m
+[0;32mI (120855) deleg: work_item done cycle=853 block=8 -> node-34A9F0[0m
+[0;32mI (121005) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (121135) deleg: work_item done cycle=854 block=2 -> node-34A9F0[0m
+[0;32mI (121405) deleg: work_item done cycle=854 block=5 -> node-34A9F0[0m
+[0;32mI (121715) deleg: work_item done cycle=854 block=8 -> node-34A9F0[0m
+[0;32mI (121875) deleg: work_item done cycle=855 block=2 -> node-34A9F0[0m
+[0;32mI (122015) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (122035) deleg: work_item done cycle=855 block=5 -> node-34A9F0[0m
+[0;32mI (122055) mgr: cpu=77 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (122195) deleg: work_item done cycle=855 block=8 -> node-34A9F0[0m
+[0;32mI (122585) deleg: work_item done cycle=856 block=2 -> node-34A9F0[0m
+[0;32mI (122665) deleg: work_item done cycle=856 block=5 -> node-34A9F0[0m
+[0;32mI (122925) deleg: work_item done cycle=856 block=8 -> node-34A9F0[0m
+[0;32mI (123005) deleg: work_item done cycle=857 block=2 -> node-34A9F0[0m
+[0;32mI (123065) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (123125) deleg: work_item done cycle=857 block=5 -> node-34A9F0[0m
+[0;32mI (123415) deleg: work_item done cycle=857 block=8 -> node-34A9F0[0m
+[0;32mI (123605) deleg: work_item done cycle=858 block=2 -> node-34A9F0[0m
+[0;32mI (123835) deleg: work_item done cycle=858 block=5 -> node-34A9F0[0m
+[0;32mI (123915) deleg: work_item done cycle=858 block=8 -> node-34A9F0[0m
+[0;32mI (124065) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (124175) deleg: work_item done cycle=859 block=2 -> node-34A9F0[0m
+[0;32mI (124285) deleg: work_item done cycle=859 block=5 -> node-34A9F0[0m
+[0;32mI (124545) deleg: work_item done cycle=859 block=8 -> node-34A9F0[0m
+[0;32mI (124655) deleg: work_item done cycle=860 block=2 -> node-34A9F0[0m
+[0;32mI (124835) deleg: work_item done cycle=860 block=5 -> node-34A9F0[0m
+[0;32mI (124935) deleg: work_item done cycle=860 block=8 -> node-34A9F0[0m
+[0;32mI (125075) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (125165) deleg: work_item done cycle=861 block=2 -> node-34A9F0[0m
+[0;32mI (125355) deleg: work_item done cycle=861 block=5 -> node-34A9F0[0m
+[0;32mI (125445) deleg: work_item done cycle=861 block=8 -> node-34A9F0[0m
+[0;32mI (125675) deleg: work_item done cycle=862 block=2 -> node-34A9F0[0m
+[0;32mI (125815) deleg: work_item done cycle=862 block=5 -> node-34A9F0[0m
+[0;32mI (126075) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (126085) deleg: work_item done cycle=862 block=8 -> node-34A9F0[0m
+[0;32mI (126145) deleg: work_item done cycle=863 block=2 -> node-34A9F0[0m
+[0;32mI (126485) deleg: work_item done cycle=863 block=5 -> node-34A9F0[0m
+[0;32mI (126565) deleg: work_item done cycle=863 block=8 -> node-34A9F0[0m
+[0;32mI (126785) deleg: work_item done cycle=864 block=2 -> node-34A9F0[0m
+[0;32mI (126875) deleg: work_item done cycle=864 block=5 -> node-34A9F0[0m
+[0;32mI (127085) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (127095) deleg: work_item done cycle=864 block=8 -> node-34A9F0[0m
+[0;32mI (127105) mgr: cpu=80 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (127215) deleg: work_item done cycle=865 block=2 -> node-34A9F0[0m
+[0;32mI (127605) deleg: work_item done cycle=865 block=5 -> node-34A9F0[0m
+[0;32mI (127675) deleg: work_item done cycle=865 block=8 -> node-34A9F0[0m
+[0;32mI (127765) deleg: work_item done cycle=866 block=2 -> node-34A9F0[0m
+[0;32mI (128015) deleg: work_item done cycle=866 block=5 -> node-34A9F0[0m
+[0;32mI (128115) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (128115) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (128125) deleg: work_item done cycle=866 block=8 -> node-34A9F0[0m
+[0;32mI (128265) deleg: work_item done cycle=867 block=2 -> node-34A9F0[0m
+[0;32mI (128565) deleg: work_item done cycle=867 block=5 -> node-34A9F0[0m
+[0;32mI (128645) deleg: work_item done cycle=867 block=8 -> node-34A9F0[0m
+[0;32mI (128765) deleg: work_item done cycle=868 block=2 -> node-34A9F0[0m
+[0;32mI (129055) deleg: work_item done cycle=868 block=5 -> node-34A9F0[0m
+[0;32mI (129125) deleg: work_item done cycle=868 block=8 -> node-34A9F0[0m
+[0;32mI (129135) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (129245) deleg: work_item done cycle=869 block=2 -> node-34A9F0[0m
+[0;32mI (129445) deleg: work_item done cycle=869 block=5 -> node-34A9F0[0m
+[0;32mI (129645) deleg: work_item done cycle=869 block=8 -> node-34A9F0[0m
+[0;32mI (129855) deleg: work_item done cycle=870 block=2 -> node-34A9F0[0m
+[0;32mI (129955) deleg: work_item done cycle=870 block=5 -> node-34A9F0[0m
+[0;32mI (130135) mgr: stress transition: MEDIUM -> LOW[0m
+[0;32mI (130165) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (130175) deleg: work_item done cycle=870 block=8 -> node-34A9F0[0m
+[0;32mI (130265) deleg: work_item done cycle=871 block=2 -> node-34A9F0[0m
+[0;32mI (130585) deleg: work_item done cycle=871 block=5 -> node-34A9F0[0m
+[0;32mI (130895) deleg: work_item done cycle=871 block=8 -> node-34A9F0[0m
+[0;32mI (130975) deleg: work_item done cycle=872 block=2 -> node-34A9F0[0m
+[0;32mI (131185) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (131265) deleg: work_item done cycle=872 block=5 -> node-34A9F0[0m
+[0;32mI (131355) deleg: work_item done cycle=872 block=8 -> node-34A9F0[0m
+[0;32mI (131455) deleg: work_item done cycle=873 block=2 -> node-34A9F0[0m
+[0;32mI (131715) deleg: work_item done cycle=873 block=5 -> node-34A9F0[0m
+[0;32mI (131935) deleg: work_item done cycle=873 block=8 -> node-34A9F0[0m
+[0;32mI (132035) deleg: work_item done cycle=874 block=2 -> node-34A9F0[0m
+[0;32mI (132225) deleg: work_item done cycle=874 block=5 -> node-34A9F0[0m
+[0;32mI (132275) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (132275) mgr: cpu=77 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (132345) deleg: work_item done cycle=874 block=8 -> node-34A9F0[0m
+[0;32mI (133115) deleg: work_item done cycle=875 block=2 -> node-34A9F0[0m
+[0;32mI (133205) deleg: work_item done cycle=875 block=5 -> node-34A9F0[0m
+[0;32mI (133275) deleg: work_item done cycle=875 block=8 -> node-34A9F0[0m
+[0;32mI (133275) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (133355) deleg: work_item done cycle=876 block=2 -> node-34A9F0[0m
+[0;32mI (133465) deleg: work_item done cycle=876 block=5 -> node-34A9F0[0m
+[0;32mI (133745) deleg: work_item done cycle=876 block=8 -> node-34A9F0[0m
+[0;32mI (134005) deleg: work_item done cycle=877 block=2 -> node-34A9F0[0m
+[0;32mI (134075) deleg: work_item done cycle=877 block=5 -> node-34A9F0[0m
+[0;32mI (134285) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (134285) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (134425) deleg: work_item done cycle=877 block=8 -> node-34A9F0[0m
+[0;32mI (134575) deleg: work_item done cycle=878 block=2 -> node-34A9F0[0m
+[0;32mI (134785) deleg: work_item done cycle=878 block=5 -> node-34A9F0[0m
+[0;32mI (134905) deleg: work_item done cycle=878 block=8 -> node-34A9F0[0m
+[0;32mI (135185) deleg: work_item done cycle=879 block=2 -> node-34A9F0[0m
+[0;32mI (135285) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (135435) deleg: work_item done cycle=879 block=5 -> node-34A9F0[0m
+[0;32mI (135595) deleg: work_item done cycle=879 block=8 -> node-34A9F0[0m
+[0;32mI (136155) deleg: work_item done cycle=880 block=2 -> node-34A9F0[0m
+[0;32mI (136285) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (136285) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (136285) deleg: work_item done cycle=880 block=5 -> node-34A9F0[0m
+[0;32mI (136485) deleg: work_item done cycle=880 block=8 -> node-34A9F0[0m
+[0;32mI (136735) deleg: work_item done cycle=881 block=2 -> node-34A9F0[0m
+[0;32mI (136835) deleg: work_item done cycle=881 block=5 -> node-34A9F0[0m
+[0;32mI (137035) deleg: work_item done cycle=881 block=8 -> node-34A9F0[0m
+[0;32mI (137255) deleg: work_item done cycle=882 block=2 -> node-34A9F0[0m
+[0;32mI (137295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (137295) mgr: cpu=78 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (137355) deleg: work_item done cycle=882 block=5 -> node-34A9F0[0m
+[0;32mI (137545) deleg: work_item done cycle=882 block=8 -> node-34A9F0[0m
+[0;32mI (137795) deleg: work_item done cycle=883 block=2 -> node-34A9F0[0m
+[0;32mI (138295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (139195) deleg: work_item done cycle=883 block=5 -> node-34A9F0[0m
+[0;32mI (139295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (139405) deleg: work_item done cycle=883 block=8 -> node-34A9F0[0m
+[0;32mI (139655) deleg: work_item done cycle=884 block=2 -> node-34A9F0[0m
+[0;32mI (139755) deleg: work_item done cycle=884 block=5 -> node-34A9F0[0m
+[0;32mI (140025) deleg: work_item done cycle=884 block=8 -> node-34A9F0[0m
+[0;32mI (140085) deleg: work_item done cycle=885 block=2 -> node-34A9F0[0m
+[0;32mI (140215) deleg: work_item done cycle=885 block=5 -> node-34A9F0[0m
+[0;32mI (140295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (140435) deleg: work_item done cycle=885 block=8 -> node-34A9F0[0m
+[0;32mI (140735) deleg: work_item done cycle=886 block=2 -> node-34A9F0[0m
+[0;32mI (140805) deleg: work_item done cycle=886 block=5 -> node-34A9F0[0m
+[0;32mI (141155) deleg: work_item done cycle=886 block=8 -> node-34A9F0[0m
+[0;32mI (141295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (141345) deleg: work_item done cycle=887 block=2 -> node-34A9F0[0m
+[0;32mI (141415) deleg: work_item done cycle=887 block=5 -> node-34A9F0[0m
+[0;32mI (141685) deleg: work_item done cycle=887 block=8 -> node-34A9F0[0m
+[0;32mI (141845) deleg: work_item done cycle=888 block=2 -> node-34A9F0[0m
+[0;32mI (141985) deleg: work_item done cycle=888 block=5 -> node-34A9F0[0m
+[0;32mI (142265) deleg: work_item done cycle=888 block=8 -> node-34A9F0[0m
+[0;32mI (142295) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (142295) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=556[0m
+[0;32mI (142295) mgr: cpu=80 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (142575) deleg: work_item done cycle=889 block=2 -> node-34A9F0[0m
+[0;32mI (142775) deleg: work_item done cycle=889 block=5 -> node-34A9F0[0m
+[0;32mI (143285) deleg: work_item done cycle=889 block=8 -> node-34A9F0[0m
+[0;32mI (143305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (143535) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777219949495, "seq": 1777219949495}[0m
+[0;32mI (143535) mqtt: control: SYNC_TIME epoch_ms=1777219949495 seq=2147483647[0m
+[0;32mI (143605) deleg: work_item done cycle=890 block=2 -> node-34A9F0[0m
+[0;32mI (143665) deleg: work_item done cycle=890 block=5 -> node-34A9F0[0m
+[0;32mI (143775) deleg: work_item done cycle=890 block=8 -> node-34A9F0[0m
+[0;32mI (144045) deleg: work_item done cycle=891 block=2 -> node-34A9F0[0m
+[0;32mI (144125) deleg: work_item done cycle=891 block=5 -> node-34A9F0[0m
+[0;32mI (144205) deleg: work_item done cycle=891 block=8 -> node-34A9F0[0m
+[0;32mI (144305) mgr: stress transition: HIGH -> MEDIUM[0m
+[0;32mI (144305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=560[0m
+[0;32mI (144495) deleg: work_item done cycle=892 block=2 -> node-34A9F0[0m
+[0;32mI (144585) deleg: work_item done cycle=892 block=5 -> node-34A9F0[0m
+[0;32mI (144815) deleg: work_item done cycle=892 block=8 -> node-34A9F0[0m
+[0;32mI (144925) deleg: work_item done cycle=893 block=2 -> node-34A9F0[0m
+[0;32mI (145125) deleg: work_item done cycle=893 block=5 -> node-34A9F0[0m
+[0;32mI (145305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (145395) deleg: work_item done cycle=893 block=8 -> node-34A9F0[0m
+[0;32mI (145515) deleg: work_item done cycle=894 block=2 -> node-34A9F0[0m
+[0;32mI (145855) deleg: work_item done cycle=894 block=5 -> node-34A9F0[0m
+[0;32mI (145925) deleg: work_item done cycle=894 block=8 -> node-34A9F0[0m
+[0;32mI (146155) deleg: work_item done cycle=895 block=2 -> node-34A9F0[0m
+[0;32mI (146235) deleg: work_item done cycle=895 block=5 -> node-34A9F0[0m
+[0;32mI (146305) mgr: stress transition: MEDIUM -> LOW[0m
+[0;32mI (146305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (146395) deleg: work_item done cycle=895 block=8 -> node-34A9F0[0m
+[0;32mI (146645) deleg: work_item done cycle=896 block=2 -> node-34A9F0[0m
+[0;32mI (146735) deleg: work_item done cycle=896 block=5 -> node-34A9F0[0m
+[0;32mI (146815) deleg: work_item done cycle=896 block=8 -> node-34A9F0[0m
+[0;32mI (147185) deleg: work_item done cycle=897 block=2 -> node-34A9F0[0m
+[0;32mI (147255) deleg: work_item done cycle=897 block=5 -> node-34A9F0[0m
+[0;32mI (147305) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (147305) mgr: cpu=80 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (147405) deleg: work_item done cycle=897 block=8 -> node-34A9F0[0m
+[0;32mI (147595) deleg: work_item done cycle=898 block=2 -> node-34A9F0[0m
+[0;32mI (147695) deleg: work_item done cycle=898 block=5 -> node-34A9F0[0m
+[0;32mI (147895) deleg: work_item done cycle=898 block=8 -> node-34A9F0[0m
+[0;32mI (148105) deleg: work_item done cycle=899 block=2 -> node-34A9F0[0m
+[0;32mI (148205) deleg: work_item done cycle=899 block=5 -> node-34A9F0[0m
+[0;32mI (148325) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (148325) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (148335) deleg: work_item done cycle=899 block=8 -> node-34A9F0[0m
+[0;32mI (148615) deleg: work_item done cycle=900 block=2 -> node-34A9F0[0m
+[0;32mI (148655) deleg: work_item done cycle=900 block=5 -> node-34A9F0[0m
+[0;32mI (148955) deleg: work_item done cycle=900 block=8 -> node-34A9F0[0m
+[0;32mI (149075) deleg: work_item done cycle=901 block=2 -> node-34A9F0[0m
+[0;32mI (149345) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (150355) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (150355) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (151165) deleg: work_item done cycle=901 block=5 -> node-34A9F0[0m
+[0;32mI (151365) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (151375) deleg: work_item done cycle=901 block=8 -> node-34A9F0[0m
+[0;32mI (151515) deleg: work_item done cycle=902 block=2 -> node-34A9F0[0m
+[0;32mI (151785) deleg: work_item done cycle=902 block=5 -> node-34A9F0[0m
+[0;32mI (151875) deleg: work_item done cycle=902 block=8 -> node-34A9F0[0m
+[0;32mI (152095) deleg: work_item done cycle=903 block=2 -> node-34A9F0[0m
+[0;32mI (152185) deleg: work_item done cycle=903 block=5 -> node-34A9F0[0m
+[0;32mI (152295) deleg: work_item done cycle=903 block=8 -> node-34A9F0[0m
+[0;32mI (152375) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (152375) mgr: cpu=81 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (152605) deleg: work_item done cycle=904 block=2 -> node-34A9F0[0m
+[0;32mI (152685) deleg: work_item done cycle=904 block=5 -> node-34A9F0[0m
+[0;32mI (152805) deleg: work_item done cycle=904 block=8 -> node-34A9F0[0m
+[0;32mI (153045) deleg: work_item done cycle=905 block=2 -> node-34A9F0[0m
+[0;32mI (153135) deleg: work_item done cycle=905 block=4 -> node-34A9F0[0m
+[0;32mI (153305) deleg: work_item done cycle=905 block=6 -> node-34A9F0[0m
+[0;32mI (153375) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (153435) deleg: work_item done cycle=906 block=0 -> node-34A9F0[0m
+[0;32mI (153585) deleg: work_item done cycle=906 block=3 -> node-34A9F0[0m
+[0;32mI (153855) deleg: work_item done cycle=906 block=6 -> node-34A9F0[0m
+[0;32mI (153935) deleg: work_item done cycle=907 block=0 -> node-34A9F0[0m
+[0;32mI (154235) deleg: work_item done cycle=907 block=3 -> node-34A9F0[0m
+[0;32mI (154335) deleg: work_item done cycle=907 block=6 -> node-34A9F0[0m
+[0;32mI (154375) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (154425) deleg: work_item done cycle=908 block=0 -> node-34A9F0[0m
+[0;32mI (154655) deleg: work_item done cycle=908 block=3 -> node-34A9F0[0m
+[0;32mI (154755) deleg: work_item done cycle=908 block=6 -> node-34A9F0[0m
+[0;32mI (154945) deleg: work_item done cycle=909 block=0 -> node-34A9F0[0m
+[0;32mI (155145) deleg: work_item done cycle=909 block=3 -> node-34A9F0[0m
+[0;32mI (155375) deleg: work_item done cycle=909 block=6 -> node-34A9F0[0m
+[0;32mI (155385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (155475) deleg: work_item done cycle=910 block=0 -> node-34A9F0[0m
+[0;32mI (156195) deleg: work_item done cycle=910 block=3 -> node-34A9F0[0m
+[0;32mI (156295) deleg: work_item done cycle=910 block=6 -> node-34A9F0[0m
+[0;32mI (156385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (157385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (157385) mgr: cpu=64 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (158035) deleg: work_item done cycle=911 block=0 -> node-34A9F0[0m
+[0;32mI (158125) deleg: work_item done cycle=911 block=3 -> node-34A9F0[0m
+[0;32mI (158195) deleg: work_item done cycle=911 block=6 -> node-34A9F0[0m
+[0;32mI (158385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (159385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (159685) deleg: work_item done cycle=912 block=0 -> node-34A9F0[0m
+[0;32mI (160075) deleg: work_item done cycle=912 block=3 -> node-34A9F0[0m
+[0;32mI (160145) deleg: work_item done cycle=912 block=6 -> node-34A9F0[0m
+[0;32mI (160225) deleg: work_item done cycle=913 block=0 -> node-34A9F0[0m
+[0;32mI (160385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (160465) deleg: work_item done cycle=913 block=3 -> node-34A9F0[0m
+[0;32mI (160705) deleg: work_item done cycle=913 block=6 -> node-34A9F0[0m
+[0;32mI (160805) deleg: work_item done cycle=914 block=0 -> node-34A9F0[0m
+[0;32mI (161005) deleg: work_item done cycle=914 block=3 -> node-34A9F0[0m
+[0;32mI (161135) deleg: work_item done cycle=914 block=6 -> node-34A9F0[0m
+[0;32mI (161385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (161515) deleg: work_item done cycle=915 block=0 -> node-34A9F0[0m
+[0;32mI (161615) deleg: work_item done cycle=915 block=3 -> node-34A9F0[0m
+[0;32mI (161695) deleg: work_item done cycle=915 block=6 -> node-34A9F0[0m
+[0;32mI (161925) deleg: work_item done cycle=916 block=0 -> node-34A9F0[0m
+[0;32mI (162025) deleg: work_item done cycle=916 block=3 -> node-34A9F0[0m
+[0;32mI (162215) deleg: work_item done cycle=916 block=6 -> node-34A9F0[0m
+[0;32mI (162385) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (162385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (162385) mgr: cpu=80 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (162455) deleg: work_item done cycle=917 block=0 -> node-34A9F0[0m
+[0;32mI (162525) deleg: work_item done cycle=917 block=3 -> node-34A9F0[0m
+[0;32mI (162745) deleg: work_item done cycle=917 block=6 -> node-34A9F0[0m
+[0;32mI (162915) deleg: work_item done cycle=918 block=0 -> node-34A9F0[0m
+[0;32mI (163015) deleg: work_item done cycle=918 block=3 -> node-34A9F0[0m
+[0;32mI (163155) deleg: work_item done cycle=918 block=6 -> node-34A9F0[0m
+[0;32mI (163385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (163485) deleg: work_item done cycle=919 block=0 -> node-34A9F0[0m
+[0;32mI (163595) deleg: work_item done cycle=919 block=3 -> node-34A9F0[0m
+[0;32mI (163735) deleg: work_item done cycle=919 block=6 -> node-34A9F0[0m
+[0;32mI (163975) deleg: work_item done cycle=920 block=0 -> node-34A9F0[0m
+[0;32mI (164175) deleg: work_item done cycle=920 block=3 -> node-34A9F0[0m
+[0;32mI (164385) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (164785) deleg: work_item done cycle=920 block=6 -> node-34A9F0[0m
+[0;32mI (165085) deleg: work_item done cycle=921 block=0 -> node-34A9F0[0m
+[0;32mI (165165) deleg: work_item done cycle=921 block=3 -> node-34A9F0[0m
+[0;32mI (165445) deleg: work_item done cycle=921 block=7 -> node-34A9F0[0m
+[0;32mI (165625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (166625) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (166625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (166715) deleg: work_item done cycle=922 block=0 -> node-34A9F0[0m
+[0;32mI (166845) deleg: work_item done cycle=922 block=3 -> node-34A9F0[0m
+[0;32mI (167025) deleg: work_item done cycle=922 block=6 -> node-34A9F0[0m
+[0;32mI (167125) deleg: work_item done cycle=923 block=0 -> node-34A9F0[0m
+[0;32mI (167215) deleg: work_item done cycle=923 block=5 -> node-34A9F0[0m
+[0;32mI (167315) deleg: work_item done cycle=923 block=8 -> node-34A9F0[0m
+[0;32mI (167555) deleg: work_item done cycle=924 block=2 -> node-34A9F0[0m
+[0;32mI (167625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (167625) mgr: cpu=83 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (167725) deleg: work_item done cycle=924 block=5 -> node-34A9F0[0m
+[0;32mI (167965) deleg: work_item done cycle=924 block=8 -> node-34A9F0[0m
+[0;32mI (168035) deleg: work_item done cycle=925 block=2 -> node-34A9F0[0m
+[0;32mI (168115) deleg: work_item done cycle=925 block=4 -> node-34A9F0[0m
+[0;32mI (168225) deleg: work_item done cycle=925 block=6 -> node-34A9F0[0m
+[0;32mI (168465) deleg: work_item done cycle=926 block=0 -> node-34A9F0[0m
+[0;32mI (168565) deleg: work_item done cycle=926 block=3 -> node-34A9F0[0m
+[0;32mI (168625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (168745) deleg: work_item done cycle=926 block=6 -> node-34A9F0[0m
+[0;32mI (168975) deleg: work_item done cycle=927 block=0 -> node-34A9F0[0m
+[0;32mI (169215) deleg: work_item done cycle=927 block=3 -> node-34A9F0[0m
+[0;32mI (169285) deleg: work_item done cycle=927 block=6 -> node-34A9F0[0m
+[0;32mI (169605) deleg: work_item done cycle=928 block=0 -> node-34A9F0[0m
+[0;32mI (169625) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (169715) deleg: work_item done cycle=928 block=3 -> node-34A9F0[0m
+[0;32mI (169805) deleg: work_item done cycle=928 block=6 -> node-34A9F0[0m
+[0;32mI (170015) deleg: work_item done cycle=929 block=0 -> node-34A9F0[0m
+[0;32mI (170125) deleg: work_item done cycle=929 block=3 -> node-34A9F0[0m
+[0;32mI (170465) deleg: work_item done cycle=929 block=6 -> node-34A9F0[0m
+[0;32mI (170545) deleg: work_item done cycle=930 block=0 -> node-34A9F0[0m
+[0;32mI (170625) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (170635) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (170695) deleg: work_item done cycle=930 block=3 -> node-34A9F0[0m
+[0;32mI (170935) deleg: work_item done cycle=930 block=6 -> node-34A9F0[0m
+[0;32mI (171015) deleg: work_item done cycle=931 block=0 -> node-34A9F0[0m
+[0;32mI (171235) deleg: work_item done cycle=931 block=3 -> node-34A9F0[0m
+[0;32mI (171305) deleg: work_item done cycle=931 block=6 -> node-34A9F0[0m
+[0;32mI (171415) deleg: work_item done cycle=931 block=8 -> node-34A9F0[0m
+[0;32mI (171545) deleg: work_item done cycle=932 block=1 -> node-34A9F0[0m
+[0;32mI (171625) deleg: work_item done cycle=932 block=3 -> node-34A9F0[0m
+[0;32mI (171695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (171715) deleg: work_item done cycle=932 block=5 -> node-34A9F0[0m
+[0;32mI (171785) deleg: work_item done cycle=932 block=6 -> node-34A9F0[0m
+[0;32mI (172065) deleg: work_item done cycle=932 block=7 -> node-34A9F0[0m
+[0;32mI (172145) deleg: work_item done cycle=933 block=0 -> node-34A9F0[0m
+[0;32mI (172235) deleg: work_item done cycle=933 block=3 -> node-34A9F0[0m
+[0;32mI (172555) deleg: work_item done cycle=933 block=6 -> node-34A9F0[0m
+[0;32mI (172745) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (172755) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (172755) deleg: work_item done cycle=934 block=0 -> node-34A9F0[0m
+[0;32mI (172775) mgr: cpu=78 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (172855) deleg: work_item done cycle=934 block=3 -> node-34A9F0[0m
+[0;32mI (173195) deleg: work_item done cycle=934 block=6 -> node-34A9F0[0m
+[0;32mI (173335) deleg: work_item done cycle=935 block=0 -> node-34A9F0[0m
+[0;32mI (173625) deleg: work_item done cycle=935 block=3 -> node-34A9F0[0m
+[0;32mI (173715) deleg: work_item done cycle=935 block=6 -> node-34A9F0[0m
+[0;32mI (173775) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (173775) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (173815) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777219979957, "seq": 1777219979957}[0m
+[0;32mI (173815) mqtt: control: SYNC_TIME epoch_ms=1777219979957 seq=2147483647[0m
+[0;32mI (173885) deleg: work_item done cycle=936 block=0 -> node-34A9F0[0m
+[0;32mI (174015) deleg: work_item done cycle=936 block=3 -> node-34A9F0[0m
+[0;32mI (174185) deleg: work_item done cycle=936 block=6 -> node-34A9F0[0m
+[0;32mI (174315) deleg: work_item done cycle=937 block=0 -> node-34A9F0[0m
+[0;32mI (174635) deleg: work_item done cycle=937 block=3 -> node-34A9F0[0m
+[0;32mI (174725) deleg: work_item done cycle=937 block=6 -> node-34A9F0[0m
+[0;32mI (174775) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (174935) deleg: work_item done cycle=938 block=0 -> node-34A9F0[0m
+[0;32mI (175095) deleg: work_item done cycle=938 block=3 -> node-34A9F0[0m
+[0;32mI (175325) deleg: work_item done cycle=938 block=6 -> node-34A9F0[0m
+[0;32mI (175455) deleg: work_item done cycle=939 block=0 -> node-34A9F0[0m
+[0;32mI (175655) deleg: work_item done cycle=939 block=3 -> node-34A9F0[0m
+[0;32mI (175745) deleg: work_item done cycle=939 block=6 -> node-34A9F0[0m
+[0;32mI (175785) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (175785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (176065) deleg: work_item done cycle=940 block=0 -> node-34A9F0[0m
+[0;32mI (176165) deleg: work_item done cycle=940 block=3 -> node-34A9F0[0m
+[0;32mI (176375) deleg: work_item done cycle=940 block=6 -> node-34A9F0[0m
+[0;32mI (176515) deleg: work_item done cycle=941 block=0 -> node-34A9F0[0m
+[0;32mI (176755) deleg: work_item done cycle=941 block=3 -> node-34A9F0[0m
+[0;32mI (176785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (176885) deleg: work_item done cycle=941 block=6 -> node-34A9F0[0m
+[0;32mI (177025) deleg: work_item done cycle=942 block=0 -> node-34A9F0[0m
+[0;32mI (177285) deleg: work_item done cycle=942 block=3 -> node-34A9F0[0m
+[0;32mI (177575) deleg: work_item done cycle=942 block=6 -> node-34A9F0[0m
+[0;32mI (177675) deleg: work_item done cycle=943 block=0 -> node-34A9F0[0m
+[0;32mI (177745) deleg: work_item done cycle=943 block=3 -> node-34A9F0[0m
+[0;32mI (177785) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (177785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (177785) mgr: cpu=80 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (177905) deleg: work_item done cycle=943 block=6 -> node-34A9F0[0m
+[0;32mI (178105) deleg: work_item done cycle=944 block=0 -> node-34A9F0[0m
+[0;32mI (178315) deleg: work_item done cycle=944 block=3 -> node-34A9F0[0m
+[0;32mI (178415) deleg: work_item done cycle=944 block=6 -> node-34A9F0[0m
+[0;32mI (178635) deleg: work_item done cycle=945 block=0 -> node-34A9F0[0m
+[0;32mI (178735) deleg: work_item done cycle=945 block=3 -> node-34A9F0[0m
+[0;32mI (178785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (179045) deleg: work_item done cycle=945 block=6 -> node-34A9F0[0m
+[0;32mI (179115) deleg: work_item done cycle=946 block=0 -> node-34A9F0[0m
+[0;32mI (179225) deleg: work_item done cycle=946 block=3 -> node-34A9F0[0m
+[0;32mI (179455) deleg: work_item done cycle=946 block=6 -> node-34A9F0[0m
+[0;32mI (179575) deleg: work_item done cycle=947 block=0 -> node-34A9F0[0m
+[0;32mI (179775) deleg: work_item done cycle=947 block=3 -> node-34A9F0[0m
+[0;32mI (179785) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (179785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (179875) deleg: work_item done cycle=947 block=6 -> node-34A9F0[0m
+[0;32mI (180165) deleg: work_item done cycle=948 block=0 -> node-34A9F0[0m
+[0;32mI (180245) deleg: work_item done cycle=948 block=3 -> node-34A9F0[0m
+[0;32mI (180355) deleg: work_item done cycle=948 block=6 -> node-34A9F0[0m
+[0;32mI (180655) deleg: work_item done cycle=949 block=0 -> node-34A9F0[0m
+[0;32mI (180735) deleg: work_item done cycle=949 block=3 -> node-34A9F0[0m
+[0;32mI (180795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (180905) deleg: work_item done cycle=949 block=6 -> node-34A9F0[0m
+[0;32mI (181015) deleg: work_item done cycle=950 block=0 -> node-34A9F0[0m
+[0;32mI (181275) deleg: work_item done cycle=950 block=3 -> node-34A9F0[0m
+[0;32mI (181415) deleg: work_item done cycle=950 block=6 -> node-34A9F0[0m
+[0;32mI (181695) deleg: work_item done cycle=951 block=0 -> node-34A9F0[0m
+[0;32mI (181785) deleg: work_item done cycle=951 block=3 -> node-34A9F0[0m
+[0;32mI (181795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (181935) deleg: work_item done cycle=951 block=6 -> node-34A9F0[0m
+[0;32mI (182275) deleg: work_item done cycle=952 block=0 -> node-34A9F0[0m
+[0;32mI (182365) deleg: work_item done cycle=952 block=3 -> node-34A9F0[0m
+[0;32mI (182595) deleg: work_item done cycle=952 block=6 -> node-34A9F0[0m
+[0;32mI (182715) deleg: work_item done cycle=953 block=0 -> node-34A9F0[0m
+[0;32mI (182795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (182795) mgr: cpu=78 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (182885) deleg: work_item done cycle=953 block=3 -> node-34A9F0[0m
+[0;32mI (183115) deleg: work_item done cycle=953 block=6 -> node-34A9F0[0m
+[0;32mI (183325) deleg: work_item done cycle=954 block=0 -> node-34A9F0[0m
+[0;32mI (183385) deleg: work_item done cycle=954 block=3 -> node-34A9F0[0m
+[0;32mI (183515) deleg: work_item done cycle=954 block=6 -> node-34A9F0[0m
+[0;32mI (183745) deleg: work_item done cycle=955 block=0 -> node-34A9F0[0m
+[0;32mI (183795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (183875) deleg: work_item done cycle=955 block=3 -> node-34A9F0[0m
+[0;32mI (184155) deleg: work_item done cycle=955 block=6 -> node-34A9F0[0m
+[0;32mI (184235) deleg: work_item done cycle=956 block=0 -> node-34A9F0[0m
+[0;32mI (184315) deleg: work_item done cycle=956 block=3 -> node-34A9F0[0m
+[0;32mI (184545) deleg: work_item done cycle=956 block=6 -> node-34A9F0[0m
+[0;32mI (184805) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (184875) deleg: work_item done cycle=957 block=0 -> node-34A9F0[0m
+[0;32mI (185055) deleg: work_item done cycle=957 block=3 -> node-34A9F0[0m
+[0;32mI (185125) deleg: work_item done cycle=957 block=6 -> node-34A9F0[0m
+[0;32mI (185195) deleg: work_item done cycle=958 block=0 -> node-34A9F0[0m
+[0;32mI (185265) deleg: work_item done cycle=958 block=2 -> node-34A9F0[0m
+[0;32mI (185805) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (185805) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (185935) deleg: work_item done cycle=958 block=7 -> node-34A9F0[0m
+[0;32mI (186175) deleg: work_item done cycle=959 block=1 -> node-34A9F0[0m
+[0;32mI (186295) deleg: work_item done cycle=959 block=4 -> node-34A9F0[0m
+[0;32mI (186375) deleg: work_item done cycle=959 block=7 -> node-34A9F0[0m
+[0;32mI (186615) deleg: work_item done cycle=960 block=0 -> node-34A9F0[0m
+[0;32mI (186715) deleg: work_item done cycle=960 block=3 -> node-34A9F0[0m
+[0;32mI (186805) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (186805) deleg: work_item done cycle=960 block=5 -> node-34A9F0[0m
+[0;32mI (186875) deleg: work_item done cycle=960 block=7 -> node-34A9F0[0m
+[0;32mI (186985) deleg: work_item done cycle=961 block=1 -> node-34A9F0[0m
+[0;32mI (187195) deleg: work_item done cycle=961 block=4 -> node-34A9F0[0m
+[0;32mI (187545) deleg: work_item done cycle=961 block=7 -> node-34A9F0[0m
+[0;32mI (187625) deleg: work_item done cycle=962 block=1 -> node-34A9F0[0m
+[0;32mI (187735) deleg: work_item done cycle=962 block=4 -> node-34A9F0[0m
+[0;32mI (187835) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (187835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (187845) deleg: work_item done cycle=962 block=8 -> node-34A9F0[0m
+[0;32mI (187855) mgr: cpu=81 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (187985) deleg: work_item done cycle=963 block=1 -> node-34A9F0[0m
+[0;32mI (188265) deleg: work_item done cycle=963 block=4 -> node-34A9F0[0m
+[0;32mI (188355) deleg: work_item done cycle=963 block=7 -> node-34A9F0[0m
+[0;32mI (188645) deleg: work_item done cycle=964 block=1 -> node-34A9F0[0m
+[0;32mI (188855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (188925) deleg: work_item done cycle=964 block=4 -> node-34A9F0[0m
+[0;32mI (189015) deleg: work_item done cycle=964 block=7 -> node-34A9F0[0m
+[0;32mI (189075) deleg: work_item done cycle=965 block=1 -> node-34A9F0[0m
+[0;32mI (189225) deleg: work_item done cycle=965 block=3 -> node-34A9F0[0m
+[0;32mI (189355) deleg: work_item done cycle=965 block=6 -> node-34A9F0[0m
+[0;32mI (189575) deleg: work_item done cycle=966 block=0 -> node-34A9F0[0m
+[0;32mI (189675) deleg: work_item done cycle=966 block=3 -> node-34A9F0[0m
+[0;32mI (189855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (189965) deleg: work_item done cycle=966 block=6 -> node-34A9F0[0m
+[0;32mI (190305) deleg: work_item done cycle=967 block=0 -> node-34A9F0[0m
+[0;32mI (190395) deleg: work_item done cycle=967 block=3 -> node-34A9F0[0m
+[0;32mI (190475) deleg: work_item done cycle=967 block=6 -> node-34A9F0[0m
+[0;32mI (190615) deleg: work_item done cycle=968 block=2 -> node-34A9F0[0m
+[0;32mI (190885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (190895) deleg: work_item done cycle=968 block=5 -> node-34A9F0[0m
+[0;32mI (191025) deleg: work_item done cycle=968 block=8 -> node-34A9F0[0m
+[0;32mI (191205) deleg: work_item done cycle=969 block=2 -> node-34A9F0[0m
+[0;32mI (191325) deleg: work_item done cycle=969 block=5 -> node-34A9F0[0m
+[0;32mI (191505) deleg: work_item done cycle=969 block=8 -> node-34A9F0[0m
+[0;32mI (191655) deleg: work_item done cycle=970 block=2 -> node-34A9F0[0m
+[0;32mI (191915) deleg: work_item done cycle=970 block=5 -> node-34A9F0[0m
+[0;32mI (191925) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (192005) deleg: work_item done cycle=970 block=8 -> node-34A9F0[0m
+[0;32mI (192135) deleg: work_item done cycle=971 block=2 -> node-34A9F0[0m
+[0;32mI (192255) deleg: work_item done cycle=971 block=5 -> node-34A9F0[0m
+[0;32mI (192655) deleg: work_item done cycle=971 block=8 -> node-34A9F0[0m
+[0;32mI (192825) deleg: work_item done cycle=972 block=2 -> node-34A9F0[0m
+[0;32mI (192915) deleg: work_item done cycle=972 block=5 -> node-34A9F0[0m
+[0;32mI (192935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (192935) mgr: cpu=79 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (193015) deleg: work_item done cycle=972 block=8 -> node-34A9F0[0m
+[0;32mI (193425) deleg: work_item done cycle=973 block=2 -> node-34A9F0[0m
+[0;32mI (193785) deleg: work_item done cycle=973 block=5 -> node-34A9F0[0m
+[0;32mI (193915) deleg: work_item done cycle=973 block=8 -> node-34A9F0[0m
+[0;32mI (193935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (194025) deleg: work_item done cycle=974 block=2 -> node-34A9F0[0m
+[0;32mI (194125) deleg: work_item done cycle=974 block=5 -> node-34A9F0[0m
+[0;32mI (194385) deleg: work_item done cycle=974 block=8 -> node-34A9F0[0m
+[0;32mI (194585) deleg: work_item done cycle=975 block=2 -> node-34A9F0[0m
+[0;32mI (194665) deleg: work_item done cycle=975 block=5 -> node-34A9F0[0m
+[0;32mI (194935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (195105) deleg: work_item done cycle=975 block=8 -> node-34A9F0[0m
+[0;32mI (195175) deleg: work_item done cycle=976 block=2 -> node-34A9F0[0m
+[0;32mI (195295) deleg: work_item done cycle=976 block=5 -> node-34A9F0[0m
+[0;32mI (195495) deleg: work_item done cycle=976 block=8 -> node-34A9F0[0m
+[0;32mI (195945) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (195945) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (195955) deleg: work_item done cycle=977 block=2 -> node-34A9F0[0m
+[0;32mI (196025) deleg: work_item done cycle=977 block=5 -> node-34A9F0[0m
+[0;32mI (196175) deleg: work_item done cycle=977 block=8 -> node-34A9F0[0m
+[0;32mI (196285) deleg: work_item done cycle=978 block=2 -> node-34A9F0[0m
+[0;32mI (196405) deleg: work_item done cycle=978 block=4 -> node-34A9F0[0m
+[0;32mI (196515) deleg: work_item done cycle=978 block=6 -> node-34A9F0[0m
+[0;32mI (196965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (197065) deleg: work_item done cycle=978 block=8 -> node-34A9F0[0m
+[0;32mI (197295) deleg: work_item done cycle=979 block=2 -> node-34A9F0[0m
+[0;32mI (197405) deleg: work_item done cycle=979 block=5 -> node-34A9F0[0m
+[0;32mI (197775) deleg: work_item done cycle=979 block=8 -> node-34A9F0[0m
+[0;32mI (197965) mgr: stress transition: MEDIUM -> LOW[0m
+[0;32mI (197965) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (197975) deleg: work_item done cycle=980 block=1 -> node-34A9F0[0m
+[0;32mI (197995) mgr: cpu=77 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (198135) deleg: work_item done cycle=980 block=4 -> node-34A9F0[0m
+[0;32mI (198425) deleg: work_item done cycle=980 block=7 -> node-34A9F0[0m
+[0;32mI (198715) deleg: work_item done cycle=981 block=1 -> node-34A9F0[0m
+[0;32mI (198995) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (199105) deleg: work_item done cycle=981 block=4 -> node-34A9F0[0m
+[0;32mI (199185) deleg: work_item done cycle=981 block=7 -> node-34A9F0[0m
+[0;32mI (199405) deleg: work_item done cycle=982 block=1 -> node-34A9F0[0m
+[0;32mI (199535) deleg: work_item done cycle=982 block=4 -> node-34A9F0[0m
+[0;32mI (199815) deleg: work_item done cycle=982 block=7 -> node-34A9F0[0m
+[0;32mI (199955) deleg: work_item done cycle=983 block=1 -> node-34A9F0[0m
+[0;32mI (200035) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (200125) deleg: work_item done cycle=983 block=4 -> node-34A9F0[0m
+[0;32mI (200325) deleg: work_item done cycle=983 block=7 -> node-34A9F0[0m
+[0;32mI (200525) deleg: work_item done cycle=984 block=1 -> node-34A9F0[0m
+[0;32mI (200595) deleg: work_item done cycle=984 block=4 -> node-34A9F0[0m
+[0;32mI (200815) deleg: work_item done cycle=984 block=7 -> node-34A9F0[0m
+[0;32mI (200955) deleg: work_item done cycle=985 block=1 -> node-34A9F0[0m
+[0;32mI (201035) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (201155) deleg: work_item done cycle=985 block=4 -> node-34A9F0[0m
+[0;32mI (201495) deleg: work_item done cycle=985 block=7 -> node-34A9F0[0m
+[0;32mI (202035) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (202305) deleg: work_item done cycle=986 block=1 -> node-34A9F0[0m
+[0;32mI (202465) deleg: work_item done cycle=986 block=4 -> node-34A9F0[0m
+[0;32mI (202535) deleg: work_item done cycle=986 block=7 -> node-34A9F0[0m
+[0;32mI (202795) deleg: work_item done cycle=987 block=1 -> node-34A9F0[0m
+[0;32mI (202975) deleg: work_item done cycle=988 block=1 -> node-34A9F0[0m
+[0;32mI (203165) deleg: work_item done cycle=988 block=4 -> node-34A9F0[0m
+[0;32mI (203315) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (203315) mgr: cpu=68 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (203605) deleg: work_item done cycle=988 block=7 -> node-34A9F0[0m
+[0;32mI (203685) deleg: work_item done cycle=989 block=1 -> node-34A9F0[0m
+[0;32mI (203935) deleg: work_item done cycle=989 block=4 -> node-34A9F0[0m
+[0;32mI (204055) deleg: work_item done cycle=989 block=7 -> node-34A9F0[0m
+[0;32mI (204315) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (204395) deleg: work_item done cycle=990 block=1 -> node-34A9F0[0m
+[0;32mI (204545) deleg: work_item done cycle=990 block=4 -> node-34A9F0[0m
+[0;32mI (204555) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777220010643, "seq": 1777220010643}[0m
+[0;32mI (204555) mqtt: control: SYNC_TIME epoch_ms=1777220010643 seq=2147483647[0m
+[0;32mI (204765) deleg: work_item done cycle=990 block=7 -> node-34A9F0[0m
+[0;32mI (205035) deleg: work_item done cycle=991 block=1 -> node-34A9F0[0m
+[0;32mI (205125) deleg: work_item done cycle=991 block=4 -> node-34A9F0[0m
+[0;32mI (205285) deleg: work_item done cycle=991 block=7 -> node-34A9F0[0m
+[0;32mI (205405) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (205475) deleg: work_item done cycle=992 block=1 -> node-34A9F0[0m
+[0;32mI (205645) deleg: work_item done cycle=992 block=4 -> node-34A9F0[0m
+[0;32mI (205835) deleg: work_item done cycle=992 block=7 -> node-34A9F0[0m
+[0;32mI (206055) deleg: work_item done cycle=993 block=1 -> node-34A9F0[0m
+[0;32mI (206265) deleg: work_item done cycle=993 block=4 -> node-34A9F0[0m
+[0;32mI (206405) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (206465) deleg: work_item done cycle=993 block=7 -> node-34A9F0[0m
+[0;32mI (206575) deleg: work_item done cycle=994 block=1 -> node-34A9F0[0m
+[0;32mI (206875) deleg: work_item done cycle=994 block=4 -> node-34A9F0[0m
+[0;32mI (207035) deleg: work_item done cycle=994 block=7 -> node-34A9F0[0m
+[0;32mI (207125) deleg: work_item done cycle=995 block=1 -> node-34A9F0[0m
+[0;32mI (207435) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (207695) deleg: work_item done cycle=995 block=4 -> node-34A9F0[0m
+[0;32mI (208085) deleg: work_item done cycle=995 block=7 -> node-34A9F0[0m
+[0;32mI (208175) deleg: work_item done cycle=996 block=0 -> node-34A9F0[0m
+[0;32mI (208285) deleg: work_item done cycle=996 block=3 -> node-34A9F0[0m
+[0;32mI (208445) deleg: work_item done cycle=996 block=6 -> node-34A9F0[0m
+[0;32mI (208705) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (208715) deleg: work_item done cycle=996 block=8 -> node-34A9F0[0m
+[0;32mI (208725) mgr: cpu=68 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (208855) deleg: work_item done cycle=997 block=2 -> node-34A9F0[0m
+[0;32mI (208985) deleg: work_item done cycle=997 block=5 -> node-34A9F0[0m
+[0;32mI (209165) deleg: work_item done cycle=997 block=8 -> node-34A9F0[0m
+[0;32mI (209435) deleg: work_item done cycle=998 block=2 -> node-34A9F0[0m
+[0;32mI (209515) deleg: work_item done cycle=998 block=5 -> node-34A9F0[0m
+[0;32mI (209725) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (209725) deleg: work_item done cycle=998 block=8 -> node-34A9F0[0m
+[0;32mI (209865) deleg: work_item done cycle=999 block=2 -> node-34A9F0[0m
+[0;32mI (210025) deleg: work_item done cycle=999 block=5 -> node-34A9F0[0m
+[0;32mI (210155) deleg: work_item done cycle=999 block=8 -> node-34A9F0[0m
+[0;32mI (210385) deleg: work_item done cycle=1000 block=2 -> node-34A9F0[0m
+[0;32mI (210665) deleg: work_item done cycle=1000 block=5 -> node-34A9F0[0m
+[0;32mI (210745) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (210775) deleg: work_item done cycle=1000 block=8 -> node-34A9F0[0m
+[0;32mI (210885) deleg: work_item done cycle=1001 block=2 -> node-34A9F0[0m
+[0;32mI (211135) deleg: work_item done cycle=1001 block=5 -> node-34A9F0[0m
+[0;32mI (211235) deleg: work_item done cycle=1001 block=8 -> node-34A9F0[0m
+[0;32mI (211475) deleg: work_item done cycle=1002 block=2 -> node-34A9F0[0m
+[0;32mI (211585) deleg: work_item done cycle=1002 block=5 -> node-34A9F0[0m
+[0;32mI (211785) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (211855) deleg: work_item done cycle=1002 block=8 -> node-34A9F0[0m
+[0;32mI (211945) deleg: work_item done cycle=1003 block=2 -> node-34A9F0[0m
+[0;32mI (212185) deleg: work_item done cycle=1003 block=5 -> node-34A9F0[0m
+[0;32mI (212305) deleg: work_item done cycle=1003 block=8 -> node-34A9F0[0m
+[0;32mI (212425) deleg: work_item done cycle=1004 block=2 -> node-34A9F0[0m
+[0;32mI (212805) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (212815) deleg: work_item done cycle=1004 block=4 -> node-34A9F0[0m
+[0;32mI (212875) deleg: work_item done cycle=1004 block=6 -> node-34A9F0[0m
+[0;32mI (212955) deleg: work_item done cycle=1005 block=0 -> node-34A9F0[0m
+[0;32mI (213025) deleg: work_item done cycle=1005 block=2 -> node-34A9F0[0m
+[0;32mI (213325) deleg: work_item done cycle=1005 block=5 -> node-34A9F0[0m
+[0;32mI (213385) deleg: work_item done cycle=1005 block=8 -> node-34A9F0[0m
+[0;32mI (213655) deleg: work_item done cycle=1006 block=2 -> node-34A9F0[0m
+[0;32mI (213825) mgr: stress transition: LOW -> HIGH[0m
+[0;32mI (213825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (213825) mgr: cpu=79 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (213905) deleg: work_item done cycle=1006 block=5 -> node-34A9F0[0m
+[0;32mI (214125) deleg: work_item done cycle=1006 block=8 -> node-34A9F0[0m
+[0;32mI (214355) deleg: work_item done cycle=1007 block=2 -> node-34A9F0[0m
+[0;32mI (214545) deleg: work_item done cycle=1007 block=5 -> node-34A9F0[0m
+[0;32mI (214625) deleg: work_item done cycle=1007 block=8 -> node-34A9F0[0m
+[0;32mI (214705) deleg: work_item done cycle=1008 block=2 -> node-34A9F0[0m
+[0;32mI (214825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (214965) deleg: work_item done cycle=1008 block=5 -> node-34A9F0[0m
+[0;32mI (215075) deleg: work_item done cycle=1008 block=8 -> node-34A9F0[0m
+[0;32mI (215375) deleg: work_item done cycle=1009 block=2 -> node-34A9F0[0m
+[0;32mI (215495) deleg: work_item done cycle=1009 block=5 -> node-34A9F0[0m
+[0;32mI (215585) deleg: work_item done cycle=1009 block=8 -> node-34A9F0[0m
+[0;32mI (215825) mgr: stress transition: HIGH -> LOW[0m
+[0;32mI (215825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (215925) deleg: work_item done cycle=1010 block=2 -> node-34A9F0[0m
+[0;32mI (216205) deleg: work_item done cycle=1010 block=5 -> node-34A9F0[0m
+[0;32mI (216285) deleg: work_item done cycle=1010 block=8 -> node-34A9F0[0m
+[0;32mI (216355) deleg: work_item done cycle=1011 block=2 -> node-34A9F0[0m
+[0;32mI (216525) deleg: work_item done cycle=1011 block=5 -> node-34A9F0[0m
+[0;32mI (216795) deleg: work_item done cycle=1011 block=8 -> node-34A9F0[0m
+[0;32mI (216835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (216925) deleg: work_item done cycle=1012 block=2 -> node-34A9F0[0m
+[0;32mI (217035) deleg: work_item done cycle=1012 block=5 -> node-34A9F0[0m
+[0;32mI (217305) deleg: work_item done cycle=1012 block=8 -> node-34A9F0[0m
+[0;32mI (217425) deleg: work_item done cycle=1013 block=2 -> node-34A9F0[0m
+[0;32mI (217835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (218185) deleg: work_item done cycle=1013 block=5 -> node-34A9F0[0m
+[0;32mI (218445) deleg: work_item done cycle=1013 block=8 -> node-34A9F0[0m
+[0;32mI (218665) deleg: work_item done cycle=1014 block=2 -> node-34A9F0[0m
+[0;32mI (218835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (218845) deleg: work_item done cycle=1014 block=5 -> node-34A9F0[0m
+[0;32mI (218855) mgr: cpu=75 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (219155) deleg: work_item done cycle=1014 block=8 -> node-34A9F0[0m
+[0;32mI (219265) deleg: work_item done cycle=1015 block=2 -> node-34A9F0[0m
+[0;32mI (219415) deleg: work_item done cycle=1015 block=5 -> node-34A9F0[0m
+[0;32mI (219695) deleg: work_item done cycle=1015 block=8 -> node-34A9F0[0m
+[0;32mI (219855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (219945) deleg: work_item done cycle=1016 block=2 -> node-34A9F0[0m
+[0;32mI (220005) deleg: work_item done cycle=1016 block=5 -> node-34A9F0[0m
+[0;32mI (220085) deleg: work_item done cycle=1016 block=8 -> node-34A9F0[0m
+[0;32mI (220275) deleg: work_item done cycle=1017 block=2 -> node-34A9F0[0m
+[0;32mI (220375) deleg: work_item done cycle=1017 block=5 -> node-34A9F0[0m
+[0;32mI (220615) deleg: work_item done cycle=1017 block=8 -> node-34A9F0[0m
+[0;32mI (220805) deleg: work_item done cycle=1018 block=2 -> node-34A9F0[0m
+[0;32mI (220855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (220955) deleg: work_item done cycle=1018 block=5 -> node-34A9F0[0m
+[0;32mI (221125) deleg: work_item done cycle=1018 block=8 -> node-34A9F0[0m
+[0;32mI (221245) deleg: work_item done cycle=1019 block=2 -> node-34A9F0[0m
+[0;32mI (221525) deleg: work_item done cycle=1019 block=5 -> node-34A9F0[0m
+[0;32mI (221625) deleg: work_item done cycle=1019 block=8 -> node-34A9F0[0m
+[0;32mI (221805) deleg: work_item done cycle=1020 block=2 -> node-34A9F0[0m
+[0;32mI (221855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (221915) deleg: work_item done cycle=1020 block=5 -> node-34A9F0[0m
+[0;32mI (222145) deleg: work_item done cycle=1020 block=8 -> node-34A9F0[0m
+[0;32mI (222415) deleg: work_item done cycle=1021 block=2 -> node-34A9F0[0m
+[0;32mI (222485) deleg: work_item done cycle=1021 block=5 -> node-34A9F0[0m
+[0;32mI (222845) deleg: work_item done cycle=1021 block=8 -> node-34A9F0[0m
+[0;32mI (222855) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (222965) deleg: work_item done cycle=1022 block=2 -> node-34A9F0[0m
+[0;32mI (223065) deleg: work_item done cycle=1022 block=5 -> node-34A9F0[0m
+[0;32mI (223405) deleg: work_item done cycle=1022 block=8 -> node-34A9F0[0m
+[0;32mI (223465) deleg: work_item done cycle=1023 block=2 -> node-34A9F0[0m
+[0;32mI (223685) deleg: work_item done cycle=1023 block=5 -> node-34A9F0[0m
+[0;32mI (223795) deleg: work_item done cycle=1023 block=8 -> node-34A9F0[0m
+[0;32mI (223865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (223865) mgr: cpu=80 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (224085) deleg: work_item done cycle=1024 block=2 -> node-34A9F0[0m
+[0;32mI (224265) deleg: work_item done cycle=1024 block=5 -> node-34A9F0[0m
+[0;32mI (224425) deleg: work_item done cycle=1024 block=8 -> node-34A9F0[0m
+[0;32mI (224715) deleg: work_item done cycle=1025 block=2 -> node-34A9F0[0m
+[0;32mI (224785) deleg: work_item done cycle=1025 block=5 -> node-34A9F0[0m
+[0;32mI (224865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (225285) deleg: work_item done cycle=1025 block=8 -> node-34A9F0[0m
+[0;32mI (225865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (226645) deleg: work_item done cycle=1026 block=2 -> node-34A9F0[0m
+[0;32mI (226785) deleg: work_item done cycle=1026 block=5 -> node-34A9F0[0m
+[0;32mI (226875) deleg: work_item done cycle=1026 block=8 -> node-34A9F0[0m
+[0;32mI (226995) deleg: work_item done cycle=1028 block=7 -> node-34A9F0[0m
+[0;32mI (227305) deleg: work_item done cycle=1029 block=1 -> node-34A9F0[0m
+[0;32mI (227395) deleg: work_item done cycle=1029 block=4 -> node-34A9F0[0m
+[0;32mI (227645) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=559[0m
+[0;32mI (227645) deleg: work_item done cycle=1029 block=7 -> node-34A9F0[0m
+[0;32mI (227785) deleg: work_item done cycle=1030 block=1 -> node-34A9F0[0m
+[0;32mI (227955) deleg: work_item done cycle=1030 block=4 -> node-34A9F0[0m
+[0;32mI (228075) deleg: work_item done cycle=1030 block=7 -> node-34A9F0[0m
+[0;32mI (228365) deleg: work_item done cycle=1031 block=1 -> node-34A9F0[0m
+[0;32mI (228605) deleg: work_item done cycle=1031 block=4 -> node-34A9F0[0m
+[0;32mI (228655) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (228805) deleg: work_item done cycle=1031 block=7 -> node-34A9F0[0m
+[0;32mI (228985) deleg: work_item done cycle=1032 block=1 -> node-34A9F0[0m
+[0;32mI (229265) deleg: work_item done cycle=1032 block=4 -> node-34A9F0[0m
+[0;32mI (229605) deleg: work_item done cycle=1032 block=7 -> node-34A9F0[0m
+[0;32mI (229695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (229695) mgr: cpu=73 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (230115) deleg: work_item done cycle=1033 block=1 -> node-34A9F0[0m
+[0;32mI (230245) deleg: work_item done cycle=1033 block=4 -> node-34A9F0[0m
+[0;32mI (230545) deleg: work_item done cycle=1033 block=7 -> node-34A9F0[0m
+[0;32mI (230635) deleg: work_item done cycle=1034 block=1 -> node-34A9F0[0m
+[0;32mI (230695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (230835) deleg: work_item done cycle=1034 block=4 -> node-34A9F0[0m
+[0;32mI (230945) deleg: work_item done cycle=1034 block=7 -> node-34A9F0[0m
+[0;32mI (231045) deleg: work_item done cycle=1035 block=0 -> node-34A9F0[0m
+[0;32mI (231165) deleg: work_item done cycle=1035 block=2 -> node-34A9F0[0m
+[0;32mI (231315) deleg: work_item done cycle=1035 block=4 -> node-34A9F0[0m
+[0;32mI (231575) deleg: work_item done cycle=1035 block=6 -> node-34A9F0[0m
+[0;32mI (231705) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (231715) deleg: work_item done cycle=1036 block=0 -> node-34A9F0[0m
+[0;32mI (231855) deleg: work_item done cycle=1036 block=3 -> node-34A9F0[0m
+[0;32mI (232265) deleg: work_item done cycle=1036 block=6 -> node-34A9F0[0m
+[0;32mI (232455) deleg: work_item done cycle=1037 block=0 -> node-34A9F0[0m
+[0;32mI (232555) deleg: work_item done cycle=1037 block=3 -> node-34A9F0[0m
+[0;32mI (232645) deleg: work_item done cycle=1037 block=6 -> node-34A9F0[0m
+[0;32mI (232725) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (232875) deleg: work_item done cycle=1038 block=2 -> node-34A9F0[0m
+[0;32mI (233195) deleg: work_item done cycle=1038 block=5 -> node-34A9F0[0m
+[0;32mI (233285) deleg: work_item done cycle=1038 block=8 -> node-34A9F0[0m
+[0;32mI (233505) deleg: work_item done cycle=1039 block=2 -> node-34A9F0[0m
+[0;32mI (233655) deleg: work_item done cycle=1039 block=5 -> node-34A9F0[0m
+[0;32mI (233725) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (233855) deleg: work_item done cycle=1039 block=8 -> node-34A9F0[0m
+[0;32mI (234105) deleg: work_item done cycle=1040 block=2 -> node-34A9F0[0m
+[0;32mI (234185) deleg: work_item done cycle=1040 block=5 -> node-34A9F0[0m
+[0;32mI (234365) deleg: work_item done cycle=1040 block=8 -> node-34A9F0[0m
+[0;32mI (234645) deleg: work_item done cycle=1041 block=2 -> node-34A9F0[0m
+[0;32mI (234725) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (234735) deleg: work_item done cycle=1041 block=5 -> node-34A9F0[0m
+[0;32mI (234735) mgr: cpu=79 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (234835) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777220040916, "seq": 1777220040916}[0m
+[0;32mI (234845) mqtt: control: SYNC_TIME epoch_ms=1777220040916 seq=2147483647[0m
+[0;32mI (234925) deleg: work_item done cycle=1041 block=8 -> node-34A9F0[0m
+[0;32mI (235235) deleg: work_item done cycle=1042 block=2 -> node-34A9F0[0m
+[0;32mI (235345) deleg: work_item done cycle=1042 block=5 -> node-34A9F0[0m
+[0;32mI (235635) deleg: work_item done cycle=1042 block=8 -> node-34A9F0[0m
+[0;32mI (235715) deleg: work_item done cycle=1043 block=2 -> node-34A9F0[0m
+[0;32mI (235735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (236055) deleg: work_item done cycle=1043 block=5 -> node-34A9F0[0m
+[0;32mI (236185) deleg: work_item done cycle=1043 block=8 -> node-34A9F0[0m
+[0;32mI (236455) deleg: work_item done cycle=1044 block=2 -> node-34A9F0[0m
+[0;32mI (236535) deleg: work_item done cycle=1044 block=5 -> node-34A9F0[0m
+[0;32mI (236685) deleg: work_item done cycle=1044 block=8 -> node-34A9F0[0m
+[0;32mI (236735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (236885) deleg: work_item done cycle=1045 block=2 -> node-34A9F0[0m
+[0;32mI (237005) deleg: work_item done cycle=1045 block=5 -> node-34A9F0[0m
+[0;32mI (237295) deleg: work_item done cycle=1045 block=8 -> node-34A9F0[0m
+[0;32mI (237415) deleg: work_item done cycle=1046 block=2 -> node-34A9F0[0m
+[0;32mI (237575) deleg: work_item done cycle=1046 block=5 -> node-34A9F0[0m
+[0;32mI (237735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (237815) deleg: work_item done cycle=1046 block=8 -> node-34A9F0[0m
+[0;32mI (237925) deleg: work_item done cycle=1047 block=2 -> node-34A9F0[0m
+[0;32mI (238255) deleg: work_item done cycle=1047 block=5 -> node-34A9F0[0m
+[0;32mI (238375) deleg: work_item done cycle=1047 block=8 -> node-34A9F0[0m
+[0;32mI (238485) deleg: work_item done cycle=1048 block=2 -> node-34A9F0[0m
+[0;32mI (238725) deleg: work_item done cycle=1048 block=5 -> node-34A9F0[0m
+[0;32mI (238735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (239375) deleg: work_item done cycle=1048 block=8 -> node-34A9F0[0m
+[0;32mI (239625) deleg: work_item done cycle=1049 block=2 -> node-34A9F0[0m
+[0;32mI (239705) deleg: work_item done cycle=1049 block=5 -> node-34A9F0[0m
+[0;32mI (239735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (239735) mgr: cpu=72 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (239795) deleg: work_item done cycle=1049 block=8 -> node-34A9F0[0m
+[0;32mI (239855) deleg: work_item done cycle=1050 block=2 -> node-34A9F0[0m
+[0;32mI (240075) deleg: work_item done cycle=1050 block=5 -> node-34A9F0[0m
+[0;32mI (240355) deleg: work_item done cycle=1050 block=8 -> node-34A9F0[0m
+[0;32mI (240735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (241665) deleg: work_item done cycle=1051 block=2 -> node-34A9F0[0m
+[0;32mI (241735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (241915) deleg: work_item done cycle=1051 block=5 -> node-34A9F0[0m
+[0;32mI (242095) deleg: work_item done cycle=1051 block=8 -> node-34A9F0[0m
+[0;32mI (242735) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (244615) deleg: work_item done cycle=1052 block=2 -> node-34A9F0[0m
+[0;32mI (244795) deleg: work_item done cycle=1052 block=5 -> node-34A9F0[0m
+[0;32mI (244885) deleg: work_item done cycle=1052 block=8 -> node-34A9F0[0m
+[0;32mI (244975) deleg: work_item done cycle=1073 block=0 -> node-34A9F0[0m
+[0;32mI (245335) deleg: work_item done cycle=1073 block=3 -> node-34A9F0[0m
+[0;32mI (245475) deleg: work_item done cycle=1073 block=6 -> node-34A9F0[0m
+[0;32mI (245565) deleg: work_item done cycle=1073 block=8 -> node-34A9F0[0m
+[0;32mI (245605) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=560[0m
+[0;32mI (245675) deleg: work_item done cycle=1074 block=1 -> node-34A9F0[0m
+[0;32mI (245755) deleg: work_item done cycle=1074 block=3 -> node-34A9F0[0m
+[0;32mI (245935) deleg: work_item done cycle=1074 block=6 -> node-34A9F0[0m
+[0;32mI (246285) deleg: work_item done cycle=1075 block=0 -> node-34A9F0[0m
+[0;32mI (246405) deleg: work_item done cycle=1075 block=3 -> node-34A9F0[0m
+[0;32mI (246605) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (246605) mgr: cpu=77 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (246725) deleg: work_item done cycle=1075 block=6 -> node-34A9F0[0m
+[0;32mI (246855) deleg: work_item done cycle=1076 block=0 -> node-34A9F0[0m
+[0;32mI (246985) deleg: work_item done cycle=1076 block=3 -> node-34A9F0[0m
+[0;32mI (247205) deleg: work_item done cycle=1076 block=6 -> node-34A9F0[0m
+[0;32mI (247295) deleg: work_item done cycle=1077 block=0 -> node-34A9F0[0m
+[0;32mI (247525) deleg: work_item done cycle=1077 block=3 -> node-34A9F0[0m
+[0;32mI (247605) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (247635) deleg: work_item done cycle=1077 block=5 -> node-34A9F0[0m
+[0;32mI (247885) deleg: work_item done cycle=1077 block=8 -> node-34A9F0[0m
+[0;32mI (248145) deleg: work_item done cycle=1078 block=2 -> node-34A9F0[0m
+[0;32mI (248255) deleg: work_item done cycle=1078 block=5 -> node-34A9F0[0m
+[0;32mI (248565) deleg: work_item done cycle=1078 block=8 -> node-34A9F0[0m
+[0;32mI (248645) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (248655) deleg: work_item done cycle=1079 block=2 -> node-34A9F0[0m
+[0;32mI (249655) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (250145) deleg: work_item done cycle=1079 block=5 -> node-34A9F0[0m
+[0;32mI (250405) deleg: work_item done cycle=1079 block=8 -> node-34A9F0[0m
+[0;32mI (250635) deleg: work_item done cycle=1080 block=2 -> node-34A9F0[0m
+[0;32mI (250655) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (251135) deleg: work_item done cycle=1080 block=5 -> node-34A9F0[0m
+[0;32mI (251275) deleg: work_item done cycle=1080 block=8 -> node-34A9F0[0m
+[0;32mI (251335) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777220057499}[0m
+[0;32mI (251345) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (251545) deleg: work_item done cycle=1081 block=2 -> node-34A9F0[0m
+[0;32mI (251655) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (251685) deleg: work_item done cycle=1081 block=5 -> node-34A9F0[0m
+[0;32mI (251695) mgr: cpu=75 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (251785) deleg: work_item done cycle=1081 block=8 -> node-34A9F0[0m
+[0;32mI (252025) deleg: work_item done cycle=1082 block=2 -> node-34A9F0[0m
+[0;32mI (252135) deleg: work_item done cycle=1082 block=5 -> node-34A9F0[0m
+[0;32mI (252445) deleg: work_item done cycle=1082 block=8 -> node-34A9F0[0m
+[0;32mI (252525) deleg: work_item done cycle=1083 block=2 -> node-34A9F0[0m
+[0;32mI (252695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (252755) deleg: work_item done cycle=1083 block=5 -> node-34A9F0[0m
+[0;32mI (252865) deleg: work_item done cycle=1083 block=8 -> node-34A9F0[0m
+[0;32mI (253095) deleg: work_item done cycle=1084 block=2 -> node-34A9F0[0m
+[0;32mI (253245) deleg: work_item done cycle=1084 block=5 -> node-34A9F0[0m
+[0;32mI (253535) deleg: work_item done cycle=1084 block=8 -> node-34A9F0[0m
+[0;32mI (253695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (253755) deleg: work_item done cycle=1085 block=2 -> node-34A9F0[0m
+[0;32mI (253965) deleg: work_item done cycle=1085 block=5 -> node-34A9F0[0m
+[0;32mI (254175) deleg: work_item done cycle=1085 block=8 -> node-34A9F0[0m
+[0;32mI (254275) deleg: work_item done cycle=1086 block=2 -> node-34A9F0[0m
+[0;32mI (254375) deleg: work_item done cycle=1086 block=5 -> node-34A9F0[0m
+[0;32mI (254605) deleg: work_item done cycle=1086 block=8 -> node-34A9F0[0m
+[0;32mI (254695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (254885) deleg: work_item done cycle=1087 block=2 -> node-34A9F0[0m
+[0;32mI (254975) deleg: work_item done cycle=1087 block=5 -> node-34A9F0[0m
+[0;32mI (255345) deleg: work_item done cycle=1087 block=8 -> node-34A9F0[0m
+[0;32mI (255475) deleg: work_item done cycle=1088 block=2 -> node-34A9F0[0m
+[0;32mI (255695) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (255705) deleg: work_item done cycle=1088 block=5 -> node-34A9F0[0m
+[0;32mI (255875) deleg: work_item done cycle=1088 block=8 -> node-34A9F0[0m
+[0;32mI (256005) deleg: work_item done cycle=1089 block=2 -> node-34A9F0[0m
+[0;32mI (256235) deleg: work_item done cycle=1089 block=5 -> node-34A9F0[0m
+[0;32mI (256445) deleg: work_item done cycle=1089 block=8 -> node-34A9F0[0m
+[0;32mI (256535) deleg: work_item done cycle=1090 block=2 -> node-34A9F0[0m
+[0;32mI (256715) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (256725) deleg: work_item done cycle=1090 block=5 -> node-34A9F0[0m
+[0;32mI (256735) mgr: cpu=79 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (256905) deleg: work_item done cycle=1090 block=8 -> node-34A9F0[0m
+[0;32mI (257135) deleg: work_item done cycle=1091 block=2 -> node-34A9F0[0m
+[0;32mI (257225) deleg: work_item done cycle=1091 block=5 -> node-34A9F0[0m
+[0;32mI (257385) deleg: work_item done cycle=1091 block=8 -> node-34A9F0[0m
+[0;32mI (257685) deleg: work_item done cycle=1092 block=2 -> node-34A9F0[0m
+[0;32mI (257745) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (257765) deleg: work_item done cycle=1092 block=5 -> node-34A9F0[0m
+[0;32mI (257925) deleg: work_item done cycle=1092 block=8 -> node-34A9F0[0m
+[0;32mI (258185) deleg: work_item done cycle=1093 block=2 -> node-34A9F0[0m
+[0;32mI (258295) deleg: work_item done cycle=1093 block=5 -> node-34A9F0[0m
+[0;32mI (258475) deleg: work_item done cycle=1093 block=8 -> node-34A9F0[0m
+[0;32mI (258615) deleg: work_item done cycle=1094 block=2 -> node-34A9F0[0m
+[0;32mI (258775) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (258845) deleg: work_item done cycle=1094 block=5 -> node-34A9F0[0m
+[0;32mI (258945) deleg: work_item done cycle=1094 block=8 -> node-34A9F0[0m
+[0;32mI (259085) deleg: work_item done cycle=1095 block=2 -> node-34A9F0[0m
+[0;32mI (259415) deleg: work_item done cycle=1095 block=5 -> node-34A9F0[0m
+[0;32mI (259545) deleg: work_item done cycle=1095 block=8 -> node-34A9F0[0m
+[0;32mI (259795) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (259825) deleg: work_item done cycle=1096 block=2 -> node-34A9F0[0m
+[0;32mI (259895) deleg: work_item done cycle=1096 block=5 -> node-34A9F0[0m
+[0;32mI (260135) deleg: work_item done cycle=1096 block=8 -> node-34A9F0[0m
+[0;32mI (260315) deleg: work_item done cycle=1097 block=2 -> node-34A9F0[0m
+[0;32mI (260375) deleg: work_item done cycle=1097 block=5 -> node-34A9F0[0m
+[0;32mI (260625) deleg: work_item done cycle=1097 block=8 -> node-34A9F0[0m
+[0;32mI (260725) deleg: work_item done cycle=1098 block=2 -> node-34A9F0[0m
+[0;32mI (260825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (260895) deleg: work_item done cycle=1098 block=5 -> node-34A9F0[0m
+[0;32mI (261195) deleg: work_item done cycle=1098 block=8 -> node-34A9F0[0m
+[0;32mI (261435) deleg: work_item done cycle=1099 block=2 -> node-34A9F0[0m
+[0;32mI (261555) deleg: work_item done cycle=1099 block=5 -> node-34A9F0[0m
+[0;32mI (261695) deleg: work_item done cycle=1099 block=8 -> node-34A9F0[0m
+[0;32mI (261805) deleg: work_item done cycle=1100 block=2 -> node-34A9F0[0m
+[0;32mI (261825) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (261825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (261825) mgr: cpu=80 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (262075) deleg: work_item done cycle=1100 block=5 -> node-34A9F0[0m
+[0;32mI (262255) deleg: work_item done cycle=1100 block=8 -> node-34A9F0[0m
+[0;32mI (262375) deleg: work_item done cycle=1101 block=2 -> node-34A9F0[0m
+[0;32mI (262825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (263715) deleg: work_item done cycle=1101 block=5 -> node-34A9F0[0m
+[0;32mI (263825) mgr: stress transition: MEDIUM -> LOW[0m
+[0;32mI (263825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (263925) deleg: work_item done cycle=1101 block=8 -> node-34A9F0[0m
+[0;32mI (264225) deleg: work_item done cycle=1102 block=2 -> node-34A9F0[0m
+[0;32mI (264435) deleg: work_item done cycle=1102 block=5 -> node-34A9F0[0m
+[0;32mI (264535) deleg: work_item done cycle=1102 block=8 -> node-34A9F0[0m
+[0;32mI (264695) deleg: work_item done cycle=1103 block=2 -> node-34A9F0[0m
+[0;32mI (264825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (264915) deleg: work_item done cycle=1103 block=5 -> node-34A9F0[0m
+[0;32mI (264915) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777220071014, "seq": 1777220071014}[0m
+[0;32mI (264925) mqtt: control: SYNC_TIME epoch_ms=1777220071014 seq=2147483647[0m
+[0;32mI (265145) deleg: work_item done cycle=1103 block=8 -> node-34A9F0[0m
+[0;32mI (265335) deleg: work_item done cycle=1104 block=2 -> node-34A9F0[0m
+[0;32mI (265445) deleg: work_item done cycle=1104 block=5 -> node-34A9F0[0m
+[0;32mI (265645) deleg: work_item done cycle=1104 block=8 -> node-34A9F0[0m
+[0;32mI (265725) deleg: work_item done cycle=1105 block=2 -> node-34A9F0[0m
+[0;32mI (265825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (266065) deleg: work_item done cycle=1105 block=5 -> node-34A9F0[0m
+[0;32mI (266135) deleg: work_item done cycle=1105 block=8 -> node-34A9F0[0m
+[0;32mI (266385) deleg: work_item done cycle=1106 block=2 -> node-34A9F0[0m
+[0;32mI (266445) deleg: work_item done cycle=1106 block=5 -> node-34A9F0[0m
+[0;32mI (266545) deleg: work_item done cycle=1106 block=8 -> node-34A9F0[0m
+[0;32mI (266735) deleg: work_item done cycle=1107 block=2 -> node-34A9F0[0m
+[0;32mI (266825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (266825) mgr: cpu=80 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (266925) deleg: work_item done cycle=1107 block=5 -> node-34A9F0[0m
+[0;32mI (267105) deleg: work_item done cycle=1107 block=8 -> node-34A9F0[0m
+[0;32mI (267225) deleg: work_item done cycle=1108 block=2 -> node-34A9F0[0m
+[0;32mI (267505) deleg: work_item done cycle=1108 block=5 -> node-34A9F0[0m
+[0;32mI (267635) deleg: work_item done cycle=1108 block=8 -> node-34A9F0[0m
+[0;32mI (267715) deleg: work_item done cycle=1109 block=2 -> node-34A9F0[0m
+[0;32mI (267825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (268045) deleg: work_item done cycle=1109 block=5 -> node-34A9F0[0m
+[0;32mI (268115) deleg: work_item done cycle=1109 block=8 -> node-34A9F0[0m
+[0;32mI (268355) deleg: work_item done cycle=1110 block=2 -> node-34A9F0[0m
+[0;32mI (268475) deleg: work_item done cycle=1110 block=5 -> node-34A9F0[0m
+[0;32mI (268765) deleg: work_item done cycle=1110 block=8 -> node-34A9F0[0m
+[0;32mI (268825) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (268905) deleg: work_item done cycle=1111 block=2 -> node-34A9F0[0m
+[0;32mI (269035) deleg: work_item done cycle=1111 block=5 -> node-34A9F0[0m
+[0;32mI (269255) deleg: work_item done cycle=1111 block=8 -> node-34A9F0[0m
+[0;32mI (269435) deleg: work_item done cycle=1112 block=2 -> node-34A9F0[0m
+[0;32mI (269495) deleg: work_item done cycle=1112 block=5 -> node-34A9F0[0m
+[0;32mI (269745) deleg: work_item done cycle=1112 block=8 -> node-34A9F0[0m
+[0;32mI (269835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (269915) deleg: work_item done cycle=1113 block=2 -> node-34A9F0[0m
+[0;32mI (270095) deleg: work_item done cycle=1113 block=5 -> node-34A9F0[0m
+[0;32mI (270365) deleg: work_item done cycle=1113 block=8 -> node-34A9F0[0m
+[0;32mI (270565) deleg: work_item done cycle=1114 block=2 -> node-34A9F0[0m
+[0;32mI (270745) deleg: work_item done cycle=1114 block=5 -> node-34A9F0[0m
+[0;32mI (270835) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (271845) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (271845) deleg: work_item done cycle=1114 block=8 -> node-34A9F0[0m
+[0;32mI (271855) mgr: cpu=66 q=0 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (272095) deleg: work_item done cycle=1115 block=2 -> node-34A9F0[0m
+[0;32mI (272175) deleg: work_item done cycle=1115 block=5 -> node-34A9F0[0m
+[0;32mI (272405) deleg: work_item done cycle=1115 block=8 -> node-34A9F0[0m
+[0;32mI (272615) deleg: work_item done cycle=1116 block=2 -> node-34A9F0[0m
+[0;32mI (272805) deleg: work_item done cycle=1116 block=5 -> node-34A9F0[0m
+[0;32mI (272865) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (272875) deleg: work_item done cycle=1116 block=8 -> node-34A9F0[0m
+[0;32mI (273135) deleg: work_item done cycle=1117 block=2 -> node-34A9F0[0m
+[0;32mI (273205) deleg: work_item done cycle=1117 block=5 -> node-34A9F0[0m
+[0;32mI (273435) deleg: work_item done cycle=1117 block=8 -> node-34A9F0[0m
+[0;32mI (273525) deleg: work_item done cycle=1118 block=2 -> node-34A9F0[0m
+[0;32mI (273735) deleg: work_item done cycle=1118 block=5 -> node-34A9F0[0m
+[0;32mI (273865) deleg: work_item done cycle=1118 block=8 -> node-34A9F0[0m
+[0;32mI (273885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (274155) deleg: work_item done cycle=1119 block=2 -> node-34A9F0[0m
+[0;32mI (274205) deleg: work_item done cycle=1119 block=5 -> node-34A9F0[0m
+[0;32mI (274455) deleg: work_item done cycle=1119 block=8 -> node-34A9F0[0m
+[0;32mI (274545) deleg: work_item done cycle=1120 block=2 -> node-34A9F0[0m
+[0;32mI (274775) deleg: work_item done cycle=1120 block=5 -> node-34A9F0[0m
+[0;32mI (274885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (274985) deleg: work_item done cycle=1120 block=8 -> node-34A9F0[0m
+[0;32mI (275055) deleg: work_item done cycle=1121 block=2 -> node-34A9F0[0m
+[0;32mI (275185) deleg: work_item done cycle=1121 block=5 -> node-34A9F0[0m
+[0;32mI (275385) deleg: work_item done cycle=1121 block=8 -> node-34A9F0[0m
+[0;32mI (275545) deleg: work_item done cycle=1122 block=2 -> node-34A9F0[0m
+[0;32mI (275725) deleg: work_item done cycle=1122 block=5 -> node-34A9F0[0m
+[0;32mI (275885) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (276005) deleg: work_item done cycle=1122 block=8 -> node-34A9F0[0m
+[0;32mI (276315) deleg: work_item done cycle=1123 block=2 -> node-34A9F0[0m
+[0;32mI (276375) deleg: work_item done cycle=1123 block=5 -> node-34A9F0[0m
+[0;32mI (276495) deleg: work_item done cycle=1123 block=8 -> node-34A9F0[0m
+[0;32mI (276695) deleg: work_item done cycle=1124 block=2 -> node-34A9F0[0m
+[0;32mI (276905) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (276925) deleg: work_item done cycle=1124 block=5 -> node-34A9F0[0m
+[0;32mI (276935) mgr: cpu=79 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (277065) deleg: work_item done cycle=1124 block=8 -> node-34A9F0[0m
+[0;32mI (277345) deleg: work_item done cycle=1125 block=2 -> node-34A9F0[0m
+[0;32mI (277405) deleg: work_item done cycle=1125 block=5 -> node-34A9F0[0m
+[0;32mI (277625) deleg: work_item done cycle=1125 block=8 -> node-34A9F0[0m
+[0;32mI (277685) deleg: work_item done cycle=1126 block=2 -> node-34A9F0[0m
+[0;32mI (277925) deleg: work_item done cycle=1126 block=5 -> node-34A9F0[0m
+[0;32mI (277935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (278125) deleg: work_item done cycle=1126 block=8 -> node-34A9F0[0m
+[0;32mI (278185) deleg: work_item done cycle=1127 block=2 -> node-34A9F0[0m
+[0;32mI (278445) deleg: work_item done cycle=1127 block=5 -> node-34A9F0[0m
+[0;32mI (278875) deleg: work_item done cycle=1127 block=8 -> node-34A9F0[0m
+[0;32mI (278935) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=557[0m
+[0;32mI (278945) deleg: work_item done cycle=1128 block=2 -> node-34A9F0[0m
+[0;32mI (279025) deleg: work_item done cycle=1128 block=5 -> node-34A9F0[0m
+[0;32mI (279425) deleg: work_item done cycle=1128 block=8 -> node-34A9F0[0m
+[0;32mI (279485) deleg: work_item done cycle=1129 block=2 -> node-34A9F0[0m
+[0;32mI (279585) deleg: work_item done cycle=1129 block=5 -> node-34A9F0[0m
+[0;32mI (279855) deleg: work_item done cycle=1129 block=8 -> node-34A9F0[0m
+[0;32mI (279955) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (279985) deleg: work_item done cycle=1130 block=2 -> node-34A9F0[0m
+[0;32mI (280095) deleg: work_item done cycle=1130 block=5 -> node-34A9F0[0m
+[0;32mI (280365) deleg: work_item done cycle=1130 block=7 -> node-34A9F0[0m
+[0;32mI (280475) deleg: work_item done cycle=1131 block=0 -> node-34A9F0[0m
+[0;32mI (280545) deleg: work_item done cycle=1131 block=2 -> node-34A9F0[0m
+[0;32mI (280645) deleg: work_item done cycle=1131 block=4 -> node-34A9F0[0m
+[0;32mI (280925) deleg: work_item done cycle=1131 block=6 -> node-34A9F0[0m
+[0;32mI (281015) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (281025) deleg: work_item done cycle=1132 block=0 -> node-34A9F0[0m
+[0;32mI (281095) deleg: work_item done cycle=1132 block=3 -> node-34A9F0[0m
+[0;32mI (281205) deleg: work_item done cycle=1132 block=5 -> node-34A9F0[0m
+[0;32mI (281725) deleg: work_item done cycle=1132 block=7 -> node-34A9F0[0m
+[0;32mI (282035) deleg: work_item done cycle=1133 block=0 -> node-34A9F0[0m
+[0;32mI (282045) mgr: stress transition: LOW -> MEDIUM[0m
+[0;32mI (282045) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=558[0m
+[0;32mI (282045) mgr: cpu=74 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (282105) deleg: work_item done cycle=1133 block=3 -> node-34A9F0[0m
+[0;32mI (282165) deleg: work_item done cycle=1134 block=2 -> node-34A9F0[0m
+[0;32mI (282265) deleg: work_item done cycle=1134 block=6 -> node-34A9F0[0m

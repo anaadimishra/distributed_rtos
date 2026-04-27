@@ -1,0 +1,76 @@
+{
+  "session_id": "session_20260426-171848",
+  "label": "multi-peer-run5-with-cpuloadfix",
+  "assigned_victim": "node-2FCC00",
+  "actual_delegator": null,
+  "actual_host": "node-34A9F0",
+  "bystanders": [
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777204132.993844,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777204162.998388,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777204163.016316,
+      "kind": "stress_start",
+      "victim": "node-2FCC00",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777204165.034323,
+      "kind": "deleg_hosting",
+      "host": "node-34A9F0",
+      "peer": "node-2FCC00",
+      "blocks": 0
+    },
+    {
+      "t": 1777204223.4918551,
+      "kind": "deleg_timeout",
+      "elapsed_s": 60.5
+    },
+    {
+      "t": 1777204223.491984,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777204263.786765,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777204263.7977889,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777204294.039847,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": false,
+    "t_requesting": null,
+    "t_active": null,
+    "t_hosting": 1777204165.034323,
+    "t_idle": null,
+    "handshake_latency_ms": null,
+    "time_to_delegate_ms": null,
+    "delegation_duration_ms": null
+  }
+}

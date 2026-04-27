@@ -4,6 +4,7 @@
 #include "core/metrics.h"
 #include "network/wifi.h"
 #include "network/mqtt.h"
+#include "network/work_transport.h"
 #include "tasks/sensor_task.h"
 #include "tasks/control_task.h"
 #include "tasks/compute_task.h"
@@ -20,6 +21,7 @@
 #include "esp_system.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
  * Contributions (dissertation-aligned):
@@ -54,9 +56,15 @@ void app_main(void)
     ctx->time_sync_ready = 0;
     ctx->telemetry_suppressed = 0;
 
-    /* Phase 4 — delegation init (channels[] zeroed by calloc → all CHAN_IDLE) */
+    /* Phase 4 — delegation init (channels[] zeroed by calloc → all CHAN_IDLE).
+     * tcp_fd must be -1 (not 0 which is stdin) for each channel. */
     ctx->peers_mutex = xSemaphoreCreateMutex();
     configASSERT(ctx->peers_mutex != NULL);
+    for (int i = 0; i < MAX_DELEGATION_CHANNELS; i++) {
+        ctx->channels[i].tcp_fd          = -1;
+        ctx->channels[i].tcp_send_queue  = NULL;
+        ctx->channels[i].tcp_sender_task = NULL;
+    }
 
     // NVS is required by the Wi-Fi stack.
     esp_err_t nvs_ret = nvs_flash_init();
@@ -87,6 +95,16 @@ void app_main(void)
                             pdMS_TO_TICKS(10000));
     }
 
+    /* Capture this node's IP address for peer discovery. */
+    {
+        esp_netif_ip_info_t ip_info;
+        esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
+        if (netif && esp_netif_get_ip_info(netif, &ip_info) == ESP_OK) {
+            snprintf(ctx->node_ip, sizeof(ctx->node_ip), IPSTR,
+                     IP2STR(&ip_info.ip));
+        }
+    }
+
     // Metrics hook + MQTT connectivity.
 #if ENABLE_METRICS
     metrics_init();
@@ -95,6 +113,9 @@ void app_main(void)
     ctx->cpu_baseline_ready = 1;
 #endif
     mqtt_start(ctx);
+
+    /* Start TCP work transport server (data plane for delegation). */
+    work_transport_server_start(ctx);
 
     // Start periodic RTOS tasks.
     xTaskCreate(sensor_task, "sensor_task", SENSOR_TASK_STACK_SIZE, ctx, SENSOR_TASK_PRIORITY, NULL);

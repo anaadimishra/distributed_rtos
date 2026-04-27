@@ -74,6 +74,34 @@ static bool parse_stress_level(const char *data, int len, uint8_t *out_stress)
     return true;
 }
 
+/* Parse "ip" string field from telemetry JSON into out (up to out_len-1 chars). */
+static void parse_ip_field(const char *data, int len, char *out, size_t out_len)
+{
+    out[0] = '\0';
+    if (data == NULL || len <= 0) return;
+
+    /* "ip" is always within the first ~50 bytes of telemetry JSON — scan only
+     * the first 128 bytes so payload size never triggers a false early return. */
+    int scan_len = len < 128 ? len : 128;
+    char buf[129];
+    memcpy(buf, data, scan_len);
+    buf[scan_len] = '\0';
+
+    char *key = strstr(buf, "\"ip\"");
+    if (key == NULL) return;
+    char *colon = strchr(key + 4, ':');
+    if (colon == NULL) return;
+    char *p = colon + 1;
+    while (*p == ' ' || *p == '\t') p++;
+    if (*p != '"') return;
+    p++; /* skip opening quote */
+    size_t i = 0;
+    while (*p && *p != '"' && i < out_len - 1) {
+        out[i++] = *p++;
+    }
+    out[i] = '\0';
+}
+
 static bool parse_telemetry_topic_node(const char *topic, int topic_len, char *out_node_id, size_t out_len)
 {
     if (topic == NULL || topic_len <= 0 || out_node_id == NULL || out_len == 0) {
@@ -111,7 +139,8 @@ static bool parse_telemetry_topic_node(const char *topic, int topic_len, char *o
     return true;
 }
 
-static void update_peer_state(system_context_t *ctx, const char *node_id, uint8_t stress_level)
+static void update_peer_state(system_context_t *ctx, const char *node_id,
+                              uint8_t stress_level, const char *ip_addr)
 {
     if (ctx == NULL || node_id == NULL || node_id[0] == '\0') {
         return;
@@ -132,6 +161,10 @@ static void update_peer_state(system_context_t *ctx, const char *node_id, uint8_
             if (strncmp(peer->node_id, node_id, sizeof(peer->node_id)) == 0) {
                 peer->stress_level = stress_level;
                 peer->last_seen_ms = now_ms;
+                if (ip_addr && ip_addr[0] != '\0') {
+                    strncpy(peer->ip_addr, ip_addr, sizeof(peer->ip_addr) - 1);
+                    peer->ip_addr[sizeof(peer->ip_addr) - 1] = '\0';
+                }
                 xSemaphoreGive(ctx->peers_mutex);
                 return;
             }
@@ -155,6 +188,10 @@ static void update_peer_state(system_context_t *ctx, const char *node_id, uint8_
     slot->stress_level = stress_level;
     slot->last_seen_ms = now_ms;
     slot->valid = 1;
+    if (ip_addr && ip_addr[0] != '\0') {
+        strncpy(slot->ip_addr, ip_addr, sizeof(slot->ip_addr) - 1);
+        slot->ip_addr[sizeof(slot->ip_addr) - 1] = '\0';
+    }
 
     xSemaphoreGive(ctx->peers_mutex);
 }
@@ -319,7 +356,9 @@ static void mqtt_event_handler(void *handler_args,
                 strncmp(peer_node_id, ctx->node_id, sizeof(peer_node_id)) != 0) {
                 uint8_t peer_stress = 0;
                 if (parse_stress_level(event->data, event->data_len, &peer_stress)) {
-                    update_peer_state(ctx, peer_node_id, peer_stress);
+                    char peer_ip[16] = {0};
+                    parse_ip_field(event->data, event->data_len, peer_ip, sizeof(peer_ip));
+                    update_peer_state(ctx, peer_node_id, peer_stress, peer_ip);
                 }
             }
 
@@ -329,13 +368,7 @@ static void mqtt_event_handler(void *handler_args,
             } else if (ends_with(event->topic, event->topic_len, "/delegate_reply")) {
                 delegation_handle_reply(ctx, event->data, event->data_len);
             }
-
-            // Work item dispatch topics.
-            if (ends_with(event->topic, event->topic_len, "/work_item")) {
-                delegation_handle_work_item(ctx, event->data, event->data_len);
-            } else if (ends_with(event->topic, event->topic_len, "/work_result")) {
-                delegation_handle_work_result(ctx, event->data, event->data_len);
-            }
+            /* work_item and work_result now travel over TCP — no MQTT routing needed. */
 
             // Only handle messages on this node's control topic.
             if (event->topic_len == (int)strlen(ctx->control_topic) &&

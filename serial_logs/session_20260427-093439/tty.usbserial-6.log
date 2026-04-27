@@ -1,0 +1,298 @@
+[0;32mI (61317) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262681572, "seq": 1777262681572}[0m
+[0;32mI (61317) mqtt: control: SYNC_TIME epoch_ms=1777262681572 seq=2147483647[0m
+[0;32mI (62167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=555[0m
+[0;32mI (63167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (64167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (65167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (65167) mgr: cpu=58 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (66167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (67167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (68167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (69167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (70167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (70167) mgr: cpu=59 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (71167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (72167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (73167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (74167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (75167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (75167) mgr: cpu=59 q=1 load=100 cap=20 eff=2 win=0[0m
+[0;32mI (76167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (77167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=552[0m
+[0;32mI (77857) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777262698252}[0m
+[0;32mI (77867) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (78167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (79167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (80167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (80167) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (81167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (82167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (83167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (84167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (85167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (85167) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (86167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (87167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (88167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (89167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (90167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (90167) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (91167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (92167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (92197) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262712576, "seq": 1777262712576}[0m
+[0;32mI (92197) mqtt: control: SYNC_TIME epoch_ms=1777262712576 seq=2147483647[0m
+[0;32mI (93167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=563[0m
+[0;32mI (94167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (95167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (95167) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (96167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (97167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (98167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (99167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (100167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=561[0m
+[0;32mI (100167) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (101167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (102167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (103167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (104167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (105167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (105167) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (106167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (107167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (107957) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777262728294}[0m
+[0;32mI (107957) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (108167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=562[0m
+[0;32mI (109077) deleg: accept request from=node-34A9F0 blocks=3 slot=0 cpu=67[0m
+[0;32mI (109167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (110167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (110167) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (111167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (112167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (113167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (114167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (115167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (115167) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (116167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (117167) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (118177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=577[0m
+[0;32mI (119177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (120177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (120177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (121177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (122177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (122207) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262742581, "seq": 1777262742581}[0m
+[0;32mI (122207) mqtt: control: SYNC_TIME epoch_ms=1777262742581 seq=2147483647[0m
+[0;32mI (123177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=577[0m
+[0;32mI (124177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (125177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (125177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (126177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (127177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (128177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (129177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (130177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (130177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (131177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (132177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (133177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (134177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (135177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (135177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (136177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (137177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (138177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (139177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (140177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (140177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (141177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (142177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (143177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (144177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (145177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (145177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (146177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (147177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (148177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (149177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (150177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (150177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (151177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (152177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (152497) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262772583, "seq": 1777262772583}[0m
+[0;32mI (152507) mqtt: control: SYNC_TIME epoch_ms=1777262772583 seq=2147483647[0m
+[0;32mI (153177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=579[0m
+[0;32mI (154177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (155177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (155177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (156177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (157177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (158177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (159177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (160177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (160177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (161177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (162177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (163177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (164177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (165177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (165177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (166177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (167177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (168177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (169177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (170177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (170177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (171177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (172177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (173177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (174177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (175177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (175177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (176177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (177177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (178177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (179177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (180177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (180177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (181177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (182177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (182317) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262802589, "seq": 1777262802589}[0m
+[0;32mI (182317) mqtt: control: SYNC_TIME epoch_ms=1777262802589 seq=2147483647[0m
+[0;32mI (183177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=578[0m
+[0;32mI (184177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (185177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (185177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (186177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (187177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (188177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (189177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (190177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (190177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (191177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (192177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (193177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (194177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (195177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (195177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (196177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (197177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (198177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (199177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (200177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (200177) mgr: cpu=66 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (201177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (202177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (203177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (204177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (205177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (205177) mgr: cpu=65 q=1 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (206177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (207177) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (208187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=577[0m
+[0;32mI (209187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (210187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (210187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (211187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (212187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (212587) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262832959, "seq": 1777262832959}[0m
+[0;32mI (212597) mqtt: control: SYNC_TIME epoch_ms=1777262832959 seq=2147483647[0m
+[0;32mI (213187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=577[0m
+[0;32mI (214187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (215187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (215187) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (216187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (217187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (218187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (219187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (220187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (220187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (221187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (222187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (223187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (224187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (225187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (225187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (226187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (227187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (228187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (229187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (230187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (230187) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (231187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (232187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (233187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (234187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (235187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (235187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (236187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (237187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (238187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (239187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (240187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (240187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (241187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (242187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (243187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (243317) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262863591, "seq": 1777262863591}[0m
+[0;32mI (243327) mqtt: control: SYNC_TIME epoch_ms=1777262863591 seq=2147483647[0m
+[0;32mI (244187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=578[0m
+[0;32mI (245187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (245187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (246187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (247187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (248187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (249187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (250187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (250187) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (251187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (252187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (253187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (254187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (255187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (255187) mgr: cpu=67 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (256187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (257187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (258187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (259187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (259207) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SET_LOAD", "value": 200, "seq": 1777262879519}[0m
+[0;32mI (259207) mqtt: control: SET_LOAD=200 seq=2147483647[0m
+[0;32mI (260187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (260187) mgr: cpu=67 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (261187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (262187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (263187) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (264197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=577[0m
+[0;32mI (265197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (265197) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (266197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (267197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (268197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (269197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (270197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (270197) mgr: cpu=66 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (271197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (272197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (273197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (273227) mqtt: control rx: topic=cluster/node-7115F8/control payload={"action": "SYNC_TIME", "value": 1777262893601, "seq": 1777262893601}[0m
+[0;32mI (273227) mqtt: control: SYNC_TIME epoch_ms=1777262893601 seq=2147483647[0m
+[0;32mI (274197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=578[0m
+[0;32mI (275197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (275197) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (276197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (277197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (278197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (279197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (280197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (280197) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (281197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (282197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (283197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (284197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (285197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (285197) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
+[0;32mI (286197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (287197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (288197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (289197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (290197) mqtt: telemetry publish: topic=cluster/node-7115F8/telemetry len=576[0m
+[0;32mI (290197) mgr: cpu=65 q=2 load=200 cap=20 eff=4 win=0[0m
