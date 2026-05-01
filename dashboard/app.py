@@ -210,6 +210,11 @@ def update_state(node_id, payload):
             "deleg_blocks": int(payload.get("deleg_blocks", 0)),
             "deleg_dispatched": int(payload.get("deleg_dispatched", 0)),
             "deleg_returned": int(payload.get("deleg_returned", 0)),
+            "deleg_inflight_total": int(payload.get("deleg_inflight_total", 0)),
+            "deleg_busy_skip": int(payload.get("deleg_busy_skip", 0)),
+            "deleg_timeout_reclaim": int(payload.get("deleg_timeout_reclaim", 0)),
+            "deleg_dispatch_err": int(payload.get("deleg_dispatch_err", 0)),
+            "deleg_failover_count": int(payload.get("deleg_failover_count", 0)),
             "fault_mode": _fault_mode.get(node_id, "NORMAL"),
             "last_seen": time.time(),
         }

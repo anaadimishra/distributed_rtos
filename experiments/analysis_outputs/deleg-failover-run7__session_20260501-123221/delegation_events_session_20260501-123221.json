@@ -1,0 +1,127 @@
+{
+  "session_id": "session_20260501-123221",
+  "label": "deleg-failover-run7",
+  "assigned_victim": "node-34A9F0",
+  "actual_delegator": "node-34A9F0",
+  "actual_host": "node-717AC4",
+  "bystanders": [
+    "node-2FCC00",
+    "node-313978",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "nodes": [
+    "node-2FCC00",
+    "node-313978",
+    "node-34A9F0",
+    "node-7115F8",
+    "node-717AC4"
+  ],
+  "high_load": 950,
+  "low_load": 200,
+  "events": [
+    {
+      "t": 1777618949.168399,
+      "kind": "warmup_start",
+      "load": 200
+    },
+    {
+      "t": 1777618979.172704,
+      "kind": "warmup_end"
+    },
+    {
+      "t": 1777618979.2039511,
+      "kind": "stress_start",
+      "victim": "node-34A9F0",
+      "high_load": 950,
+      "low_load": 200
+    },
+    {
+      "t": 1777618980.219934,
+      "kind": "deleg_requesting",
+      "node": "node-34A9F0"
+    },
+    {
+      "t": 1777618980.2200692,
+      "kind": "deleg_hosting",
+      "host": "node-7115F8",
+      "peer": "node-34A9F0",
+      "blocks": 2
+    },
+    {
+      "t": 1777619017.558466,
+      "kind": "deleg_active",
+      "delegator": "node-34A9F0",
+      "peer": "node-717AC4",
+      "blocks": 2,
+      "handshake_ms": 37339
+    },
+    {
+      "t": 1777619017.558622,
+      "kind": "failover_target_selected",
+      "host": "node-717AC4",
+      "source": "active_peer"
+    },
+    {
+      "t": 1777619017.5593941,
+      "kind": "hold_start"
+    },
+    {
+      "t": 1777619057.944022,
+      "kind": "host_crashed",
+      "host": "node-717AC4"
+    },
+    {
+      "t": 1777619075.099522,
+      "kind": "host_recovered",
+      "new_host": "node-717AC4",
+      "time_to_redelegate_ms": 17156,
+      "deleg_failover_count": 5
+    },
+    {
+      "t": 1777619137.624233,
+      "kind": "hold_end"
+    },
+    {
+      "t": 1777619137.631823,
+      "kind": "drain_start",
+      "victim_load_released": 200
+    },
+    {
+      "t": 1777619167.907764,
+      "kind": "drain_end"
+    },
+    {
+      "t": 1777619167.923373,
+      "kind": "recovery_start"
+    },
+    {
+      "t": 1777619198.2020538,
+      "kind": "recovery_end"
+    }
+  ],
+  "summary": {
+    "delegation_fired": true,
+    "t_requesting": 1777618980.219934,
+    "t_active": 1777619017.558466,
+    "t_hosting": 1777618980.2200692,
+    "t_idle": null,
+    "handshake_latency_ms": 37339,
+    "time_to_delegate_ms": 38354,
+    "delegation_duration_ms": null,
+    "victim_not_stressed": false,
+    "victim_precheck_warned": false,
+    "victim_max_cpu": 100,
+    "victim_max_stress_level": 2,
+    "victim_max_eff_blocks": 19,
+    "victim_max_miss": 1,
+    "failover_crash_host": "node-717AC4",
+    "active_peer_at_crash": "node-313978",
+    "t_crash": 1777619057.944022,
+    "t_redelegate": 1777619075.099522,
+    "time_to_redelegate_ms": 17156,
+    "miss_spike_max": 20,
+    "new_host_after_failover": "node-717AC4",
+    "deleg_failover_count": 12
+  }
+}

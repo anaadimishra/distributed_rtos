@@ -53,6 +53,10 @@ def set_load(base, node, load):
     http_post_json(f"{base}/api/control", {"node": node, "load": load})
 
 
+def reboot_node(base, node):
+    http_post_json(f"{base}/api/control", {"node": node, "action": "REBOOT"})
+
+
 def metric_int(state, key, default=0):
     try:
         return int(state.get(key, default) or default)
@@ -122,6 +126,9 @@ def main():
                         help="Seconds to wait for delegation before giving up")
     parser.add_argument("--stress-precheck-seconds", type=int, default=15,
                         help="Seconds after stress start before warning if victim is not stressed")
+    parser.add_argument("--crash-host-after", type=int, default=0,
+                        help="Seconds after delegation ACTIVE before auto-crashing the host node. "
+                             "0 = no crash (normal test). Requires hold_seconds > crash_host_after + ~60s.")
     parser.add_argument("--victim", default=None,
                         help="Node ID to stress. Auto-selects first node if omitted.")
     parser.add_argument("--min-nodes", type=int, default=2,
@@ -211,6 +218,7 @@ def main():
     t_hosting = None
     actual_delegator = None
     actual_host = None
+    active_peer_at_crash = None
     delegation_fired = False
     stale_hosts_logged = set()
     victim_precheck_warned = False
@@ -286,6 +294,16 @@ def main():
                 })
                 print(f"  -> {n} ACTIVE  peer={peer}  blocks={blocks}  handshake={hs}ms")
                 delegation_fired = True
+                # Derive actual_host from the delegator's peer field.
+                # This is more reliable than waiting for the host to self-report
+                # deleg_blocks > 0, which can be 0 if the snapshot lands between cycles.
+                if peer and (actual_host is None or args.crash_host_after > 0):
+                    actual_host = peer
+                    log_event("failover_target_selected", {
+                        "host": actual_host,
+                        "source": "active_peer",
+                        "t": time.time(),
+                    })
 
             if deleg == "HOSTING" and t_hosting is None:
                 blocks = metric_int(ns, "deleg_blocks")
@@ -311,7 +329,10 @@ def main():
                 })
                 print(f"  -> {n} HOSTING  blocks={blocks}")
 
-        if delegation_fired and t_hosting is not None:
+        if delegation_fired and (
+            t_hosting is not None
+            or (args.crash_host_after > 0 and actual_host is not None)
+        ):
             break
 
         time.sleep(1)
@@ -323,10 +344,73 @@ def main():
     # ----------------------------------------------------------------- hold
     print(f"[hold] sustaining asymmetry for {args.hold_seconds}s")
     log_event("hold_start")
+
+    crash_issued = False
+    t_crash = None
+    crashed_host = None
+    t_redelegate = None
+    new_host = None
+    miss_spike_max = 0
+    failover_count_before_crash = 0
+    failover_count_max = 0
+
     hold_end = time.time() + args.hold_seconds
     while time.time() < hold_end:
-        snap("hold")
+        state = snap("hold")
+        delegator_state = state.get(actual_delegator or victim, {})
+        failover_count_max = max(
+            failover_count_max,
+            metric_int(delegator_state, "deleg_failover_count"),
+        )
+
+        # ---- auto-crash host after crash_host_after seconds from ACTIVE ----
+        if args.crash_host_after > 0 and not crash_issued:
+            elapsed = round(time.time() - t_active, 1) if t_active else None
+            if elapsed is None or int(elapsed) % 10 == 0 or elapsed >= args.crash_host_after:
+                print(f"[hold-dbg] actual_host={actual_host!r}  t_active={'set' if t_active else 'None'}"
+                      f"  elapsed={elapsed}s  threshold={args.crash_host_after}s")
+        if (
+            args.crash_host_after > 0
+            and not crash_issued
+            and actual_host is not None
+            and t_active is not None
+            and (time.time() - t_active) >= args.crash_host_after
+        ):
+            crashed_host = actual_host
+            active_peer_at_crash = delegator_state.get("deleg_peer", "")
+            failover_count_before_crash = metric_int(delegator_state, "deleg_failover_count")
+            print(f"[failover] crashing host={crashed_host} "
+                  f"(t={round(time.time() - t_active, 1)}s after ACTIVE)")
+            reboot_node(base, crashed_host)
+            crash_issued = True
+            t_crash = time.time()
+            log_event("host_crashed", {"host": crashed_host, "t": t_crash})
+
+        # ---- after crash: track miss spike and watch for new host -----------
+        if crash_issued and t_redelegate is None:
+            miss_spike_max = max(miss_spike_max, metric_int(delegator_state, "miss"))
+            failover_count_now = metric_int(delegator_state, "deleg_failover_count")
+            candidate_peer = delegator_state.get("deleg_peer", "")
+            if (
+                failover_count_now > failover_count_before_crash
+                and delegator_state.get("deleg_state") == "ACTIVE"
+                and candidate_peer
+            ):
+                t_redelegate = time.time()
+                new_host = candidate_peer
+                time_to_redelegate_ms = round((t_redelegate - t_crash) * 1000)
+                log_event("host_recovered", {
+                    "new_host": new_host,
+                    "t": t_redelegate,
+                    "time_to_redelegate_ms": time_to_redelegate_ms,
+                    "deleg_failover_count": failover_count_now,
+                })
+                print(f"  -> re-delegated to {new_host} in {time_to_redelegate_ms}ms  "
+                      f"miss_spike_max={miss_spike_max}")
+                actual_host = new_host
+
         time.sleep(1)
+
     log_event("hold_end")
 
     # --------------------------------------------------------------- drain
@@ -396,6 +480,15 @@ def main():
     delegation_duration_ms = (
         round((t_idle - t_active) * 1000) if (t_idle and t_active) else None
     )
+    time_to_redelegate_ms = (
+        round((t_redelegate - t_crash) * 1000) if (t_redelegate and t_crash) else None
+    )
+    # Read deleg_failover_count from final victim/delegator telemetry; also keep
+    # the max observed during hold because a victim reboot resets volatile counters.
+    final_state = http_get_json(f"{base}/api/state")
+    delegator_id = actual_delegator or victim
+    failover_count = metric_int(final_state.get(delegator_id, {}), "deleg_failover_count")
+    failover_count = max(failover_count, failover_count_max)
 
     events_path = os.path.join(out_dir, f"delegation_events_{session_id}.json")
     with open(events_path, "w", encoding="utf-8") as f:
@@ -426,6 +519,14 @@ def main():
                     "victim_max_stress_level": victim_max_stress,
                     "victim_max_eff_blocks": victim_max_eff_blocks,
                     "victim_max_miss": victim_max_miss,
+                    "failover_crash_host": crashed_host,
+                    "active_peer_at_crash": active_peer_at_crash,
+                    "t_crash": t_crash,
+                    "t_redelegate": t_redelegate,
+                    "time_to_redelegate_ms": time_to_redelegate_ms,
+                    "miss_spike_max": miss_spike_max if crash_issued else None,
+                    "new_host_after_failover": new_host,
+                    "deleg_failover_count": failover_count,
                 },
             },
             f,
@@ -449,6 +550,14 @@ def main():
         print(f"  Time to delegate:     {time_to_delegate_ms}ms")
     if delegation_duration_ms is not None:
         print(f"  Delegation duration:  {delegation_duration_ms}ms")
+    if crash_issued:
+        print(f"  Crashed host:         {crashed_host}")
+        if time_to_redelegate_ms is not None:
+            print(f"  Time to re-delegate:  {time_to_redelegate_ms}ms  new_host={new_host}")
+        else:
+            print(f"  Re-delegation:        did not fire within hold window")
+        print(f"  Miss spike (max):     {miss_spike_max}/20")
+        print(f"  deleg_failover_count: {failover_count}")
     print(f"  Output dir:           {out_dir}")
 
     if dst_log and os.path.exists(dst_log):

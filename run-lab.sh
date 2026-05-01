@@ -17,6 +17,7 @@ set -euo pipefail
 #   ./run-lab.sh delegation --high-load 950 --low-load 400 --hold-seconds 40 --label delegation-bench
 #   ./run-lab.sh delegation --victim node-AABBCC --high-load 950 --low-load 400
 #   ./run-lab.sh delegation --serial-monitor --label delegation-with-serial
+#   ./run-lab.sh delegation --label deleg-failover-run1 --high-load 950 --low-load 200 --hold-seconds 120 --crash-host-after 40 --serial-monitor
 #   ./run-lab.sh build flash     # build then flash
 #   ./run-lab.sh flash --port /dev/tty.usbserial-0001
 # ----------------------------------------------------------------------------
@@ -119,6 +120,7 @@ DELEG_HOLD_SECONDS=40
 DELEG_DRAIN_SECONDS=30
 DELEG_RECOVERY_SECONDS=30
 DELEG_VICTIM=""
+DELEG_CRASH_HOST_AFTER=0
 DELEG_MIN_NODES=2
 DELEG_NODES_TIMEOUT=90
 DELEG_NODES_SETTLE_SECONDS=8
@@ -243,6 +245,11 @@ while [[ $# -gt 0 ]]; do
       shift
       [[ $# -gt 0 ]] || abort "--victim requires a value"
       DELEG_VICTIM="$1"
+      ;;
+    --crash-host-after)
+      shift
+      [[ $# -gt 0 ]] || abort "--crash-host-after requires a value"
+      DELEG_CRASH_HOST_AFTER="$1"
       ;;
     --min-nodes)
       shift
@@ -632,7 +639,12 @@ if [[ "$DO_DELEGATION" == true ]]; then
     VICTIM_ARG=(--victim "$DELEG_VICTIM")
   fi
 
-  echo "[delegation] high-load=${DELEG_HIGH_LOAD} low-load=${DELEG_LOW_LOAD} hold=${DELEG_HOLD_SECONDS}s drain=${DELEG_DRAIN_SECONDS}s label=${TEST_LABEL} min_nodes=${DELEG_MIN_NODES} nodes_timeout=${DELEG_NODES_TIMEOUT}s settle=${DELEG_NODES_SETTLE_SECONDS}s"
+  CRASH_ARG=()
+  if [[ "$DELEG_CRASH_HOST_AFTER" -gt 0 ]]; then
+    CRASH_ARG=(--crash-host-after "$DELEG_CRASH_HOST_AFTER")
+  fi
+
+  echo "[delegation] high-load=${DELEG_HIGH_LOAD} low-load=${DELEG_LOW_LOAD} hold=${DELEG_HOLD_SECONDS}s drain=${DELEG_DRAIN_SECONDS}s label=${TEST_LABEL} min_nodes=${DELEG_MIN_NODES} nodes_timeout=${DELEG_NODES_TIMEOUT}s settle=${DELEG_NODES_SETTLE_SECONDS}s crash-host-after=${DELEG_CRASH_HOST_AFTER}s"
   ( cd "$PROJ_ROOT" && python experiments/delegation_test.py \
       --base-url http://localhost:5000 \
       --high-load "$DELEG_HIGH_LOAD" \
@@ -645,7 +657,8 @@ if [[ "$DO_DELEGATION" == true ]]; then
       --nodes-timeout "$DELEG_NODES_TIMEOUT" \
       --nodes-settle-seconds "$DELEG_NODES_SETTLE_SECONDS" \
       --label "$TEST_LABEL" \
-      "${VICTIM_ARG[@]+"${VICTIM_ARG[@]}"}" )
+      "${VICTIM_ARG[@]+"${VICTIM_ARG[@]}"}" \
+      "${CRASH_ARG[@]+"${CRASH_ARG[@]}"}" )
 
   if [[ "$STARTED_SERVER_FOR_TEST" == true ]]; then
     stop_server

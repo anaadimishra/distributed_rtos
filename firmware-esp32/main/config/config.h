@@ -3,7 +3,7 @@
 #define CONFIG_H
 
 // Firmware identity tag (displayed in telemetry).
-#define FIRMWARE_VERSION "fw-0.4.0-tcp"
+#define FIRMWARE_VERSION "fw-0.5.2-failover-teardown"
 // Enable lightweight debug logging.
 #define DEBUG_LOGS 1
 // Profiling controls: disable to measure baseline compute behavior.

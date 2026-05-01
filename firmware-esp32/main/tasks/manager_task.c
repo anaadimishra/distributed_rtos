@@ -11,6 +11,7 @@
 #include "esp_log.h"
 
 #include <stdio.h>
+#include <string.h>
 
 static stress_level_t get_stress_level(uint32_t miss, uint32_t exec_max, uint32_t cpu_usage)
 {
@@ -203,9 +204,13 @@ void manager_task(void *param)
 
             /* Phase 4: delegation visibility */
             const char *deleg_state = delegation_node_role_str(ctx);
+            int deleg_blocks = delegation_total_delegated_blocks(ctx);
+            if (strcmp(deleg_state, "HOSTING") == 0) {
+                deleg_blocks = delegation_total_hosted_blocks(ctx);
+            }
 
             int len = snprintf(payload, sizeof(payload),
-                               "{\"fw\":\"%s\",\"ip\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"t_actual_publish_ms\":%lld,\"t_expected_publish_ms\":%lld,\"drift_ms\":%lld,\"state\":\"%s\",\"stress_level\":%u,\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u,\"deleg_state\":\"%s\",\"deleg_peer\":\"%s\",\"deleg_blocks\":%d,\"deleg_dispatched\":%u,\"deleg_returned\":%u,\"deleg_inflight_total\":%u,\"deleg_busy_skip\":%u,\"deleg_timeout_reclaim\":%u,\"deleg_dispatch_err\":%u}",
+                               "{\"fw\":\"%s\",\"ip\":\"%s\",\"boot_id\":%u,\"t_pub_ms\":%u,\"t_pub_epoch_ms\":%llu,\"t_actual_publish_ms\":%lld,\"t_expected_publish_ms\":%lld,\"drift_ms\":%lld,\"state\":\"%s\",\"stress_level\":%u,\"cpu\":%u,\"queue\":%u,\"load\":%u,\"blocks\":%u,\"eff_blocks\":%u,\"last_ctrl_seq\":%u,\"exec_avg\":%u,\"exec_max\":%u,\"miss\":%u,\"window_ready\":%u,\"deleg_state\":\"%s\",\"deleg_peer\":\"%s\",\"deleg_blocks\":%d,\"deleg_dispatched\":%u,\"deleg_returned\":%u,\"deleg_inflight_total\":%u,\"deleg_busy_skip\":%u,\"deleg_timeout_reclaim\":%u,\"deleg_dispatch_err\":%u,\"deleg_failover_count\":%u}",
                                FIRMWARE_VERSION,
                                ctx->node_ip,
                                (unsigned)ctx->boot_id,
@@ -229,13 +234,14 @@ void manager_task(void *param)
                                (unsigned)ready,
                                deleg_state,
                                delegation_primary_peer(ctx),
-                               delegation_total_delegated_blocks(ctx),
+                               deleg_blocks,
                                (unsigned)ctx->deleg_blocks_dispatched,
                                (unsigned)ctx->deleg_blocks_returned,
                                (unsigned)ctx->deleg_inflight_total,
                                (unsigned)ctx->deleg_busy_skip,
                                (unsigned)ctx->deleg_timeout_reclaim,
-                               (unsigned)ctx->deleg_dispatch_err);
+                               (unsigned)ctx->deleg_dispatch_err,
+                               (unsigned)ctx->deleg_failover_count);
 
             if (len > 0 && len < (int)sizeof(payload)) {
                 mqtt_publish_telemetry(ctx, payload);

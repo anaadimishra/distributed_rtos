@@ -70,6 +70,9 @@ int delegation_active_channel_count(const system_context_t *ctx);
 /* Sum of blocks across all CHAN_ACTIVE channels. */
 int delegation_total_delegated_blocks(const system_context_t *ctx);
 
+/* Sum of blocks across all CHAN_HOSTING channels. Telemetry-only helper. */
+int delegation_total_hosted_blocks(const system_context_t *ctx);
+
 /* Dominant role string: "ACTIVE" > "REQUESTING" > "HOSTING" > "IDLE". */
 const char *delegation_node_role_str(const system_context_t *ctx);
 
@@ -85,5 +88,22 @@ void delegation_handle_work_result_tcp(system_context_t *ctx,
                                        uint32_t cycle_id, uint8_t block_id,
                                        int channel_idx,
                                        const int32_t *result);
+
+/*
+ * Called by work_recv_task when an ACTIVE TCP result stream closes/errors.
+ * fd is checked against the channel to avoid counting graceful local teardown
+ * as failover after reset_channel() has already made the channel IDLE.
+ */
+void delegation_handle_tcp_channel_lost(system_context_t *ctx,
+                                        int channel_idx,
+                                        int fd);
+
+/*
+ * Immediately evict a peer from the peers[] table by zeroing last_seen_ms.
+ * Forces find_eligible_peer() to skip it until it publishes telemetry again.
+ * Called by work_transport_connect() on TCP connect failure to avoid wasting
+ * retry attempts on a dead peer (instead of waiting PEER_TIMEOUT_MS=5000ms).
+ */
+void delegation_evict_peer(system_context_t *ctx, const char *peer_ip);
 
 #endif /* DELEGATION_H */

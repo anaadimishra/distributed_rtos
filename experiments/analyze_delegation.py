@@ -40,6 +40,20 @@ MARKER_EVENTS = {
 }
 
 
+def metric_int(payload, key, default=0):
+    try:
+        return int(payload.get(key, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def effective_deleg_state(payload):
+    state = payload.get("deleg_state", "IDLE")
+    if state == "HOSTING" and metric_int(payload, "deleg_blocks") <= 0:
+        return "IDLE"
+    return state
+
+
 def load_jsonl(path):
     rows = []
     with open(path, "r", encoding="utf-8") as f:
@@ -83,21 +97,22 @@ def main():
         if not node:
             continue
         p = r.get("payload", {})
+        deleg_state = effective_deleg_state(p)
         by_node[node].append({
             "node_id": node,
             "t_rx_ms": r.get("t_rx_ms", 0),
-            "cpu": p.get("cpu", 0),
-            "load": p.get("load", 0),
-            "miss": p.get("miss", 0),
-            "stress_level": p.get("stress_level", 0),
-            "deleg_state": p.get("deleg_state", "IDLE"),
-            "deleg_state_int": DELEG_STATE_INT.get(p.get("deleg_state", "IDLE"), 0),
+            "cpu": metric_int(p, "cpu"),
+            "load": metric_int(p, "load"),
+            "miss": metric_int(p, "miss"),
+            "stress_level": metric_int(p, "stress_level"),
+            "deleg_state": deleg_state,
+            "deleg_state_int": DELEG_STATE_INT.get(deleg_state, 0),
             "deleg_peer": p.get("deleg_peer", ""),
-            "deleg_blocks": p.get("deleg_blocks", 0),
-            "deleg_dispatched": p.get("deleg_dispatched", 0),
-            "deleg_returned": p.get("deleg_returned", 0),
-            "active_blocks": p.get("blocks", 0),
-            "eff_blocks": p.get("eff_blocks", 0),
+            "deleg_blocks": metric_int(p, "deleg_blocks"),
+            "deleg_dispatched": metric_int(p, "deleg_dispatched"),
+            "deleg_returned": metric_int(p, "deleg_returned"),
+            "active_blocks": metric_int(p, "blocks"),
+            "eff_blocks": metric_int(p, "eff_blocks"),
             "state": p.get("state", "SCHEDULABLE"),
         })
 

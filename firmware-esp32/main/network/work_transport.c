@@ -185,22 +185,36 @@ typedef struct {
 } work_send_item_t;
 
 typedef struct {
+    system_context_t *ctx;
     QueueHandle_t queue;
     int           fd;
+    int           channel_idx;
 } work_sender_args_t;
 
 static void work_sender_task(void *arg)
 {
     work_sender_args_t *args = (work_sender_args_t *)arg;
+    system_context_t *ctx = args->ctx;
     QueueHandle_t q = args->queue;
     int fd          = args->fd;
+    int ch_idx      = args->channel_idx;
     vPortFree(args);
 
     work_send_item_t item;
     while (xQueueReceive(q, &item, portMAX_DELAY) == pdTRUE) {
         if (item.frame_buf == NULL) break; /* sentinel: teardown requested */
-        send_exact(fd, item.frame_buf, item.frame_len);
+        if (send_exact(fd, item.frame_buf, item.frame_len) < 0) {
+            ESP_LOGW(TAG, "sender failed ch=%d fd=%d errno=%d", ch_idx, fd, errno);
+            vPortFree(item.frame_buf);
+            delegation_handle_tcp_channel_lost(ctx, ch_idx, fd);
+            break;
+        }
         vPortFree(item.frame_buf);
+    }
+
+    if (ctx != NULL && ch_idx >= 0 && ch_idx < MAX_DELEGATION_CHANNELS &&
+        ctx->channels[ch_idx].tcp_sender_task == xTaskGetCurrentTaskHandle()) {
+        ctx->channels[ch_idx].tcp_sender_task = NULL;
     }
     vTaskDelete(NULL);
 }
@@ -237,7 +251,9 @@ void work_transport_channel_teardown(TaskHandle_t *sender_task,
                                      int *fd)
 {
     if (*sender_task) {
-        vTaskDelete(*sender_task);
+        if (*sender_task != xTaskGetCurrentTaskHandle()) {
+            vTaskDelete(*sender_task);
+        }
         *sender_task = NULL;
     }
     if (*send_queue) {
@@ -273,6 +289,7 @@ static void work_recv_task(void *arg)
     int32_t *result = (int32_t *)pvPortMalloc(n * sizeof(int32_t));
     if (!result) {
         ESP_LOGE(TAG, "recv_task: malloc failed");
+        delegation_handle_tcp_channel_lost(ctx, ch_idx, fd);
         vTaskDelete(NULL);
         return;
     }
@@ -287,6 +304,8 @@ static void work_recv_task(void *arg)
                                           ch_idx, result);
     }
 
+    delegation_handle_tcp_channel_lost(ctx, ch_idx, fd);
+
     vPortFree(result);
     vTaskDelete(NULL);
 }
@@ -297,6 +316,7 @@ int work_transport_connect(system_context_t *ctx, const char *peer_ip,
     int fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (fd < 0) {
         ESP_LOGE(TAG, "client socket failed: %d", errno);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
         return -1;
     }
 
@@ -316,6 +336,7 @@ int work_transport_connect(system_context_t *ctx, const char *peer_ip,
     if (connect(fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
         ESP_LOGE(TAG, "connect to %s failed: %d", peer_ip, errno);
         close(fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
         return -1;
     }
 
@@ -332,6 +353,7 @@ int work_transport_connect(system_context_t *ctx, const char *peer_ip,
     if (!send_q) {
         ESP_LOGE(TAG, "send queue alloc failed");
         close(fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
         return -1;
     }
     ctx->channels[channel_idx].tcp_send_queue = send_q;
@@ -341,15 +363,26 @@ int work_transport_connect(system_context_t *ctx, const char *peer_ip,
         vQueueDelete(send_q);
         ctx->channels[channel_idx].tcp_send_queue = NULL;
         close(fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
         return -1;
     }
     snd_args->queue = send_q;
     snd_args->fd    = fd;
+    snd_args->ctx   = ctx;
+    snd_args->channel_idx = channel_idx;
     TaskHandle_t sender_handle = NULL;
     /* Priority 1 (below compute at 2): sender only runs during compute_task's
      * idle window, so WiFi TX processing does not inflate compute's exec_ticks. */
-    xTaskCreate(work_sender_task, "wsend", WORK_SENDER_TASK_STACK,
-                snd_args, 1, &sender_handle);
+    if (xTaskCreate(work_sender_task, "wsend", WORK_SENDER_TASK_STACK,
+                    snd_args, 1, &sender_handle) != pdPASS) {
+        ESP_LOGE(TAG, "sender task create failed");
+        vPortFree(snd_args);
+        vQueueDelete(send_q);
+        ctx->channels[channel_idx].tcp_send_queue = NULL;
+        close(fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
+        return -1;
+    }
     ctx->channels[channel_idx].tcp_sender_task = sender_handle;
 
     /* Spawn result receiver task. */
@@ -359,12 +392,22 @@ int work_transport_connect(system_context_t *ctx, const char *peer_ip,
         work_transport_channel_teardown(&ctx->channels[channel_idx].tcp_sender_task,
                                         &ctx->channels[channel_idx].tcp_send_queue,
                                         &fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
         return -1;
     }
     recv_args->ctx         = ctx;
     recv_args->fd          = fd;
     recv_args->channel_idx = channel_idx;
-    xTaskCreate(work_recv_task, "wrecv", WORK_RECV_TASK_STACK, recv_args, 3, NULL);
+    if (xTaskCreate(work_recv_task, "wrecv", WORK_RECV_TASK_STACK,
+                    recv_args, 3, NULL) != pdPASS) {
+        ESP_LOGE(TAG, "recv task create failed");
+        vPortFree(recv_args);
+        work_transport_channel_teardown(&ctx->channels[channel_idx].tcp_sender_task,
+                                        &ctx->channels[channel_idx].tcp_send_queue,
+                                        &fd);
+        delegation_handle_tcp_channel_lost(ctx, channel_idx, -1);
+        return -1;
+    }
 
     ESP_LOGI(TAG, "connected to %s ch=%d fd=%d", peer_ip, channel_idx, fd);
     return fd;

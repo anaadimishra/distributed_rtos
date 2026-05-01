@@ -120,6 +120,7 @@ typedef struct {
     volatile uint32_t  deleg_busy_skip;
     volatile uint32_t  deleg_timeout_reclaim;
     volatile uint32_t  deleg_dispatch_err;
+    volatile uint32_t  deleg_failover_count;
 } system_context_t;
 
 #endif

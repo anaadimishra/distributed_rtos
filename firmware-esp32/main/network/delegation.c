@@ -222,6 +222,18 @@ int delegation_total_delegated_blocks(const system_context_t *ctx)
     return total;
 }
 
+int delegation_total_hosted_blocks(const system_context_t *ctx)
+{
+    if (ctx == NULL) return 0;
+    int total = 0;
+    for (int i = 0; i < MAX_DELEGATION_CHANNELS; i++) {
+        if (ctx->channels[i].state == CHAN_HOSTING) {
+            total += ctx->channels[i].blocks;
+        }
+    }
+    return total;
+}
+
 const char *delegation_node_role_str(const system_context_t *ctx)
 {
     if (ctx == NULL) return "IDLE";
@@ -872,5 +884,52 @@ void delegation_handle_work_result_tcp(system_context_t *ctx,
                  (unsigned)ctx->deleg_blocks_returned);
 #endif
         return;
+    }
+}
+
+void delegation_handle_tcp_channel_lost(system_context_t *ctx,
+                                        int channel_idx,
+                                        int fd)
+{
+    if (ctx == NULL) return;
+    if (channel_idx < 0 || channel_idx >= MAX_DELEGATION_CHANNELS) return;
+
+    delegation_channel_t *ch = &ctx->channels[channel_idx];
+    if (ch->state != CHAN_ACTIVE || ch->tcp_fd != fd) {
+        return;
+    }
+
+    char peer_id[16];
+    snprintf(peer_id, sizeof(peer_id), "%s", ch->peer_id);
+
+    uint32_t reclaimed = channel_reclaim_pending(ctx, channel_idx);
+    ctx->active_blocks += (uint32_t)ch->blocks;
+    if (ctx->active_blocks > PROCESSING_BLOCKS) {
+        ctx->active_blocks = PROCESSING_BLOCKS;
+    }
+
+    for (int i = 0; i < MAX_PEERS; i++) {
+        if (strncmp(ctx->peers[i].node_id, peer_id, sizeof(ctx->peers[i].node_id)) == 0) {
+            ctx->peers[i].last_seen_ms = 0;
+            break;
+        }
+    }
+
+    ctx->deleg_failover_count++;
+    ESP_LOGW(TAG, "tcp channel lost peer=%s ch=%d reclaimed=%u failover_count=%u",
+             peer_id, channel_idx, (unsigned)reclaimed,
+             (unsigned)ctx->deleg_failover_count);
+
+    reset_channel(ch);
+}
+
+void delegation_evict_peer(system_context_t *ctx, const char *peer_ip)
+{
+    for (int i = 0; i < MAX_PEERS; i++) {
+        if (strncmp(ctx->peers[i].ip_addr, peer_ip, sizeof(ctx->peers[i].ip_addr)) == 0) {
+            ctx->peers[i].last_seen_ms = 0;   /* force stale — skip on next find_eligible_peer() */
+            ESP_LOGI(TAG, "evicted peer %s after TCP connect failure", peer_ip);
+            return;
+        }
     }
 }
