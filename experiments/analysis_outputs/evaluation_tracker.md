@@ -675,3 +675,50 @@ This is a consequence of DEC-005/DEC-006 (real matrix data in work items) — no
 - [ ] Update `formal-grounding.md` RTA table with empirical C_i from exec_max_p95 (13–14 ticks at load 800 boundary)
 - [ ] Add per-core idle hook instrumentation in `metrics.c` for valid dual-core CPU measurement
 - [ ] Produce repeat-variance table (cpu_mean ± std, exec_max_p95 ± std) across all topologies
+
+---
+
+## Phase 5 — Failover (fw-0.5.2-failover-teardown)
+
+### deleg-failover-run7 — CANONICAL FAILOVER RESULT
+
+**Date:** 2026-05-01  
+**Session:** `session_20260501-123221`  
+**Victim:** node-34A9F0 at load=950; bystanders at load=200; 5-node cluster  
+**Config:** hold=120s, crash-host-after=40s
+
+| Metric | Value |
+|---|---|
+| Handshake latency | 37339ms (WiFi turbulence; atypical) |
+| Time to initial delegation | 38354ms |
+| Crashed host | node-717AC4 at t=40.4s after ACTIVE |
+| Crash-to-recovery (harness) | **17156ms** |
+| Miss spike during gap | **20/20** (~17s at 100ms/cycle) |
+| `deleg_failover_count` at recovery | 5 |
+| Final `deleg_failover_count` | 12 (includes WiFi turbulence) |
+| Victim max miss before crash | 1/20 (delegation effective) |
+
+**Serial evidence (run6, victim serial, uptime ~117s):**  
+Channel-loss → re-delegation in ~4s at the firmware level. Run7 harness gives the end-to-end wall-clock figure (17.2s includes TCP reconnect + MQTT handshake).
+
+**Figures (all in this directory):**
+
+| File | Contents |
+|---|---|
+| `delegation_timeline.png` | Standard per-node delegation timeline (existing) |
+| `failover_crash_window.png` | Victim miss + cpu zoomed to crash/recovery window; crash shaded |
+| `failover_full_timeline.png` | Full session: all nodes cpu + miss + failover_count with event lines |
+| `failover_counter.png` | `deleg_failover_count` staircase with crash window annotated |
+
+**Bugs fixed during this phase (firmware + tooling):**
+
+| Fix | File |
+|---|---|
+| `delegation_handle_tcp_channel_lost()` — all TCP failure paths | `work_transport.c`, `delegation.c/h` |
+| Teardown skips `vTaskDelete` on current task | `work_transport.c` |
+| `deleg_failover_count` + 4 counters added to `/api/state` | `dashboard/app.py` |
+| Harness: `actual_host` from `deleg_peer` at ACTIVE event | `delegation_test.py` |
+| Harness: recovery detection allows same-node reboot | `delegation_test.py` |
+| Analyzer: HOSTING+blocks=0 → IDLE normalisation | `analyze_delegation.py` |
+
+**Status: COMPLETE** — failover experiment done; all [FILL] values known for dissertation.
